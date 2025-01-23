@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "dart-code.flutter",
+    "localizely.flutter-intl",
+    "gruntfuggly.triggertaskonsave",
+    "streetsidesoftware.code-spell-checker",
+    "streetsidesoftware.code-spell-checker-russian"
+  ]
+}
