@@ -1,8 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:yagodmarket/presenter/route/route.dart';
-import 'package:yagodmarket/presenter/themes/themes.dart';
+import 'package:yagodmarket/presentation/route/route.dart';
 import 'package:yagodmarket/utils/s.dart';
 
 class YagodMarketApp extends StatelessWidget {
@@ -19,8 +18,10 @@ class YagodMarketApp extends StatelessWidget {
       locale: _locale,
       localizationsDelegates: S.localizationDelegates,
       routerConfig: _router.config(),
-      scrollBehavior: AppScrollBehavior(),
-      theme: themeData,
+      // scrollBehavior: AppScrollBehavior(),
+      // theme: themeData,
+      // darkTheme: AppThemes.darkTheme,
+      themeMode: ThemeMode.dark,
     );
   }
 }

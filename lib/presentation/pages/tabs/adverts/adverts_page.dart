@@ -9,7 +9,6 @@ class AdvertsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Объявления")),
-      body: Text('Adverts'),
     );
   }
 }

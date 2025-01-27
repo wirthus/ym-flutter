@@ -5,9 +5,16 @@ targets:
         options:
           enable_cached_builds: true
         generate_for:
-          - lib/presenter/pages/**/*.dart
+          - lib/presentation/pages/main/**/*.dart
+          - lib/presentation/pages/screens/**/*.dart
+          - lib/presentation/pages/tabs/**/*.dart
       auto_route_generator:auto_router_generator:
         options:
           enable_cached_builds: true
         generate_for:
-          - lib/presenter/route/route.dart
+          - lib/presentation/route/route.dart
+      openapi_code_builder:
+        enabled: true
+        options:
+          input_file: api/openapi.yaml
+          output_dir: lib/generated/api

@@ -5,16 +5,17 @@
   "tasks": [
     {
       "label": "build_runner: watch",
-      "type": "flutter",
-      "command": "flutter",
+      "type": "dart",
+      "command": "dart",
       "args": [
-        "pub",
         "run",
         "build_runner",
         "watch",
         "--delete-conflicting-outputs"
       ],
-      "problemMatcher": ["$dart-build_runner"],
+      "problemMatcher": [
+        "$dart-build_runner"
+      ],
       "group": "build",
       "isBackground": true,
       "runOptions": {
