@@ -13,8 +13,9 @@ targets:
           enable_cached_builds: true
         generate_for:
           - lib/presentation/route/route.dart
-      openapi_code_builder:
-        enabled: true
-        options:
-          input_file: api/openapi.yaml
-          output_dir: lib/generated/api
+
+      # openapi_code_builder:
+      #   enabled: true
+      #   options:
+      #     input_file: api/ym-openapi-specs.json
+      #     output_dir: lib/generated/api

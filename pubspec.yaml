@@ -33,16 +33,16 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  flutter_bloc: ^9.0.0 # для управления состоянием
-  equatable: ^2.0.7 # для сравнения объектов
-  dio: ^5.7.0 # для работы с сетью
-  cached_network_image: ^3.4.1 # для кэширования изображений
-  intl: ^0.19.0 # для работы с локализацией
-  auto_route: ^9.3.0+1 # для маршрутизации
+  auto_route: ^9.3.0+1
+  cached_network_image: ^3.4.1
+  dio: ^5.7.0
+  equatable: ^2.0.7
   faker: ^2.1.0
+  flutter_bloc: ^9.0.0
+  intl: ^0.19.0
+  json_annotation: ^4.9.0
+  openapi_generator_annotations: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -57,7 +57,9 @@ dev_dependencies:
 
   auto_route_generator: ^9.3.1
   build_runner: ^2.4.0
+  json_serializable: ^6.9.3
   openapi_code_builder: ^1.5.0
+  openapi_generator: ^6.1.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
