@@ -14,7 +14,7 @@ analyzer:
     implicit-casts: false
     implicit-dynamic: false
   exclude:
-    - api/generated/**
+    - api/**
 
 linter:
   # The lint rules applied to this project can be customized in the
@@ -28,7 +28,7 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    always_put_required_named_parameters_first: true
+    # always_put_required_named_parameters_first: true
     avoid_empty_else: true
     directives_ordering: true
     prefer_single_quotes: true

@@ -12,7 +12,7 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Поиск")),
+      appBar: AppBar(title: const Text('Поиск')),
       body: Column(
         children: [
           Column(

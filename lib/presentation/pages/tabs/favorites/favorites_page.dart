@@ -8,7 +8,7 @@ class FavoritesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Избранное")),
+      appBar: AppBar(title: Text('Избранное')),
       body: Text('Favorites'),
     );
   }

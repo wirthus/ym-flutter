@@ -8,7 +8,7 @@ class PointsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Узел сбора")),
+      appBar: AppBar(title: Text('Узел сбора')),
       body: Text('Points'),
     );
   }

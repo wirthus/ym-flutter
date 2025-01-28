@@ -8,7 +8,7 @@ class SubscriptionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Подписки")),
+      appBar: AppBar(title: Text('Подписки')),
       body: Text('Subscriptions'),
     );
   }
