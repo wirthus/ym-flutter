@@ -2,6 +2,8 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yagodmarket/presentation/bloc/app_bloc/app_bloc.dart';
 import 'package:yagodmarket/presentation/pages/main/home/widgets/main_navigation_bar.dart';
 import 'package:yagodmarket/presentation/route/route.gr.dart';
 
@@ -11,25 +13,28 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutoTabsRouter.pageView(
-        routes: const [
-          SearchRoute(),
-          AdvertsRoute(),
-          PointsRoute(),
-          FavoritesRoute(),
-          SubscriptionsRoute(),
-          ProfileRoute(),
-        ],
-        builder: (context, child, _) {
-          final tabsRouter = AutoTabsRouter.of(context);
-          return Scaffold(
-            // appBar: AppBar(
-            //   title: Text("test"),
-            //   leading: AutoLeadingButton(),
-            // ),
-            bottomNavigationBar: MainNavigationBar(tabsRouter: tabsRouter),
-            body: child,
-          );
-        });
+    return BlocProvider(
+      create: (context) => AppBloc(),
+      child: AutoTabsRouter.pageView(
+          routes: const [
+            SearchRoute(),
+            AdvertsRoute(),
+            PointsRoute(),
+            FavoritesRoute(),
+            SubscriptionsRoute(),
+            ProfileRoute(),
+          ],
+          builder: (context, child, _) {
+            final tabsRouter = AutoTabsRouter.of(context);
+            return Scaffold(
+              // appBar: AppBar(
+              //   title: Text("test"),
+              //   leading: AutoLeadingButton(),
+              // ),
+              bottomNavigationBar: MainNavigationBar(tabsRouter: tabsRouter),
+              body: child,
+            );
+          }),
+    );
   }
 }
