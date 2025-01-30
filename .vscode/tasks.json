@@ -52,36 +52,25 @@
       "isBackground": true
     },
     {
-      "label": "generate api",
-      "type": "shell",
-      "command": "openapi-generator-cli generate -c .openapi-generator-config.yaml",
-      "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "presentation": {
-        "reveal": "always",
-        "panel": "dedicated"
-      }
-    },
-    {
       "label": "generate api client",
       "type": "shell",
       "command": "./generate.sh",
-      "options": {
-        "cwd": "${workspaceFolder}/api"
-      },
       "windows": {
-        "command": "git-bash.exe",
+        "options": {
+          "cwd": "${workspaceFolder}/api",
+          "shell": {
+            "executable": "C:\\Program Files\\Git\\bin\\bash.exe",
+            "args": [
+              "--login",
+              "-i"
+            ]
+          }
+        }
       },
-      "problemMatcher": [],
       "group": "build",
       "presentation": {
         "reveal": "always",
-        "panel": "shared",
-        "focus": true,
-        "close": true
+        "panel": "dedicated"
       }
     }
   ]
