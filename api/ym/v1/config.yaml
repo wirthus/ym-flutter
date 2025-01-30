@@ -1,0 +1,9 @@
+generatorName: dart-dio
+inputSpec: ym/v1/spec.json
+outputDir: ym/v1/generated
+enablePostProcessFile: true
+additionalProperties:
+  pubName: ym_api_client
+  pubVersion: 1.0.0
+  browserClient: false
+  useEnumExtension: true

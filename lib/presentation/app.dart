@@ -1,6 +1,7 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yagodmarket/data/states/app/app_bloc.dart';
 import 'package:yagodmarket/presentation/route/route.dart';
 import 'package:yagodmarket/utils/s.dart';
 
@@ -11,17 +12,20 @@ class YagodMarketApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _locale = S.ru;
+    var locale = S.ru;
 
-    return MaterialApp.router(
-      supportedLocales: S.supportedLocales,
-      locale: _locale,
-      localizationsDelegates: S.localizationDelegates,
-      routerConfig: _router.config(),
-      // scrollBehavior: AppScrollBehavior(),
-      // theme: themeData,
-      // darkTheme: AppThemes.darkTheme,
-      themeMode: ThemeMode.dark,
+    return BlocProvider(
+      create: (context) => AppBloc(),
+      child: MaterialApp.router(
+        supportedLocales: S.supportedLocales,
+        locale: locale,
+        localizationsDelegates: S.localizationDelegates,
+        routerConfig: _router.config(),
+        // scrollBehavior: AppScrollBehavior(),
+        // theme: themeData,
+        // darkTheme: AppThemes.darkTheme,
+        themeMode: ThemeMode.dark,
+      ),
     );
   }
 }

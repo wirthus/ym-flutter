@@ -31,7 +31,8 @@ class AdvertListItem extends StatelessWidget {
     return Card(
       elevation: 2,
       child: ListTile(
-        onTap: () => context.router.push(AdvertDetailsRoute(advertId: advert.id)),
+        onTap: () =>
+            context.router.push(AdvertDetailsRoute(advertId: advert.id)),
         contentPadding: padding ?? const EdgeInsets.all(16),
         leading: _defaultIcon,
         title: Text(advert.title),

@@ -13,7 +13,6 @@ class Advert {
     required this.createdAt,
   });
 
-  // Для удобства преобразования в JSON
   Map<String, dynamic> toJson() => {
         'id': id,
         'title': title,
