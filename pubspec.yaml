@@ -37,9 +37,13 @@ dependencies:
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
 
-  cupertino_icons: ^1.0.8
+  # DI
+  injectable: ^2.5.0
+  get_it: ^8.0.3
+
   auto_route: ^9.3.0+1
   cached_network_image: ^3.4.1
+  cupertino_icons: ^1.0.8
   dio: ^5.7.0
   equatable: ^2.0.7
   faker: ^2.1.0
@@ -60,8 +64,9 @@ dev_dependencies:
 
   auto_route_generator: ^9.3.1
   build_runner: ^2.4.14
-  json_serializable: ^6.9.3
   freezed: ^2.5.8
+  injectable_generator: ^2.7.0
+  json_serializable: ^6.9.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

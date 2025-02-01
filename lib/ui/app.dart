@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yagodmarket/data/states/app/app_bloc.dart';
-import 'package:yagodmarket/presentation/route/route.dart';
+import 'package:yagodmarket/ui/route/route.dart';
 import 'package:yagodmarket/utils/s.dart';
 
 class YagodMarketApp extends StatelessWidget {

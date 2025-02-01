@@ -1,4 +1,10 @@
 {
+  "[dart]": {
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true
+  },
   "arb-editor.suppressedWarnings": [
     "missing_metadata_for_key"
   ],
@@ -8,6 +14,31 @@
     "mapkit",
     "yagodmarket"
   ],
+  "dart.flutterSdkPath": ".fvm/versions/3.27.3",
   "dart.lineLength": 120,
-  "dart.flutterSdkPath": ".fvm/versions/3.27.3"
+  "dart.previewFlutterUiGuides": true,
+  "dart.previewFlutterUiGuidesCustomTracking": true,
+  "files.exclude": {
+    "**/*.config.dart": true,
+    "**/*.freezed.dart": true,
+    "**/*.g.dart": true,
+    "**/*.gen.dart": true,
+    "**/*.gr.dart": true,
+    "**/.gitkeep": true
+  },
+  "files.watcherExclude": {
+    "**/.fvm": true,
+    "**/build": true
+  },
+  "search.exclude": {
+    "**/.fvm": true,
+    "**/build": true
+  },
+  "triggerTaskOnSave.on": true,
+  "triggerTaskOnSave.showStatusBarToggle": true,
+  "triggerTaskOnSave.tasks": {
+    "easy_localization: generate keys": [
+      "**/translations/*"
+    ]
+  }
 }

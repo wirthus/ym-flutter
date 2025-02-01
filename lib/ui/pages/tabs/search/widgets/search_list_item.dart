@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yagodmarket/domain/models/advert.dart';
-import 'package:yagodmarket/presentation/widgets/advert_list_item.dart';
+import 'package:yagodmarket/ui/widgets/advert_list_item.dart';
 
 class SearchListItem extends StatelessWidget {
   final Advert advert;

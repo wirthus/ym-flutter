@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:yagodmarket/domain/models/advert.dart';
-import 'package:yagodmarket/presentation/route/route.gr.dart';
+import 'package:yagodmarket/ui/route/route.gr.dart';
 
 class AdvertListItem extends StatelessWidget {
   static final _priceFormat = NumberFormat.currency(
@@ -31,8 +31,7 @@ class AdvertListItem extends StatelessWidget {
     return Card(
       elevation: 2,
       child: ListTile(
-        onTap: () =>
-            context.router.push(AdvertDetailsRoute(advertId: advert.id)),
+        onTap: () => context.router.push(AdvertDetailsRoute(advertId: advert.id)),
         contentPadding: padding ?? const EdgeInsets.all(16),
         leading: _defaultIcon,
         title: Text(advert.title),
