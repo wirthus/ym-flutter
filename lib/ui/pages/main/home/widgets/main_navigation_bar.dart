@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:yagodmarket/models/navigation_item.dart';
+import 'package:yagodmarket/ui/models/navigation_item.dart';
 
 class MainNavigationBar extends StatelessWidget {
   const MainNavigationBar({

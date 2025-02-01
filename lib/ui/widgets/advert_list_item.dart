@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:yagodmarket/domain/models/advert.dart';
+import 'package:yagodmarket/data/models/models/advert.dart';
 import 'package:yagodmarket/ui/route/route.gr.dart';
 
 class AdvertListItem extends StatelessWidget {

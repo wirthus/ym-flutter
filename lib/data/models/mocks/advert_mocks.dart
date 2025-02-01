@@ -1,17 +1,11 @@
 import 'package:faker/faker.dart';
-import 'package:yagodmarket/domain/models/advert.dart';
+import 'package:yagodmarket/data/models/models/advert.dart';
 
 class AdvertMocks {
   static final _faker = Faker(seed: 123456);
 
   // static final _icons = ['strawberry', 'raspberry', 'blueberry', 'cranberry'];
-  static final _adjectives = [
-    'Свежая',
-    'Ароматная',
-    'Сочная',
-    'Отборная',
-    'Эко'
-  ];
+  static final _adjectives = ['Свежая', 'Ароматная', 'Сочная', 'Отборная', 'Эко'];
 
   static List<Advert> generateAdverts({int count = 50}) {
     return List.generate(count, (index) => _generateAdvert(index + 1));
@@ -43,13 +37,5 @@ class RussianFaker {
     'Свежая'
   ];
 
-  static final dish = [
-    'клубника',
-    'малина',
-    'черника',
-    'ежевика',
-    'голубика',
-    'смородина',
-    'крыжовник'
-  ];
+  static final dish = ['клубника', 'малина', 'черника', 'ежевика', 'голубика', 'смородина', 'крыжовник'];
 }

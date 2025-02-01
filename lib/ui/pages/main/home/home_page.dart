@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:yagodmarket/models/navigation_item.dart';
+import 'package:yagodmarket/ui/models/navigation_item.dart';
 import 'package:yagodmarket/ui/pages/main/home/widgets/main_navigation_bar.dart';
 import 'package:yagodmarket/ui/route/route.gr.dart';
 import 'package:yagodmarket/utils/s.dart';
