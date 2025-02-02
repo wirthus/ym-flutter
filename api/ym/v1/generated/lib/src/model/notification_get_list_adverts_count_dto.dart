@@ -4,6 +4,8 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
+import 'package:ym_api_client/src/model/notification_type.dart';
+import 'package:ym_api_client/src/model/notification_sub_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,10 +19,10 @@ part 'notification_get_list_adverts_count_dto.g.dart';
 @BuiltValue()
 abstract class NotificationGetListAdvertsCountDto implements Built<NotificationGetListAdvertsCountDto, NotificationGetListAdvertsCountDtoBuilder> {
   @BuiltValueField(wireName: r'types')
-  BuiltList<String> get types;
+  BuiltList<NotificationType> get types;
 
   @BuiltValueField(wireName: r'subtypes')
-  BuiltList<String>? get subtypes;
+  BuiltList<NotificationSubType>? get subtypes;
 
   NotificationGetListAdvertsCountDto._();
 
@@ -48,13 +50,13 @@ class _$NotificationGetListAdvertsCountDtoSerializer implements PrimitiveSeriali
     yield r'types';
     yield serializers.serialize(
       object.types,
-      specifiedType: const FullType(BuiltList, [FullType(String)]),
+      specifiedType: const FullType(BuiltList, [FullType(NotificationType)]),
     );
     if (object.subtypes != null) {
       yield r'subtypes';
       yield serializers.serialize(
         object.subtypes,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
+        specifiedType: const FullType(BuiltList, [FullType(NotificationSubType)]),
       );
     }
   }
@@ -83,15 +85,15 @@ class _$NotificationGetListAdvertsCountDtoSerializer implements PrimitiveSeriali
         case r'types':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
+            specifiedType: const FullType(BuiltList, [FullType(NotificationType)]),
+          ) as BuiltList<NotificationType>;
           result.types.replace(valueDes);
           break;
         case r'subtypes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
+            specifiedType: const FullType(BuiltList, [FullType(NotificationSubType)]),
+          ) as BuiltList<NotificationSubType>;
           result.subtypes.replace(valueDes);
           break;
         default:

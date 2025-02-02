@@ -67,6 +67,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(NotificationGetListAdvertsDto.serializer)
       ..add(NotificationGetListCountDto.serializer)
       ..add(NotificationGetListDto.serializer)
+      ..add(NotificationStatus.serializer)
+      ..add(NotificationSubType.serializer)
+      ..add(NotificationType.serializer)
       ..add(PackingEntity.serializer)
       ..add(PaginateParamsDto.serializer)
       ..add(PaginatedBodyOfNotificationGetListAdvertsDto.serializer)
@@ -143,6 +146,27 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(NotificationFilterDto)]),
           () => new ListBuilder<NotificationFilterDto>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NotificationType)]),
+          () => new ListBuilder<NotificationType>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(NotificationSubType)]),
+          () => new ListBuilder<NotificationSubType>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NotificationType)]),
+          () => new ListBuilder<NotificationType>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(NotificationSubType)]),
+          () => new ListBuilder<NotificationSubType>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NotificationType)]),
+          () => new ListBuilder<NotificationType>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(NotificationSubType)]),
+          () => new ListBuilder<NotificationSubType>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ProductEntity)]),
           () => new ListBuilder<ProductEntity>())
       ..addBuilderFactory(
@@ -167,24 +191,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(RegionEntity)]),
           () => new ListBuilder<RegionEntity>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
           () => new ListBuilder<int>())

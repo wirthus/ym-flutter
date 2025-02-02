@@ -3,6 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:ym_api_client/src/model/notification_status.dart';
+import 'package:ym_api_client/src/model/notification_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,10 +18,12 @@ part 'notification_filter_dto.g.dart';
 @BuiltValue()
 abstract class NotificationFilterDto implements Built<NotificationFilterDto, NotificationFilterDtoBuilder> {
   @BuiltValueField(wireName: r'type')
-  String? get type;
+  NotificationType? get type;
+  // enum typeEnum {  system,  subscription,  user,  };
 
   @BuiltValueField(wireName: r'status')
-  String? get status;
+  NotificationStatus? get status;
+  // enum statusEnum {  unread,  read,  archived,  };
 
   NotificationFilterDto._();
 
@@ -48,14 +52,14 @@ class _$NotificationFilterDtoSerializer implements PrimitiveSerializer<Notificat
       yield r'type';
       yield serializers.serialize(
         object.type,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType(NotificationType),
       );
     }
     if (object.status != null) {
       yield r'status';
       yield serializers.serialize(
         object.status,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType(NotificationStatus),
       );
     }
   }
@@ -84,15 +88,15 @@ class _$NotificationFilterDtoSerializer implements PrimitiveSerializer<Notificat
         case r'type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType(NotificationType),
+          ) as NotificationType;
           result.type = valueDes;
           break;
         case r'status':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType(NotificationStatus),
+          ) as NotificationStatus;
           result.status = valueDes;
           break;
         default:

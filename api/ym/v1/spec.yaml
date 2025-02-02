@@ -2599,13 +2599,25 @@ components:
           type: string
       required:
         - message
+    NotificationType:
+      type: string
+      enum:
+        - system
+        - subscription
+        - user
+    NotificationStatus:
+      type: string
+      enum:
+        - unread
+        - read
+        - archived
     NotificationFilterDto:
       type: object
       properties:
         type:
-          type: string
+          $ref: "#/components/schemas/NotificationType"
         status:
-          type: string
+          $ref: "#/components/schemas/NotificationStatus"
     NotificationGetListDto:
       type: object
       properties:
@@ -2682,17 +2694,29 @@ components:
         limit:
           type: integer
           minimum: 0
+    NotificationSubType:
+      type: string
+      enum:
+        - advert_published
+        - advert_changed_price
+        - advert_changed_status
+        - advert_changed_content
+        - purchase_point_published
+        - purchase_advert_published
+        - purchase_advert_changed_price
+        - purchase_advert_changed_status
+        - purchase_advert_changed_content
     NotificationGetListAdvertsCountDto:
       type: object
       properties:
         types:
           type: array
           items:
-            type: string
+            $ref: "#/components/schemas/NotificationType"
         subtypes:
           type: array
           items:
-            type: string
+            $ref: "#/components/schemas/NotificationSubType"
       required:
         - types
     PaginatedEntity:
@@ -2788,11 +2812,11 @@ components:
         types:
           type: array
           items:
-            type: string
+            $ref: "#/components/schemas/NotificationType"
         subtypes:
           type: array
           items:
-            type: string
+            $ref: "#/components/schemas/NotificationSubType"
       required:
         - types
     SetReadNotificationDto:
@@ -2801,11 +2825,11 @@ components:
         types:
           type: array
           items:
-            type: string
+            $ref: "#/components/schemas/NotificationType"
         subtypes:
           type: array
           items:
-            type: string
+            $ref: "#/components/schemas/NotificationSubType"
       required:
         - types
     RegisterPhoneDto:

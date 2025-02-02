@@ -8,9 +8,9 @@ part of 'notification_get_list_adverts_dto.dart';
 
 class _$NotificationGetListAdvertsDto extends NotificationGetListAdvertsDto {
   @override
-  final BuiltList<String> types;
+  final BuiltList<NotificationType> types;
   @override
-  final BuiltList<String>? subtypes;
+  final BuiltList<NotificationSubType>? subtypes;
 
   factory _$NotificationGetListAdvertsDto(
           [void Function(NotificationGetListAdvertsDtoBuilder)? updates]) =>
@@ -63,14 +63,16 @@ class NotificationGetListAdvertsDtoBuilder
             NotificationGetListAdvertsDtoBuilder> {
   _$NotificationGetListAdvertsDto? _$v;
 
-  ListBuilder<String>? _types;
-  ListBuilder<String> get types => _$this._types ??= new ListBuilder<String>();
-  set types(ListBuilder<String>? types) => _$this._types = types;
+  ListBuilder<NotificationType>? _types;
+  ListBuilder<NotificationType> get types =>
+      _$this._types ??= new ListBuilder<NotificationType>();
+  set types(ListBuilder<NotificationType>? types) => _$this._types = types;
 
-  ListBuilder<String>? _subtypes;
-  ListBuilder<String> get subtypes =>
-      _$this._subtypes ??= new ListBuilder<String>();
-  set subtypes(ListBuilder<String>? subtypes) => _$this._subtypes = subtypes;
+  ListBuilder<NotificationSubType>? _subtypes;
+  ListBuilder<NotificationSubType> get subtypes =>
+      _$this._subtypes ??= new ListBuilder<NotificationSubType>();
+  set subtypes(ListBuilder<NotificationSubType>? subtypes) =>
+      _$this._subtypes = subtypes;
 
   NotificationGetListAdvertsDtoBuilder() {
     NotificationGetListAdvertsDto._defaults(this);

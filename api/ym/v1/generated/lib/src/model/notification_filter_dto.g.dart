@@ -8,9 +8,9 @@ part of 'notification_filter_dto.dart';
 
 class _$NotificationFilterDto extends NotificationFilterDto {
   @override
-  final String? type;
+  final NotificationType? type;
   @override
-  final String? status;
+  final NotificationStatus? status;
 
   factory _$NotificationFilterDto(
           [void Function(NotificationFilterDtoBuilder)? updates]) =>
@@ -57,13 +57,13 @@ class NotificationFilterDtoBuilder
     implements Builder<NotificationFilterDto, NotificationFilterDtoBuilder> {
   _$NotificationFilterDto? _$v;
 
-  String? _type;
-  String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  NotificationType? _type;
+  NotificationType? get type => _$this._type;
+  set type(NotificationType? type) => _$this._type = type;
 
-  String? _status;
-  String? get status => _$this._status;
-  set status(String? status) => _$this._status = status;
+  NotificationStatus? _status;
+  NotificationStatus? get status => _$this._status;
+  set status(NotificationStatus? status) => _$this._status = status;
 
   NotificationFilterDtoBuilder() {
     NotificationFilterDto._defaults(this);

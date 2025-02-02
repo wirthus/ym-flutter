@@ -76,6 +76,9 @@ export 'package:ym_api_client/src/model/notification_get_list_adverts_count_dto.
 export 'package:ym_api_client/src/model/notification_get_list_adverts_dto.dart';
 export 'package:ym_api_client/src/model/notification_get_list_count_dto.dart';
 export 'package:ym_api_client/src/model/notification_get_list_dto.dart';
+export 'package:ym_api_client/src/model/notification_status.dart';
+export 'package:ym_api_client/src/model/notification_sub_type.dart';
+export 'package:ym_api_client/src/model/notification_type.dart';
 export 'package:ym_api_client/src/model/packing_entity.dart';
 export 'package:ym_api_client/src/model/paginate_params_dto.dart';
 export 'package:ym_api_client/src/model/paginated_body_of_notification_get_list_adverts_dto.dart';

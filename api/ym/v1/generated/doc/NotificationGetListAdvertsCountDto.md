@@ -8,8 +8,8 @@ import 'package:ym_api_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**types** | **BuiltList&lt;String&gt;** |  | 
-**subtypes** | **BuiltList&lt;String&gt;** |  | [optional] 
+**types** | [**BuiltList&lt;NotificationType&gt;**](NotificationType.md) |  | 
+**subtypes** | [**BuiltList&lt;NotificationSubType&gt;**](NotificationSubType.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

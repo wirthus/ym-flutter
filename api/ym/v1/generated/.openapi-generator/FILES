@@ -58,6 +58,9 @@ doc/NotificationGetListAdvertsCountDto.md
 doc/NotificationGetListAdvertsDto.md
 doc/NotificationGetListCountDto.md
 doc/NotificationGetListDto.md
+doc/NotificationStatus.md
+doc/NotificationSubType.md
+doc/NotificationType.md
 doc/NotificationsApi.md
 doc/PackingEntity.md
 doc/PaginateParamsDto.md
@@ -193,6 +196,9 @@ lib/src/model/notification_get_list_adverts_count_dto.dart
 lib/src/model/notification_get_list_adverts_dto.dart
 lib/src/model/notification_get_list_count_dto.dart
 lib/src/model/notification_get_list_dto.dart
+lib/src/model/notification_status.dart
+lib/src/model/notification_sub_type.dart
+lib/src/model/notification_type.dart
 lib/src/model/packing_entity.dart
 lib/src/model/paginate_params_dto.dart
 lib/src/model/paginated_body_of_notification_get_list_adverts_dto.dart
@@ -249,7 +255,4 @@ lib/src/model/vk_access_token.dart
 lib/src/serializers.dart
 lib/ym_api_client.dart
 pubspec.yaml
-test/advert_buy_get_list_order_type_test.dart
-test/advert_sort_type_test.dart
-test/advert_status_test.dart
-test/moderation_status_test.dart
+test/notification_sub_type_test.dart
