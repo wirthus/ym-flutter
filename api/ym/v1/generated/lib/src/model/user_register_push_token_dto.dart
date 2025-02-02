@@ -3,153 +3,102 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'user_register_push_token_dto.g.dart';
 
-/// UserRegisterPushTokenDto
-///
-/// Properties:
-/// * [deviceId] 
-/// * [token] 
-/// * [platform] 
-@BuiltValue()
-abstract class UserRegisterPushTokenDto implements Built<UserRegisterPushTokenDto, UserRegisterPushTokenDtoBuilder> {
-  @BuiltValueField(wireName: r'deviceId')
-  String get deviceId;
 
-  @BuiltValueField(wireName: r'token')
-  String get token;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class UserRegisterPushTokenDto {
+  /// Returns a new [UserRegisterPushTokenDto] instance.
+  UserRegisterPushTokenDto({
 
-  @BuiltValueField(wireName: r'platform')
-  UserRegisterPushTokenDtoPlatformEnum get platform;
-  // enum platformEnum {  ios,  android,  };
+    required  this.deviceId,
 
-  UserRegisterPushTokenDto._();
+    required  this.token,
 
-  factory UserRegisterPushTokenDto([void updates(UserRegisterPushTokenDtoBuilder b)]) = _$UserRegisterPushTokenDto;
+    required  this.platform,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UserRegisterPushTokenDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'deviceId',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserRegisterPushTokenDto> get serializer => _$UserRegisterPushTokenDtoSerializer();
+
+  final String deviceId;
+
+
+
+  @JsonKey(
+    
+    name: r'token',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final String token;
+
+
+
+  @JsonKey(
+    
+    name: r'platform',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final UserRegisterPushTokenDtoPlatformEnum platform;
+
+
+
+
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is UserRegisterPushTokenDto &&
+      other.deviceId == deviceId &&
+      other.token == token &&
+      other.platform == platform;
+
+    @override
+    int get hashCode =>
+        deviceId.hashCode +
+        token.hashCode +
+        platform.hashCode;
+
+  factory UserRegisterPushTokenDto.fromJson(Map<String, dynamic> json) => _$UserRegisterPushTokenDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserRegisterPushTokenDtoToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
+  }
+
 }
 
-class _$UserRegisterPushTokenDtoSerializer implements PrimitiveSerializer<UserRegisterPushTokenDto> {
-  @override
-  final Iterable<Type> types = const [UserRegisterPushTokenDto, _$UserRegisterPushTokenDto];
 
-  @override
-  final String wireName = r'UserRegisterPushTokenDto';
+enum UserRegisterPushTokenDtoPlatformEnum {
+@JsonValue(r'ios')
+ios(r'ios'),
+@JsonValue(r'android')
+android(r'android');
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    UserRegisterPushTokenDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'deviceId';
-    yield serializers.serialize(
-      object.deviceId,
-      specifiedType: const FullType(String),
-    );
-    yield r'token';
-    yield serializers.serialize(
-      object.token,
-      specifiedType: const FullType(String),
-    );
-    yield r'platform';
-    yield serializers.serialize(
-      object.platform,
-      specifiedType: const FullType(UserRegisterPushTokenDtoPlatformEnum),
-    );
-  }
+const UserRegisterPushTokenDtoPlatformEnum(this.value);
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    UserRegisterPushTokenDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+final String value;
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required UserRegisterPushTokenDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'deviceId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.deviceId = valueDes;
-          break;
-        case r'token':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.token = valueDes;
-          break;
-        case r'platform':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(UserRegisterPushTokenDtoPlatformEnum),
-          ) as UserRegisterPushTokenDtoPlatformEnum;
-          result.platform = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
-
-  @override
-  UserRegisterPushTokenDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserRegisterPushTokenDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
-  }
+@override
+String toString() => value;
 }
 
-class UserRegisterPushTokenDtoPlatformEnum extends EnumClass {
-
-  @BuiltValueEnumConst(wireName: r'ios')
-  static const UserRegisterPushTokenDtoPlatformEnum ios = _$userRegisterPushTokenDtoPlatformEnum_ios;
-  @BuiltValueEnumConst(wireName: r'android')
-  static const UserRegisterPushTokenDtoPlatformEnum android = _$userRegisterPushTokenDtoPlatformEnum_android;
-
-  static Serializer<UserRegisterPushTokenDtoPlatformEnum> get serializer => _$userRegisterPushTokenDtoPlatformEnumSerializer;
-
-  const UserRegisterPushTokenDtoPlatformEnum._(String name): super(name);
-
-  static BuiltSet<UserRegisterPushTokenDtoPlatformEnum> get values => _$userRegisterPushTokenDtoPlatformEnumValues;
-  static UserRegisterPushTokenDtoPlatformEnum valueOf(String name) => _$userRegisterPushTokenDtoPlatformEnumValueOf(name);
-}
 

@@ -18,3 +18,5 @@ targets:
           enable_cached_builds: true
         generate_for:
           - lib/data/states/**/*.dart
+          - lib/data/models/**/*.dart
+          - lib/data/models/*.dart

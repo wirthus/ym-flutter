@@ -7,8 +7,7 @@ export 'package:ym_api_client/src/auth/api_key_auth.dart';
 export 'package:ym_api_client/src/auth/basic_auth.dart';
 export 'package:ym_api_client/src/auth/bearer_auth.dart';
 export 'package:ym_api_client/src/auth/oauth.dart';
-export 'package:ym_api_client/src/serializers.dart';
-export 'package:ym_api_client/src/model/date.dart';
+
 
 export 'package:ym_api_client/src/api/adverts_api.dart';
 export 'package:ym_api_client/src/api/auth_api.dart';
@@ -85,8 +84,6 @@ export 'package:ym_api_client/src/model/product_info_entity.dart';
 export 'package:ym_api_client/src/model/product_search_result_entity.dart';
 export 'package:ym_api_client/src/model/product_sub_group_entity.dart';
 export 'package:ym_api_client/src/model/product_sub_group_with_products_entity.dart';
-export 'package:ym_api_client/src/model/purchase_advert_group.dart';
-export 'package:ym_api_client/src/model/purchase_advert_public_entity.dart';
 export 'package:ym_api_client/src/model/purchase_point_add_adverts_dto.dart';
 export 'package:ym_api_client/src/model/purchase_point_add_adverts_response_dto.dart';
 export 'package:ym_api_client/src/model/purchase_point_clone_adverts_dto.dart';
@@ -94,7 +91,6 @@ export 'package:ym_api_client/src/model/purchase_point_clone_adverts_response_dt
 export 'package:ym_api_client/src/model/purchase_point_clone_dto.dart';
 export 'package:ym_api_client/src/model/purchase_point_clone_response_dto.dart';
 export 'package:ym_api_client/src/model/purchase_point_create_dto.dart';
-export 'package:ym_api_client/src/model/purchase_point_get_public_full_response_dto.dart';
 export 'package:ym_api_client/src/model/purchase_point_private_entity.dart';
 export 'package:ym_api_client/src/model/purchase_point_private_item_entity.dart';
 export 'package:ym_api_client/src/model/purchase_point_public_entity.dart';
@@ -124,6 +120,7 @@ export 'package:ym_api_client/src/model/user_public_mobile_entity.dart';
 export 'package:ym_api_client/src/model/user_register_email_dto.dart';
 export 'package:ym_api_client/src/model/user_register_email_response_dto.dart';
 export 'package:ym_api_client/src/model/user_register_push_token_dto.dart';
+export 'package:ym_api_client/src/model/user_type.dart';
 export 'package:ym_api_client/src/model/user_update_dto.dart';
 export 'package:ym_api_client/src/model/vk_access_token.dart';
 

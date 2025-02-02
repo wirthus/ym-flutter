@@ -76,8 +76,6 @@ import 'package:ym_api_client/src/model/product_info_entity.dart';
 import 'package:ym_api_client/src/model/product_search_result_entity.dart';
 import 'package:ym_api_client/src/model/product_sub_group_entity.dart';
 import 'package:ym_api_client/src/model/product_sub_group_with_products_entity.dart';
-import 'package:ym_api_client/src/model/purchase_advert_group.dart';
-import 'package:ym_api_client/src/model/purchase_advert_public_entity.dart';
 import 'package:ym_api_client/src/model/purchase_point_add_adverts_dto.dart';
 import 'package:ym_api_client/src/model/purchase_point_add_adverts_response_dto.dart';
 import 'package:ym_api_client/src/model/purchase_point_clone_adverts_dto.dart';
@@ -85,7 +83,6 @@ import 'package:ym_api_client/src/model/purchase_point_clone_adverts_response_dt
 import 'package:ym_api_client/src/model/purchase_point_clone_dto.dart';
 import 'package:ym_api_client/src/model/purchase_point_clone_response_dto.dart';
 import 'package:ym_api_client/src/model/purchase_point_create_dto.dart';
-import 'package:ym_api_client/src/model/purchase_point_get_public_full_response_dto.dart';
 import 'package:ym_api_client/src/model/purchase_point_private_entity.dart';
 import 'package:ym_api_client/src/model/purchase_point_private_item_entity.dart';
 import 'package:ym_api_client/src/model/purchase_point_public_entity.dart';
@@ -115,6 +112,7 @@ import 'package:ym_api_client/src/model/user_public_mobile_entity.dart';
 import 'package:ym_api_client/src/model/user_register_email_dto.dart';
 import 'package:ym_api_client/src/model/user_register_email_response_dto.dart';
 import 'package:ym_api_client/src/model/user_register_push_token_dto.dart';
+import 'package:ym_api_client/src/model/user_type.dart';
 import 'package:ym_api_client/src/model/user_update_dto.dart';
 import 'package:ym_api_client/src/model/vk_access_token.dart';
 
@@ -183,8 +181,6 @@ part 'serializers.g.dart';
   ProductSearchResultEntity,
   ProductSubGroupEntity,
   ProductSubGroupWithProductsEntity,
-  PurchaseAdvertGroup,
-  PurchaseAdvertPublicEntity,
   PurchasePointAddAdvertsDto,
   PurchasePointAddAdvertsResponseDto,
   PurchasePointCloneAdvertsDto,
@@ -192,7 +188,6 @@ part 'serializers.g.dart';
   PurchasePointCloneDto,
   PurchasePointCloneResponseDto,
   PurchasePointCreateDto,
-  PurchasePointGetPublicFullResponseDto,
   PurchasePointPrivateEntity,
   PurchasePointPrivateItemEntity,
   PurchasePointPublicEntity,
@@ -222,6 +217,7 @@ part 'serializers.g.dart';
   UserRegisterEmailDto,
   UserRegisterEmailResponseDto,
   UserRegisterPushTokenDto,
+  UserType,
   UserUpdateDto,
   VkAccessToken,
 ])

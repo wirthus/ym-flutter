@@ -8,22 +8,21 @@ import 'package:ym_api_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**isFavorite** | **bool** |  | 
-**id** | **num** |  | 
+**id** | **int** |  | 
 **purchase** | **bool** |  | 
 **published** | **bool** |  | 
 **moderate** | **num** |  | 
 **price** | **num** |  | 
-**quantity** | **num** |  | 
+**quantity** | **int** |  | 
 **contractPrice** | **bool** |  | 
-**productId** | **num** |  | 
-**ownerId** | **num** |  | 
+**productId** | **int** |  | 
+**ownerId** | **int** |  | 
 **countryId** | **String** |  | 
-**regionId** | **num** |  | 
-**cleaningId** | **num** |  | 
-**packingId** | **num** |  | 
-**qualityId** | **num** |  | 
-**recyclingId** | **num** |  | 
+**regionId** | **int** |  | 
+**cleaningId** | **int** |  | 
+**packingId** | **int** |  | 
+**qualityId** | **int** |  | 
+**recyclingId** | **int** |  | 
 **publicationDate** | [**DateTime**](DateTime.md) |  | 
 **info** | **String** |  | 
 **infoRu** | **String** |  | 
@@ -40,6 +39,7 @@ Name | Type | Description | Notes
 **country** | [**CountryEntity**](CountryEntity.md) |  | 
 **region** | [**RegionEntity**](RegionEntity.md) |  | 
 **advertBuy** | [**AdvertBuyPublicEntity**](AdvertBuyPublicEntity.md) |  | 
+**isFavorite** | **bool** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

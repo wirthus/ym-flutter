@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **userType** | **num** |  | 
 **contactName** | **String** |  | 
 **countryId** | **String** |  | 
-**regionId** | **num** |  | [optional] 
+**regionId** | **int** |  | [optional] 
 **address** | **String** |  | [optional] 
 **isCompany** | **bool** |  | [optional] 
 **companyName** | **String** |  | [optional] 

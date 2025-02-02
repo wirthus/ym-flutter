@@ -40,5 +40,12 @@
     "easy_localization: generate keys": [
       "**/translations/*"
     ]
+  },
+  "yaml.schemas": {
+    "https://json.schemastore.org/dart-build": [
+      "build.yaml",
+      "*.build.yaml",
+      "build.*.yaml"
+    ]
   }
 }

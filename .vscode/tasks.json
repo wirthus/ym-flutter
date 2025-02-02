@@ -12,6 +12,7 @@
         "build_runner",
         "build",
         "--delete-conflicting-outputs",
+        "--verbose"
       ],
       "problemMatcher": [
         "$dart-build_runner"
@@ -28,6 +29,7 @@
         "build_runner",
         "watch",
         "--delete-conflicting-outputs",
+        "--verbose"
       ],
       "problemMatcher": [
         "$dart-build_runner"

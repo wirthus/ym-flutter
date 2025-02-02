@@ -3,120 +3,70 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'login_phone_dto.g.dart';
 
-/// LoginPhoneDto
-///
-/// Properties:
-/// * [callId] 
-/// * [requestId] 
-@BuiltValue()
-abstract class LoginPhoneDto implements Built<LoginPhoneDto, LoginPhoneDtoBuilder> {
-  @BuiltValueField(wireName: r'callId')
-  String get callId;
 
-  @BuiltValueField(wireName: r'requestId')
-  String get requestId;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class LoginPhoneDto {
+  /// Returns a new [LoginPhoneDto] instance.
+  LoginPhoneDto({
 
-  LoginPhoneDto._();
+    required  this.callId,
 
-  factory LoginPhoneDto([void updates(LoginPhoneDtoBuilder b)]) = _$LoginPhoneDto;
+    required  this.requestId,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(LoginPhoneDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'callId',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<LoginPhoneDto> get serializer => _$LoginPhoneDtoSerializer();
-}
 
-class _$LoginPhoneDtoSerializer implements PrimitiveSerializer<LoginPhoneDto> {
-  @override
-  final Iterable<Type> types = const [LoginPhoneDto, _$LoginPhoneDto];
+  final String callId;
 
-  @override
-  final String wireName = r'LoginPhoneDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    LoginPhoneDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'callId';
-    yield serializers.serialize(
-      object.callId,
-      specifiedType: const FullType(String),
-    );
-    yield r'requestId';
-    yield serializers.serialize(
-      object.requestId,
-      specifiedType: const FullType(String),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    LoginPhoneDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'requestId',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required LoginPhoneDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'callId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.callId = valueDes;
-          break;
-        case r'requestId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.requestId = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+  final String requestId;
+
+
+
+
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is LoginPhoneDto &&
+      other.callId == callId &&
+      other.requestId == requestId;
+
+    @override
+    int get hashCode =>
+        callId.hashCode +
+        requestId.hashCode;
+
+  factory LoginPhoneDto.fromJson(Map<String, dynamic> json) => _$LoginPhoneDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LoginPhoneDtoToJson(this);
 
   @override
-  LoginPhoneDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = LoginPhoneDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

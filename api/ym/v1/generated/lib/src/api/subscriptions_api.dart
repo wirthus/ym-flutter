@@ -4,8 +4,9 @@
 
 import 'dart:async';
 
-import 'package:built_value/json_object.dart';
-import 'package:built_value/serializer.dart';
+// ignore: unused_import
+import 'dart:convert';
+import 'package:ym_api_client/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
 import 'package:ym_api_client/src/model/subscription_entity.dart';
@@ -15,9 +16,7 @@ class SubscriptionsApi {
 
   final Dio _dio;
 
-  final Serializers _serializers;
-
-  const SubscriptionsApi(this._dio, this._serializers);
+  const SubscriptionsApi(this._dio);
 
   /// subscriptionControllerGet
   /// 
@@ -64,12 +63,8 @@ class SubscriptionsApi {
     SubscriptionEntity? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(SubscriptionEntity),
-      ) as SubscriptionEntity;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<SubscriptionEntity, SubscriptionEntity>(rawData, 'SubscriptionEntity', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -132,9 +127,7 @@ class SubscriptionsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(UpsertSubscribesDto);
-      _bodyData = _serializers.serialize(upsertSubscribesDto, specifiedType: _type);
-
+_bodyData=jsonEncode(upsertSubscribesDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(

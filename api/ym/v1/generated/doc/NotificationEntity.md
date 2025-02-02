@@ -8,10 +8,10 @@ import 'package:ym_api_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **num** |  | 
-**userId** | **num** |  | 
-**advertId** | **num** |  | 
-**actionId** | **num** |  | 
+**id** | **int** |  | 
+**userId** | **int** |  | 
+**advertId** | **int** |  | 
+**actionId** | **int** |  | 
 **type** | **String** |  | 
 **subtype** | **String** |  | 
 **category** | **String** |  | 

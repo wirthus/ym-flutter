@@ -5,120 +5,70 @@
 // ignore_for_file: unused_element
 import 'package:ym_api_client/src/model/paginate_params_dto.dart';
 import 'package:ym_api_client/src/model/notification_get_list_adverts_dto.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'paginated_body_of_notification_get_list_adverts_dto.g.dart';
 
-/// PaginatedBodyOfNotificationGetListAdvertsDto
-///
-/// Properties:
-/// * [data] 
-/// * [paginate] 
-@BuiltValue()
-abstract class PaginatedBodyOfNotificationGetListAdvertsDto implements Built<PaginatedBodyOfNotificationGetListAdvertsDto, PaginatedBodyOfNotificationGetListAdvertsDtoBuilder> {
-  @BuiltValueField(wireName: r'data')
-  NotificationGetListAdvertsDto get data;
 
-  @BuiltValueField(wireName: r'paginate')
-  PaginateParamsDto get paginate;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class PaginatedBodyOfNotificationGetListAdvertsDto {
+  /// Returns a new [PaginatedBodyOfNotificationGetListAdvertsDto] instance.
+  PaginatedBodyOfNotificationGetListAdvertsDto({
 
-  PaginatedBodyOfNotificationGetListAdvertsDto._();
+    required  this.data,
 
-  factory PaginatedBodyOfNotificationGetListAdvertsDto([void updates(PaginatedBodyOfNotificationGetListAdvertsDtoBuilder b)]) = _$PaginatedBodyOfNotificationGetListAdvertsDto;
+    required  this.paginate,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PaginatedBodyOfNotificationGetListAdvertsDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'data',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PaginatedBodyOfNotificationGetListAdvertsDto> get serializer => _$PaginatedBodyOfNotificationGetListAdvertsDtoSerializer();
-}
 
-class _$PaginatedBodyOfNotificationGetListAdvertsDtoSerializer implements PrimitiveSerializer<PaginatedBodyOfNotificationGetListAdvertsDto> {
-  @override
-  final Iterable<Type> types = const [PaginatedBodyOfNotificationGetListAdvertsDto, _$PaginatedBodyOfNotificationGetListAdvertsDto];
+  final NotificationGetListAdvertsDto data;
 
-  @override
-  final String wireName = r'PaginatedBodyOfNotificationGetListAdvertsDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    PaginatedBodyOfNotificationGetListAdvertsDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'data';
-    yield serializers.serialize(
-      object.data,
-      specifiedType: const FullType(NotificationGetListAdvertsDto),
-    );
-    yield r'paginate';
-    yield serializers.serialize(
-      object.paginate,
-      specifiedType: const FullType(PaginateParamsDto),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    PaginatedBodyOfNotificationGetListAdvertsDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'paginate',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required PaginatedBodyOfNotificationGetListAdvertsDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'data':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(NotificationGetListAdvertsDto),
-          ) as NotificationGetListAdvertsDto;
-          result.data.replace(valueDes);
-          break;
-        case r'paginate':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(PaginateParamsDto),
-          ) as PaginateParamsDto;
-          result.paginate.replace(valueDes);
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+  final PaginateParamsDto paginate;
+
+
+
+
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is PaginatedBodyOfNotificationGetListAdvertsDto &&
+      other.data == data &&
+      other.paginate == paginate;
+
+    @override
+    int get hashCode =>
+        data.hashCode +
+        paginate.hashCode;
+
+  factory PaginatedBodyOfNotificationGetListAdvertsDto.fromJson(Map<String, dynamic> json) => _$PaginatedBodyOfNotificationGetListAdvertsDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PaginatedBodyOfNotificationGetListAdvertsDtoToJson(this);
 
   @override
-  PaginatedBodyOfNotificationGetListAdvertsDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = PaginatedBodyOfNotificationGetListAdvertsDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

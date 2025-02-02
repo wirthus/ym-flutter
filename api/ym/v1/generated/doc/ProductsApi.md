@@ -149,7 +149,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerGetGroups**
-> BuiltList<ProductGroupEntity> productControllerGetGroups()
+> List<ProductGroupEntity> productControllerGetGroups()
 
 
 
@@ -172,7 +172,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;ProductGroupEntity&gt;**](ProductGroupEntity.md)
+[**List&lt;ProductGroupEntity&gt;**](ProductGroupEntity.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerGetGroupsProductsCount**
-> BuiltList<GroupProductsCountEntity> productControllerGetGroupsProductsCount()
+> List<GroupProductsCountEntity> productControllerGetGroupsProductsCount()
 
 
 
@@ -209,7 +209,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;GroupProductsCountEntity&gt;**](GroupProductsCountEntity.md)
+[**List&lt;GroupProductsCountEntity&gt;**](GroupProductsCountEntity.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerGetGroupsWithProducts**
-> BuiltList<ProductGroupWithProductsEntity> productControllerGetGroupsWithProducts(subGroups)
+> List<ProductGroupWithProductsEntity> productControllerGetGroupsWithProducts(subGroups)
 
 
 
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;ProductGroupWithProductsEntity&gt;**](ProductGroupWithProductsEntity.md)
+[**List&lt;ProductGroupWithProductsEntity&gt;**](ProductGroupWithProductsEntity.md)
 
 ### Authorization
 
@@ -305,7 +305,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerGetProductsByGroup**
-> BuiltList<ProductEntity> productControllerGetProductsByGroup(id)
+> List<ProductEntity> productControllerGetProductsByGroup(id)
 
 
 
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;ProductEntity&gt;**](ProductEntity.md)
+[**List&lt;ProductEntity&gt;**](ProductEntity.md)
 
 ### Authorization
 
@@ -346,7 +346,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerGetSubGroups**
-> BuiltList<ProductGroupEntity> productControllerGetSubGroups()
+> List<ProductGroupEntity> productControllerGetSubGroups()
 
 
 
@@ -369,7 +369,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;ProductGroupEntity&gt;**](ProductGroupEntity.md)
+[**List&lt;ProductGroupEntity&gt;**](ProductGroupEntity.md)
 
 ### Authorization
 
@@ -383,7 +383,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerGetSubGroupsByProductId**
-> BuiltList<ProductSubGroupEntity> productControllerGetSubGroupsByProductId(id)
+> List<ProductSubGroupEntity> productControllerGetSubGroupsByProductId(id)
 
 
 
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;ProductSubGroupEntity&gt;**](ProductSubGroupEntity.md)
+[**List&lt;ProductSubGroupEntity&gt;**](ProductSubGroupEntity.md)
 
 ### Authorization
 
@@ -424,7 +424,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerSearch**
-> BuiltList<ProductEntity> productControllerSearch(name)
+> List<ProductEntity> productControllerSearch(name)
 
 
 
@@ -451,7 +451,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;ProductEntity&gt;**](ProductEntity.md)
+[**List&lt;ProductEntity&gt;**](ProductEntity.md)
 
 ### Authorization
 
@@ -465,7 +465,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerSearchEx**
-> BuiltList<ProductSearchResultEntity> productControllerSearchEx(searchProductAdvancedDto)
+> List<ProductSearchResultEntity> productControllerSearchEx(searchProductAdvancedDto)
 
 
 
@@ -492,7 +492,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;ProductSearchResultEntity&gt;**](ProductSearchResultEntity.md)
+[**List&lt;ProductSearchResultEntity&gt;**](ProductSearchResultEntity.md)
 
 ### Authorization
 

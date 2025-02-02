@@ -4,19 +4,17 @@
 
 import 'dart:async';
 
-import 'package:built_value/json_object.dart';
-import 'package:built_value/serializer.dart';
+// ignore: unused_import
+import 'dart:convert';
+import 'package:ym_api_client/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:built_collection/built_collection.dart';
 
 class TestApi {
 
   final Dio _dio;
 
-  final Serializers _serializers;
-
-  const TestApi(this._dio, this._serializers);
+  const TestApi(this._dio);
 
   /// testControllerAutoFillRegions
   /// 
@@ -108,9 +106,8 @@ class TestApi {
     num? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : rawResponse as num;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<num, num>(rawData, 'num', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -178,9 +175,8 @@ class TestApi {
     num? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : rawResponse as num;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<num, num>(rawData, 'num', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -214,9 +210,9 @@ class TestApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<String>] as data
+  /// Returns a [Future] containing a [Response] with a [List<String>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<String>>> testControllerFillRegionsLocation({ 
+  Future<Response<List<String>>> testControllerFillRegionsLocation({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -245,15 +241,11 @@ class TestApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<String>? _responseData;
+    List<String>? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
-      ) as BuiltList<String>;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<List<String>, String>(rawData, 'List<String>', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -264,7 +256,7 @@ class TestApi {
       );
     }
 
-    return Response<BuiltList<String>>(
+    return Response<List<String>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

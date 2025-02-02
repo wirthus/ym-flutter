@@ -3,104 +3,54 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'purchase_point_set_advert_enabled_dto.g.dart';
 
-/// PurchasePointSetAdvertEnabledDto
-///
-/// Properties:
-/// * [value] 
-@BuiltValue()
-abstract class PurchasePointSetAdvertEnabledDto implements Built<PurchasePointSetAdvertEnabledDto, PurchasePointSetAdvertEnabledDtoBuilder> {
-  @BuiltValueField(wireName: r'value')
-  bool get value;
 
-  PurchasePointSetAdvertEnabledDto._();
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class PurchasePointSetAdvertEnabledDto {
+  /// Returns a new [PurchasePointSetAdvertEnabledDto] instance.
+  PurchasePointSetAdvertEnabledDto({
 
-  factory PurchasePointSetAdvertEnabledDto([void updates(PurchasePointSetAdvertEnabledDtoBuilder b)]) = _$PurchasePointSetAdvertEnabledDto;
+    required  this.value,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PurchasePointSetAdvertEnabledDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'value',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PurchasePointSetAdvertEnabledDto> get serializer => _$PurchasePointSetAdvertEnabledDtoSerializer();
-}
 
-class _$PurchasePointSetAdvertEnabledDtoSerializer implements PrimitiveSerializer<PurchasePointSetAdvertEnabledDto> {
-  @override
-  final Iterable<Type> types = const [PurchasePointSetAdvertEnabledDto, _$PurchasePointSetAdvertEnabledDto];
+  final bool value;
 
-  @override
-  final String wireName = r'PurchasePointSetAdvertEnabledDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    PurchasePointSetAdvertEnabledDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'value';
-    yield serializers.serialize(
-      object.value,
-      specifiedType: const FullType(bool),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    PurchasePointSetAdvertEnabledDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required PurchasePointSetAdvertEnabledDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'value':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.value = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is PurchasePointSetAdvertEnabledDto &&
+      other.value == value;
+
+    @override
+    int get hashCode =>
+        value.hashCode;
+
+  factory PurchasePointSetAdvertEnabledDto.fromJson(Map<String, dynamic> json) => _$PurchasePointSetAdvertEnabledDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PurchasePointSetAdvertEnabledDtoToJson(this);
 
   @override
-  PurchasePointSetAdvertEnabledDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = PurchasePointSetAdvertEnabledDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

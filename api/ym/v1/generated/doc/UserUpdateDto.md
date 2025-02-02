@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] 
 **phone** | **String** |  | [optional] 
-**type** | **num** |  | [optional] 
+**type** | [**UserType**](UserType.md) |  | [optional] 
 **address** | **String** |  | [optional] 
 **countryId** | **String** |  | [optional] 
-**regionId** | **num** |  | [optional] 
+**regionId** | **int** |  | [optional] 
 **isCompany** | **bool** |  | [optional] 
 **companyName** | **String** |  | [optional] 
 **companyInn** | **String** |  | [optional] 

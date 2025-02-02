@@ -4,280 +4,221 @@
 
 // ignore_for_file: unused_element
 import 'package:ym_api_client/src/model/address_dto.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'advert_create_dto.g.dart';
 
-/// AdvertCreateDto
-///
-/// Properties:
-/// * [purchase] 
-/// * [published] 
-/// * [price] 
-/// * [quantity] 
-/// * [productId] 
-/// * [cleaningId] 
-/// * [packingId] 
-/// * [qualityId] 
-/// * [recyclingId] 
-/// * [info] 
-/// * [address] 
-@BuiltValue()
-abstract class AdvertCreateDto implements Built<AdvertCreateDto, AdvertCreateDtoBuilder> {
-  @BuiltValueField(wireName: r'purchase')
-  bool get purchase;
 
-  @BuiltValueField(wireName: r'published')
-  bool get published;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class AdvertCreateDto {
+  /// Returns a new [AdvertCreateDto] instance.
+  AdvertCreateDto({
 
-  @BuiltValueField(wireName: r'price')
-  num get price;
+    required  this.purchase,
 
-  @BuiltValueField(wireName: r'quantity')
-  num get quantity;
+    required  this.published,
 
-  @BuiltValueField(wireName: r'productId')
-  num get productId;
+    required  this.price,
 
-  @BuiltValueField(wireName: r'cleaningId')
-  num? get cleaningId;
+    required  this.quantity,
 
-  @BuiltValueField(wireName: r'packingId')
-  num? get packingId;
+    required  this.productId,
 
-  @BuiltValueField(wireName: r'qualityId')
-  num? get qualityId;
+     this.cleaningId,
 
-  @BuiltValueField(wireName: r'recyclingId')
-  num? get recyclingId;
+     this.packingId,
 
-  @BuiltValueField(wireName: r'info')
-  String? get info;
+     this.qualityId,
 
-  @BuiltValueField(wireName: r'address')
-  AddressDto? get address;
+     this.recyclingId,
 
-  AdvertCreateDto._();
+     this.info,
 
-  factory AdvertCreateDto([void updates(AdvertCreateDtoBuilder b)]) = _$AdvertCreateDto;
+    required  this.address,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AdvertCreateDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'purchase',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<AdvertCreateDto> get serializer => _$AdvertCreateDtoSerializer();
-}
 
-class _$AdvertCreateDtoSerializer implements PrimitiveSerializer<AdvertCreateDto> {
-  @override
-  final Iterable<Type> types = const [AdvertCreateDto, _$AdvertCreateDto];
+  final bool purchase;
 
-  @override
-  final String wireName = r'AdvertCreateDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    AdvertCreateDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'purchase';
-    yield serializers.serialize(
-      object.purchase,
-      specifiedType: const FullType(bool),
-    );
-    yield r'published';
-    yield serializers.serialize(
-      object.published,
-      specifiedType: const FullType(bool),
-    );
-    yield r'price';
-    yield serializers.serialize(
-      object.price,
-      specifiedType: const FullType(num),
-    );
-    yield r'quantity';
-    yield serializers.serialize(
-      object.quantity,
-      specifiedType: const FullType(num),
-    );
-    yield r'productId';
-    yield serializers.serialize(
-      object.productId,
-      specifiedType: const FullType(num),
-    );
-    if (object.cleaningId != null) {
-      yield r'cleaningId';
-      yield serializers.serialize(
-        object.cleaningId,
-        specifiedType: const FullType.nullable(num),
-      );
-    }
-    if (object.packingId != null) {
-      yield r'packingId';
-      yield serializers.serialize(
-        object.packingId,
-        specifiedType: const FullType.nullable(num),
-      );
-    }
-    if (object.qualityId != null) {
-      yield r'qualityId';
-      yield serializers.serialize(
-        object.qualityId,
-        specifiedType: const FullType.nullable(num),
-      );
-    }
-    if (object.recyclingId != null) {
-      yield r'recyclingId';
-      yield serializers.serialize(
-        object.recyclingId,
-        specifiedType: const FullType.nullable(num),
-      );
-    }
-    if (object.info != null) {
-      yield r'info';
-      yield serializers.serialize(
-        object.info,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
-    yield r'address';
-    yield object.address == null ? null : serializers.serialize(
-      object.address,
-      specifiedType: const FullType.nullable(AddressDto),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    AdvertCreateDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'published',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required AdvertCreateDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'purchase':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.purchase = valueDes;
-          break;
-        case r'published':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.published = valueDes;
-          break;
-        case r'price':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.price = valueDes;
-          break;
-        case r'quantity':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.quantity = valueDes;
-          break;
-        case r'productId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.productId = valueDes;
-          break;
-        case r'cleaningId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(num),
-          ) as num?;
-          if (valueDes == null) continue;
-          result.cleaningId = valueDes;
-          break;
-        case r'packingId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(num),
-          ) as num?;
-          if (valueDes == null) continue;
-          result.packingId = valueDes;
-          break;
-        case r'qualityId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(num),
-          ) as num?;
-          if (valueDes == null) continue;
-          result.qualityId = valueDes;
-          break;
-        case r'recyclingId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(num),
-          ) as num?;
-          if (valueDes == null) continue;
-          result.recyclingId = valueDes;
-          break;
-        case r'info':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.info = valueDes;
-          break;
-        case r'address':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(AddressDto),
-          ) as AddressDto?;
-          if (valueDes == null) continue;
-          result.address.replace(valueDes);
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+  final bool published;
+
+
+
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'price',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final num price;
+
+
+
+          // minimum: 1
+  @JsonKey(
+    
+    name: r'quantity',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final num quantity;
+
+
+
+          // minimum: 1
+  @JsonKey(
+    
+    name: r'productId',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final num productId;
+
+
+
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'cleaningId',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final num? cleaningId;
+
+
+
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'packingId',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final num? packingId;
+
+
+
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'qualityId',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final num? qualityId;
+
+
+
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'recyclingId',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final num? recyclingId;
+
+
+
+  @JsonKey(
+    
+    name: r'info',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final String? info;
+
+
+
+  @JsonKey(
+    
+    name: r'address',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final AddressDto? address;
+
+
+
+
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is AdvertCreateDto &&
+      other.purchase == purchase &&
+      other.published == published &&
+      other.price == price &&
+      other.quantity == quantity &&
+      other.productId == productId &&
+      other.cleaningId == cleaningId &&
+      other.packingId == packingId &&
+      other.qualityId == qualityId &&
+      other.recyclingId == recyclingId &&
+      other.info == info &&
+      other.address == address;
+
+    @override
+    int get hashCode =>
+        purchase.hashCode +
+        published.hashCode +
+        price.hashCode +
+        quantity.hashCode +
+        productId.hashCode +
+        (cleaningId == null ? 0 : cleaningId.hashCode) +
+        (packingId == null ? 0 : packingId.hashCode) +
+        (qualityId == null ? 0 : qualityId.hashCode) +
+        (recyclingId == null ? 0 : recyclingId.hashCode) +
+        (info == null ? 0 : info.hashCode) +
+        (address == null ? 0 : address.hashCode);
+
+  factory AdvertCreateDto.fromJson(Map<String, dynamic> json) => _$AdvertCreateDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AdvertCreateDtoToJson(this);
 
   @override
-  AdvertCreateDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = AdvertCreateDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

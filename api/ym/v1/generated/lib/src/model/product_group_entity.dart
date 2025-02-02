@@ -3,120 +3,70 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'product_group_entity.g.dart';
 
-/// ProductGroupEntity
-///
-/// Properties:
-/// * [id] 
-/// * [name] 
-@BuiltValue()
-abstract class ProductGroupEntity implements Built<ProductGroupEntity, ProductGroupEntityBuilder> {
-  @BuiltValueField(wireName: r'id')
-  num get id;
 
-  @BuiltValueField(wireName: r'name')
-  String get name;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class ProductGroupEntity {
+  /// Returns a new [ProductGroupEntity] instance.
+  ProductGroupEntity({
 
-  ProductGroupEntity._();
+    required  this.id,
 
-  factory ProductGroupEntity([void updates(ProductGroupEntityBuilder b)]) = _$ProductGroupEntity;
+    required  this.name,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ProductGroupEntityBuilder b) => b;
+  @JsonKey(
+    
+    name: r'id',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ProductGroupEntity> get serializer => _$ProductGroupEntitySerializer();
-}
 
-class _$ProductGroupEntitySerializer implements PrimitiveSerializer<ProductGroupEntity> {
-  @override
-  final Iterable<Type> types = const [ProductGroupEntity, _$ProductGroupEntity];
+  final int id;
 
-  @override
-  final String wireName = r'ProductGroupEntity';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    ProductGroupEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'id';
-    yield serializers.serialize(
-      object.id,
-      specifiedType: const FullType(num),
-    );
-    yield r'name';
-    yield serializers.serialize(
-      object.name,
-      specifiedType: const FullType(String),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    ProductGroupEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'name',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required ProductGroupEntityBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'id':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.id = valueDes;
-          break;
-        case r'name':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.name = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+  final String name;
+
+
+
+
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is ProductGroupEntity &&
+      other.id == id &&
+      other.name == name;
+
+    @override
+    int get hashCode =>
+        id.hashCode +
+        name.hashCode;
+
+  factory ProductGroupEntity.fromJson(Map<String, dynamic> json) => _$ProductGroupEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProductGroupEntityToJson(this);
 
   @override
-  ProductGroupEntity deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ProductGroupEntityBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

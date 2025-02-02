@@ -3,120 +3,70 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'login_response_dto.g.dart';
 
-/// LoginResponseDto
-///
-/// Properties:
-/// * [userId] 
-/// * [accessToken] 
-@BuiltValue()
-abstract class LoginResponseDto implements Built<LoginResponseDto, LoginResponseDtoBuilder> {
-  @BuiltValueField(wireName: r'userId')
-  num get userId;
 
-  @BuiltValueField(wireName: r'accessToken')
-  String get accessToken;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class LoginResponseDto {
+  /// Returns a new [LoginResponseDto] instance.
+  LoginResponseDto({
 
-  LoginResponseDto._();
+    required  this.userId,
 
-  factory LoginResponseDto([void updates(LoginResponseDtoBuilder b)]) = _$LoginResponseDto;
+    required  this.accessToken,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(LoginResponseDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'userId',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<LoginResponseDto> get serializer => _$LoginResponseDtoSerializer();
-}
 
-class _$LoginResponseDtoSerializer implements PrimitiveSerializer<LoginResponseDto> {
-  @override
-  final Iterable<Type> types = const [LoginResponseDto, _$LoginResponseDto];
+  final int userId;
 
-  @override
-  final String wireName = r'LoginResponseDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    LoginResponseDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'userId';
-    yield serializers.serialize(
-      object.userId,
-      specifiedType: const FullType(num),
-    );
-    yield r'accessToken';
-    yield serializers.serialize(
-      object.accessToken,
-      specifiedType: const FullType(String),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    LoginResponseDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'accessToken',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required LoginResponseDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'userId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.userId = valueDes;
-          break;
-        case r'accessToken':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.accessToken = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+  final String accessToken;
+
+
+
+
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is LoginResponseDto &&
+      other.userId == userId &&
+      other.accessToken == accessToken;
+
+    @override
+    int get hashCode =>
+        userId.hashCode +
+        accessToken.hashCode;
+
+  factory LoginResponseDto.fromJson(Map<String, dynamic> json) => _$LoginResponseDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LoginResponseDtoToJson(this);
 
   @override
-  LoginResponseDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = LoginResponseDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

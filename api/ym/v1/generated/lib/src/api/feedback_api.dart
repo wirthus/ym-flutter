@@ -4,8 +4,9 @@
 
 import 'dart:async';
 
-import 'package:built_value/json_object.dart';
-import 'package:built_value/serializer.dart';
+// ignore: unused_import
+import 'dart:convert';
+import 'package:ym_api_client/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
 import 'package:ym_api_client/src/model/create_feedback_dto.dart';
@@ -14,9 +15,7 @@ class FeedbackApi {
 
   final Dio _dio;
 
-  final Serializers _serializers;
-
-  const FeedbackApi(this._dio, this._serializers);
+  const FeedbackApi(this._dio);
 
   /// feedbackControllerCreate
   /// 
@@ -58,9 +57,7 @@ class FeedbackApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(CreateFeedbackDto);
-      _bodyData = _serializers.serialize(createFeedbackDto, specifiedType: _type);
-
+_bodyData=jsonEncode(createFeedbackDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(

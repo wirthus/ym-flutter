@@ -6,286 +6,230 @@
 import 'package:ym_api_client/src/model/region_entity.dart';
 import 'package:ym_api_client/src/model/country_entity.dart';
 import 'package:ym_api_client/src/model/user_public_entity.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'purchase_point_public_entity.g.dart';
 
-/// PurchasePointPublicEntity
-///
-/// Properties:
-/// * [id] 
-/// * [alias] 
-/// * [contactName] 
-/// * [phone] 
-/// * [description] 
-/// * [address] 
-/// * [lat] 
-/// * [lon] 
-/// * [updatedAt] 
-/// * [user] 
-/// * [country] 
-/// * [region] 
-@BuiltValue()
-abstract class PurchasePointPublicEntity implements Built<PurchasePointPublicEntity, PurchasePointPublicEntityBuilder> {
-  @BuiltValueField(wireName: r'id')
-  num get id;
 
-  @BuiltValueField(wireName: r'alias')
-  String? get alias;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class PurchasePointPublicEntity {
+  /// Returns a new [PurchasePointPublicEntity] instance.
+  PurchasePointPublicEntity({
 
-  @BuiltValueField(wireName: r'contactName')
-  String get contactName;
+    required  this.id,
 
-  @BuiltValueField(wireName: r'phone')
-  String get phone;
+    required  this.alias,
 
-  @BuiltValueField(wireName: r'description')
-  String? get description;
+    required  this.contactName,
 
-  @BuiltValueField(wireName: r'address')
-  String? get address;
+    required  this.phone,
 
-  @BuiltValueField(wireName: r'lat')
-  num? get lat;
+    required  this.description,
 
-  @BuiltValueField(wireName: r'lon')
-  num? get lon;
+    required  this.address,
 
-  @BuiltValueField(wireName: r'updatedAt')
-  DateTime get updatedAt;
+    required  this.lat,
 
-  @BuiltValueField(wireName: r'user')
-  UserPublicEntity get user;
+    required  this.lon,
 
-  @BuiltValueField(wireName: r'country')
-  CountryEntity get country;
+    required  this.updatedAt,
 
-  @BuiltValueField(wireName: r'region')
-  RegionEntity? get region;
+    required  this.user,
 
-  PurchasePointPublicEntity._();
+    required  this.country,
 
-  factory PurchasePointPublicEntity([void updates(PurchasePointPublicEntityBuilder b)]) = _$PurchasePointPublicEntity;
+    required  this.region,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PurchasePointPublicEntityBuilder b) => b;
+  @JsonKey(
+    
+    name: r'id',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PurchasePointPublicEntity> get serializer => _$PurchasePointPublicEntitySerializer();
-}
 
-class _$PurchasePointPublicEntitySerializer implements PrimitiveSerializer<PurchasePointPublicEntity> {
-  @override
-  final Iterable<Type> types = const [PurchasePointPublicEntity, _$PurchasePointPublicEntity];
+  final int id;
 
-  @override
-  final String wireName = r'PurchasePointPublicEntity';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    PurchasePointPublicEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'id';
-    yield serializers.serialize(
-      object.id,
-      specifiedType: const FullType(num),
-    );
-    yield r'alias';
-    yield object.alias == null ? null : serializers.serialize(
-      object.alias,
-      specifiedType: const FullType.nullable(String),
-    );
-    yield r'contactName';
-    yield serializers.serialize(
-      object.contactName,
-      specifiedType: const FullType(String),
-    );
-    yield r'phone';
-    yield serializers.serialize(
-      object.phone,
-      specifiedType: const FullType(String),
-    );
-    yield r'description';
-    yield object.description == null ? null : serializers.serialize(
-      object.description,
-      specifiedType: const FullType.nullable(String),
-    );
-    yield r'address';
-    yield object.address == null ? null : serializers.serialize(
-      object.address,
-      specifiedType: const FullType.nullable(String),
-    );
-    yield r'lat';
-    yield object.lat == null ? null : serializers.serialize(
-      object.lat,
-      specifiedType: const FullType.nullable(num),
-    );
-    yield r'lon';
-    yield object.lon == null ? null : serializers.serialize(
-      object.lon,
-      specifiedType: const FullType.nullable(num),
-    );
-    yield r'updatedAt';
-    yield serializers.serialize(
-      object.updatedAt,
-      specifiedType: const FullType(DateTime),
-    );
-    yield r'user';
-    yield serializers.serialize(
-      object.user,
-      specifiedType: const FullType(UserPublicEntity),
-    );
-    yield r'country';
-    yield serializers.serialize(
-      object.country,
-      specifiedType: const FullType(CountryEntity),
-    );
-    yield r'region';
-    yield object.region == null ? null : serializers.serialize(
-      object.region,
-      specifiedType: const FullType.nullable(RegionEntity),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    PurchasePointPublicEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'alias',
+    required: true,
+    includeIfNull: true,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required PurchasePointPublicEntityBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'id':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.id = valueDes;
-          break;
-        case r'alias':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.alias = valueDes;
-          break;
-        case r'contactName':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.contactName = valueDes;
-          break;
-        case r'phone':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.phone = valueDes;
-          break;
-        case r'description':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.description = valueDes;
-          break;
-        case r'address':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.address = valueDes;
-          break;
-        case r'lat':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(num),
-          ) as num?;
-          if (valueDes == null) continue;
-          result.lat = valueDes;
-          break;
-        case r'lon':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(num),
-          ) as num?;
-          if (valueDes == null) continue;
-          result.lon = valueDes;
-          break;
-        case r'updatedAt':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(DateTime),
-          ) as DateTime;
-          result.updatedAt = valueDes;
-          break;
-        case r'user':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(UserPublicEntity),
-          ) as UserPublicEntity;
-          result.user.replace(valueDes);
-          break;
-        case r'country':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(CountryEntity),
-          ) as CountryEntity;
-          result.country.replace(valueDes);
-          break;
-        case r'region':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(RegionEntity),
-          ) as RegionEntity?;
-          if (valueDes == null) continue;
-          result.region.replace(valueDes);
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+  final String? alias;
+
+
+
+  @JsonKey(
+    
+    name: r'contactName',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final String contactName;
+
+
+
+  @JsonKey(
+    
+    name: r'phone',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final String phone;
+
+
+
+  @JsonKey(
+    
+    name: r'description',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final String? description;
+
+
+
+  @JsonKey(
+    
+    name: r'address',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final String? address;
+
+
+
+  @JsonKey(
+    
+    name: r'lat',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final num? lat;
+
+
+
+  @JsonKey(
+    
+    name: r'lon',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final num? lon;
+
+
+
+  @JsonKey(
+    
+    name: r'updatedAt',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final DateTime updatedAt;
+
+
+
+  @JsonKey(
+    
+    name: r'user',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final UserPublicEntity user;
+
+
+
+  @JsonKey(
+    
+    name: r'country',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final CountryEntity country;
+
+
+
+  @JsonKey(
+    
+    name: r'region',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final RegionEntity? region;
+
+
+
+
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is PurchasePointPublicEntity &&
+      other.id == id &&
+      other.alias == alias &&
+      other.contactName == contactName &&
+      other.phone == phone &&
+      other.description == description &&
+      other.address == address &&
+      other.lat == lat &&
+      other.lon == lon &&
+      other.updatedAt == updatedAt &&
+      other.user == user &&
+      other.country == country &&
+      other.region == region;
+
+    @override
+    int get hashCode =>
+        id.hashCode +
+        (alias == null ? 0 : alias.hashCode) +
+        contactName.hashCode +
+        phone.hashCode +
+        (description == null ? 0 : description.hashCode) +
+        (address == null ? 0 : address.hashCode) +
+        (lat == null ? 0 : lat.hashCode) +
+        (lon == null ? 0 : lon.hashCode) +
+        updatedAt.hashCode +
+        user.hashCode +
+        country.hashCode +
+        (region == null ? 0 : region.hashCode);
+
+  factory PurchasePointPublicEntity.fromJson(Map<String, dynamic> json) => _$PurchasePointPublicEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PurchasePointPublicEntityToJson(this);
 
   @override
-  PurchasePointPublicEntity deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = PurchasePointPublicEntityBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

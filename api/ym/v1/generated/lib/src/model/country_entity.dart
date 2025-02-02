@@ -3,120 +3,70 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'country_entity.g.dart';
 
-/// CountryEntity
-///
-/// Properties:
-/// * [id] 
-/// * [name] 
-@BuiltValue()
-abstract class CountryEntity implements Built<CountryEntity, CountryEntityBuilder> {
-  @BuiltValueField(wireName: r'id')
-  String get id;
 
-  @BuiltValueField(wireName: r'name')
-  String get name;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class CountryEntity {
+  /// Returns a new [CountryEntity] instance.
+  CountryEntity({
 
-  CountryEntity._();
+    required  this.id,
 
-  factory CountryEntity([void updates(CountryEntityBuilder b)]) = _$CountryEntity;
+    required  this.name,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CountryEntityBuilder b) => b;
+  @JsonKey(
+    
+    name: r'id',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<CountryEntity> get serializer => _$CountryEntitySerializer();
-}
 
-class _$CountryEntitySerializer implements PrimitiveSerializer<CountryEntity> {
-  @override
-  final Iterable<Type> types = const [CountryEntity, _$CountryEntity];
+  final String id;
 
-  @override
-  final String wireName = r'CountryEntity';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    CountryEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'id';
-    yield serializers.serialize(
-      object.id,
-      specifiedType: const FullType(String),
-    );
-    yield r'name';
-    yield serializers.serialize(
-      object.name,
-      specifiedType: const FullType(String),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    CountryEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'name',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required CountryEntityBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'id':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.id = valueDes;
-          break;
-        case r'name':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.name = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+  final String name;
+
+
+
+
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is CountryEntity &&
+      other.id == id &&
+      other.name == name;
+
+    @override
+    int get hashCode =>
+        id.hashCode +
+        name.hashCode;
+
+  factory CountryEntity.fromJson(Map<String, dynamic> json) => _$CountryEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CountryEntityToJson(this);
 
   @override
-  CountryEntity deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = CountryEntityBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

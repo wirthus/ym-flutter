@@ -1,5 +1,5 @@
 generatorName: dart-dio
-inputSpec: ym/v1/spec.json
+inputSpec: ym/v1/spec.yaml
 outputDir: ym/v1/generated
 enablePostProcessFile: true
 additionalProperties:
@@ -7,3 +7,6 @@ additionalProperties:
   pubVersion: 1.0.0
   browserClient: false
   useEnumExtension: true
+  sortModelPropertiesByRequiredFlag: false
+  sortParamsByRequiredFlag: false
+  serializationLibrary: json_serializable

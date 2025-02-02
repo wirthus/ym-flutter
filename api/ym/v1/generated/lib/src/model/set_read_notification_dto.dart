@@ -3,123 +3,118 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'set_read_notification_dto.g.dart';
 
-/// SetReadNotificationDto
-///
-/// Properties:
-/// * [types] 
-/// * [subtypes] 
-@BuiltValue()
-abstract class SetReadNotificationDto implements Built<SetReadNotificationDto, SetReadNotificationDtoBuilder> {
-  @BuiltValueField(wireName: r'types')
-  BuiltList<String> get types;
 
-  @BuiltValueField(wireName: r'subtypes')
-  BuiltList<String>? get subtypes;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class SetReadNotificationDto {
+  /// Returns a new [SetReadNotificationDto] instance.
+  SetReadNotificationDto({
 
-  SetReadNotificationDto._();
+    required  this.types,
 
-  factory SetReadNotificationDto([void updates(SetReadNotificationDtoBuilder b)]) = _$SetReadNotificationDto;
+     this.subtypes,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SetReadNotificationDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'types',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SetReadNotificationDto> get serializer => _$SetReadNotificationDtoSerializer();
+
+  final List<TypesEnum> types;
+
+
+
+  @JsonKey(
+    
+    name: r'subtypes',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final List<SubtypesEnum>? subtypes;
+
+
+
+
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is SetReadNotificationDto &&
+      other.types == types &&
+      other.subtypes == subtypes;
+
+    @override
+    int get hashCode =>
+        types.hashCode +
+        subtypes.hashCode;
+
+  factory SetReadNotificationDto.fromJson(Map<String, dynamic> json) => _$SetReadNotificationDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SetReadNotificationDtoToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
+  }
+
 }
 
-class _$SetReadNotificationDtoSerializer implements PrimitiveSerializer<SetReadNotificationDto> {
-  @override
-  final Iterable<Type> types = const [SetReadNotificationDto, _$SetReadNotificationDto];
 
-  @override
-  final String wireName = r'SetReadNotificationDto';
+enum SetReadNotificationDtoTypesEnum {
+@JsonValue(r'system')
+system(r'system'),
+@JsonValue(r'subscription')
+subscription(r'subscription'),
+@JsonValue(r'user')
+user(r'user');
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    SetReadNotificationDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'types';
-    yield serializers.serialize(
-      object.types,
-      specifiedType: const FullType(BuiltList, [FullType(String)]),
-    );
-    if (object.subtypes != null) {
-      yield r'subtypes';
-      yield serializers.serialize(
-        object.subtypes,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
-      );
-    }
-  }
+const SetReadNotificationDtoTypesEnum(this.value);
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    SetReadNotificationDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+final String value;
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required SetReadNotificationDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'types':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
-          result.types.replace(valueDes);
-          break;
-        case r'subtypes':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
-          result.subtypes.replace(valueDes);
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
-
-  @override
-  SetReadNotificationDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = SetReadNotificationDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
-  }
+@override
+String toString() => value;
 }
+
+
+
+enum SetReadNotificationDtoSubtypesEnum {
+@JsonValue(r'advert_published')
+advertPublished(r'advert_published'),
+@JsonValue(r'advert_changed_price')
+advertChangedPrice(r'advert_changed_price'),
+@JsonValue(r'advert_changed_status')
+advertChangedStatus(r'advert_changed_status'),
+@JsonValue(r'advert_changed_content')
+advertChangedContent(r'advert_changed_content'),
+@JsonValue(r'purchase_point_published')
+purchasePointPublished(r'purchase_point_published'),
+@JsonValue(r'purchase_advert_published')
+purchaseAdvertPublished(r'purchase_advert_published'),
+@JsonValue(r'purchase_advert_changed_price')
+purchaseAdvertChangedPrice(r'purchase_advert_changed_price'),
+@JsonValue(r'purchase_advert_changed_status')
+purchaseAdvertChangedStatus(r'purchase_advert_changed_status'),
+@JsonValue(r'purchase_advert_changed_content')
+purchaseAdvertChangedContent(r'purchase_advert_changed_content');
+
+const SetReadNotificationDtoSubtypesEnum(this.value);
+
+final String value;
+
+@override
+String toString() => value;
+}
+
 

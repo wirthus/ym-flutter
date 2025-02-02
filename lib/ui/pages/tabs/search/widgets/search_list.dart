@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yagodmarket/data/models/mocks/advert_mocks.dart';
+import 'package:yagodmarket/data/mocks/advert_mocks.dart';
 import 'search_list_item.dart';
 
 class SearchList extends StatelessWidget {

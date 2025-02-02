@@ -6,272 +6,214 @@
 import 'package:ym_api_client/src/model/region_entity.dart';
 import 'package:ym_api_client/src/model/country_entity.dart';
 import 'package:ym_api_client/src/model/user_public_mobile_entity.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'user_public_entity.g.dart';
 
-/// UserPublicEntity
-///
-/// Properties:
-/// * [id] 
-/// * [name] 
-/// * [phones] 
-/// * [companyName] 
-/// * [city] 
-/// * [address] 
-/// * [country] 
-/// * [region] 
-/// * [info] 
-/// * [infoRu] 
-/// * [mobile] 
-@BuiltValue()
-abstract class UserPublicEntity implements Built<UserPublicEntity, UserPublicEntityBuilder> {
-  @BuiltValueField(wireName: r'id')
-  num get id;
 
-  @BuiltValueField(wireName: r'name')
-  String get name;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class UserPublicEntity {
+  /// Returns a new [UserPublicEntity] instance.
+  UserPublicEntity({
 
-  @BuiltValueField(wireName: r'phones')
-  String? get phones;
+    required  this.id,
 
-  @BuiltValueField(wireName: r'companyName')
-  String? get companyName;
+    required  this.name,
 
-  @BuiltValueField(wireName: r'city')
-  String? get city;
+    required  this.phones,
 
-  @BuiltValueField(wireName: r'address')
-  String? get address;
+    required  this.companyName,
 
-  @BuiltValueField(wireName: r'country')
-  CountryEntity get country;
+    required  this.city,
 
-  @BuiltValueField(wireName: r'region')
-  RegionEntity? get region;
+    required  this.address,
 
-  @BuiltValueField(wireName: r'info')
-  String? get info;
+    required  this.country,
 
-  @BuiltValueField(wireName: r'infoRu')
-  String? get infoRu;
+    required  this.region,
 
-  @BuiltValueField(wireName: r'mobile')
-  UserPublicMobileEntity? get mobile;
+    required  this.info,
 
-  UserPublicEntity._();
+    required  this.infoRu,
 
-  factory UserPublicEntity([void updates(UserPublicEntityBuilder b)]) = _$UserPublicEntity;
+    required  this.mobile,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UserPublicEntityBuilder b) => b;
+  @JsonKey(
+    
+    name: r'id',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserPublicEntity> get serializer => _$UserPublicEntitySerializer();
-}
 
-class _$UserPublicEntitySerializer implements PrimitiveSerializer<UserPublicEntity> {
-  @override
-  final Iterable<Type> types = const [UserPublicEntity, _$UserPublicEntity];
+  final int id;
 
-  @override
-  final String wireName = r'UserPublicEntity';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    UserPublicEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'id';
-    yield serializers.serialize(
-      object.id,
-      specifiedType: const FullType(num),
-    );
-    yield r'name';
-    yield serializers.serialize(
-      object.name,
-      specifiedType: const FullType(String),
-    );
-    yield r'phones';
-    yield object.phones == null ? null : serializers.serialize(
-      object.phones,
-      specifiedType: const FullType.nullable(String),
-    );
-    yield r'companyName';
-    yield object.companyName == null ? null : serializers.serialize(
-      object.companyName,
-      specifiedType: const FullType.nullable(String),
-    );
-    yield r'city';
-    yield object.city == null ? null : serializers.serialize(
-      object.city,
-      specifiedType: const FullType.nullable(String),
-    );
-    yield r'address';
-    yield object.address == null ? null : serializers.serialize(
-      object.address,
-      specifiedType: const FullType.nullable(String),
-    );
-    yield r'country';
-    yield serializers.serialize(
-      object.country,
-      specifiedType: const FullType(CountryEntity),
-    );
-    yield r'region';
-    yield object.region == null ? null : serializers.serialize(
-      object.region,
-      specifiedType: const FullType.nullable(RegionEntity),
-    );
-    yield r'info';
-    yield object.info == null ? null : serializers.serialize(
-      object.info,
-      specifiedType: const FullType.nullable(String),
-    );
-    yield r'infoRu';
-    yield object.infoRu == null ? null : serializers.serialize(
-      object.infoRu,
-      specifiedType: const FullType.nullable(String),
-    );
-    yield r'mobile';
-    yield object.mobile == null ? null : serializers.serialize(
-      object.mobile,
-      specifiedType: const FullType.nullable(UserPublicMobileEntity),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    UserPublicEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'name',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required UserPublicEntityBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'id':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.id = valueDes;
-          break;
-        case r'name':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.name = valueDes;
-          break;
-        case r'phones':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.phones = valueDes;
-          break;
-        case r'companyName':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.companyName = valueDes;
-          break;
-        case r'city':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.city = valueDes;
-          break;
-        case r'address':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.address = valueDes;
-          break;
-        case r'country':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(CountryEntity),
-          ) as CountryEntity;
-          result.country.replace(valueDes);
-          break;
-        case r'region':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(RegionEntity),
-          ) as RegionEntity?;
-          if (valueDes == null) continue;
-          result.region.replace(valueDes);
-          break;
-        case r'info':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.info = valueDes;
-          break;
-        case r'infoRu':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.infoRu = valueDes;
-          break;
-        case r'mobile':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(UserPublicMobileEntity),
-          ) as UserPublicMobileEntity?;
-          if (valueDes == null) continue;
-          result.mobile.replace(valueDes);
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+  final String name;
+
+
+
+  @JsonKey(
+    
+    name: r'phones',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final String? phones;
+
+
+
+  @JsonKey(
+    
+    name: r'companyName',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final String? companyName;
+
+
+
+  @JsonKey(
+    
+    name: r'city',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final String? city;
+
+
+
+  @JsonKey(
+    
+    name: r'address',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final String? address;
+
+
+
+  @JsonKey(
+    
+    name: r'country',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final CountryEntity country;
+
+
+
+  @JsonKey(
+    
+    name: r'region',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final RegionEntity? region;
+
+
+
+  @JsonKey(
+    
+    name: r'info',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final String? info;
+
+
+
+  @JsonKey(
+    
+    name: r'infoRu',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final String? infoRu;
+
+
+
+  @JsonKey(
+    
+    name: r'mobile',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final UserPublicMobileEntity? mobile;
+
+
+
+
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is UserPublicEntity &&
+      other.id == id &&
+      other.name == name &&
+      other.phones == phones &&
+      other.companyName == companyName &&
+      other.city == city &&
+      other.address == address &&
+      other.country == country &&
+      other.region == region &&
+      other.info == info &&
+      other.infoRu == infoRu &&
+      other.mobile == mobile;
+
+    @override
+    int get hashCode =>
+        id.hashCode +
+        name.hashCode +
+        (phones == null ? 0 : phones.hashCode) +
+        (companyName == null ? 0 : companyName.hashCode) +
+        (city == null ? 0 : city.hashCode) +
+        (address == null ? 0 : address.hashCode) +
+        country.hashCode +
+        (region == null ? 0 : region.hashCode) +
+        (info == null ? 0 : info.hashCode) +
+        (infoRu == null ? 0 : infoRu.hashCode) +
+        (mobile == null ? 0 : mobile.hashCode);
+
+  factory UserPublicEntity.fromJson(Map<String, dynamic> json) => _$UserPublicEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserPublicEntityToJson(this);
 
   @override
-  UserPublicEntity deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserPublicEntityBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

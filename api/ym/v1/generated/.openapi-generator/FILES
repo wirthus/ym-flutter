@@ -1,6 +1,7 @@
 .gitignore
 README.md
 analysis_options.yaml
+build.yaml
 doc/AddressDto.md
 doc/AdvertBuyAddPurchasePointsDto.md
 doc/AdvertBuyAddPurchasePointsResponseDto.md
@@ -70,8 +71,6 @@ doc/ProductSearchResultEntity.md
 doc/ProductSubGroupEntity.md
 doc/ProductSubGroupWithProductsEntity.md
 doc/ProductsApi.md
-doc/PurchaseAdvertGroup.md
-doc/PurchaseAdvertPublicEntity.md
 doc/PurchasePointAddAdvertsDto.md
 doc/PurchasePointAddAdvertsResponseDto.md
 doc/PurchasePointCloneAdvertsDto.md
@@ -79,7 +78,6 @@ doc/PurchasePointCloneAdvertsResponseDto.md
 doc/PurchasePointCloneDto.md
 doc/PurchasePointCloneResponseDto.md
 doc/PurchasePointCreateDto.md
-doc/PurchasePointGetPublicFullResponseDto.md
 doc/PurchasePointPrivateEntity.md
 doc/PurchasePointPrivateItemEntity.md
 doc/PurchasePointPublicEntity.md
@@ -114,6 +112,7 @@ doc/UserPublicMobileEntity.md
 doc/UserRegisterEmailDto.md
 doc/UserRegisterEmailResponseDto.md
 doc/UserRegisterPushTokenDto.md
+doc/UserType.md
 doc/UserUpdateDto.md
 doc/VkAccessToken.md
 lib/src/api.dart
@@ -129,13 +128,12 @@ lib/src/api/regions_api.dart
 lib/src/api/subscriptions_api.dart
 lib/src/api/test_api.dart
 lib/src/api/user_api.dart
-lib/src/api_util.dart
 lib/src/auth/api_key_auth.dart
 lib/src/auth/auth.dart
 lib/src/auth/basic_auth.dart
 lib/src/auth/bearer_auth.dart
 lib/src/auth/oauth.dart
-lib/src/date_serializer.dart
+lib/src/deserialize.dart
 lib/src/model/address_dto.dart
 lib/src/model/advert_buy_add_purchase_points_dto.dart
 lib/src/model/advert_buy_add_purchase_points_response_dto.dart
@@ -170,7 +168,6 @@ lib/src/model/country_entity.dart
 lib/src/model/country_with_regions_entity.dart
 lib/src/model/create_feedback_dto.dart
 lib/src/model/create_product_dto.dart
-lib/src/model/date.dart
 lib/src/model/forgot_password_dto.dart
 lib/src/model/group_products_count_entity.dart
 lib/src/model/login_dto.dart
@@ -199,8 +196,6 @@ lib/src/model/product_info_entity.dart
 lib/src/model/product_search_result_entity.dart
 lib/src/model/product_sub_group_entity.dart
 lib/src/model/product_sub_group_with_products_entity.dart
-lib/src/model/purchase_advert_group.dart
-lib/src/model/purchase_advert_public_entity.dart
 lib/src/model/purchase_point_add_adverts_dto.dart
 lib/src/model/purchase_point_add_adverts_response_dto.dart
 lib/src/model/purchase_point_clone_adverts_dto.dart
@@ -208,7 +203,6 @@ lib/src/model/purchase_point_clone_adverts_response_dto.dart
 lib/src/model/purchase_point_clone_dto.dart
 lib/src/model/purchase_point_clone_response_dto.dart
 lib/src/model/purchase_point_create_dto.dart
-lib/src/model/purchase_point_get_public_full_response_dto.dart
 lib/src/model/purchase_point_private_entity.dart
 lib/src/model/purchase_point_private_item_entity.dart
 lib/src/model/purchase_point_public_entity.dart
@@ -238,8 +232,8 @@ lib/src/model/user_public_mobile_entity.dart
 lib/src/model/user_register_email_dto.dart
 lib/src/model/user_register_email_response_dto.dart
 lib/src/model/user_register_push_token_dto.dart
+lib/src/model/user_type.dart
 lib/src/model/user_update_dto.dart
 lib/src/model/vk_access_token.dart
-lib/src/serializers.dart
 lib/ym_api_client.dart
 pubspec.yaml

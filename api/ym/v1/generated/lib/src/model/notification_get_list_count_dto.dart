@@ -3,126 +3,72 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:ym_api_client/src/model/notification_filter_dto.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'notification_get_list_count_dto.g.dart';
 
-/// NotificationGetListCountDto
-///
-/// Properties:
-/// * [filters] 
-/// * [limit] 
-@BuiltValue()
-abstract class NotificationGetListCountDto implements Built<NotificationGetListCountDto, NotificationGetListCountDtoBuilder> {
-  @BuiltValueField(wireName: r'filters')
-  BuiltList<NotificationFilterDto>? get filters;
 
-  @BuiltValueField(wireName: r'limit')
-  num? get limit;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class NotificationGetListCountDto {
+  /// Returns a new [NotificationGetListCountDto] instance.
+  NotificationGetListCountDto({
 
-  NotificationGetListCountDto._();
+     this.filters,
 
-  factory NotificationGetListCountDto([void updates(NotificationGetListCountDtoBuilder b)]) = _$NotificationGetListCountDto;
+     this.limit,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(NotificationGetListCountDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'filters',
+    required: false,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<NotificationGetListCountDto> get serializer => _$NotificationGetListCountDtoSerializer();
-}
 
-class _$NotificationGetListCountDtoSerializer implements PrimitiveSerializer<NotificationGetListCountDto> {
-  @override
-  final Iterable<Type> types = const [NotificationGetListCountDto, _$NotificationGetListCountDto];
+  final List<NotificationFilterDto>? filters;
 
-  @override
-  final String wireName = r'NotificationGetListCountDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    NotificationGetListCountDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    if (object.filters != null) {
-      yield r'filters';
-      yield serializers.serialize(
-        object.filters,
-        specifiedType: const FullType(BuiltList, [FullType(NotificationFilterDto)]),
-      );
-    }
-    if (object.limit != null) {
-      yield r'limit';
-      yield serializers.serialize(
-        object.limit,
-        specifiedType: const FullType(num),
-      );
-    }
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    NotificationGetListCountDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'limit',
+    required: false,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required NotificationGetListCountDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'filters':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(NotificationFilterDto)]),
-          ) as BuiltList<NotificationFilterDto>;
-          result.filters.replace(valueDes);
-          break;
-        case r'limit':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.limit = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+  final int? limit;
+
+
+
+
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is NotificationGetListCountDto &&
+      other.filters == filters &&
+      other.limit == limit;
+
+    @override
+    int get hashCode =>
+        filters.hashCode +
+        limit.hashCode;
+
+  factory NotificationGetListCountDto.fromJson(Map<String, dynamic> json) => _$NotificationGetListCountDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NotificationGetListCountDtoToJson(this);
 
   @override
-  NotificationGetListCountDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = NotificationGetListCountDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

@@ -8,7 +8,7 @@ import 'package:ym_api_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **num** |  | 
+**id** | **int** |  | 
 **name** | **String** |  | 
 **phones** | **String** |  | 
 **companyName** | **String** |  | 

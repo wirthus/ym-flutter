@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:yagodmarket/data/models/mocks/advert_mocks.dart';
+import 'package:yagodmarket/data/mocks/advert_mocks.dart';
 
 @RoutePage()
 class AdvertDetailsPage extends StatelessWidget {

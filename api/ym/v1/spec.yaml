@@ -1,0 +1,3543 @@
+openapi: 3.0.0
+paths:
+  /adverts/list:
+    post:
+      operationId: AdvertController_getPrivateList
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertGetPrivateListDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AdvertPrivateEntity"
+      tags: &a1
+        - Adverts
+  /adverts/count:
+    post:
+      operationId: AdvertController_getPrivateCount
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertGetPrivateListCountDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: number
+      tags: *a1
+  /adverts/search:
+    post:
+      operationId: AdvertController_search
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertSearchDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AdvertPublicFavoriteEntity"
+      tags: *a1
+  /adverts/last:
+    post:
+      operationId: AdvertController_getLast
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertGetLastPublicListDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AdvertPublicFavoriteEntity"
+      tags: *a1
+  /adverts/map:
+    post:
+      operationId: AdvertController_getMap
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertGetPublicMapListDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AdvertMapEntity"
+      tags: *a1
+  /adverts/favorites:
+    get:
+      operationId: AdvertController_getFavorites
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AdvertPublicFavoriteEntity"
+      tags: *a1
+  /adverts/buy/list:
+    post:
+      operationId: AdvertController_getBuyList
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertBuyGetListDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdvertBuyGetListResponseDto"
+      tags: *a1
+  /adverts/buy:
+    post:
+      operationId: AdvertController_createBuy
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertBuyCreateDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdvertBuyEntity"
+      tags: *a1
+  /adverts/buy/{id}/enable:
+    put:
+      operationId: AdvertController_enableBuy
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertBuySetEnabledDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: boolean
+      tags: *a1
+  /adverts/buy/{id}/purchasePoints:
+    post:
+      operationId: AdvertController_addPurchasePoints
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertBuyAddPurchasePointsDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdvertBuyAddPurchasePointsResponseDto"
+      tags: *a1
+    delete:
+      operationId: AdvertController_removePurchasePoints
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertBuyRemovePurchasePointsDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdvertBuyRemovePurchasePointsResponseDto"
+      tags: *a1
+  /adverts/buy/{id}/clone:
+    post:
+      operationId: AdvertController_cloneBuy
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdvertPrivateEntity"
+      tags: *a1
+  /adverts/buy/{id}:
+    get:
+      operationId: AdvertController_getBuy
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdvertBuyEntity"
+      tags: *a1
+    put:
+      operationId: AdvertController_updateBuy
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertBuyUpdateDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdvertBuyUpdateResponseDto"
+      tags: *a1
+    delete:
+      operationId: AdvertController_deleteBuy
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: number
+      tags: *a1
+  /adverts/{id}/favorite:
+    put:
+      operationId: AdvertController_setFavorite
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertUpdateFavoriteDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: boolean
+      tags: *a1
+  /adverts/{id}/edit:
+    get:
+      operationId: AdvertController_getPrivate
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdvertPrivateEntity"
+      tags: *a1
+  /adverts/{id}:
+    get:
+      operationId: AdvertController_getPublic
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdvertPublicFavoriteEntity"
+      tags: *a1
+    put:
+      operationId: AdvertController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertUpdateDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdvertPrivateEntity"
+      tags: *a1
+    delete:
+      operationId: AdvertController_delete
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: boolean
+      tags: *a1
+  /adverts:
+    post:
+      operationId: AdvertController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdvertCreateDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdvertPrivateEntity"
+      tags: *a1
+  /auth/register:
+    post:
+      operationId: AuthController_signup
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserRegisterEmailDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserRegisterEmailResponseDto"
+      tags: &a2
+        - Auth
+  /auth/login:
+    post:
+      operationId: AuthController_login
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginResponseDto"
+      tags: *a2
+  /auth/login-phone:
+    post:
+      operationId: AuthController_loginPhone
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginPhoneDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginResponseDto"
+      tags: *a2
+  /auth/login-vk:
+    post:
+      operationId: AuthController_loginVk
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginVkDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginVkResponseDto"
+      tags: *a2
+  /auth/logout:
+    post:
+      operationId: AuthController_logout
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LogoutDto"
+      responses:
+        "200":
+          description: ""
+      tags: *a2
+  /auth/forgot-password:
+    post:
+      operationId: AuthController_forgotPassword
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ForgotPasswordDto"
+      responses:
+        "200":
+          description: ""
+      tags: *a2
+  /auth/confirm-email:
+    post:
+      operationId: AuthController_confirmEmail
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ForgotPasswordDto"
+      responses:
+        "201":
+          description: ""
+      tags: *a2
+  /countries:
+    get:
+      operationId: CountryController_getAll
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CountryWithRegionsEntity"
+      tags: &a3
+        - Countries
+  /countries/{id}:
+    get:
+      operationId: CountryController_get
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CountryWithRegionsEntity"
+      tags: *a3
+  /feedback:
+    post:
+      operationId: FeedbackController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateFeedbackDto"
+      responses:
+        "201":
+          description: ""
+      tags:
+        - Feedback
+  /notifications/list:
+    post:
+      operationId: NotificationController_getList
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NotificationGetListDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/NotificationEntity"
+      tags: &a4
+        - Notifications
+  /notifications/count:
+    post:
+      operationId: NotificationController_getCount
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NotificationGetListCountDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: number
+      tags: *a4
+  /notifications/adverts/count:
+    post:
+      operationId: NotificationController_getAdvertsCount
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NotificationGetListAdvertsCountDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: number
+      tags: *a4
+  /notifications/adverts:
+    post:
+      operationId: NotificationController_getAdverts
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              title: PaginatedBodyOfNotificationGetListAdvertsDto
+              type: object
+              required:
+                - data
+                - paginate
+              properties:
+                data:
+                  $ref: "#/components/schemas/NotificationGetListAdvertsDto"
+                paginate:
+                  $ref: "#/components/schemas/PaginateParamsDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                title: PaginatedResponseOfNotificationAdvertEntity
+                allOf:
+                  - $ref: "#/components/schemas/PaginatedEntity"
+                  - required:
+                      - items
+                    properties:
+                      items:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/NotificationAdvertEntity"
+      tags: *a4
+  /notifications/read/all:
+    post:
+      operationId: NotificationController_setReadAll
+      parameters: []
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: number
+      tags: *a4
+  /notifications/read:
+    post:
+      operationId: NotificationController_setReadSubgroups
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SetReadNotificationDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: number
+      tags: *a4
+  /notifications/{id}/read:
+    post:
+      operationId: NotificationController_setRead
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: boolean
+      tags: *a4
+  /notifications/{id}:
+    get:
+      operationId: NotificationController_getOne
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+      tags: *a4
+  /phone/register:
+    post:
+      operationId: PhoneController_register
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterPhoneDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RegisterPhoneResponseDto"
+      tags: &a5
+        - Phone
+  /phone/confirm:
+    post:
+      operationId: PhoneController_confirm
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ConfirmPhoneBodyDto"
+      responses:
+        "201":
+          description: ""
+      tags: *a5
+  /phone/check:
+    post:
+      operationId: PhoneController_check
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PhoneKeyDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: boolean
+      tags: *a5
+  /phone:
+    post:
+      operationId: PhoneController_getPhone
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PhoneKeyDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: string
+      tags: *a5
+  /products/groups:
+    get:
+      operationId: ProductController_getGroups
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductGroupEntity"
+      tags: &a6
+        - Products
+  /products/groups/full:
+    get:
+      operationId: ProductController_getGroupsWithProducts
+      parameters:
+        - name: subGroups
+          required: false
+          in: query
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductGroupWithProductsEntity"
+      tags: *a6
+  /products/groups/products/count:
+    get:
+      operationId: ProductController_getGroupsProductsCount
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/GroupProductsCountEntity"
+      tags: *a6
+  /products/groups/{id}/full:
+    get:
+      operationId: ProductController_getGroupWithProducts
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+        - name: subGroups
+          required: false
+          in: query
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductGroupWithProductsEntity"
+      tags: *a6
+  /products/groups/{id}:
+    get:
+      operationId: ProductController_getProductsByGroup
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductEntity"
+      tags: *a6
+  /products/subGroups:
+    get:
+      operationId: ProductController_getSubGroups
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductGroupEntity"
+      tags: *a6
+  /products/{id}/subGroups:
+    get:
+      operationId: ProductController_getSubGroupsByProductId
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductSubGroupEntity"
+      tags: *a6
+  /products/search:
+    get:
+      operationId: ProductController_search
+      parameters:
+        - name: name
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductEntity"
+      tags: *a6
+  /products/search-ex:
+    post:
+      operationId: ProductController_searchEx
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SearchProductAdvancedDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductSearchResultEntity"
+      tags: *a6
+  /products:
+    post:
+      operationId: ProductController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateProductDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductEntity"
+      tags: *a6
+  /products/{id}/info:
+    get:
+      operationId: ProductController_getInfo
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductInfoEntity"
+      tags: *a6
+  /products/{id}:
+    get:
+      operationId: ProductController_get
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductEntity"
+      tags: *a6
+  /purchasePoints/list:
+    post:
+      operationId: PurchasePointController_getList
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchasePointsGetPrivateListDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PurchasePointPrivateItemEntity"
+      tags: &a7
+        - PurchasePoints
+  /purchasePoints/count:
+    post:
+      operationId: PurchasePointController_getCount
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchasePointsGetPrivateListDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: number
+      tags: *a7
+  /purchasePoints:
+    post:
+      operationId: PurchasePointController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchasePointCreateDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PurchasePointPrivateEntity"
+      tags: *a7
+  /purchasePoints/{id}/clone:
+    post:
+      operationId: PurchasePointController_clone
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchasePointCloneDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PurchasePointCloneResponseDto"
+      tags: *a7
+  /purchasePoints/{id}/edit:
+    get:
+      operationId: PurchasePointController_getPrivate
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PurchasePointPrivateEntity"
+      tags: *a7
+  /purchasePoints/{id}/enable:
+    put:
+      operationId: PurchasePointController_setEnabled
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchasePointSetEnabledDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PurchasePointSetEnabledResponseDto"
+      tags: *a7
+  /purchasePoints/{id}/adverts/{advertBuyId}/enable:
+    put:
+      operationId: PurchasePointController_setAdvertEnabled
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+        - name: advertBuyId
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchasePointSetAdvertEnabledDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PurchasePointSetAdvertEnabledResponseDto"
+      tags: *a7
+  /purchasePoints/{id}/adverts:
+    get:
+      operationId: PurchasePointController_getAdverts
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AdvertBuyEntity"
+      tags: *a7
+    post:
+      operationId: PurchasePointController_addAdverts
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchasePointAddAdvertsDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PurchasePointAddAdvertsResponseDto"
+      tags: *a7
+    delete:
+      operationId: PurchasePointController_removeAdverts
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchasePointRemoveAdvertsDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PurchasePointRemoveAdvertsResponseDto"
+      tags: *a7
+  /purchasePoints/{id}/adverts/clone:
+    post:
+      operationId: PurchasePointController_cloneAdverts
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchasePointCloneAdvertsDto"
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PurchasePointCloneAdvertsResponseDto"
+      tags: *a7
+  /purchasePoints/{id}:
+    get:
+      operationId: PurchasePointController_getPublic
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PurchasePointPublicEntity"
+      tags: *a7
+    put:
+      operationId: PurchasePointController_update
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchasePointUpdateDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PurchasePointUpdateResponseDto"
+      tags: *a7
+    delete:
+      operationId: PurchasePointController_delete
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: number
+      tags: *a7
+  /regions:
+    get:
+      operationId: RegionController_getAll
+      parameters:
+        - name: countryId
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: test
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: boolean
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RegionEntity"
+      tags: &a8
+        - Regions
+  /regions/{id}:
+    get:
+      operationId: RegionController_get
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RegionEntity"
+      tags: *a8
+  /subscriptions/get:
+    get:
+      operationId: SubscriptionController_get
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubscriptionEntity"
+      tags: &a9
+        - Subscriptions
+  /subscriptions/upsert:
+    put:
+      operationId: SubscriptionController_upsert
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpsertSubscribesDto"
+      responses:
+        "200":
+          description: ""
+      tags: *a9
+  /user:
+    get:
+      operationId: UserController_get
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserPrivateEntity"
+      tags: &a10
+        - User
+    put:
+      operationId: UserController_update
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserUpdateDto"
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserPrivateEntity"
+      tags: *a10
+  /user/push-token:
+    put:
+      operationId: UserController_registerPushToken
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserRegisterPushTokenDto"
+      responses:
+        "200":
+          description: ""
+      tags: *a10
+  /test/regions/auto-fill:
+    get:
+      operationId: TestController_autoFillRegions
+      parameters: []
+      responses:
+        "200":
+          description: ""
+      tags: &a11
+        - Test
+  /test/regions/fill-location:
+    get:
+      operationId: TestController_fillRegionsLocation
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+      tags: *a11
+  /test/adverts/fill-location:
+    get:
+      operationId: TestController_fillAdvertsLocation
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: number
+      tags: *a11
+  /test/adverts/fill-region:
+    get:
+      operationId: TestController_fillAdvertsRegion
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: number
+      tags: *a11
+info:
+  title: YagodMarket
+  description: YagodMarket API
+  version: "1.0"
+  contact: {}
+tags: []
+servers:
+  - url: /api
+components:
+  securitySchemes:
+    bearer:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+      in: header
+  schemas:
+    AdvertFilterDto:
+      type: object
+      properties:
+        published:
+          type: boolean
+        moderate:
+          type: number
+          enum:
+            - 0
+            - 1
+            - 2
+        status:
+          type: number
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+    AdvertGetPrivateListDto:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdvertFilterDto"
+    ProductEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - id
+        - name
+    CountryEntity:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+        - id
+        - name
+    RegionEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        countryId:
+          type: string
+      required:
+        - id
+        - name
+        - countryId
+    UserPublicMobileEntity:
+      type: object
+      properties:
+        isCompany:
+          type: boolean
+        companyInn:
+          type: string
+          nullable: true
+      required:
+        - isCompany
+        - companyInn
+    UserPublicEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        phones:
+          type: string
+          nullable: true
+        companyName:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        country:
+          $ref: "#/components/schemas/CountryEntity"
+        region:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/RegionEntity"
+        info:
+          type: string
+          nullable: true
+        infoRu:
+          type: string
+          nullable: true
+        mobile:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/UserPublicMobileEntity"
+      required:
+        - id
+        - name
+        - phones
+        - companyName
+        - city
+        - address
+        - country
+        - region
+        - info
+        - infoRu
+        - mobile
+    CleaningEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - id
+        - name
+    PackingEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - id
+        - name
+    QualityEntity:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+      required:
+        - id
+        - name
+    RecyclingEntity:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+      required:
+        - id
+        - name
+    AdvertBuyPublicEntity:
+      type: object
+      properties:
+        priceLow:
+          type: number
+          minimum: 0
+        priceHigh:
+          type: number
+          minimum: 0
+        description:
+          type: string
+          nullable: true
+      required:
+        - priceLow
+        - priceHigh
+        - description
+    AdvertPrivateEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        purchase:
+          type: boolean
+        published:
+          type: boolean
+        moderate:
+          enum: &a12
+            - 0
+            - 1
+            - 2
+          type: number
+        price:
+          type: number
+          minimum: 0
+        quantity:
+          type: integer
+          minimum: 0
+        contractPrice:
+          type: boolean
+        productId:
+          type: integer
+        ownerId:
+          type: integer
+        countryId:
+          type: string
+        regionId:
+          type: integer
+          nullable: true
+        cleaningId:
+          type: integer
+          nullable: true
+        packingId:
+          type: integer
+          nullable: true
+        qualityId:
+          type: integer
+          nullable: true
+        recyclingId:
+          type: integer
+          nullable: true
+        publicationDate:
+          type: string
+          nullable: true
+          format: date-time
+        info:
+          type: string
+          nullable: true
+        infoRu:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        lat:
+          type: number
+          nullable: true
+        lon:
+          type: number
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+        product:
+          $ref: "#/components/schemas/ProductEntity"
+        user:
+          $ref: "#/components/schemas/UserPublicEntity"
+        cleaning:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/CleaningEntity"
+        packing:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/PackingEntity"
+        quality:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/QualityEntity"
+        recycling:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/RecyclingEntity"
+        country:
+          $ref: "#/components/schemas/CountryEntity"
+        region:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/RegionEntity"
+        advertBuy:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/AdvertBuyPublicEntity"
+        moderateComment:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - purchase
+        - published
+        - moderate
+        - price
+        - quantity
+        - contractPrice
+        - productId
+        - ownerId
+        - countryId
+        - regionId
+        - cleaningId
+        - packingId
+        - qualityId
+        - recyclingId
+        - publicationDate
+        - info
+        - infoRu
+        - address
+        - lat
+        - lon
+        - updatedAt
+        - product
+        - user
+        - cleaning
+        - packing
+        - quality
+        - recycling
+        - country
+        - region
+        - advertBuy
+        - moderateComment
+        - createdAt
+    AdvertGetPrivateListCountDto:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdvertFilterDto"
+    AdvertSearchDto:
+      type: object
+      properties:
+        text:
+          type: string
+        purchase:
+          type: boolean
+        countryId:
+          type: string
+        regionIds:
+          type: array
+          items:
+            type: number
+        quantityStart:
+          type: number
+          minimum: 1
+        quantityEnd:
+          type: number
+          minimum: 1
+        priceStart:
+          type: number
+          minimum: 1
+        priceEnd:
+          type: number
+          minimum: 1
+        sortType:
+          type: string
+          enum:
+            - date_asc
+            - date_desc
+            - price_asc
+            - price_desc
+            - quantity_asc
+            - quantity_desc
+        limit:
+          type: number
+          minimum: 1
+        offset:
+          type: number
+          minimum: 1
+      required:
+        - text
+        - purchase
+    AdvertPublicFavoriteEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        purchase:
+          type: boolean
+        published:
+          type: boolean
+        moderate:
+          enum: *a12
+          type: number
+        price:
+          type: number
+          minimum: 0
+        quantity:
+          type: integer
+          minimum: 0
+        contractPrice:
+          type: boolean
+        productId:
+          type: integer
+        ownerId:
+          type: integer
+        countryId:
+          type: string
+        regionId:
+          type: integer
+          nullable: true
+        cleaningId:
+          type: integer
+          nullable: true
+        packingId:
+          type: integer
+          nullable: true
+        qualityId:
+          type: integer
+          nullable: true
+        recyclingId:
+          type: integer
+          nullable: true
+        publicationDate:
+          type: string
+          nullable: true
+          format: date-time
+        info:
+          type: string
+          nullable: true
+        infoRu:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        lat:
+          type: number
+          nullable: true
+        lon:
+          type: number
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+        product:
+          $ref: "#/components/schemas/ProductEntity"
+        user:
+          $ref: "#/components/schemas/UserPublicEntity"
+        cleaning:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/CleaningEntity"
+        packing:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/PackingEntity"
+        quality:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/QualityEntity"
+        recycling:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/RecyclingEntity"
+        country:
+          $ref: "#/components/schemas/CountryEntity"
+        region:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/RegionEntity"
+        advertBuy:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/AdvertBuyPublicEntity"
+        isFavorite:
+          type: boolean
+      required:
+        - id
+        - purchase
+        - published
+        - moderate
+        - price
+        - quantity
+        - contractPrice
+        - productId
+        - ownerId
+        - countryId
+        - regionId
+        - cleaningId
+        - packingId
+        - qualityId
+        - recyclingId
+        - publicationDate
+        - info
+        - infoRu
+        - address
+        - lat
+        - lon
+        - updatedAt
+        - product
+        - user
+        - cleaning
+        - packing
+        - quality
+        - recycling
+        - country
+        - region
+        - advertBuy
+        - isFavorite
+    AdvertGetLastPublicListDto:
+      type: object
+      properties:
+        purchase:
+          type: boolean
+        countryId:
+          type: string
+        regionIds:
+          type: array
+          items:
+            type: number
+        quantityStart:
+          type: number
+          minimum: 1
+        quantityEnd:
+          type: number
+          minimum: 1
+        priceStart:
+          type: number
+          minimum: 1
+        priceEnd:
+          type: number
+          minimum: 1
+        sortType:
+          type: string
+          enum:
+            - date_asc
+            - date_desc
+            - price_asc
+            - price_desc
+            - quantity_asc
+            - quantity_desc
+        limit:
+          type: number
+          minimum: 1
+      required:
+        - purchase
+    AdvertPublicFilterDto:
+      type: object
+      properties:
+        id:
+          type: number
+        category:
+          type: string
+          enum:
+            - product
+            - group
+            - subgroup
+      required:
+        - id
+        - category
+    AdvertGetPublicMapListDto:
+      type: object
+      properties:
+        purchase:
+          type: boolean
+        countryId:
+          type: string
+        regionIds:
+          type: array
+          items:
+            type: number
+        filters:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdvertPublicFilterDto"
+        returnPurchasePointsOnly:
+          type: boolean
+      required:
+        - purchase
+    AdvertMapEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        purchase:
+          type: boolean
+        price:
+          type: number
+          minimum: 0
+        quantity:
+          type: number
+          minimum: 0
+        lat:
+          type: number
+          nullable: true
+        lon:
+          type: number
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - purchase
+        - price
+        - quantity
+        - lat
+        - lon
+        - updatedAt
+    AdvertBuyGetListFilter:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        purchasePointIds:
+          type: array
+          items:
+            type: number
+    AdvertBuyGetListDto:
+      type: object
+      properties:
+        filter:
+          $ref: "#/components/schemas/AdvertBuyGetListFilter"
+        orderBy:
+          type: string
+          enum:
+            - name
+            - createdAt
+    AdvertBuyEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        enabled:
+          type: boolean
+        deleted:
+          type: boolean
+        priceLow:
+          type: number
+          minimum: 0
+        priceHigh:
+          type: number
+          minimum: 0
+        description:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        deletedAt:
+          type: string
+          nullable: true
+          format: date-time
+        user:
+          $ref: "#/components/schemas/UserPublicEntity"
+        product:
+          $ref: "#/components/schemas/ProductEntity"
+        cleaning:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/CleaningEntity"
+        packing:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/PackingEntity"
+        quality:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/QualityEntity"
+        recycling:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/RecyclingEntity"
+      required:
+        - id
+        - enabled
+        - deleted
+        - priceLow
+        - priceHigh
+        - description
+        - createdAt
+        - updatedAt
+        - deletedAt
+        - user
+        - product
+        - cleaning
+        - packing
+        - quality
+        - recycling
+    AdvertBuyGetListResponseDto:
+      type: object
+      properties:
+        adverts:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdvertBuyEntity"
+      required:
+        - adverts
+    AdvertBuyCreateDto:
+      type: object
+      properties:
+        productId:
+          type: number
+        cleaningId:
+          type: number
+          nullable: true
+          minimum: 0
+        packingId:
+          type: number
+          nullable: true
+          minimum: 0
+        qualityId:
+          type: number
+          nullable: true
+          minimum: 0
+        recyclingId:
+          type: number
+          nullable: true
+          minimum: 0
+        enabled:
+          type: boolean
+        temporary:
+          type: boolean
+        priceLow:
+          type: number
+          minimum: 0
+        priceHigh:
+          type: number
+          minimum: 0
+        description:
+          type: string
+          nullable: true
+      required:
+        - productId
+        - priceLow
+        - priceHigh
+    AdvertBuySetEnabledDto:
+      type: object
+      properties:
+        value:
+          type: boolean
+      required:
+        - value
+    AdvertBuyAddPurchasePointsDto:
+      type: object
+      properties:
+        purchasePointIds:
+          type: array
+          items:
+            type: number
+      required:
+        - purchasePointIds
+    AdvertBuyAddPurchasePointsResponseDto:
+      type: object
+      properties:
+        advertIds:
+          type: array
+          items:
+            type: number
+      required:
+        - advertIds
+    AdvertBuyRemovePurchasePointsDto:
+      type: object
+      properties:
+        purchasePointIds:
+          type: array
+          items:
+            type: number
+      required:
+        - purchasePointIds
+    AdvertBuyRemovePurchasePointsResponseDto:
+      type: object
+      properties:
+        advertIds:
+          type: array
+          items:
+            type: number
+      required:
+        - advertIds
+    AdvertBuyUpdateDto:
+      type: object
+      properties:
+        cleaningId:
+          type: number
+          nullable: true
+          minimum: 0
+        packingId:
+          type: number
+          nullable: true
+          minimum: 0
+        qualityId:
+          type: number
+          nullable: true
+          minimum: 0
+        recyclingId:
+          type: number
+          nullable: true
+          minimum: 0
+        enabled:
+          type: boolean
+        temporary:
+          type: boolean
+        priceLow:
+          type: number
+          minimum: 0
+        priceHigh:
+          type: number
+          minimum: 0
+        description:
+          type: string
+          nullable: true
+    AdvertBuyUpdateResponseDto:
+      type: object
+      properties:
+        updated:
+          type: boolean
+        advertBuy:
+          $ref: "#/components/schemas/AdvertBuyEntity"
+        updatedAdvertCount:
+          type: number
+      required:
+        - updated
+        - advertBuy
+        - updatedAdvertCount
+    AdvertUpdateFavoriteDto:
+      type: object
+      properties:
+        value:
+          type: boolean
+      required:
+        - value
+    AddressDto:
+      type: object
+      properties:
+        address:
+          type: string
+        lat:
+          type: number
+        lon:
+          type: number
+      required:
+        - address
+        - lat
+        - lon
+    AdvertUpdateDto:
+      type: object
+      properties:
+        published:
+          type: boolean
+        purchase:
+          type: boolean
+        price:
+          type: number
+          minimum: 0
+        quantity:
+          type: number
+          minimum: 1
+        cleaningId:
+          type: number
+          nullable: true
+          minimum: 0
+        packingId:
+          type: number
+          nullable: true
+          minimum: 0
+        qualityId:
+          type: number
+          nullable: true
+          minimum: 0
+        recyclingId:
+          type: number
+          nullable: true
+          minimum: 0
+        info:
+          type: string
+          nullable: true
+        address:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/AddressDto"
+    AdvertCreateDto:
+      type: object
+      properties:
+        purchase:
+          type: boolean
+        published:
+          type: boolean
+        price:
+          type: number
+          minimum: 0
+        quantity:
+          type: number
+          minimum: 1
+        productId:
+          type: number
+          minimum: 1
+        cleaningId:
+          type: number
+          nullable: true
+          minimum: 0
+        packingId:
+          type: number
+          nullable: true
+          minimum: 0
+        qualityId:
+          type: number
+          nullable: true
+          minimum: 0
+        recyclingId:
+          type: number
+          nullable: true
+          minimum: 0
+        info:
+          type: string
+          nullable: true
+        address:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/AddressDto"
+      required:
+        - purchase
+        - published
+        - price
+        - quantity
+        - productId
+        - address
+    UserRegisterEmailDto:
+      type: object
+      properties:
+        email:
+          type: string
+        phone:
+          type: string
+        password:
+          type: string
+        userType:
+          enum:
+            - 0
+            - 1
+          type: number
+        contactName:
+          type: string
+          minLength: 3
+        countryId:
+          type: string
+        regionId:
+          type: integer
+        address:
+          type: string
+        isCompany:
+          type: boolean
+        companyName:
+          type: string
+        companyInn:
+          type: string
+        description:
+          type: string
+      required:
+        - email
+        - password
+        - userType
+        - contactName
+        - countryId
+    UserPrivateMobileEntity:
+      type: object
+      properties:
+        vkUserId:
+          type: bigint
+          nullable: true
+        type:
+          type: integer
+        isCompany:
+          type: boolean
+        isRegistrationCompleted:
+          type: boolean
+        companyInn:
+          type: string
+          nullable: true
+      required:
+        - vkUserId
+        - type
+        - isCompany
+        - isRegistrationCompleted
+        - companyInn
+    UserRegisterEmailResponseDto:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        phones:
+          type: string
+          nullable: true
+        companyName:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        country:
+          $ref: "#/components/schemas/CountryEntity"
+        region:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/RegionEntity"
+        info:
+          type: string
+          nullable: true
+        infoRu:
+          type: string
+          nullable: true
+        isActive:
+          type: boolean
+        email:
+          type: string
+        mobile:
+          nullable: true
+          default: null
+          allOf:
+            - $ref: "#/components/schemas/UserPrivateMobileEntity"
+      required:
+        - id
+        - name
+        - phones
+        - companyName
+        - city
+        - address
+        - country
+        - region
+        - info
+        - infoRu
+        - isActive
+        - email
+        - mobile
+    LoginDto:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      required:
+        - username
+        - password
+    LoginResponseDto:
+      type: object
+      properties:
+        userId:
+          type: integer
+        accessToken:
+          type: string
+      required:
+        - userId
+        - accessToken
+    LoginPhoneDto:
+      type: object
+      properties:
+        callId:
+          type: string
+        requestId:
+          type: string
+      required:
+        - callId
+        - requestId
+    LoginVkDto:
+      type: object
+      properties:
+        version:
+          type: string
+        token:
+          type: string
+        uuid:
+          type: string
+      required:
+        - version
+        - token
+        - uuid
+    VkAccessToken:
+      type: object
+      properties:
+        accessToken:
+          type: string
+        userId:
+          type: string
+      required:
+        - accessToken
+        - userId
+    LoginVkResponseDto:
+      type: object
+      properties:
+        userId:
+          type: integer
+        isNew:
+          type: boolean
+        vk:
+          $ref: "#/components/schemas/VkAccessToken"
+        accessToken:
+          type: string
+      required:
+        - userId
+        - isNew
+        - vk
+        - accessToken
+    LogoutDto:
+      type: object
+      properties:
+        deviceId:
+          type: string
+          nullable: true
+    ForgotPasswordDto:
+      type: object
+      properties:
+        email:
+          type: string
+      required:
+        - email
+    CountryWithRegionsEntity:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        regions:
+          type: array
+          items:
+            $ref: "#/components/schemas/RegionEntity"
+      required:
+        - id
+        - name
+        - regions
+    CreateFeedbackDto:
+      type: object
+      properties:
+        name:
+          type: string
+        contact:
+          type: string
+        message:
+          type: string
+      required:
+        - message
+    NotificationFilterDto:
+      type: object
+      properties:
+        type:
+          enum:
+            - system
+            - subscription
+            - user
+          type: string
+        status:
+          enum:
+            - unread
+            - read
+            - archived
+          type: string
+    NotificationGetListDto:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: "#/components/schemas/NotificationFilterDto"
+        limit:
+          type: integer
+          minimum: 0
+    NotificationEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        advertId:
+          type: integer
+          nullable: true
+          default: null
+        actionId:
+          type: integer
+          nullable: true
+          default: null
+        type:
+          type: string
+        subtype:
+          type: string
+          nullable: true
+          default: null
+        category:
+          type: string
+        status:
+          type: string
+        priority:
+          type: string
+        title:
+          type: string
+        content:
+          type: string
+        goActionType:
+          type: string
+          nullable: true
+          default: null
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - userId
+        - advertId
+        - actionId
+        - type
+        - subtype
+        - category
+        - status
+        - priority
+        - title
+        - content
+        - goActionType
+        - createdAt
+        - updatedAt
+    NotificationGetListCountDto:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: "#/components/schemas/NotificationFilterDto"
+        limit:
+          type: integer
+          minimum: 0
+    NotificationGetListAdvertsCountDto:
+      type: object
+      properties:
+        types:
+          type: array
+          items: &a13
+            type: string
+            enum:
+              - system
+              - subscription
+              - user
+        subtypes:
+          type: array
+          items: &a14
+            type: string
+            enum:
+              - advert_published
+              - advert_changed_price
+              - advert_changed_status
+              - advert_changed_content
+              - purchase_point_published
+              - purchase_advert_published
+              - purchase_advert_changed_price
+              - purchase_advert_changed_status
+              - purchase_advert_changed_content
+      required:
+        - types
+    PaginatedEntity:
+      type: object
+      properties:
+        totalCount:
+          type: number
+        totalPageCount:
+          type: number
+        pageIndex:
+          type: number
+        pageSize:
+          type: number
+        hasNextPage:
+          type: boolean
+        hasPrevPage:
+          type: boolean
+      required:
+        - totalCount
+        - totalPageCount
+        - pageIndex
+        - pageSize
+        - hasNextPage
+        - hasPrevPage
+    AdvertChangePriceProperties:
+      type: object
+      properties:
+        newPrice:
+          type: number
+          minimum: 0
+        oldPrice:
+          type: number
+          minimum: 0
+      required:
+        - newPrice
+        - oldPrice
+    NotificationAdvertEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        status:
+          enum:
+            - unread
+            - read
+            - archived
+          type: string
+        type:
+          enum:
+            - system
+            - subscription
+            - user
+          type: string
+        subtype:
+          nullable: true
+          enum:
+            - advert_published
+            - advert_changed_price
+            - advert_changed_status
+            - advert_changed_content
+            - purchase_point_published
+            - purchase_advert_published
+            - purchase_advert_changed_price
+            - purchase_advert_changed_status
+            - purchase_advert_changed_content
+          type: string
+        changePrice:
+          $ref: "#/components/schemas/AdvertChangePriceProperties"
+        advert:
+          $ref: "#/components/schemas/AdvertPublicFavoriteEntity"
+      required:
+        - id
+        - status
+        - type
+        - subtype
+        - advert
+    GetPaginatedDto:
+      type: object
+      properties: {}
+    PaginateParamsDto:
+      type: object
+      properties:
+        pageIndex:
+          type: number
+        pageSize:
+          type: number
+      required:
+        - pageIndex
+        - pageSize
+    NotificationGetListAdvertsDto:
+      type: object
+      properties:
+        types:
+          type: array
+          items: *a13
+        subtypes:
+          type: array
+          items: *a14
+      required:
+        - types
+    SetReadNotificationDto:
+      type: object
+      properties:
+        types:
+          type: array
+          items:
+            type: string
+            enum:
+              - system
+              - subscription
+              - user
+        subtypes:
+          type: array
+          items:
+            type: string
+            enum:
+              - advert_published
+              - advert_changed_price
+              - advert_changed_status
+              - advert_changed_content
+              - purchase_point_published
+              - purchase_advert_published
+              - purchase_advert_changed_price
+              - purchase_advert_changed_status
+              - purchase_advert_changed_content
+      required:
+        - types
+    RegisterPhoneDto:
+      type: object
+      properties:
+        requestId:
+          type: string
+        clientNumber:
+          type: string
+          minLength: 11
+          maxLength: 11
+      required:
+        - requestId
+        - clientNumber
+    RegisterPhoneResponseDto:
+      type: object
+      properties:
+        callId:
+          type: string
+        confirmationNumber:
+          type: string
+        expirationDate:
+          type: string
+      required:
+        - callId
+        - confirmationNumber
+        - expirationDate
+    ConfirmPhoneBodyDto:
+      type: object
+      properties:
+        callId:
+          type: string
+        clientNumber:
+          type: string
+        confirmationNumber:
+          type: string
+        isMnp:
+          type: boolean
+        operatorName:
+          type: string
+          nullable: true
+          default: null
+        operatorNameMnp:
+          type: string
+          nullable: true
+          default: null
+        regionName:
+          type: string
+        qrCodeUri:
+          type: string
+        userData:
+          type: string
+          nullable: true
+      required:
+        - callId
+        - clientNumber
+        - confirmationNumber
+        - isMnp
+        - operatorName
+        - operatorNameMnp
+        - regionName
+        - qrCodeUri
+        - userData
+    PhoneKeyDto:
+      type: object
+      properties:
+        callId:
+          type: string
+        requestId:
+          type: string
+      required:
+        - callId
+        - requestId
+    ProductGroupEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - id
+        - name
+    ProductSubGroupWithProductsEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        products:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductEntity"
+      required:
+        - id
+        - name
+        - products
+    ProductGroupWithProductsEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        products:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductEntity"
+        subGroups:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductSubGroupWithProductsEntity"
+      required:
+        - id
+        - name
+        - products
+    GroupProductsCountEntity:
+      type: object
+      properties:
+        groupId:
+          type: integer
+        productsCount:
+          type: integer
+      required:
+        - groupId
+        - productsCount
+    ProductSubGroupEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      required:
+        - id
+        - name
+    SearchProductAdvancedDto:
+      type: object
+      properties:
+        name:
+          type: string
+        limit:
+          type: integer
+          minimum: 1
+        offset:
+          type: integer
+          minimum: 0
+      required:
+        - name
+    ProductSearchResultEntity:
+      type: object
+      properties:
+        product_id:
+          type: integer
+          nullable: true
+        group_id:
+          type: integer
+          nullable: true
+        subgroup_id:
+          type: integer
+          nullable: true
+        name:
+          type: string
+      required:
+        - product_id
+        - group_id
+        - subgroup_id
+        - name
+    CreateProductDto:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 3
+      required:
+        - name
+    ProductInfoEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        qualityItems:
+          type: array
+          items:
+            $ref: "#/components/schemas/QualityEntity"
+        cleaningItems:
+          type: array
+          items:
+            $ref: "#/components/schemas/CleaningEntity"
+        packingItems:
+          type: array
+          items:
+            $ref: "#/components/schemas/PackingEntity"
+        recyclingItems:
+          type: array
+          items:
+            $ref: "#/components/schemas/RecyclingEntity"
+      required:
+        - id
+        - name
+        - qualityItems
+        - cleaningItems
+        - packingItems
+        - recyclingItems
+    PurchasePointsGetPrivateListFilter:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        advertBuyIds:
+          type: array
+          items:
+            type: integer
+    PurchasePointsGetPrivateListDto:
+      type: object
+      properties:
+        filter:
+          $ref: "#/components/schemas/PurchasePointsGetPrivateListFilter"
+        orderBy:
+          enum:
+            - name
+            - createdAt
+          type: string
+    PurchasePointPrivateItemEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        enabled:
+          type: boolean
+        alias:
+          type: string
+          nullable: true
+          default: null
+        contactName:
+          type: string
+        phone:
+          type: string
+        description:
+          type: string
+          nullable: true
+          default: null
+        address:
+          type: string
+          nullable: true
+          default: null
+        lat:
+          type: number
+          nullable: true
+          default: null
+        lon:
+          type: number
+          nullable: true
+          default: null
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - enabled
+        - alias
+        - contactName
+        - phone
+        - description
+        - address
+        - lat
+        - lon
+        - createdAt
+        - updatedAt
+    PurchasePointCreateDto:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        alias:
+          type: string
+          nullable: true
+        contactName:
+          type: string
+        phone:
+          type: string
+        description:
+          type: string
+          nullable: true
+        address:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/AddressDto"
+      required:
+        - contactName
+        - phone
+    PurchasePointPrivateEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        enabled:
+          type: boolean
+        alias:
+          type: string
+          nullable: true
+          default: null
+        contactName:
+          type: string
+        phone:
+          type: string
+        description:
+          type: string
+          nullable: true
+          default: null
+        address:
+          type: string
+          nullable: true
+          default: null
+        lat:
+          type: number
+          nullable: true
+          default: null
+        lon:
+          type: number
+          nullable: true
+          default: null
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        deletedAt:
+          type: string
+          nullable: true
+          format: date-time
+        user:
+          $ref: "#/components/schemas/UserPublicEntity"
+        country:
+          $ref: "#/components/schemas/CountryEntity"
+        region:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/RegionEntity"
+      required:
+        - id
+        - enabled
+        - alias
+        - contactName
+        - phone
+        - description
+        - address
+        - lat
+        - lon
+        - createdAt
+        - updatedAt
+        - deletedAt
+        - user
+        - country
+        - region
+    PurchasePointCloneDto:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        alias:
+          type: string
+          nullable: true
+        contactName:
+          type: string
+        phone:
+          type: string
+        description:
+          type: string
+          nullable: true
+        address:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/AddressDto"
+    PurchasePointCloneResponseDto:
+      type: object
+      properties:
+        purchasePoint:
+          $ref: "#/components/schemas/PurchasePointPrivateEntity"
+        advertIds:
+          type: array
+          items:
+            type: integer
+      required:
+        - purchasePoint
+        - advertIds
+    PurchasePointSetEnabledDto:
+      type: object
+      properties:
+        value:
+          type: boolean
+      required:
+        - value
+    PurchasePointSetEnabledResponseDto:
+      type: object
+      properties:
+        updatedPurchasePoint:
+          type: boolean
+        updatedAdvertIds:
+          type: array
+          items:
+            type: integer
+      required:
+        - updatedPurchasePoint
+        - updatedAdvertIds
+    PurchasePointSetAdvertEnabledDto:
+      type: object
+      properties:
+        value:
+          type: boolean
+      required:
+        - value
+    PurchasePointSetAdvertEnabledResponseDto:
+      type: object
+      properties:
+        updatedPurchasePoint:
+          type: boolean
+        updatedAdvertIds:
+          type: array
+          items:
+            type: integer
+      required:
+        - updatedPurchasePoint
+        - updatedAdvertIds
+    PurchasePointCloneAdvertsDto:
+      type: object
+      properties:
+        destPurchasePointId:
+          type: integer
+      required:
+        - destPurchasePointId
+    PurchasePointCloneAdvertsResponseDto:
+      type: object
+      properties:
+        advertIds:
+          type: array
+          items:
+            type: integer
+      required:
+        - advertIds
+    PurchasePointAddAdvertsDto:
+      type: object
+      properties:
+        advertBuyIds:
+          type: array
+          items:
+            type: integer
+      required:
+        - advertBuyIds
+    PurchasePointAddAdvertsResponseDto:
+      type: object
+      properties:
+        advertIds:
+          type: array
+          items:
+            type: integer
+      required:
+        - advertIds
+    PurchasePointRemoveAdvertsDto:
+      type: object
+      properties:
+        advertBuyIds:
+          type: array
+          items:
+            type: integer
+      required:
+        - advertBuyIds
+    PurchasePointRemoveAdvertsResponseDto:
+      type: object
+      properties:
+        advertIds:
+          type: array
+          items:
+            type: integer
+      required:
+        - advertIds
+    PurchasePointPublicEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        alias:
+          type: string
+          nullable: true
+          default: null
+        contactName:
+          type: string
+        phone:
+          type: string
+        description:
+          type: string
+          nullable: true
+          default: null
+        address:
+          type: string
+          nullable: true
+          default: null
+        lat:
+          type: number
+          nullable: true
+          default: null
+        lon:
+          type: number
+          nullable: true
+          default: null
+        updatedAt:
+          type: string
+          format: date-time
+        user:
+          $ref: "#/components/schemas/UserPublicEntity"
+        country:
+          $ref: "#/components/schemas/CountryEntity"
+        region:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/RegionEntity"
+      required:
+        - id
+        - alias
+        - contactName
+        - phone
+        - description
+        - address
+        - lat
+        - lon
+        - updatedAt
+        - user
+        - country
+        - region
+    PurchasePointUpdateDto:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        alias:
+          type: string
+          nullable: true
+        contactName:
+          type: string
+        phone:
+          type: string
+        description:
+          type: string
+          nullable: true
+        address:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/AddressDto"
+    PurchasePointUpdateResponseDto:
+      type: object
+      properties:
+        updated:
+          type: boolean
+        purchasePoint:
+          $ref: "#/components/schemas/PurchasePointPrivateEntity"
+      required:
+        - updated
+        - purchasePoint
+    SubscriptionEntity:
+      type: object
+      properties:
+        isActive:
+          type: boolean
+        purchase:
+          type: boolean
+        productIds:
+          type: array
+          items:
+            type: integer
+        regionIds:
+          type: array
+          items:
+            type: integer
+      required:
+        - isActive
+        - purchase
+        - productIds
+        - regionIds
+    UpsertSubscribesDto:
+      type: object
+      properties:
+        productIds:
+          type: array
+          items:
+            type: integer
+        regionIds:
+          type: array
+          items:
+            type: integer
+      required:
+        - productIds
+        - regionIds
+    UserPrivateEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        phones:
+          type: string
+          nullable: true
+        companyName:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        country:
+          $ref: "#/components/schemas/CountryEntity"
+        region:
+          nullable: true
+          allOf:
+            - $ref: "#/components/schemas/RegionEntity"
+        info:
+          type: string
+          nullable: true
+        infoRu:
+          type: string
+          nullable: true
+        isActive:
+          type: boolean
+        email:
+          type: string
+        mobile:
+          nullable: true
+          default: null
+          allOf:
+            - $ref: "#/components/schemas/UserPrivateMobileEntity"
+      required:
+        - id
+        - name
+        - phones
+        - companyName
+        - city
+        - address
+        - country
+        - region
+        - info
+        - infoRu
+        - isActive
+        - email
+        - mobile
+    UserType:
+      type: number
+      enum:
+        - 0
+        - 1
+    UserUpdateDto:
+      type: object
+      properties:
+        name:
+          type: string
+        phone:
+          type: string
+          nullable: true
+        type:
+          $ref: "#/components/schemas/UserType"
+        address:
+          type: string
+          nullable: true
+        countryId:
+          type: string
+        regionId:
+          type: integer
+          nullable: true
+        isCompany:
+          type: boolean
+        companyName:
+          type: string
+          nullable: true
+        companyInn:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+    UserRegisterPushTokenDto:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        token:
+          type: string
+        platform:
+          enum:
+            - ios
+            - android
+          type: string
+      required:
+        - deviceId
+        - token
+        - platform

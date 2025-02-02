@@ -406,7 +406,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **advertControllerGetFavorites**
-> BuiltList<AdvertPublicFavoriteEntity> advertControllerGetFavorites()
+> List<AdvertPublicFavoriteEntity> advertControllerGetFavorites()
 
 
 
@@ -429,7 +429,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;AdvertPublicFavoriteEntity&gt;**](AdvertPublicFavoriteEntity.md)
+[**List&lt;AdvertPublicFavoriteEntity&gt;**](AdvertPublicFavoriteEntity.md)
 
 ### Authorization
 
@@ -443,7 +443,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **advertControllerGetLast**
-> BuiltList<AdvertPublicFavoriteEntity> advertControllerGetLast(advertGetLastPublicListDto)
+> List<AdvertPublicFavoriteEntity> advertControllerGetLast(advertGetLastPublicListDto)
 
 
 
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;AdvertPublicFavoriteEntity&gt;**](AdvertPublicFavoriteEntity.md)
+[**List&lt;AdvertPublicFavoriteEntity&gt;**](AdvertPublicFavoriteEntity.md)
 
 ### Authorization
 
@@ -484,7 +484,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **advertControllerGetMap**
-> BuiltList<AdvertMapEntity> advertControllerGetMap(advertGetPublicMapListDto)
+> List<AdvertMapEntity> advertControllerGetMap(advertGetPublicMapListDto)
 
 
 
@@ -511,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;AdvertMapEntity&gt;**](AdvertMapEntity.md)
+[**List&lt;AdvertMapEntity&gt;**](AdvertMapEntity.md)
 
 ### Authorization
 
@@ -607,7 +607,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **advertControllerGetPrivateList**
-> BuiltList<AdvertPrivateEntity> advertControllerGetPrivateList(advertGetPrivateListDto)
+> List<AdvertPrivateEntity> advertControllerGetPrivateList(advertGetPrivateListDto)
 
 
 
@@ -634,7 +634,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;AdvertPrivateEntity&gt;**](AdvertPrivateEntity.md)
+[**List&lt;AdvertPrivateEntity&gt;**](AdvertPrivateEntity.md)
 
 ### Authorization
 
@@ -732,7 +732,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **advertControllerSearch**
-> BuiltList<AdvertPublicFavoriteEntity> advertControllerSearch(advertSearchDto)
+> List<AdvertPublicFavoriteEntity> advertControllerSearch(advertSearchDto)
 
 
 
@@ -759,7 +759,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;AdvertPublicFavoriteEntity&gt;**](AdvertPublicFavoriteEntity.md)
+[**List&lt;AdvertPublicFavoriteEntity&gt;**](AdvertPublicFavoriteEntity.md)
 
 ### Authorization
 

@@ -3,171 +3,118 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'notification_get_list_adverts_dto.g.dart';
 
-/// NotificationGetListAdvertsDto
-///
-/// Properties:
-/// * [types] 
-/// * [subtypes] 
-@BuiltValue()
-abstract class NotificationGetListAdvertsDto implements Built<NotificationGetListAdvertsDto, NotificationGetListAdvertsDtoBuilder> {
-  @BuiltValueField(wireName: r'types')
-  BuiltList<NotificationGetListAdvertsDtoTypesEnum> get types;
-  // enum typesEnum {  system,  subscription,  user,  };
 
-  @BuiltValueField(wireName: r'subtypes')
-  BuiltList<NotificationGetListAdvertsDtoSubtypesEnum>? get subtypes;
-  // enum subtypesEnum {  advert_published,  advert_changed_price,  advert_changed_status,  advert_changed_content,  purchase_point_published,  purchase_advert_published,  purchase_advert_changed_price,  purchase_advert_changed_status,  purchase_advert_changed_content,  };
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class NotificationGetListAdvertsDto {
+  /// Returns a new [NotificationGetListAdvertsDto] instance.
+  NotificationGetListAdvertsDto({
 
-  NotificationGetListAdvertsDto._();
+    required  this.types,
 
-  factory NotificationGetListAdvertsDto([void updates(NotificationGetListAdvertsDtoBuilder b)]) = _$NotificationGetListAdvertsDto;
+     this.subtypes,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(NotificationGetListAdvertsDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'types',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<NotificationGetListAdvertsDto> get serializer => _$NotificationGetListAdvertsDtoSerializer();
-}
 
-class _$NotificationGetListAdvertsDtoSerializer implements PrimitiveSerializer<NotificationGetListAdvertsDto> {
-  @override
-  final Iterable<Type> types = const [NotificationGetListAdvertsDto, _$NotificationGetListAdvertsDto];
+  final List<TypesEnum> types;
 
-  @override
-  final String wireName = r'NotificationGetListAdvertsDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    NotificationGetListAdvertsDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'types';
-    yield serializers.serialize(
-      object.types,
-      specifiedType: const FullType(BuiltList, [FullType(NotificationGetListAdvertsDtoTypesEnum)]),
-    );
-    if (object.subtypes != null) {
-      yield r'subtypes';
-      yield serializers.serialize(
-        object.subtypes,
-        specifiedType: const FullType(BuiltList, [FullType(NotificationGetListAdvertsDtoSubtypesEnum)]),
-      );
-    }
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    NotificationGetListAdvertsDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'subtypes',
+    required: false,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required NotificationGetListAdvertsDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'types':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(NotificationGetListAdvertsDtoTypesEnum)]),
-          ) as BuiltList<NotificationGetListAdvertsDtoTypesEnum>;
-          result.types.replace(valueDes);
-          break;
-        case r'subtypes':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(NotificationGetListAdvertsDtoSubtypesEnum)]),
-          ) as BuiltList<NotificationGetListAdvertsDtoSubtypesEnum>;
-          result.subtypes.replace(valueDes);
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+  final List<SubtypesEnum>? subtypes;
+
+
+
+
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is NotificationGetListAdvertsDto &&
+      other.types == types &&
+      other.subtypes == subtypes;
+
+    @override
+    int get hashCode =>
+        types.hashCode +
+        subtypes.hashCode;
+
+  factory NotificationGetListAdvertsDto.fromJson(Map<String, dynamic> json) => _$NotificationGetListAdvertsDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NotificationGetListAdvertsDtoToJson(this);
 
   @override
-  NotificationGetListAdvertsDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = NotificationGetListAdvertsDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 
-class NotificationGetListAdvertsDtoTypesEnum extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'system')
-  static const NotificationGetListAdvertsDtoTypesEnum system = _$notificationGetListAdvertsDtoTypesEnum_system;
-  @BuiltValueEnumConst(wireName: r'subscription')
-  static const NotificationGetListAdvertsDtoTypesEnum subscription = _$notificationGetListAdvertsDtoTypesEnum_subscription;
-  @BuiltValueEnumConst(wireName: r'user')
-  static const NotificationGetListAdvertsDtoTypesEnum user = _$notificationGetListAdvertsDtoTypesEnum_user;
+enum SetReadNotificationDtoTypesEnum {
+@JsonValue(r'system')
+system(r'system'),
+@JsonValue(r'subscription')
+subscription(r'subscription'),
+@JsonValue(r'user')
+user(r'user');
 
-  static Serializer<NotificationGetListAdvertsDtoTypesEnum> get serializer => _$notificationGetListAdvertsDtoTypesEnumSerializer;
+const SetReadNotificationDtoTypesEnum(this.value);
 
-  const NotificationGetListAdvertsDtoTypesEnum._(String name): super(name);
+final String value;
 
-  static BuiltSet<NotificationGetListAdvertsDtoTypesEnum> get values => _$notificationGetListAdvertsDtoTypesEnumValues;
-  static NotificationGetListAdvertsDtoTypesEnum valueOf(String name) => _$notificationGetListAdvertsDtoTypesEnumValueOf(name);
+@override
+String toString() => value;
 }
 
-class NotificationGetListAdvertsDtoSubtypesEnum extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'advert_published')
-  static const NotificationGetListAdvertsDtoSubtypesEnum advertPublished = _$notificationGetListAdvertsDtoSubtypesEnum_advertPublished;
-  @BuiltValueEnumConst(wireName: r'advert_changed_price')
-  static const NotificationGetListAdvertsDtoSubtypesEnum advertChangedPrice = _$notificationGetListAdvertsDtoSubtypesEnum_advertChangedPrice;
-  @BuiltValueEnumConst(wireName: r'advert_changed_status')
-  static const NotificationGetListAdvertsDtoSubtypesEnum advertChangedStatus = _$notificationGetListAdvertsDtoSubtypesEnum_advertChangedStatus;
-  @BuiltValueEnumConst(wireName: r'advert_changed_content')
-  static const NotificationGetListAdvertsDtoSubtypesEnum advertChangedContent = _$notificationGetListAdvertsDtoSubtypesEnum_advertChangedContent;
-  @BuiltValueEnumConst(wireName: r'purchase_point_published')
-  static const NotificationGetListAdvertsDtoSubtypesEnum purchasePointPublished = _$notificationGetListAdvertsDtoSubtypesEnum_purchasePointPublished;
-  @BuiltValueEnumConst(wireName: r'purchase_advert_published')
-  static const NotificationGetListAdvertsDtoSubtypesEnum purchaseAdvertPublished = _$notificationGetListAdvertsDtoSubtypesEnum_purchaseAdvertPublished;
-  @BuiltValueEnumConst(wireName: r'purchase_advert_changed_price')
-  static const NotificationGetListAdvertsDtoSubtypesEnum purchaseAdvertChangedPrice = _$notificationGetListAdvertsDtoSubtypesEnum_purchaseAdvertChangedPrice;
-  @BuiltValueEnumConst(wireName: r'purchase_advert_changed_status')
-  static const NotificationGetListAdvertsDtoSubtypesEnum purchaseAdvertChangedStatus = _$notificationGetListAdvertsDtoSubtypesEnum_purchaseAdvertChangedStatus;
-  @BuiltValueEnumConst(wireName: r'purchase_advert_changed_content')
-  static const NotificationGetListAdvertsDtoSubtypesEnum purchaseAdvertChangedContent = _$notificationGetListAdvertsDtoSubtypesEnum_purchaseAdvertChangedContent;
 
-  static Serializer<NotificationGetListAdvertsDtoSubtypesEnum> get serializer => _$notificationGetListAdvertsDtoSubtypesEnumSerializer;
+enum SetReadNotificationDtoSubtypesEnum {
+@JsonValue(r'advert_published')
+advertPublished(r'advert_published'),
+@JsonValue(r'advert_changed_price')
+advertChangedPrice(r'advert_changed_price'),
+@JsonValue(r'advert_changed_status')
+advertChangedStatus(r'advert_changed_status'),
+@JsonValue(r'advert_changed_content')
+advertChangedContent(r'advert_changed_content'),
+@JsonValue(r'purchase_point_published')
+purchasePointPublished(r'purchase_point_published'),
+@JsonValue(r'purchase_advert_published')
+purchaseAdvertPublished(r'purchase_advert_published'),
+@JsonValue(r'purchase_advert_changed_price')
+purchaseAdvertChangedPrice(r'purchase_advert_changed_price'),
+@JsonValue(r'purchase_advert_changed_status')
+purchaseAdvertChangedStatus(r'purchase_advert_changed_status'),
+@JsonValue(r'purchase_advert_changed_content')
+purchaseAdvertChangedContent(r'purchase_advert_changed_content');
 
-  const NotificationGetListAdvertsDtoSubtypesEnum._(String name): super(name);
+const SetReadNotificationDtoSubtypesEnum(this.value);
 
-  static BuiltSet<NotificationGetListAdvertsDtoSubtypesEnum> get values => _$notificationGetListAdvertsDtoSubtypesEnumValues;
-  static NotificationGetListAdvertsDtoSubtypesEnum valueOf(String name) => _$notificationGetListAdvertsDtoSubtypesEnumValueOf(name);
+final String value;
+
+@override
+String toString() => value;
 }
+
 

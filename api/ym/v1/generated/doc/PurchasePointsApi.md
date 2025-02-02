@@ -19,7 +19,6 @@ Method | HTTP request | Description
 [**purchasePointControllerGetList**](PurchasePointsApi.md#purchasepointcontrollergetlist) | **POST** /purchasePoints/list | 
 [**purchasePointControllerGetPrivate**](PurchasePointsApi.md#purchasepointcontrollergetprivate) | **GET** /purchasePoints/{id}/edit | 
 [**purchasePointControllerGetPublic**](PurchasePointsApi.md#purchasepointcontrollergetpublic) | **GET** /purchasePoints/{id} | 
-[**purchasePointControllerGetPublicFull**](PurchasePointsApi.md#purchasepointcontrollergetpublicfull) | **GET** /purchasePoints/{id}/full | 
 [**purchasePointControllerRemoveAdverts**](PurchasePointsApi.md#purchasepointcontrollerremoveadverts) | **DELETE** /purchasePoints/{id}/adverts | 
 [**purchasePointControllerSetAdvertEnabled**](PurchasePointsApi.md#purchasepointcontrollersetadvertenabled) | **PUT** /purchasePoints/{id}/adverts/{advertBuyId}/enable | 
 [**purchasePointControllerSetEnabled**](PurchasePointsApi.md#purchasepointcontrollersetenabled) | **PUT** /purchasePoints/{id}/enable | 
@@ -238,7 +237,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **purchasePointControllerGetAdverts**
-> BuiltList<AdvertBuyEntity> purchasePointControllerGetAdverts(id)
+> List<AdvertBuyEntity> purchasePointControllerGetAdverts(id)
 
 
 
@@ -265,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;AdvertBuyEntity&gt;**](AdvertBuyEntity.md)
+[**List&lt;AdvertBuyEntity&gt;**](AdvertBuyEntity.md)
 
 ### Authorization
 
@@ -320,7 +319,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **purchasePointControllerGetList**
-> BuiltList<PurchasePointPrivateItemEntity> purchasePointControllerGetList(purchasePointsGetPrivateListDto)
+> List<PurchasePointPrivateItemEntity> purchasePointControllerGetList(purchasePointsGetPrivateListDto)
 
 
 
@@ -347,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;PurchasePointPrivateItemEntity&gt;**](PurchasePointPrivateItemEntity.md)
+[**List&lt;PurchasePointPrivateItemEntity&gt;**](PurchasePointPrivateItemEntity.md)
 
 ### Authorization
 
@@ -430,47 +429,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PurchasePointPublicEntity**](PurchasePointPublicEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **purchasePointControllerGetPublicFull**
-> PurchasePointGetPublicFullResponseDto purchasePointControllerGetPublicFull(id)
-
-
-
-### Example
-```dart
-import 'package:ym_api_client/api.dart';
-
-final api = YmApiClient().getPurchasePointsApi();
-final num id = 8.14; // num | 
-
-try {
-    final response = api.purchasePointControllerGetPublicFull(id);
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling PurchasePointsApi->purchasePointControllerGetPublicFull: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
-
-### Return type
-
-[**PurchasePointGetPublicFullResponseDto**](PurchasePointGetPublicFullResponseDto.md)
 
 ### Authorization
 

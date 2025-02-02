@@ -3,121 +3,70 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'purchase_point_set_advert_enabled_response_dto.g.dart';
 
-/// PurchasePointSetAdvertEnabledResponseDto
-///
-/// Properties:
-/// * [updatedPurchasePoint] 
-/// * [updatedAdvertIds] 
-@BuiltValue()
-abstract class PurchasePointSetAdvertEnabledResponseDto implements Built<PurchasePointSetAdvertEnabledResponseDto, PurchasePointSetAdvertEnabledResponseDtoBuilder> {
-  @BuiltValueField(wireName: r'updatedPurchasePoint')
-  bool get updatedPurchasePoint;
 
-  @BuiltValueField(wireName: r'updatedAdvertIds')
-  BuiltList<num> get updatedAdvertIds;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class PurchasePointSetAdvertEnabledResponseDto {
+  /// Returns a new [PurchasePointSetAdvertEnabledResponseDto] instance.
+  PurchasePointSetAdvertEnabledResponseDto({
 
-  PurchasePointSetAdvertEnabledResponseDto._();
+    required  this.updatedPurchasePoint,
 
-  factory PurchasePointSetAdvertEnabledResponseDto([void updates(PurchasePointSetAdvertEnabledResponseDtoBuilder b)]) = _$PurchasePointSetAdvertEnabledResponseDto;
+    required  this.updatedAdvertIds,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PurchasePointSetAdvertEnabledResponseDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'updatedPurchasePoint',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PurchasePointSetAdvertEnabledResponseDto> get serializer => _$PurchasePointSetAdvertEnabledResponseDtoSerializer();
-}
 
-class _$PurchasePointSetAdvertEnabledResponseDtoSerializer implements PrimitiveSerializer<PurchasePointSetAdvertEnabledResponseDto> {
-  @override
-  final Iterable<Type> types = const [PurchasePointSetAdvertEnabledResponseDto, _$PurchasePointSetAdvertEnabledResponseDto];
+  final bool updatedPurchasePoint;
 
-  @override
-  final String wireName = r'PurchasePointSetAdvertEnabledResponseDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    PurchasePointSetAdvertEnabledResponseDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'updatedPurchasePoint';
-    yield serializers.serialize(
-      object.updatedPurchasePoint,
-      specifiedType: const FullType(bool),
-    );
-    yield r'updatedAdvertIds';
-    yield serializers.serialize(
-      object.updatedAdvertIds,
-      specifiedType: const FullType(BuiltList, [FullType(num)]),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    PurchasePointSetAdvertEnabledResponseDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'updatedAdvertIds',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required PurchasePointSetAdvertEnabledResponseDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'updatedPurchasePoint':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.updatedPurchasePoint = valueDes;
-          break;
-        case r'updatedAdvertIds':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(num)]),
-          ) as BuiltList<num>;
-          result.updatedAdvertIds.replace(valueDes);
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+  final List<int> updatedAdvertIds;
+
+
+
+
+
+    @override
+    bool operator ==(Object other) => identical(this, other) || other is PurchasePointSetAdvertEnabledResponseDto &&
+      other.updatedPurchasePoint == updatedPurchasePoint &&
+      other.updatedAdvertIds == updatedAdvertIds;
+
+    @override
+    int get hashCode =>
+        updatedPurchasePoint.hashCode +
+        updatedAdvertIds.hashCode;
+
+  factory PurchasePointSetAdvertEnabledResponseDto.fromJson(Map<String, dynamic> json) => _$PurchasePointSetAdvertEnabledResponseDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PurchasePointSetAdvertEnabledResponseDtoToJson(this);
 
   @override
-  PurchasePointSetAdvertEnabledResponseDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = PurchasePointSetAdvertEnabledResponseDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 
