@@ -8,7 +8,7 @@ import 'package:ym_api_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**vkUserId** | [**Bigint**](Bigint.md) |  | 
+**vkUserId** | **int** |  | 
 **type** | **int** |  | 
 **isCompany** | **bool** |  | 
 **isRegistrationCompleted** | **bool** |  | 

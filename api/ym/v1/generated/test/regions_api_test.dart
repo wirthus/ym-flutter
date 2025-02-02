@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    //Future<BuiltList<RegionEntity>> regionControllerGetAll({ String countryId, bool test }) async
+    //Future<List<RegionEntity>> regionControllerGetAll({ String countryId, bool test }) async
     test('test regionControllerGetAll', () async {
       // TODO
     });

@@ -3,88 +3,139 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'advert_public_filter_dto.g.dart';
 
+/// AdvertPublicFilterDto
+///
+/// Properties:
+/// * [id] 
+/// * [category] 
+@BuiltValue()
+abstract class AdvertPublicFilterDto implements Built<AdvertPublicFilterDto, AdvertPublicFilterDtoBuilder> {
+  @BuiltValueField(wireName: r'id')
+  num get id;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class AdvertPublicFilterDto {
-  /// Returns a new [AdvertPublicFilterDto] instance.
-  AdvertPublicFilterDto({
+  @BuiltValueField(wireName: r'category')
+  AdvertPublicFilterDtoCategoryEnum get category;
+  // enum categoryEnum {  product,  group,  subgroup,  };
 
-    required  this.id,
+  AdvertPublicFilterDto._();
 
-    required  this.category,
-  });
+  factory AdvertPublicFilterDto([void updates(AdvertPublicFilterDtoBuilder b)]) = _$AdvertPublicFilterDto;
 
-  @JsonKey(
-    
-    name: r'id',
-    required: true,
-    includeIfNull: false,
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AdvertPublicFilterDtoBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AdvertPublicFilterDto> get serializer => _$AdvertPublicFilterDtoSerializer();
+}
 
-  final num id;
-
-
-
-  @JsonKey(
-    
-    name: r'category',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final AdvertPublicFilterDtoCategoryEnum category;
-
-
-
-
-
-    @override
-    bool operator ==(Object other) => identical(this, other) || other is AdvertPublicFilterDto &&
-      other.id == id &&
-      other.category == category;
-
-    @override
-    int get hashCode =>
-        id.hashCode +
-        category.hashCode;
-
-  factory AdvertPublicFilterDto.fromJson(Map<String, dynamic> json) => _$AdvertPublicFilterDtoFromJson(json);
-
-  Map<String, dynamic> toJson() => _$AdvertPublicFilterDtoToJson(this);
+class _$AdvertPublicFilterDtoSerializer implements PrimitiveSerializer<AdvertPublicFilterDto> {
+  @override
+  final Iterable<Type> types = const [AdvertPublicFilterDto, _$AdvertPublicFilterDto];
 
   @override
-  String toString() {
-    return toJson().toString();
+  final String wireName = r'AdvertPublicFilterDto';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    AdvertPublicFilterDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(num),
+    );
+    yield r'category';
+    yield serializers.serialize(
+      object.category,
+      specifiedType: const FullType(AdvertPublicFilterDtoCategoryEnum),
+    );
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    AdvertPublicFilterDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required AdvertPublicFilterDtoBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(num),
+          ) as num;
+          result.id = valueDes;
+          break;
+        case r'category':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(AdvertPublicFilterDtoCategoryEnum),
+          ) as AdvertPublicFilterDtoCategoryEnum;
+          result.category = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  AdvertPublicFilterDto deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = AdvertPublicFilterDtoBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 
+class AdvertPublicFilterDtoCategoryEnum extends EnumClass {
 
-enum AdvertPublicFilterDtoCategoryEnum {
-@JsonValue(r'product')
-product(r'product'),
-@JsonValue(r'group')
-group(r'group'),
-@JsonValue(r'subgroup')
-subgroup(r'subgroup');
+  @BuiltValueEnumConst(wireName: r'product')
+  static const AdvertPublicFilterDtoCategoryEnum product = _$advertPublicFilterDtoCategoryEnum_product;
+  @BuiltValueEnumConst(wireName: r'group')
+  static const AdvertPublicFilterDtoCategoryEnum group = _$advertPublicFilterDtoCategoryEnum_group;
+  @BuiltValueEnumConst(wireName: r'subgroup')
+  static const AdvertPublicFilterDtoCategoryEnum subgroup = _$advertPublicFilterDtoCategoryEnum_subgroup;
 
-const AdvertPublicFilterDtoCategoryEnum(this.value);
+  static Serializer<AdvertPublicFilterDtoCategoryEnum> get serializer => _$advertPublicFilterDtoCategoryEnumSerializer;
 
-final String value;
+  const AdvertPublicFilterDtoCategoryEnum._(String name): super(name);
 
-@override
-String toString() => value;
+  static BuiltSet<AdvertPublicFilterDtoCategoryEnum> get values => _$advertPublicFilterDtoCategoryEnumValues;
+  static AdvertPublicFilterDtoCategoryEnum valueOf(String name) => _$advertPublicFilterDtoCategoryEnumValueOf(name);
 }
-
 

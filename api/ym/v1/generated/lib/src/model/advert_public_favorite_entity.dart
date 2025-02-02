@@ -5,6 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:ym_api_client/src/model/region_entity.dart';
 import 'package:ym_api_client/src/model/advert_buy_public_entity.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:ym_api_client/src/model/quality_entity.dart';
 import 'package:ym_api_client/src/model/packing_entity.dart';
 import 'package:ym_api_client/src/model/cleaning_entity.dart';
@@ -12,570 +13,635 @@ import 'package:ym_api_client/src/model/country_entity.dart';
 import 'package:ym_api_client/src/model/user_public_entity.dart';
 import 'package:ym_api_client/src/model/recycling_entity.dart';
 import 'package:ym_api_client/src/model/product_entity.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'advert_public_favorite_entity.g.dart';
 
+/// AdvertPublicFavoriteEntity
+///
+/// Properties:
+/// * [id] 
+/// * [purchase] 
+/// * [published] 
+/// * [moderate] 
+/// * [price] 
+/// * [quantity] 
+/// * [contractPrice] 
+/// * [productId] 
+/// * [ownerId] 
+/// * [countryId] 
+/// * [regionId] 
+/// * [cleaningId] 
+/// * [packingId] 
+/// * [qualityId] 
+/// * [recyclingId] 
+/// * [publicationDate] 
+/// * [info] 
+/// * [infoRu] 
+/// * [address] 
+/// * [lat] 
+/// * [lon] 
+/// * [updatedAt] 
+/// * [product] 
+/// * [user] 
+/// * [cleaning] 
+/// * [packing] 
+/// * [quality] 
+/// * [recycling] 
+/// * [country] 
+/// * [region] 
+/// * [advertBuy] 
+/// * [isFavorite] 
+@BuiltValue()
+abstract class AdvertPublicFavoriteEntity implements Built<AdvertPublicFavoriteEntity, AdvertPublicFavoriteEntityBuilder> {
+  @BuiltValueField(wireName: r'id')
+  int get id;
+
+  @BuiltValueField(wireName: r'purchase')
+  bool get purchase;
+
+  @BuiltValueField(wireName: r'published')
+  bool get published;
+
+  @BuiltValueField(wireName: r'moderate')
+  AdvertPublicFavoriteEntityModerateEnum get moderate;
+  // enum moderateEnum {  0,  1,  2,  };
+
+  @BuiltValueField(wireName: r'price')
+  num get price;
+
+  @BuiltValueField(wireName: r'quantity')
+  int get quantity;
+
+  @BuiltValueField(wireName: r'contractPrice')
+  bool get contractPrice;
+
+  @BuiltValueField(wireName: r'productId')
+  int get productId;
+
+  @BuiltValueField(wireName: r'ownerId')
+  int get ownerId;
+
+  @BuiltValueField(wireName: r'countryId')
+  String get countryId;
+
+  @BuiltValueField(wireName: r'regionId')
+  int? get regionId;
+
+  @BuiltValueField(wireName: r'cleaningId')
+  int? get cleaningId;
+
+  @BuiltValueField(wireName: r'packingId')
+  int? get packingId;
+
+  @BuiltValueField(wireName: r'qualityId')
+  int? get qualityId;
+
+  @BuiltValueField(wireName: r'recyclingId')
+  int? get recyclingId;
+
+  @BuiltValueField(wireName: r'publicationDate')
+  DateTime? get publicationDate;
+
+  @BuiltValueField(wireName: r'info')
+  String? get info;
+
+  @BuiltValueField(wireName: r'infoRu')
+  String? get infoRu;
+
+  @BuiltValueField(wireName: r'address')
+  String? get address;
+
+  @BuiltValueField(wireName: r'lat')
+  num? get lat;
+
+  @BuiltValueField(wireName: r'lon')
+  num? get lon;
+
+  @BuiltValueField(wireName: r'updatedAt')
+  DateTime get updatedAt;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class AdvertPublicFavoriteEntity {
-  /// Returns a new [AdvertPublicFavoriteEntity] instance.
-  AdvertPublicFavoriteEntity({
+  @BuiltValueField(wireName: r'product')
+  ProductEntity get product;
 
-    required  this.id,
+  @BuiltValueField(wireName: r'user')
+  UserPublicEntity get user;
 
-    required  this.purchase,
+  @BuiltValueField(wireName: r'cleaning')
+  CleaningEntity? get cleaning;
 
-    required  this.published,
+  @BuiltValueField(wireName: r'packing')
+  PackingEntity? get packing;
 
-    required  this.moderate,
+  @BuiltValueField(wireName: r'quality')
+  QualityEntity? get quality;
 
-    required  this.price,
+  @BuiltValueField(wireName: r'recycling')
+  RecyclingEntity? get recycling;
 
-    required  this.quantity,
+  @BuiltValueField(wireName: r'country')
+  CountryEntity get country;
 
-    required  this.contractPrice,
+  @BuiltValueField(wireName: r'region')
+  RegionEntity? get region;
 
-    required  this.productId,
+  @BuiltValueField(wireName: r'advertBuy')
+  AdvertBuyPublicEntity? get advertBuy;
 
-    required  this.ownerId,
+  @BuiltValueField(wireName: r'isFavorite')
+  bool get isFavorite;
 
-    required  this.countryId,
+  AdvertPublicFavoriteEntity._();
 
-    required  this.regionId,
+  factory AdvertPublicFavoriteEntity([void updates(AdvertPublicFavoriteEntityBuilder b)]) = _$AdvertPublicFavoriteEntity;
 
-    required  this.cleaningId,
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AdvertPublicFavoriteEntityBuilder b) => b;
 
-    required  this.packingId,
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AdvertPublicFavoriteEntity> get serializer => _$AdvertPublicFavoriteEntitySerializer();
+}
 
-    required  this.qualityId,
-
-    required  this.recyclingId,
-
-    required  this.publicationDate,
-
-    required  this.info,
-
-    required  this.infoRu,
-
-    required  this.address,
-
-    required  this.lat,
-
-    required  this.lon,
-
-    required  this.updatedAt,
-
-    required  this.product,
-
-    required  this.user,
-
-    required  this.cleaning,
-
-    required  this.packing,
-
-    required  this.quality,
-
-    required  this.recycling,
-
-    required  this.country,
-
-    required  this.region,
-
-    required  this.advertBuy,
-
-    required  this.isFavorite,
-  });
-
-  @JsonKey(
-    
-    name: r'id',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final int id;
-
-
-
-  @JsonKey(
-    
-    name: r'purchase',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final bool purchase;
-
-
-
-  @JsonKey(
-    
-    name: r'published',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final bool published;
-
-
-
-  @JsonKey(
-    
-    name: r'moderate',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final AdvertPublicFavoriteEntityModerateEnum moderate;
-
-
-
-          // minimum: 0
-  @JsonKey(
-    
-    name: r'price',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final num price;
-
-
-
-          // minimum: 0
-  @JsonKey(
-    
-    name: r'quantity',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final int quantity;
-
-
-
-  @JsonKey(
-    
-    name: r'contractPrice',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final bool contractPrice;
-
-
-
-  @JsonKey(
-    
-    name: r'productId',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final int productId;
-
-
-
-  @JsonKey(
-    
-    name: r'ownerId',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final int ownerId;
-
-
-
-  @JsonKey(
-    
-    name: r'countryId',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final String countryId;
-
-
-
-  @JsonKey(
-    
-    name: r'regionId',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final int? regionId;
-
-
-
-  @JsonKey(
-    
-    name: r'cleaningId',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final int? cleaningId;
-
-
-
-  @JsonKey(
-    
-    name: r'packingId',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final int? packingId;
-
-
-
-  @JsonKey(
-    
-    name: r'qualityId',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final int? qualityId;
-
-
-
-  @JsonKey(
-    
-    name: r'recyclingId',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final int? recyclingId;
-
-
-
-  @JsonKey(
-    
-    name: r'publicationDate',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final DateTime? publicationDate;
-
-
-
-  @JsonKey(
-    
-    name: r'info',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final String? info;
-
-
-
-  @JsonKey(
-    
-    name: r'infoRu',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final String? infoRu;
-
-
-
-  @JsonKey(
-    
-    name: r'address',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final String? address;
-
-
-
-  @JsonKey(
-    
-    name: r'lat',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final num? lat;
-
-
-
-  @JsonKey(
-    
-    name: r'lon',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final num? lon;
-
-
-
-  @JsonKey(
-    
-    name: r'updatedAt',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final DateTime updatedAt;
-
-
-
-  @JsonKey(
-    
-    name: r'product',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final ProductEntity product;
-
-
-
-  @JsonKey(
-    
-    name: r'user',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final UserPublicEntity user;
-
-
-
-  @JsonKey(
-    
-    name: r'cleaning',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final CleaningEntity? cleaning;
-
-
-
-  @JsonKey(
-    
-    name: r'packing',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final PackingEntity? packing;
-
-
-
-  @JsonKey(
-    
-    name: r'quality',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final QualityEntity? quality;
-
-
-
-  @JsonKey(
-    
-    name: r'recycling',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final RecyclingEntity? recycling;
-
-
-
-  @JsonKey(
-    
-    name: r'country',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final CountryEntity country;
-
-
-
-  @JsonKey(
-    
-    name: r'region',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final RegionEntity? region;
-
-
-
-  @JsonKey(
-    
-    name: r'advertBuy',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final AdvertBuyPublicEntity? advertBuy;
-
-
-
-  @JsonKey(
-    
-    name: r'isFavorite',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final bool isFavorite;
-
-
-
-
-
-    @override
-    bool operator ==(Object other) => identical(this, other) || other is AdvertPublicFavoriteEntity &&
-      other.id == id &&
-      other.purchase == purchase &&
-      other.published == published &&
-      other.moderate == moderate &&
-      other.price == price &&
-      other.quantity == quantity &&
-      other.contractPrice == contractPrice &&
-      other.productId == productId &&
-      other.ownerId == ownerId &&
-      other.countryId == countryId &&
-      other.regionId == regionId &&
-      other.cleaningId == cleaningId &&
-      other.packingId == packingId &&
-      other.qualityId == qualityId &&
-      other.recyclingId == recyclingId &&
-      other.publicationDate == publicationDate &&
-      other.info == info &&
-      other.infoRu == infoRu &&
-      other.address == address &&
-      other.lat == lat &&
-      other.lon == lon &&
-      other.updatedAt == updatedAt &&
-      other.product == product &&
-      other.user == user &&
-      other.cleaning == cleaning &&
-      other.packing == packing &&
-      other.quality == quality &&
-      other.recycling == recycling &&
-      other.country == country &&
-      other.region == region &&
-      other.advertBuy == advertBuy &&
-      other.isFavorite == isFavorite;
-
-    @override
-    int get hashCode =>
-        id.hashCode +
-        purchase.hashCode +
-        published.hashCode +
-        moderate.hashCode +
-        price.hashCode +
-        quantity.hashCode +
-        contractPrice.hashCode +
-        productId.hashCode +
-        ownerId.hashCode +
-        countryId.hashCode +
-        (regionId == null ? 0 : regionId.hashCode) +
-        (cleaningId == null ? 0 : cleaningId.hashCode) +
-        (packingId == null ? 0 : packingId.hashCode) +
-        (qualityId == null ? 0 : qualityId.hashCode) +
-        (recyclingId == null ? 0 : recyclingId.hashCode) +
-        (publicationDate == null ? 0 : publicationDate.hashCode) +
-        (info == null ? 0 : info.hashCode) +
-        (infoRu == null ? 0 : infoRu.hashCode) +
-        (address == null ? 0 : address.hashCode) +
-        (lat == null ? 0 : lat.hashCode) +
-        (lon == null ? 0 : lon.hashCode) +
-        updatedAt.hashCode +
-        product.hashCode +
-        user.hashCode +
-        (cleaning == null ? 0 : cleaning.hashCode) +
-        (packing == null ? 0 : packing.hashCode) +
-        (quality == null ? 0 : quality.hashCode) +
-        (recycling == null ? 0 : recycling.hashCode) +
-        country.hashCode +
-        (region == null ? 0 : region.hashCode) +
-        (advertBuy == null ? 0 : advertBuy.hashCode) +
-        isFavorite.hashCode;
-
-  factory AdvertPublicFavoriteEntity.fromJson(Map<String, dynamic> json) => _$AdvertPublicFavoriteEntityFromJson(json);
-
-  Map<String, dynamic> toJson() => _$AdvertPublicFavoriteEntityToJson(this);
+class _$AdvertPublicFavoriteEntitySerializer implements PrimitiveSerializer<AdvertPublicFavoriteEntity> {
+  @override
+  final Iterable<Type> types = const [AdvertPublicFavoriteEntity, _$AdvertPublicFavoriteEntity];
 
   @override
-  String toString() {
-    return toJson().toString();
+  final String wireName = r'AdvertPublicFavoriteEntity';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    AdvertPublicFavoriteEntity object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(int),
+    );
+    yield r'purchase';
+    yield serializers.serialize(
+      object.purchase,
+      specifiedType: const FullType(bool),
+    );
+    yield r'published';
+    yield serializers.serialize(
+      object.published,
+      specifiedType: const FullType(bool),
+    );
+    yield r'moderate';
+    yield serializers.serialize(
+      object.moderate,
+      specifiedType: const FullType(AdvertPublicFavoriteEntityModerateEnum),
+    );
+    yield r'price';
+    yield serializers.serialize(
+      object.price,
+      specifiedType: const FullType(num),
+    );
+    yield r'quantity';
+    yield serializers.serialize(
+      object.quantity,
+      specifiedType: const FullType(int),
+    );
+    yield r'contractPrice';
+    yield serializers.serialize(
+      object.contractPrice,
+      specifiedType: const FullType(bool),
+    );
+    yield r'productId';
+    yield serializers.serialize(
+      object.productId,
+      specifiedType: const FullType(int),
+    );
+    yield r'ownerId';
+    yield serializers.serialize(
+      object.ownerId,
+      specifiedType: const FullType(int),
+    );
+    yield r'countryId';
+    yield serializers.serialize(
+      object.countryId,
+      specifiedType: const FullType(String),
+    );
+    yield r'regionId';
+    yield object.regionId == null ? null : serializers.serialize(
+      object.regionId,
+      specifiedType: const FullType.nullable(int),
+    );
+    yield r'cleaningId';
+    yield object.cleaningId == null ? null : serializers.serialize(
+      object.cleaningId,
+      specifiedType: const FullType.nullable(int),
+    );
+    yield r'packingId';
+    yield object.packingId == null ? null : serializers.serialize(
+      object.packingId,
+      specifiedType: const FullType.nullable(int),
+    );
+    yield r'qualityId';
+    yield object.qualityId == null ? null : serializers.serialize(
+      object.qualityId,
+      specifiedType: const FullType.nullable(int),
+    );
+    yield r'recyclingId';
+    yield object.recyclingId == null ? null : serializers.serialize(
+      object.recyclingId,
+      specifiedType: const FullType.nullable(int),
+    );
+    yield r'publicationDate';
+    yield object.publicationDate == null ? null : serializers.serialize(
+      object.publicationDate,
+      specifiedType: const FullType.nullable(DateTime),
+    );
+    yield r'info';
+    yield object.info == null ? null : serializers.serialize(
+      object.info,
+      specifiedType: const FullType.nullable(String),
+    );
+    yield r'infoRu';
+    yield object.infoRu == null ? null : serializers.serialize(
+      object.infoRu,
+      specifiedType: const FullType.nullable(String),
+    );
+    yield r'address';
+    yield object.address == null ? null : serializers.serialize(
+      object.address,
+      specifiedType: const FullType.nullable(String),
+    );
+    yield r'lat';
+    yield object.lat == null ? null : serializers.serialize(
+      object.lat,
+      specifiedType: const FullType.nullable(num),
+    );
+    yield r'lon';
+    yield object.lon == null ? null : serializers.serialize(
+      object.lon,
+      specifiedType: const FullType.nullable(num),
+    );
+    yield r'updatedAt';
+    yield serializers.serialize(
+      object.updatedAt,
+      specifiedType: const FullType(DateTime),
+    );
+    yield r'product';
+    yield serializers.serialize(
+      object.product,
+      specifiedType: const FullType(ProductEntity),
+    );
+    yield r'user';
+    yield serializers.serialize(
+      object.user,
+      specifiedType: const FullType(UserPublicEntity),
+    );
+    yield r'cleaning';
+    yield object.cleaning == null ? null : serializers.serialize(
+      object.cleaning,
+      specifiedType: const FullType.nullable(CleaningEntity),
+    );
+    yield r'packing';
+    yield object.packing == null ? null : serializers.serialize(
+      object.packing,
+      specifiedType: const FullType.nullable(PackingEntity),
+    );
+    yield r'quality';
+    yield object.quality == null ? null : serializers.serialize(
+      object.quality,
+      specifiedType: const FullType.nullable(QualityEntity),
+    );
+    yield r'recycling';
+    yield object.recycling == null ? null : serializers.serialize(
+      object.recycling,
+      specifiedType: const FullType.nullable(RecyclingEntity),
+    );
+    yield r'country';
+    yield serializers.serialize(
+      object.country,
+      specifiedType: const FullType(CountryEntity),
+    );
+    yield r'region';
+    yield object.region == null ? null : serializers.serialize(
+      object.region,
+      specifiedType: const FullType.nullable(RegionEntity),
+    );
+    yield r'advertBuy';
+    yield object.advertBuy == null ? null : serializers.serialize(
+      object.advertBuy,
+      specifiedType: const FullType.nullable(AdvertBuyPublicEntity),
+    );
+    yield r'isFavorite';
+    yield serializers.serialize(
+      object.isFavorite,
+      specifiedType: const FullType(bool),
+    );
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    AdvertPublicFavoriteEntity object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required AdvertPublicFavoriteEntityBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.id = valueDes;
+          break;
+        case r'purchase':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.purchase = valueDes;
+          break;
+        case r'published':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.published = valueDes;
+          break;
+        case r'moderate':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(AdvertPublicFavoriteEntityModerateEnum),
+          ) as AdvertPublicFavoriteEntityModerateEnum;
+          result.moderate = valueDes;
+          break;
+        case r'price':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(num),
+          ) as num;
+          result.price = valueDes;
+          break;
+        case r'quantity':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.quantity = valueDes;
+          break;
+        case r'contractPrice':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.contractPrice = valueDes;
+          break;
+        case r'productId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.productId = valueDes;
+          break;
+        case r'ownerId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.ownerId = valueDes;
+          break;
+        case r'countryId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.countryId = valueDes;
+          break;
+        case r'regionId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(int),
+          ) as int?;
+          if (valueDes == null) continue;
+          result.regionId = valueDes;
+          break;
+        case r'cleaningId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(int),
+          ) as int?;
+          if (valueDes == null) continue;
+          result.cleaningId = valueDes;
+          break;
+        case r'packingId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(int),
+          ) as int?;
+          if (valueDes == null) continue;
+          result.packingId = valueDes;
+          break;
+        case r'qualityId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(int),
+          ) as int?;
+          if (valueDes == null) continue;
+          result.qualityId = valueDes;
+          break;
+        case r'recyclingId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(int),
+          ) as int?;
+          if (valueDes == null) continue;
+          result.recyclingId = valueDes;
+          break;
+        case r'publicationDate':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(DateTime),
+          ) as DateTime?;
+          if (valueDes == null) continue;
+          result.publicationDate = valueDes;
+          break;
+        case r'info':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.info = valueDes;
+          break;
+        case r'infoRu':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.infoRu = valueDes;
+          break;
+        case r'address':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.address = valueDes;
+          break;
+        case r'lat':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(num),
+          ) as num?;
+          if (valueDes == null) continue;
+          result.lat = valueDes;
+          break;
+        case r'lon':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(num),
+          ) as num?;
+          if (valueDes == null) continue;
+          result.lon = valueDes;
+          break;
+        case r'updatedAt':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(DateTime),
+          ) as DateTime;
+          result.updatedAt = valueDes;
+          break;
+        case r'product':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ProductEntity),
+          ) as ProductEntity;
+          result.product.replace(valueDes);
+          break;
+        case r'user':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(UserPublicEntity),
+          ) as UserPublicEntity;
+          result.user.replace(valueDes);
+          break;
+        case r'cleaning':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(CleaningEntity),
+          ) as CleaningEntity?;
+          if (valueDes == null) continue;
+          result.cleaning.replace(valueDes);
+          break;
+        case r'packing':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(PackingEntity),
+          ) as PackingEntity?;
+          if (valueDes == null) continue;
+          result.packing.replace(valueDes);
+          break;
+        case r'quality':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(QualityEntity),
+          ) as QualityEntity?;
+          if (valueDes == null) continue;
+          result.quality.replace(valueDes);
+          break;
+        case r'recycling':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(RecyclingEntity),
+          ) as RecyclingEntity?;
+          if (valueDes == null) continue;
+          result.recycling.replace(valueDes);
+          break;
+        case r'country':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(CountryEntity),
+          ) as CountryEntity;
+          result.country.replace(valueDes);
+          break;
+        case r'region':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(RegionEntity),
+          ) as RegionEntity?;
+          if (valueDes == null) continue;
+          result.region.replace(valueDes);
+          break;
+        case r'advertBuy':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(AdvertBuyPublicEntity),
+          ) as AdvertBuyPublicEntity?;
+          if (valueDes == null) continue;
+          result.advertBuy.replace(valueDes);
+          break;
+        case r'isFavorite':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.isFavorite = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  AdvertPublicFavoriteEntity deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = AdvertPublicFavoriteEntityBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 
+class AdvertPublicFavoriteEntityModerateEnum extends EnumClass {
 
-enum AdvertPublicFavoriteEntityModerateEnum {
-@JsonValue('0')
-n0(''0''),
-@JsonValue('1')
-n1(''1''),
-@JsonValue('2')
-n2(''2'');
+  @BuiltValueEnumConst(wireName: r'0')
+  static const AdvertPublicFavoriteEntityModerateEnum n0 = _$advertPublicFavoriteEntityModerateEnum_n0;
+  @BuiltValueEnumConst(wireName: r'1')
+  static const AdvertPublicFavoriteEntityModerateEnum n1 = _$advertPublicFavoriteEntityModerateEnum_n1;
+  @BuiltValueEnumConst(wireName: r'2')
+  static const AdvertPublicFavoriteEntityModerateEnum n2 = _$advertPublicFavoriteEntityModerateEnum_n2;
 
-const AdvertPublicFavoriteEntityModerateEnum(this.value);
+  static Serializer<AdvertPublicFavoriteEntityModerateEnum> get serializer => _$advertPublicFavoriteEntityModerateEnumSerializer;
 
-final String value;
+  const AdvertPublicFavoriteEntityModerateEnum._(String name): super(name);
 
-@override
-String toString() => value;
+  static BuiltSet<AdvertPublicFavoriteEntityModerateEnum> get values => _$advertPublicFavoriteEntityModerateEnumValues;
+  static AdvertPublicFavoriteEntityModerateEnum valueOf(String name) => _$advertPublicFavoriteEntityModerateEnumValueOf(name);
 }
-
 

@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **purchase** | **bool** |  | 
 **published** | **bool** |  | 
-**price** | **num** |  | 
-**quantity** | **num** |  | 
-**productId** | **num** |  | 
-**cleaningId** | **num** |  | [optional] 
-**packingId** | **num** |  | [optional] 
-**qualityId** | **num** |  | [optional] 
-**recyclingId** | **num** |  | [optional] 
+**price** | **int** |  | 
+**quantity** | **int** |  | 
+**productId** | **int** |  | 
+**cleaningId** | **int** |  | [optional] 
+**packingId** | **int** |  | [optional] 
+**qualityId** | **int** |  | [optional] 
+**recyclingId** | **int** |  | [optional] 
 **info** | **String** |  | [optional] 
 **address** | [**AddressDto**](AddressDto.md) |  | 
 

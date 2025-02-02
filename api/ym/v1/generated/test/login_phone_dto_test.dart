@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for LoginPhoneDto
 void main() {
-  final instance = LoginPhoneDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final LoginPhoneDto? instance = /* LoginPhoneDto(...) */ null;
+  // TODO add properties to the entity
 
   group(LoginPhoneDto, () {
     // String callId

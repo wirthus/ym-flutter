@@ -3,106 +3,124 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'notification_filter_dto.g.dart';
 
+/// NotificationFilterDto
+///
+/// Properties:
+/// * [type] 
+/// * [status] 
+@BuiltValue()
+abstract class NotificationFilterDto implements Built<NotificationFilterDto, NotificationFilterDtoBuilder> {
+  @BuiltValueField(wireName: r'type')
+  String? get type;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class NotificationFilterDto {
-  /// Returns a new [NotificationFilterDto] instance.
-  NotificationFilterDto({
+  @BuiltValueField(wireName: r'status')
+  String? get status;
 
-     this.type,
+  NotificationFilterDto._();
 
-     this.status,
-  });
+  factory NotificationFilterDto([void updates(NotificationFilterDtoBuilder b)]) = _$NotificationFilterDto;
 
-  @JsonKey(
-    
-    name: r'type',
-    required: false,
-    includeIfNull: false,
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(NotificationFilterDtoBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NotificationFilterDto> get serializer => _$NotificationFilterDtoSerializer();
+}
 
-  final NotificationFilterDtoTypeEnum? type;
-
-
-
-  @JsonKey(
-    
-    name: r'status',
-    required: false,
-    includeIfNull: false,
-  )
-
-
-  final NotificationFilterDtoStatusEnum? status;
-
-
-
-
-
-    @override
-    bool operator ==(Object other) => identical(this, other) || other is NotificationFilterDto &&
-      other.type == type &&
-      other.status == status;
-
-    @override
-    int get hashCode =>
-        type.hashCode +
-        status.hashCode;
-
-  factory NotificationFilterDto.fromJson(Map<String, dynamic> json) => _$NotificationFilterDtoFromJson(json);
-
-  Map<String, dynamic> toJson() => _$NotificationFilterDtoToJson(this);
+class _$NotificationFilterDtoSerializer implements PrimitiveSerializer<NotificationFilterDto> {
+  @override
+  final Iterable<Type> types = const [NotificationFilterDto, _$NotificationFilterDto];
 
   @override
-  String toString() {
-    return toJson().toString();
+  final String wireName = r'NotificationFilterDto';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    NotificationFilterDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    if (object.type != null) {
+      yield r'type';
+      yield serializers.serialize(
+        object.type,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.status != null) {
+      yield r'status';
+      yield serializers.serialize(
+        object.status,
+        specifiedType: const FullType(String),
+      );
+    }
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    NotificationFilterDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required NotificationFilterDtoBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'type':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.type = valueDes;
+          break;
+        case r'status':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.status = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  NotificationFilterDto deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NotificationFilterDtoBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
-
-
-enum NotificationFilterDtoTypeEnum {
-@JsonValue(r'system')
-system(r'system'),
-@JsonValue(r'subscription')
-subscription(r'subscription'),
-@JsonValue(r'user')
-user(r'user');
-
-const NotificationFilterDtoTypeEnum(this.value);
-
-final String value;
-
-@override
-String toString() => value;
-}
-
-
-
-enum NotificationFilterDtoStatusEnum {
-@JsonValue(r'unread')
-unread(r'unread'),
-@JsonValue(r'read')
-read(r'read'),
-@JsonValue(r'archived')
-archived(r'archived');
-
-const NotificationFilterDtoStatusEnum(this.value);
-
-final String value;
-
-@override
-String toString() => value;
-}
-
 

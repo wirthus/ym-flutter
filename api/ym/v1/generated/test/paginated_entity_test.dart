@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for PaginatedEntity
 void main() {
-  //final instance = PaginatedEntityBuilder();
-  // TODO add properties to the builder and call build()
+  final PaginatedEntity? instance = /* PaginatedEntity(...) */ null;
+  // TODO add properties to the entity
 
   group(PaginatedEntity, () {
     // num totalCount

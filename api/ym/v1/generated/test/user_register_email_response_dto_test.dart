@@ -3,26 +3,11 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for UserRegisterEmailResponseDto
 void main() {
-  final instance = UserRegisterEmailResponseDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final UserRegisterEmailResponseDto? instance = /* UserRegisterEmailResponseDto(...) */ null;
+  // TODO add properties to the entity
 
   group(UserRegisterEmailResponseDto, () {
-    // bool isActive
-    test('to test the property `isActive`', () async {
-      // TODO
-    });
-
-    // String email
-    test('to test the property `email`', () async {
-      // TODO
-    });
-
-    // UserPrivateMobileEntity mobile (default value: null)
-    test('to test the property `mobile`', () async {
-      // TODO
-    });
-
-    // num id
+    // int id
     test('to test the property `id`', () async {
       // TODO
     });
@@ -69,6 +54,21 @@ void main() {
 
     // String infoRu
     test('to test the property `infoRu`', () async {
+      // TODO
+    });
+
+    // bool isActive
+    test('to test the property `isActive`', () async {
+      // TODO
+    });
+
+    // String email
+    test('to test the property `email`', () async {
+      // TODO
+    });
+
+    // UserPrivateMobileEntity mobile (default value: null)
+    test('to test the property `mobile`', () async {
       // TODO
     });
 

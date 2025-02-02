@@ -4,9 +4,8 @@
 
 import 'dart:async';
 
-// ignore: unused_import
-import 'dart:convert';
-import 'package:ym_api_client/src/deserialize.dart';
+import 'package:built_value/json_object.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:ym_api_client/src/model/user_private_entity.dart';
@@ -17,7 +16,9 @@ class UserApi {
 
   final Dio _dio;
 
-  const UserApi(this._dio);
+  final Serializers _serializers;
+
+  const UserApi(this._dio, this._serializers);
 
   /// userControllerGet
   /// 
@@ -64,8 +65,12 @@ class UserApi {
     UserPrivateEntity? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<UserPrivateEntity, UserPrivateEntity>(rawData, 'UserPrivateEntity', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(UserPrivateEntity),
+      ) as UserPrivateEntity;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -128,7 +133,9 @@ _responseData = rawData == null ? null : deserialize<UserPrivateEntity, UserPriv
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(userRegisterPushTokenDto);
+      const _type = FullType(UserRegisterPushTokenDto);
+      _bodyData = _serializers.serialize(userRegisterPushTokenDto, specifiedType: _type);
+
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -193,7 +200,9 @@ _bodyData=jsonEncode(userRegisterPushTokenDto);
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(userUpdateDto);
+      const _type = FullType(UserUpdateDto);
+      _bodyData = _serializers.serialize(userUpdateDto, specifiedType: _type);
+
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -218,8 +227,12 @@ _bodyData=jsonEncode(userUpdateDto);
     UserPrivateEntity? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<UserPrivateEntity, UserPrivateEntity>(rawData, 'UserPrivateEntity', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(UserPrivateEntity),
+      ) as UserPrivateEntity;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,

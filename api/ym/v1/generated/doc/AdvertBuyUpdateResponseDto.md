@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **updated** | **bool** |  | 
 **advertBuy** | [**AdvertBuyEntity**](AdvertBuyEntity.md) |  | 
-**updatedAdvertCount** | **num** |  | 
+**updatedAdvertCount** | **int** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

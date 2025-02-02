@@ -52,17 +52,17 @@ void main() {
       // TODO
     });
 
-    //Future<BuiltList<AdvertPublicFavoriteEntity>> advertControllerGetFavorites() async
+    //Future<List<AdvertPublicFavoriteEntity>> advertControllerGetFavorites() async
     test('test advertControllerGetFavorites', () async {
       // TODO
     });
 
-    //Future<BuiltList<AdvertPublicFavoriteEntity>> advertControllerGetLast(AdvertGetLastPublicListDto advertGetLastPublicListDto) async
+    //Future<List<AdvertPublicFavoriteEntity>> advertControllerGetLast(AdvertGetLastPublicListDto advertGetLastPublicListDto) async
     test('test advertControllerGetLast', () async {
       // TODO
     });
 
-    //Future<BuiltList<AdvertMapEntity>> advertControllerGetMap(AdvertGetPublicMapListDto advertGetPublicMapListDto) async
+    //Future<List<AdvertMapEntity>> advertControllerGetMap(AdvertGetPublicMapListDto advertGetPublicMapListDto) async
     test('test advertControllerGetMap', () async {
       // TODO
     });
@@ -77,7 +77,7 @@ void main() {
       // TODO
     });
 
-    //Future<BuiltList<AdvertPrivateEntity>> advertControllerGetPrivateList(AdvertGetPrivateListDto advertGetPrivateListDto) async
+    //Future<List<AdvertPrivateEntity>> advertControllerGetPrivateList(AdvertGetPrivateListDto advertGetPrivateListDto) async
     test('test advertControllerGetPrivateList', () async {
       // TODO
     });
@@ -92,7 +92,7 @@ void main() {
       // TODO
     });
 
-    //Future<BuiltList<AdvertPublicFavoriteEntity>> advertControllerSearch(AdvertSearchDto advertSearchDto) async
+    //Future<List<AdvertPublicFavoriteEntity>> advertControllerSearch(AdvertSearchDto advertSearchDto) async
     test('test advertControllerSearch', () async {
       // TODO
     });

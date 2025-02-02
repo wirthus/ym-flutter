@@ -3,11 +3,11 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertBuyRemovePurchasePointsResponseDto
 void main() {
-  final instance = AdvertBuyRemovePurchasePointsResponseDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final AdvertBuyRemovePurchasePointsResponseDto? instance = /* AdvertBuyRemovePurchasePointsResponseDto(...) */ null;
+  // TODO add properties to the entity
 
   group(AdvertBuyRemovePurchasePointsResponseDto, () {
-    // BuiltList<num> advertIds
+    // List<num> advertIds
     test('to test the property `advertIds`', () async {
       // TODO
     });

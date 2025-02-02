@@ -3,70 +3,121 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'upsert_subscribes_dto.g.dart';
 
+/// UpsertSubscribesDto
+///
+/// Properties:
+/// * [productIds] 
+/// * [regionIds] 
+@BuiltValue()
+abstract class UpsertSubscribesDto implements Built<UpsertSubscribesDto, UpsertSubscribesDtoBuilder> {
+  @BuiltValueField(wireName: r'productIds')
+  BuiltList<int> get productIds;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class UpsertSubscribesDto {
-  /// Returns a new [UpsertSubscribesDto] instance.
-  UpsertSubscribesDto({
+  @BuiltValueField(wireName: r'regionIds')
+  BuiltList<int> get regionIds;
 
-    required  this.productIds,
+  UpsertSubscribesDto._();
 
-    required  this.regionIds,
-  });
+  factory UpsertSubscribesDto([void updates(UpsertSubscribesDtoBuilder b)]) = _$UpsertSubscribesDto;
 
-  @JsonKey(
-    
-    name: r'productIds',
-    required: true,
-    includeIfNull: false,
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UpsertSubscribesDtoBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<UpsertSubscribesDto> get serializer => _$UpsertSubscribesDtoSerializer();
+}
 
-  final List<int> productIds;
-
-
-
-  @JsonKey(
-    
-    name: r'regionIds',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final List<int> regionIds;
-
-
-
-
-
-    @override
-    bool operator ==(Object other) => identical(this, other) || other is UpsertSubscribesDto &&
-      other.productIds == productIds &&
-      other.regionIds == regionIds;
-
-    @override
-    int get hashCode =>
-        productIds.hashCode +
-        regionIds.hashCode;
-
-  factory UpsertSubscribesDto.fromJson(Map<String, dynamic> json) => _$UpsertSubscribesDtoFromJson(json);
-
-  Map<String, dynamic> toJson() => _$UpsertSubscribesDtoToJson(this);
+class _$UpsertSubscribesDtoSerializer implements PrimitiveSerializer<UpsertSubscribesDto> {
+  @override
+  final Iterable<Type> types = const [UpsertSubscribesDto, _$UpsertSubscribesDto];
 
   @override
-  String toString() {
-    return toJson().toString();
+  final String wireName = r'UpsertSubscribesDto';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    UpsertSubscribesDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'productIds';
+    yield serializers.serialize(
+      object.productIds,
+      specifiedType: const FullType(BuiltList, [FullType(int)]),
+    );
+    yield r'regionIds';
+    yield serializers.serialize(
+      object.regionIds,
+      specifiedType: const FullType(BuiltList, [FullType(int)]),
+    );
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    UpsertSubscribesDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required UpsertSubscribesDtoBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'productIds':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(int)]),
+          ) as BuiltList<int>;
+          result.productIds.replace(valueDes);
+          break;
+        case r'regionIds':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(int)]),
+          ) as BuiltList<int>;
+          result.regionIds.replace(valueDes);
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  UpsertSubscribesDto deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = UpsertSubscribesDtoBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

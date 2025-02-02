@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for ConfirmPhoneBodyDto
 void main() {
-  final instance = ConfirmPhoneBodyDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final ConfirmPhoneBodyDto? instance = /* ConfirmPhoneBodyDto(...) */ null;
+  // TODO add properties to the entity
 
   group(ConfirmPhoneBodyDto, () {
     // String callId

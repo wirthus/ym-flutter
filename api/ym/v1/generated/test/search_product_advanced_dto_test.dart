@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for SearchProductAdvancedDto
 void main() {
-  final instance = SearchProductAdvancedDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final SearchProductAdvancedDto? instance = /* SearchProductAdvancedDto(...) */ null;
+  // TODO add properties to the entity
 
   group(SearchProductAdvancedDto, () {
     // String name
@@ -12,12 +12,12 @@ void main() {
       // TODO
     });
 
-    // num limit
+    // int limit
     test('to test the property `limit`', () async {
       // TODO
     });
 
-    // num offset
+    // int offset
     test('to test the property `offset`', () async {
       // TODO
     });

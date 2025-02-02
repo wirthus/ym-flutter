@@ -1,45 +1,38 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
+import 'package:yagodmarket/data/models/user.dart';
 import 'package:ym_api_client/ym_api_client.dart';
-import '../models/user.dart';
 
+@singleton
 class UserRepository {
-  final YmApiClient _apiClient;
-  late final UserApi _userApi;
+  final UserApi _userApi;
 
-  UserRepository({required Dio dio}) : _apiClient = YmApiClient(dio: dio) {
-    _userApi = _apiClient.getUserApi();
-  }
+  UserRepository({required YmApiClient apiClient}) : _userApi = apiClient.getUserApi();
 
   Future<User> getCurrentUser() async {
     try {
       final response = await _userApi.userControllerGet();
-      if (response.data == null) {
-        throw UserRepositoryException(
-          message: 'Не удалось получить данные пользователя',
-          code: 500,
-        );
-      }
-      return UserX.fromApiModel(response.data);
+      return UserX.fromApiModel(response.data!);
     } on DioException catch (e) {
       throw _handleError(e, 'Не удалось получить данные пользователя');
     }
   }
 
-  Future<User> updateUser(User user) async {
+  Future<User> updateUser(UserUpdateDto data) async {
     try {
-      final request = user.toUpdateRequest();
-      final response = await _apiClient.users.update(
-        userId: user.id,
-        userUpdateDto: request,
-      );
-      return User.fromApiModel(response);
+      final response = await _userApi.userControllerUpdate(userUpdateDto: data);
+      return UserX.fromApiModel(response.data!);
     } on DioException catch (e) {
-      throw _handleError(e, 'Ошибка обновления данных');
+      throw _handleError(e, 'Ошибка обновления данных пользователя');
     }
   }
 
-  Future<void> deleteUser(String userId) async {
-    await _apiClient.usersApi.deleteUser(userId: userId);
+  Future<void> registerPushToken(UserRegisterPushTokenDto data) async {
+    try {
+      await _userApi.userControllerRegisterPushToken(userRegisterPushTokenDto: data);
+    } on DioException catch (e) {
+      throw _handleError(e, 'Ошибка обновления данных пользователя');
+    }
   }
 
   UserRepositoryException _handleError(DioException e, String defaultMsg) {

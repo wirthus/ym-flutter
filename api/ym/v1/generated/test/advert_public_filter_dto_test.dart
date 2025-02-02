@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertPublicFilterDto
 void main() {
-  final instance = AdvertPublicFilterDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final AdvertPublicFilterDto? instance = /* AdvertPublicFilterDto(...) */ null;
+  // TODO add properties to the entity
 
   group(AdvertPublicFilterDto, () {
     // num id

@@ -22,7 +22,7 @@ void main() {
       // TODO
     });
 
-    //Future<BuiltList<String>> testControllerFillRegionsLocation() async
+    //Future<List<String>> testControllerFillRegionsLocation() async
     test('test testControllerFillRegionsLocation', () async {
       // TODO
     });

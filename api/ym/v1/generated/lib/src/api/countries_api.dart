@@ -4,18 +4,21 @@
 
 import 'dart:async';
 
-// ignore: unused_import
-import 'dart:convert';
-import 'package:ym_api_client/src/deserialize.dart';
+import 'package:built_value/json_object.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
+import 'package:built_collection/built_collection.dart';
+import 'package:ym_api_client/src/api_util.dart';
 import 'package:ym_api_client/src/model/country_with_regions_entity.dart';
 
 class CountriesApi {
 
   final Dio _dio;
 
-  const CountriesApi(this._dio);
+  final Serializers _serializers;
+
+  const CountriesApi(this._dio, this._serializers);
 
   /// countryControllerGet
   /// 
@@ -40,7 +43,7 @@ class CountriesApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/countries/{id}'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/countries/{id}'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(String)).toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -64,8 +67,12 @@ class CountriesApi {
     CountryWithRegionsEntity? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<CountryWithRegionsEntity, CountryWithRegionsEntity>(rawData, 'CountryWithRegionsEntity', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(CountryWithRegionsEntity),
+      ) as CountryWithRegionsEntity;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -99,9 +106,9 @@ _responseData = rawData == null ? null : deserialize<CountryWithRegionsEntity, C
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [List<CountryWithRegionsEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<CountryWithRegionsEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<CountryWithRegionsEntity>>> countryControllerGetAll({ 
+  Future<Response<BuiltList<CountryWithRegionsEntity>>> countryControllerGetAll({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -130,11 +137,15 @@ _responseData = rawData == null ? null : deserialize<CountryWithRegionsEntity, C
       onReceiveProgress: onReceiveProgress,
     );
 
-    List<CountryWithRegionsEntity>? _responseData;
+    BuiltList<CountryWithRegionsEntity>? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<List<CountryWithRegionsEntity>, CountryWithRegionsEntity>(rawData, 'List<CountryWithRegionsEntity>', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(CountryWithRegionsEntity)]),
+      ) as BuiltList<CountryWithRegionsEntity>;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -145,7 +156,7 @@ _responseData = rawData == null ? null : deserialize<List<CountryWithRegionsEnti
       );
     }
 
-    return Response<List<CountryWithRegionsEntity>>(
+    return Response<BuiltList<CountryWithRegionsEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

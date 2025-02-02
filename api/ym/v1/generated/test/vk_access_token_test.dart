@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for VkAccessToken
 void main() {
-  final instance = VkAccessTokenBuilder();
-  // TODO add properties to the builder and call build()
+  final VkAccessToken? instance = /* VkAccessToken(...) */ null;
+  // TODO add properties to the entity
 
   group(VkAccessToken, () {
     // String accessToken

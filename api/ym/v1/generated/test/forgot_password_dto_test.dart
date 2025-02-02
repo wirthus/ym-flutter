@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for ForgotPasswordDto
 void main() {
-  final instance = ForgotPasswordDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final ForgotPasswordDto? instance = /* ForgotPasswordDto(...) */ null;
+  // TODO add properties to the entity
 
   group(ForgotPasswordDto, () {
     // String email

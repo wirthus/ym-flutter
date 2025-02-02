@@ -3,16 +3,16 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for NotificationGetListAdvertsCountDto
 void main() {
-  final instance = NotificationGetListAdvertsCountDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final NotificationGetListAdvertsCountDto? instance = /* NotificationGetListAdvertsCountDto(...) */ null;
+  // TODO add properties to the entity
 
   group(NotificationGetListAdvertsCountDto, () {
-    // BuiltList<String> types
+    // List<String> types
     test('to test the property `types`', () async {
       // TODO
     });
 
-    // BuiltList<String> subtypes
+    // List<String> subtypes
     test('to test the property `subtypes`', () async {
       // TODO
     });

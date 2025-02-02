@@ -4,11 +4,12 @@
 
 import 'dart:async';
 
-// ignore: unused_import
-import 'dart:convert';
-import 'package:ym_api_client/src/deserialize.dart';
+import 'package:built_value/json_object.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
+import 'package:built_collection/built_collection.dart';
+import 'package:ym_api_client/src/api_util.dart';
 import 'package:ym_api_client/src/model/create_product_dto.dart';
 import 'package:ym_api_client/src/model/group_products_count_entity.dart';
 import 'package:ym_api_client/src/model/product_entity.dart';
@@ -23,7 +24,9 @@ class ProductsApi {
 
   final Dio _dio;
 
-  const ProductsApi(this._dio);
+  final Serializers _serializers;
+
+  const ProductsApi(this._dio, this._serializers);
 
   /// productControllerCreate
   /// 
@@ -65,7 +68,9 @@ class ProductsApi {
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(createProductDto);
+      const _type = FullType(CreateProductDto);
+      _bodyData = _serializers.serialize(createProductDto, specifiedType: _type);
+
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -90,8 +95,12 @@ _bodyData=jsonEncode(createProductDto);
     ProductEntity? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<ProductEntity, ProductEntity>(rawData, 'ProductEntity', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(ProductEntity),
+      ) as ProductEntity;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -137,7 +146,7 @@ _responseData = rawData == null ? null : deserialize<ProductEntity, ProductEntit
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/products/{id}'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/products/{id}'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -161,8 +170,12 @@ _responseData = rawData == null ? null : deserialize<ProductEntity, ProductEntit
     ProductEntity? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<ProductEntity, ProductEntity>(rawData, 'ProductEntity', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(ProductEntity),
+      ) as ProductEntity;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -210,7 +223,7 @@ _responseData = rawData == null ? null : deserialize<ProductEntity, ProductEntit
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/products/groups/{id}/full'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/products/groups/{id}/full'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -224,7 +237,7 @@ _responseData = rawData == null ? null : deserialize<ProductEntity, ProductEntit
     );
 
     final _queryParameters = <String, dynamic>{
-      if (subGroups != null) r'subGroups': subGroups,
+      if (subGroups != null) r'subGroups': encodeQueryParameter(_serializers, subGroups, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -239,8 +252,12 @@ _responseData = rawData == null ? null : deserialize<ProductEntity, ProductEntit
     ProductGroupWithProductsEntity? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<ProductGroupWithProductsEntity, ProductGroupWithProductsEntity>(rawData, 'ProductGroupWithProductsEntity', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(ProductGroupWithProductsEntity),
+      ) as ProductGroupWithProductsEntity;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -274,9 +291,9 @@ _responseData = rawData == null ? null : deserialize<ProductGroupWithProductsEnt
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [List<ProductGroupEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<ProductGroupEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<ProductGroupEntity>>> productControllerGetGroups({ 
+  Future<Response<BuiltList<ProductGroupEntity>>> productControllerGetGroups({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -305,11 +322,15 @@ _responseData = rawData == null ? null : deserialize<ProductGroupWithProductsEnt
       onReceiveProgress: onReceiveProgress,
     );
 
-    List<ProductGroupEntity>? _responseData;
+    BuiltList<ProductGroupEntity>? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<List<ProductGroupEntity>, ProductGroupEntity>(rawData, 'List<ProductGroupEntity>', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(ProductGroupEntity)]),
+      ) as BuiltList<ProductGroupEntity>;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -320,7 +341,7 @@ _responseData = rawData == null ? null : deserialize<List<ProductGroupEntity>, P
       );
     }
 
-    return Response<List<ProductGroupEntity>>(
+    return Response<BuiltList<ProductGroupEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -343,9 +364,9 @@ _responseData = rawData == null ? null : deserialize<List<ProductGroupEntity>, P
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [List<GroupProductsCountEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<GroupProductsCountEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<GroupProductsCountEntity>>> productControllerGetGroupsProductsCount({ 
+  Future<Response<BuiltList<GroupProductsCountEntity>>> productControllerGetGroupsProductsCount({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -374,11 +395,15 @@ _responseData = rawData == null ? null : deserialize<List<ProductGroupEntity>, P
       onReceiveProgress: onReceiveProgress,
     );
 
-    List<GroupProductsCountEntity>? _responseData;
+    BuiltList<GroupProductsCountEntity>? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<List<GroupProductsCountEntity>, GroupProductsCountEntity>(rawData, 'List<GroupProductsCountEntity>', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(GroupProductsCountEntity)]),
+      ) as BuiltList<GroupProductsCountEntity>;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -389,7 +414,7 @@ _responseData = rawData == null ? null : deserialize<List<GroupProductsCountEnti
       );
     }
 
-    return Response<List<GroupProductsCountEntity>>(
+    return Response<BuiltList<GroupProductsCountEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -413,9 +438,9 @@ _responseData = rawData == null ? null : deserialize<List<GroupProductsCountEnti
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [List<ProductGroupWithProductsEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<ProductGroupWithProductsEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<ProductGroupWithProductsEntity>>> productControllerGetGroupsWithProducts({ 
+  Future<Response<BuiltList<ProductGroupWithProductsEntity>>> productControllerGetGroupsWithProducts({ 
     bool? subGroups,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -438,7 +463,7 @@ _responseData = rawData == null ? null : deserialize<List<GroupProductsCountEnti
     );
 
     final _queryParameters = <String, dynamic>{
-      if (subGroups != null) r'subGroups': subGroups,
+      if (subGroups != null) r'subGroups': encodeQueryParameter(_serializers, subGroups, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -450,11 +475,15 @@ _responseData = rawData == null ? null : deserialize<List<GroupProductsCountEnti
       onReceiveProgress: onReceiveProgress,
     );
 
-    List<ProductGroupWithProductsEntity>? _responseData;
+    BuiltList<ProductGroupWithProductsEntity>? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<List<ProductGroupWithProductsEntity>, ProductGroupWithProductsEntity>(rawData, 'List<ProductGroupWithProductsEntity>', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(ProductGroupWithProductsEntity)]),
+      ) as BuiltList<ProductGroupWithProductsEntity>;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -465,7 +494,7 @@ _responseData = rawData == null ? null : deserialize<List<ProductGroupWithProduc
       );
     }
 
-    return Response<List<ProductGroupWithProductsEntity>>(
+    return Response<BuiltList<ProductGroupWithProductsEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -500,7 +529,7 @@ _responseData = rawData == null ? null : deserialize<List<ProductGroupWithProduc
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/products/{id}/info'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/products/{id}/info'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -524,8 +553,12 @@ _responseData = rawData == null ? null : deserialize<List<ProductGroupWithProduc
     ProductInfoEntity? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<ProductInfoEntity, ProductInfoEntity>(rawData, 'ProductInfoEntity', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(ProductInfoEntity),
+      ) as ProductInfoEntity;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -560,9 +593,9 @@ _responseData = rawData == null ? null : deserialize<ProductInfoEntity, ProductI
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [List<ProductEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<ProductEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<ProductEntity>>> productControllerGetProductsByGroup({ 
+  Future<Response<BuiltList<ProductEntity>>> productControllerGetProductsByGroup({ 
     required num id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -571,7 +604,7 @@ _responseData = rawData == null ? null : deserialize<ProductInfoEntity, ProductI
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/products/groups/{id}'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/products/groups/{id}'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -592,11 +625,15 @@ _responseData = rawData == null ? null : deserialize<ProductInfoEntity, ProductI
       onReceiveProgress: onReceiveProgress,
     );
 
-    List<ProductEntity>? _responseData;
+    BuiltList<ProductEntity>? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<List<ProductEntity>, ProductEntity>(rawData, 'List<ProductEntity>', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(ProductEntity)]),
+      ) as BuiltList<ProductEntity>;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -607,7 +644,7 @@ _responseData = rawData == null ? null : deserialize<List<ProductEntity>, Produc
       );
     }
 
-    return Response<List<ProductEntity>>(
+    return Response<BuiltList<ProductEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -630,9 +667,9 @@ _responseData = rawData == null ? null : deserialize<List<ProductEntity>, Produc
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [List<ProductGroupEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<ProductGroupEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<ProductGroupEntity>>> productControllerGetSubGroups({ 
+  Future<Response<BuiltList<ProductGroupEntity>>> productControllerGetSubGroups({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -661,11 +698,15 @@ _responseData = rawData == null ? null : deserialize<List<ProductEntity>, Produc
       onReceiveProgress: onReceiveProgress,
     );
 
-    List<ProductGroupEntity>? _responseData;
+    BuiltList<ProductGroupEntity>? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<List<ProductGroupEntity>, ProductGroupEntity>(rawData, 'List<ProductGroupEntity>', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(ProductGroupEntity)]),
+      ) as BuiltList<ProductGroupEntity>;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -676,7 +717,7 @@ _responseData = rawData == null ? null : deserialize<List<ProductGroupEntity>, P
       );
     }
 
-    return Response<List<ProductGroupEntity>>(
+    return Response<BuiltList<ProductGroupEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -700,9 +741,9 @@ _responseData = rawData == null ? null : deserialize<List<ProductGroupEntity>, P
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [List<ProductSubGroupEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<ProductSubGroupEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<ProductSubGroupEntity>>> productControllerGetSubGroupsByProductId({ 
+  Future<Response<BuiltList<ProductSubGroupEntity>>> productControllerGetSubGroupsByProductId({ 
     required num id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -711,7 +752,7 @@ _responseData = rawData == null ? null : deserialize<List<ProductGroupEntity>, P
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/products/{id}/subGroups'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/products/{id}/subGroups'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -732,11 +773,15 @@ _responseData = rawData == null ? null : deserialize<List<ProductGroupEntity>, P
       onReceiveProgress: onReceiveProgress,
     );
 
-    List<ProductSubGroupEntity>? _responseData;
+    BuiltList<ProductSubGroupEntity>? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<List<ProductSubGroupEntity>, ProductSubGroupEntity>(rawData, 'List<ProductSubGroupEntity>', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(ProductSubGroupEntity)]),
+      ) as BuiltList<ProductSubGroupEntity>;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -747,7 +792,7 @@ _responseData = rawData == null ? null : deserialize<List<ProductSubGroupEntity>
       );
     }
 
-    return Response<List<ProductSubGroupEntity>>(
+    return Response<BuiltList<ProductSubGroupEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -771,9 +816,9 @@ _responseData = rawData == null ? null : deserialize<List<ProductSubGroupEntity>
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [List<ProductEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<ProductEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<ProductEntity>>> productControllerSearch({ 
+  Future<Response<BuiltList<ProductEntity>>> productControllerSearch({ 
     required String name,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -796,7 +841,7 @@ _responseData = rawData == null ? null : deserialize<List<ProductSubGroupEntity>
     );
 
     final _queryParameters = <String, dynamic>{
-      r'name': name,
+      r'name': encodeQueryParameter(_serializers, name, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -808,11 +853,15 @@ _responseData = rawData == null ? null : deserialize<List<ProductSubGroupEntity>
       onReceiveProgress: onReceiveProgress,
     );
 
-    List<ProductEntity>? _responseData;
+    BuiltList<ProductEntity>? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<List<ProductEntity>, ProductEntity>(rawData, 'List<ProductEntity>', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(ProductEntity)]),
+      ) as BuiltList<ProductEntity>;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -823,7 +872,7 @@ _responseData = rawData == null ? null : deserialize<List<ProductEntity>, Produc
       );
     }
 
-    return Response<List<ProductEntity>>(
+    return Response<BuiltList<ProductEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -847,9 +896,9 @@ _responseData = rawData == null ? null : deserialize<List<ProductEntity>, Produc
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [List<ProductSearchResultEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<ProductSearchResultEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<ProductSearchResultEntity>>> productControllerSearchEx({ 
+  Future<Response<BuiltList<ProductSearchResultEntity>>> productControllerSearchEx({ 
     required SearchProductAdvancedDto searchProductAdvancedDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -875,7 +924,9 @@ _responseData = rawData == null ? null : deserialize<List<ProductEntity>, Produc
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(searchProductAdvancedDto);
+      const _type = FullType(SearchProductAdvancedDto);
+      _bodyData = _serializers.serialize(searchProductAdvancedDto, specifiedType: _type);
+
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -897,11 +948,15 @@ _bodyData=jsonEncode(searchProductAdvancedDto);
       onReceiveProgress: onReceiveProgress,
     );
 
-    List<ProductSearchResultEntity>? _responseData;
+    BuiltList<ProductSearchResultEntity>? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<List<ProductSearchResultEntity>, ProductSearchResultEntity>(rawData, 'List<ProductSearchResultEntity>', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(ProductSearchResultEntity)]),
+      ) as BuiltList<ProductSearchResultEntity>;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -912,7 +967,7 @@ _responseData = rawData == null ? null : deserialize<List<ProductSearchResultEnt
       );
     }
 
-    return Response<List<ProductSearchResultEntity>>(
+    return Response<BuiltList<ProductSearchResultEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

@@ -3,16 +3,16 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for NotificationGetListCountDto
 void main() {
-  final instance = NotificationGetListCountDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final NotificationGetListCountDto? instance = /* NotificationGetListCountDto(...) */ null;
+  // TODO add properties to the entity
 
   group(NotificationGetListCountDto, () {
-    // BuiltList<NotificationFilterDto> filters
+    // List<NotificationFilterDto> filters
     test('to test the property `filters`', () async {
       // TODO
     });
 
-    // num limit
+    // int limit
     test('to test the property `limit`', () async {
       // TODO
     });

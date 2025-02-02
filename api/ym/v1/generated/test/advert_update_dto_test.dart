@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertUpdateDto
 void main() {
-  final instance = AdvertUpdateDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final AdvertUpdateDto? instance = /* AdvertUpdateDto(...) */ null;
+  // TODO add properties to the entity
 
   group(AdvertUpdateDto, () {
     // bool published

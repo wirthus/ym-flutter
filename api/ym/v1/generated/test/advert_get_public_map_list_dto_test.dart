@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertGetPublicMapListDto
 void main() {
-  final instance = AdvertGetPublicMapListDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final AdvertGetPublicMapListDto? instance = /* AdvertGetPublicMapListDto(...) */ null;
+  // TODO add properties to the entity
 
   group(AdvertGetPublicMapListDto, () {
     // bool purchase
@@ -17,12 +17,12 @@ void main() {
       // TODO
     });
 
-    // BuiltList<num> regionIds
+    // List<num> regionIds
     test('to test the property `regionIds`', () async {
       // TODO
     });
 
-    // BuiltList<AdvertPublicFilterDto> filters
+    // List<AdvertPublicFilterDto> filters
     test('to test the property `filters`', () async {
       // TODO
     });

@@ -8,10 +8,10 @@ import 'package:ym_api_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cleaningId** | **num** |  | [optional] 
-**packingId** | **num** |  | [optional] 
-**qualityId** | **num** |  | [optional] 
-**recyclingId** | **num** |  | [optional] 
+**cleaningId** | **int** |  | [optional] 
+**packingId** | **int** |  | [optional] 
+**qualityId** | **int** |  | [optional] 
+**recyclingId** | **int** |  | [optional] 
 **enabled** | **bool** |  | [optional] 
 **temporary** | **bool** |  | [optional] 
 **priceLow** | **num** |  | [optional] 

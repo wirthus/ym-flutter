@@ -237,7 +237,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **purchasePointControllerGetAdverts**
-> List<AdvertBuyEntity> purchasePointControllerGetAdverts(id)
+> BuiltList<AdvertBuyEntity> purchasePointControllerGetAdverts(id)
 
 
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;AdvertBuyEntity&gt;**](AdvertBuyEntity.md)
+[**BuiltList&lt;AdvertBuyEntity&gt;**](AdvertBuyEntity.md)
 
 ### Authorization
 
@@ -319,7 +319,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **purchasePointControllerGetList**
-> List<PurchasePointPrivateItemEntity> purchasePointControllerGetList(purchasePointsGetPrivateListDto)
+> BuiltList<PurchasePointPrivateItemEntity> purchasePointControllerGetList(purchasePointsGetPrivateListDto)
 
 
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;PurchasePointPrivateItemEntity&gt;**](PurchasePointPrivateItemEntity.md)
+[**BuiltList&lt;PurchasePointPrivateItemEntity&gt;**](PurchasePointPrivateItemEntity.md)
 
 ### Authorization
 

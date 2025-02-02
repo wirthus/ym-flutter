@@ -3,21 +3,21 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for ProductSearchResultEntity
 void main() {
-  final instance = ProductSearchResultEntityBuilder();
-  // TODO add properties to the builder and call build()
+  final ProductSearchResultEntity? instance = /* ProductSearchResultEntity(...) */ null;
+  // TODO add properties to the entity
 
   group(ProductSearchResultEntity, () {
-    // num productId
+    // int productId
     test('to test the property `productId`', () async {
       // TODO
     });
 
-    // num groupId
+    // int groupId
     test('to test the property `groupId`', () async {
       // TODO
     });
 
-    // num subgroupId
+    // int subgroupId
     test('to test the property `subgroupId`', () async {
       // TODO
     });

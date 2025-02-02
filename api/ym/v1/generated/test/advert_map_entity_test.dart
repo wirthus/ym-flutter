@@ -3,11 +3,11 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertMapEntity
 void main() {
-  final instance = AdvertMapEntityBuilder();
-  // TODO add properties to the builder and call build()
+  final AdvertMapEntity? instance = /* AdvertMapEntity(...) */ null;
+  // TODO add properties to the entity
 
   group(AdvertMapEntity, () {
-    // num id
+    // int id
     test('to test the property `id`', () async {
       // TODO
     });

@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for CountryWithRegionsEntity
 void main() {
-  final instance = CountryWithRegionsEntityBuilder();
-  // TODO add properties to the builder and call build()
+  final CountryWithRegionsEntity? instance = /* CountryWithRegionsEntity(...) */ null;
+  // TODO add properties to the entity
 
   group(CountryWithRegionsEntity, () {
     // String id
@@ -17,7 +17,7 @@ void main() {
       // TODO
     });
 
-    // BuiltList<RegionEntity> regions
+    // List<RegionEntity> regions
     test('to test the property `regions`', () async {
       // TODO
     });

@@ -3,11 +3,11 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertGetPrivateListDto
 void main() {
-  final instance = AdvertGetPrivateListDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final AdvertGetPrivateListDto? instance = /* AdvertGetPrivateListDto(...) */ null;
+  // TODO add properties to the entity
 
   group(AdvertGetPrivateListDto, () {
-    // BuiltList<AdvertFilterDto> filters
+    // List<AdvertFilterDto> filters
     test('to test the property `filters`', () async {
       // TODO
     });

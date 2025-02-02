@@ -32,7 +32,7 @@ void main() {
       // TODO
     });
 
-    //Future<BuiltList<AdvertBuyEntity>> purchasePointControllerGetAdverts(num id) async
+    //Future<List<AdvertBuyEntity>> purchasePointControllerGetAdverts(num id) async
     test('test purchasePointControllerGetAdverts', () async {
       // TODO
     });
@@ -42,7 +42,7 @@ void main() {
       // TODO
     });
 
-    //Future<BuiltList<PurchasePointPrivateItemEntity>> purchasePointControllerGetList(PurchasePointsGetPrivateListDto purchasePointsGetPrivateListDto) async
+    //Future<List<PurchasePointPrivateItemEntity>> purchasePointControllerGetList(PurchasePointsGetPrivateListDto purchasePointsGetPrivateListDto) async
     test('test purchasePointControllerGetList', () async {
       // TODO
     });
@@ -54,11 +54,6 @@ void main() {
 
     //Future<PurchasePointPublicEntity> purchasePointControllerGetPublic(num id) async
     test('test purchasePointControllerGetPublic', () async {
-      // TODO
-    });
-
-    //Future<PurchasePointGetPublicFullResponseDto> purchasePointControllerGetPublicFull(num id) async
-    test('test purchasePointControllerGetPublicFull', () async {
       // TODO
     });
 

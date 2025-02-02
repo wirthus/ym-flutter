@@ -4,9 +4,8 @@
 
 import 'dart:async';
 
-// ignore: unused_import
-import 'dart:convert';
-import 'package:ym_api_client/src/deserialize.dart';
+import 'package:built_value/json_object.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:ym_api_client/src/model/forgot_password_dto.dart';
@@ -23,7 +22,9 @@ class AuthApi {
 
   final Dio _dio;
 
-  const AuthApi(this._dio);
+  final Serializers _serializers;
+
+  const AuthApi(this._dio, this._serializers);
 
   /// authControllerConfirmEmail
   /// 
@@ -65,7 +66,9 @@ class AuthApi {
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(forgotPasswordDto);
+      const _type = FullType(ForgotPasswordDto);
+      _bodyData = _serializers.serialize(forgotPasswordDto, specifiedType: _type);
+
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -130,7 +133,9 @@ _bodyData=jsonEncode(forgotPasswordDto);
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(forgotPasswordDto);
+      const _type = FullType(ForgotPasswordDto);
+      _bodyData = _serializers.serialize(forgotPasswordDto, specifiedType: _type);
+
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -195,7 +200,9 @@ _bodyData=jsonEncode(forgotPasswordDto);
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(loginDto);
+      const _type = FullType(LoginDto);
+      _bodyData = _serializers.serialize(loginDto, specifiedType: _type);
+
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -220,8 +227,12 @@ _bodyData=jsonEncode(loginDto);
     LoginResponseDto? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<LoginResponseDto, LoginResponseDto>(rawData, 'LoginResponseDto', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(LoginResponseDto),
+      ) as LoginResponseDto;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -284,7 +295,9 @@ _responseData = rawData == null ? null : deserialize<LoginResponseDto, LoginResp
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(loginPhoneDto);
+      const _type = FullType(LoginPhoneDto);
+      _bodyData = _serializers.serialize(loginPhoneDto, specifiedType: _type);
+
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -309,8 +322,12 @@ _bodyData=jsonEncode(loginPhoneDto);
     LoginResponseDto? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<LoginResponseDto, LoginResponseDto>(rawData, 'LoginResponseDto', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(LoginResponseDto),
+      ) as LoginResponseDto;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -373,7 +390,9 @@ _responseData = rawData == null ? null : deserialize<LoginResponseDto, LoginResp
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(loginVkDto);
+      const _type = FullType(LoginVkDto);
+      _bodyData = _serializers.serialize(loginVkDto, specifiedType: _type);
+
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -398,8 +417,12 @@ _bodyData=jsonEncode(loginVkDto);
     LoginVkResponseDto? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<LoginVkResponseDto, LoginVkResponseDto>(rawData, 'LoginVkResponseDto', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(LoginVkResponseDto),
+      ) as LoginVkResponseDto;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -462,7 +485,9 @@ _responseData = rawData == null ? null : deserialize<LoginVkResponseDto, LoginVk
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(logoutDto);
+      const _type = FullType(LogoutDto);
+      _bodyData = _serializers.serialize(logoutDto, specifiedType: _type);
+
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -527,7 +552,9 @@ _bodyData=jsonEncode(logoutDto);
     dynamic _bodyData;
 
     try {
-_bodyData=jsonEncode(userRegisterEmailDto);
+      const _type = FullType(UserRegisterEmailDto);
+      _bodyData = _serializers.serialize(userRegisterEmailDto, specifiedType: _type);
+
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -552,8 +579,12 @@ _bodyData=jsonEncode(userRegisterEmailDto);
     UserRegisterEmailResponseDto? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<UserRegisterEmailResponseDto, UserRegisterEmailResponseDto>(rawData, 'UserRegisterEmailResponseDto', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(UserRegisterEmailResponseDto),
+      ) as UserRegisterEmailResponseDto;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,

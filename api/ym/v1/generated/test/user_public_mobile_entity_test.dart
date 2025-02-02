@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for UserPublicMobileEntity
 void main() {
-  final instance = UserPublicMobileEntityBuilder();
-  // TODO add properties to the builder and call build()
+  final UserPublicMobileEntity? instance = /* UserPublicMobileEntity(...) */ null;
+  // TODO add properties to the entity
 
   group(UserPublicMobileEntity, () {
     // bool isCompany

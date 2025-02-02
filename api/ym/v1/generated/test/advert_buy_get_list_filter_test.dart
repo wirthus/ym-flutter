@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertBuyGetListFilter
 void main() {
-  final instance = AdvertBuyGetListFilterBuilder();
-  // TODO add properties to the builder and call build()
+  final AdvertBuyGetListFilter? instance = /* AdvertBuyGetListFilter(...) */ null;
+  // TODO add properties to the entity
 
   group(AdvertBuyGetListFilter, () {
     // bool enabled
@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // BuiltList<num> purchasePointIds
+    // List<num> purchasePointIds
     test('to test the property `purchasePointIds`', () async {
       // TODO
     });

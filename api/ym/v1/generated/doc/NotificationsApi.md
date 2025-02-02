@@ -143,7 +143,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **notificationControllerGetList**
-> List<NotificationEntity> notificationControllerGetList(notificationGetListDto)
+> BuiltList<NotificationEntity> notificationControllerGetList(notificationGetListDto)
 
 
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;NotificationEntity&gt;**](NotificationEntity.md)
+[**BuiltList&lt;NotificationEntity&gt;**](NotificationEntity.md)
 
 ### Authorization
 
@@ -184,7 +184,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **notificationControllerGetOne**
-> Object notificationControllerGetOne(id)
+> JsonObject notificationControllerGetOne(id)
 
 
 
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**JsonObject**](JsonObject.md)
 
 ### Authorization
 

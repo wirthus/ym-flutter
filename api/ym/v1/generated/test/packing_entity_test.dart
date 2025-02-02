@@ -3,11 +3,11 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for PackingEntity
 void main() {
-  final instance = PackingEntityBuilder();
-  // TODO add properties to the builder and call build()
+  final PackingEntity? instance = /* PackingEntity(...) */ null;
+  // TODO add properties to the entity
 
   group(PackingEntity, () {
-    // num id
+    // int id
     test('to test the property `id`', () async {
       // TODO
     });

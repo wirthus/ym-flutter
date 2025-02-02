@@ -3,11 +3,11 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for LoginResponseDto
 void main() {
-  final instance = LoginResponseDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final LoginResponseDto? instance = /* LoginResponseDto(...) */ null;
+  // TODO add properties to the entity
 
   group(LoginResponseDto, () {
-    // num userId
+    // int userId
     test('to test the property `userId`', () async {
       // TODO
     });

@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 **text** | **String** |  | 
 **purchase** | **bool** |  | 
 **countryId** | **String** |  | [optional] 
-**regionIds** | **List&lt;num&gt;** |  | [optional] 
-**quantityStart** | **num** |  | [optional] 
-**quantityEnd** | **num** |  | [optional] 
+**regionIds** | **BuiltList&lt;int&gt;** |  | [optional] 
+**quantityStart** | **int** |  | [optional] 
+**quantityEnd** | **int** |  | [optional] 
 **priceStart** | **num** |  | [optional] 
 **priceEnd** | **num** |  | [optional] 
-**sortType** | **String** |  | [optional] 
-**limit** | **num** |  | [optional] 
-**offset** | **num** |  | [optional] 
+**sortType** | [**AdvertSortType**](AdvertSortType.md) |  | [optional] 
+**limit** | **int** |  | [optional] 
+**offset** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

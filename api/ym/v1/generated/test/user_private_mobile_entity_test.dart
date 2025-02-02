@@ -3,16 +3,16 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for UserPrivateMobileEntity
 void main() {
-  final instance = UserPrivateMobileEntityBuilder();
-  // TODO add properties to the builder and call build()
+  final UserPrivateMobileEntity? instance = /* UserPrivateMobileEntity(...) */ null;
+  // TODO add properties to the entity
 
   group(UserPrivateMobileEntity, () {
-    // int vkUserId
+    // Bigint vkUserId
     test('to test the property `vkUserId`', () async {
       // TODO
     });
 
-    // num type
+    // int type
     test('to test the property `type`', () async {
       // TODO
     });

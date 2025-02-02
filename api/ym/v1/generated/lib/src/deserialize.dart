@@ -281,6 +281,9 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
           return PurchasePointsGetPrivateListDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'PurchasePointsGetPrivateListFilter':
           return PurchasePointsGetPrivateListFilter.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'PurchasePointsGetPrivateListOrderBy':
+          
+          
         case 'QualityEntity':
           return QualityEntity.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'RecyclingEntity':

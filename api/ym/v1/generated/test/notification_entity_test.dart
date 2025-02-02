@@ -3,26 +3,26 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for NotificationEntity
 void main() {
-  final instance = NotificationEntityBuilder();
-  // TODO add properties to the builder and call build()
+  final NotificationEntity? instance = /* NotificationEntity(...) */ null;
+  // TODO add properties to the entity
 
   group(NotificationEntity, () {
-    // num id
+    // int id
     test('to test the property `id`', () async {
       // TODO
     });
 
-    // num userId
+    // int userId
     test('to test the property `userId`', () async {
       // TODO
     });
 
-    // num advertId
+    // int advertId
     test('to test the property `advertId`', () async {
       // TODO
     });
 
-    // num actionId
+    // int actionId
     test('to test the property `actionId`', () async {
       // TODO
     });

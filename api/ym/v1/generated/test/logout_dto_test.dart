@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for LogoutDto
 void main() {
-  final instance = LogoutDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final LogoutDto? instance = /* LogoutDto(...) */ null;
+  // TODO add properties to the entity
 
   group(LogoutDto, () {
     // String deviceId

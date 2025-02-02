@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for RecyclingEntity
 void main() {
-  final instance = RecyclingEntityBuilder();
-  // TODO add properties to the builder and call build()
+  final RecyclingEntity? instance = /* RecyclingEntity(...) */ null;
+  // TODO add properties to the entity
 
   group(RecyclingEntity, () {
     // num id

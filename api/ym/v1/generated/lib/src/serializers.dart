@@ -21,6 +21,7 @@ import 'package:ym_api_client/src/model/advert_buy_create_dto.dart';
 import 'package:ym_api_client/src/model/advert_buy_entity.dart';
 import 'package:ym_api_client/src/model/advert_buy_get_list_dto.dart';
 import 'package:ym_api_client/src/model/advert_buy_get_list_filter.dart';
+import 'package:ym_api_client/src/model/advert_buy_get_list_order_type.dart';
 import 'package:ym_api_client/src/model/advert_buy_get_list_response_dto.dart';
 import 'package:ym_api_client/src/model/advert_buy_public_entity.dart';
 import 'package:ym_api_client/src/model/advert_buy_remove_purchase_points_dto.dart';
@@ -40,6 +41,8 @@ import 'package:ym_api_client/src/model/advert_private_entity.dart';
 import 'package:ym_api_client/src/model/advert_public_favorite_entity.dart';
 import 'package:ym_api_client/src/model/advert_public_filter_dto.dart';
 import 'package:ym_api_client/src/model/advert_search_dto.dart';
+import 'package:ym_api_client/src/model/advert_sort_type.dart';
+import 'package:ym_api_client/src/model/advert_status.dart';
 import 'package:ym_api_client/src/model/advert_update_dto.dart';
 import 'package:ym_api_client/src/model/advert_update_favorite_dto.dart';
 import 'package:ym_api_client/src/model/cleaning_entity.dart';
@@ -56,6 +59,7 @@ import 'package:ym_api_client/src/model/login_response_dto.dart';
 import 'package:ym_api_client/src/model/login_vk_dto.dart';
 import 'package:ym_api_client/src/model/login_vk_response_dto.dart';
 import 'package:ym_api_client/src/model/logout_dto.dart';
+import 'package:ym_api_client/src/model/moderation_status.dart';
 import 'package:ym_api_client/src/model/notification_advert_entity.dart';
 import 'package:ym_api_client/src/model/notification_entity.dart';
 import 'package:ym_api_client/src/model/notification_filter_dto.dart';
@@ -96,6 +100,7 @@ import 'package:ym_api_client/src/model/purchase_point_update_dto.dart';
 import 'package:ym_api_client/src/model/purchase_point_update_response_dto.dart';
 import 'package:ym_api_client/src/model/purchase_points_get_private_list_dto.dart';
 import 'package:ym_api_client/src/model/purchase_points_get_private_list_filter.dart';
+import 'package:ym_api_client/src/model/purchase_points_get_private_list_order_by.dart';
 import 'package:ym_api_client/src/model/quality_entity.dart';
 import 'package:ym_api_client/src/model/recycling_entity.dart';
 import 'package:ym_api_client/src/model/region_entity.dart';
@@ -126,6 +131,7 @@ part 'serializers.g.dart';
   AdvertBuyEntity,
   AdvertBuyGetListDto,
   AdvertBuyGetListFilter,
+  AdvertBuyGetListOrderType,
   AdvertBuyGetListResponseDto,
   AdvertBuyPublicEntity,
   AdvertBuyRemovePurchasePointsDto,
@@ -145,6 +151,8 @@ part 'serializers.g.dart';
   AdvertPublicFavoriteEntity,
   AdvertPublicFilterDto,
   AdvertSearchDto,
+  AdvertSortType,
+  AdvertStatus,
   AdvertUpdateDto,
   AdvertUpdateFavoriteDto,
   CleaningEntity,
@@ -161,6 +169,7 @@ part 'serializers.g.dart';
   LoginVkDto,
   LoginVkResponseDto,
   LogoutDto,
+  ModerationStatus,
   NotificationAdvertEntity,
   NotificationEntity,
   NotificationFilterDto,
@@ -201,6 +210,7 @@ part 'serializers.g.dart';
   PurchasePointUpdateResponseDto,
   PurchasePointsGetPrivateListDto,
   PurchasePointsGetPrivateListFilter,
+  PurchasePointsGetPrivateListOrderBy,
   QualityEntity,
   RecyclingEntity,
   RegionEntity,

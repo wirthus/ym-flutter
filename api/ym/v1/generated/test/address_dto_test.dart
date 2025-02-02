@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AddressDto
 void main() {
-  final instance = AddressDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final AddressDto? instance = /* AddressDto(...) */ null;
+  // TODO add properties to the entity
 
   group(AddressDto, () {
     // String address

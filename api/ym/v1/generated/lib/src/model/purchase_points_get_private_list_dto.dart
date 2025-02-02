@@ -4,86 +4,126 @@
 
 // ignore_for_file: unused_element
 import 'package:ym_api_client/src/model/purchase_points_get_private_list_filter.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:ym_api_client/src/model/purchase_points_get_private_list_order_by.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'purchase_points_get_private_list_dto.g.dart';
 
+/// PurchasePointsGetPrivateListDto
+///
+/// Properties:
+/// * [filter] 
+/// * [orderBy] 
+@BuiltValue()
+abstract class PurchasePointsGetPrivateListDto implements Built<PurchasePointsGetPrivateListDto, PurchasePointsGetPrivateListDtoBuilder> {
+  @BuiltValueField(wireName: r'filter')
+  PurchasePointsGetPrivateListFilter? get filter;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class PurchasePointsGetPrivateListDto {
-  /// Returns a new [PurchasePointsGetPrivateListDto] instance.
-  PurchasePointsGetPrivateListDto({
+  @BuiltValueField(wireName: r'orderBy')
+  PurchasePointsGetPrivateListOrderBy? get orderBy;
+  // enum orderByEnum {  byName,  byCreatedAt,  };
 
-     this.filter,
+  PurchasePointsGetPrivateListDto._();
 
-     this.orderBy,
-  });
+  factory PurchasePointsGetPrivateListDto([void updates(PurchasePointsGetPrivateListDtoBuilder b)]) = _$PurchasePointsGetPrivateListDto;
 
-  @JsonKey(
-    
-    name: r'filter',
-    required: false,
-    includeIfNull: false,
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PurchasePointsGetPrivateListDtoBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PurchasePointsGetPrivateListDto> get serializer => _$PurchasePointsGetPrivateListDtoSerializer();
+}
 
-  final PurchasePointsGetPrivateListFilter? filter;
-
-
-
-  @JsonKey(
-    
-    name: r'orderBy',
-    required: false,
-    includeIfNull: false,
-  )
-
-
-  final PurchasePointsGetPrivateListDtoOrderByEnum? orderBy;
-
-
-
-
-
-    @override
-    bool operator ==(Object other) => identical(this, other) || other is PurchasePointsGetPrivateListDto &&
-      other.filter == filter &&
-      other.orderBy == orderBy;
-
-    @override
-    int get hashCode =>
-        filter.hashCode +
-        orderBy.hashCode;
-
-  factory PurchasePointsGetPrivateListDto.fromJson(Map<String, dynamic> json) => _$PurchasePointsGetPrivateListDtoFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PurchasePointsGetPrivateListDtoToJson(this);
+class _$PurchasePointsGetPrivateListDtoSerializer implements PrimitiveSerializer<PurchasePointsGetPrivateListDto> {
+  @override
+  final Iterable<Type> types = const [PurchasePointsGetPrivateListDto, _$PurchasePointsGetPrivateListDto];
 
   @override
-  String toString() {
-    return toJson().toString();
+  final String wireName = r'PurchasePointsGetPrivateListDto';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    PurchasePointsGetPrivateListDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    if (object.filter != null) {
+      yield r'filter';
+      yield serializers.serialize(
+        object.filter,
+        specifiedType: const FullType(PurchasePointsGetPrivateListFilter),
+      );
+    }
+    if (object.orderBy != null) {
+      yield r'orderBy';
+      yield serializers.serialize(
+        object.orderBy,
+        specifiedType: const FullType(PurchasePointsGetPrivateListOrderBy),
+      );
+    }
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    PurchasePointsGetPrivateListDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required PurchasePointsGetPrivateListDtoBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'filter':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(PurchasePointsGetPrivateListFilter),
+          ) as PurchasePointsGetPrivateListFilter;
+          result.filter.replace(valueDes);
+          break;
+        case r'orderBy':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(PurchasePointsGetPrivateListOrderBy),
+          ) as PurchasePointsGetPrivateListOrderBy;
+          result.orderBy = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  PurchasePointsGetPrivateListDto deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PurchasePointsGetPrivateListDtoBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
-
-
-enum PurchasePointsGetPrivateListDtoOrderByEnum {
-@JsonValue(r'name')
-name(r'name'),
-@JsonValue(r'createdAt')
-createdAt(r'createdAt');
-
-const PurchasePointsGetPrivateListDtoOrderByEnum(this.value);
-
-final String value;
-
-@override
-String toString() => value;
-}
-
 

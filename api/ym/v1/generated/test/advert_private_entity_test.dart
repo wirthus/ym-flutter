@@ -3,21 +3,11 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertPrivateEntity
 void main() {
-  final instance = AdvertPrivateEntityBuilder();
-  // TODO add properties to the builder and call build()
+  final AdvertPrivateEntity? instance = /* AdvertPrivateEntity(...) */ null;
+  // TODO add properties to the entity
 
   group(AdvertPrivateEntity, () {
-    // String moderateComment
-    test('to test the property `moderateComment`', () async {
-      // TODO
-    });
-
-    // DateTime createdAt
-    test('to test the property `createdAt`', () async {
-      // TODO
-    });
-
-    // num id
+    // int id
     test('to test the property `id`', () async {
       // TODO
     });
@@ -42,7 +32,7 @@ void main() {
       // TODO
     });
 
-    // num quantity
+    // int quantity
     test('to test the property `quantity`', () async {
       // TODO
     });
@@ -52,12 +42,12 @@ void main() {
       // TODO
     });
 
-    // num productId
+    // int productId
     test('to test the property `productId`', () async {
       // TODO
     });
 
-    // num ownerId
+    // int ownerId
     test('to test the property `ownerId`', () async {
       // TODO
     });
@@ -67,27 +57,27 @@ void main() {
       // TODO
     });
 
-    // num regionId
+    // int regionId
     test('to test the property `regionId`', () async {
       // TODO
     });
 
-    // num cleaningId
+    // int cleaningId
     test('to test the property `cleaningId`', () async {
       // TODO
     });
 
-    // num packingId
+    // int packingId
     test('to test the property `packingId`', () async {
       // TODO
     });
 
-    // num qualityId
+    // int qualityId
     test('to test the property `qualityId`', () async {
       // TODO
     });
 
-    // num recyclingId
+    // int recyclingId
     test('to test the property `recyclingId`', () async {
       // TODO
     });
@@ -169,6 +159,16 @@ void main() {
 
     // AdvertBuyPublicEntity advertBuy
     test('to test the property `advertBuy`', () async {
+      // TODO
+    });
+
+    // String moderateComment
+    test('to test the property `moderateComment`', () async {
+      // TODO
+    });
+
+    // DateTime createdAt
+    test('to test the property `createdAt`', () async {
       // TODO
     });
 

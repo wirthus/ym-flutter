@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertChangePriceProperties
 void main() {
-  final instance = AdvertChangePricePropertiesBuilder();
-  // TODO add properties to the builder and call build()
+  final AdvertChangePriceProperties? instance = /* AdvertChangePriceProperties(...) */ null;
+  // TODO add properties to the entity
 
   group(AdvertChangePriceProperties, () {
     // num newPrice

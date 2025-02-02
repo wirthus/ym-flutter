@@ -3,11 +3,11 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for NotificationAdvertEntity
 void main() {
-  final instance = NotificationAdvertEntityBuilder();
-  // TODO add properties to the builder and call build()
+  final NotificationAdvertEntity? instance = /* NotificationAdvertEntity(...) */ null;
+  // TODO add properties to the entity
 
   group(NotificationAdvertEntity, () {
-    // num id
+    // int id
     test('to test the property `id`', () async {
       // TODO
     });

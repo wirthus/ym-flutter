@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertSearchDto
 void main() {
-  final instance = AdvertSearchDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final AdvertSearchDto? instance = /* AdvertSearchDto(...) */ null;
+  // TODO add properties to the entity
 
   group(AdvertSearchDto, () {
     // String text
@@ -22,7 +22,7 @@ void main() {
       // TODO
     });
 
-    // BuiltList<num> regionIds
+    // List<num> regionIds
     test('to test the property `regionIds`', () async {
       // TODO
     });

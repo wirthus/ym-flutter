@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for PaginateParamsDto
 void main() {
-  final instance = PaginateParamsDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final PaginateParamsDto? instance = /* PaginateParamsDto(...) */ null;
+  // TODO add properties to the entity
 
   group(PaginateParamsDto, () {
     // num pageIndex

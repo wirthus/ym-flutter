@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for PaginatedResponseOfNotificationAdvertEntity
 void main() {
-  final instance = PaginatedResponseOfNotificationAdvertEntityBuilder();
-  // TODO add properties to the builder and call build()
+  final PaginatedResponseOfNotificationAdvertEntity? instance = /* PaginatedResponseOfNotificationAdvertEntity(...) */ null;
+  // TODO add properties to the entity
 
   group(PaginatedResponseOfNotificationAdvertEntity, () {
     // num totalCount
@@ -37,7 +37,7 @@ void main() {
       // TODO
     });
 
-    // BuiltList<NotificationAdvertEntity> items
+    // List<NotificationAdvertEntity> items
     test('to test the property `items`', () async {
       // TODO
     });

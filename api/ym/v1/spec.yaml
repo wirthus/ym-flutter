@@ -1470,25 +1470,29 @@ components:
       type: http
       in: header
   schemas:
+    ModerationStatus:
+      type: number
+      enum:
+        - 0
+        - 1
+        - 2
+    AdvertStatus:
+      type: number
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
     AdvertFilterDto:
       type: object
       properties:
         published:
           type: boolean
         moderate:
-          type: number
-          enum:
-            - 0
-            - 1
-            - 2
+          $ref: "#/components/schemas/ModerationStatus"
         status:
-          type: number
-          enum:
-            - 0
-            - 1
-            - 2
-            - 3
-            - 4
+          $ref: "#/components/schemas/AdvertStatus"
     AdvertGetPrivateListDto:
       type: object
       properties:
@@ -1786,6 +1790,15 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/AdvertFilterDto"
+    AdvertSortType:
+      type: string
+      enum:
+        - date_asc
+        - date_desc
+        - price_asc
+        - price_desc
+        - quantity_asc
+        - quantity_desc
     AdvertSearchDto:
       type: object
       properties:
@@ -1798,34 +1811,27 @@ components:
         regionIds:
           type: array
           items:
-            type: number
+            type: integer
         quantityStart:
-          type: number
+          type: integer
           minimum: 1
         quantityEnd:
-          type: number
+          type: integer
           minimum: 1
         priceStart:
           type: number
-          minimum: 1
+          minimum: 0
         priceEnd:
           type: number
-          minimum: 1
+          minimum: 0
         sortType:
-          type: string
-          enum:
-            - date_asc
-            - date_desc
-            - price_asc
-            - price_desc
-            - quantity_asc
-            - quantity_desc
+          $ref: "#/components/schemas/AdvertSortType"
         limit:
-          type: number
-          minimum: 1
+          type: integer
+          minimum: 0
         offset:
-          type: number
-          minimum: 1
+          type: integer
+          minimum: 0
       required:
         - text
         - purchase
@@ -1967,31 +1973,24 @@ components:
         regionIds:
           type: array
           items:
-            type: number
+            type: integer
         quantityStart:
-          type: number
+          type: integer
           minimum: 1
         quantityEnd:
-          type: number
+          type: integer
           minimum: 1
         priceStart:
           type: number
-          minimum: 1
+          minimum: 0
         priceEnd:
           type: number
-          minimum: 1
+          minimum: 0
         sortType:
-          type: string
-          enum:
-            - date_asc
-            - date_desc
-            - price_asc
-            - price_desc
-            - quantity_asc
-            - quantity_desc
+          $ref: "#/components/schemas/AdvertSortType"
         limit:
-          type: number
-          minimum: 1
+          type: integer
+          minimum: 0
       required:
         - purchase
     AdvertPublicFilterDto:
@@ -2018,7 +2017,7 @@ components:
         regionIds:
           type: array
           items:
-            type: number
+            type: integer
         filters:
           type: array
           items:
@@ -2065,17 +2064,19 @@ components:
         purchasePointIds:
           type: array
           items:
-            type: number
+            type: integer
+    AdvertBuyGetListOrderType:
+      type: string
+      enum:
+        - byName
+        - byCreatedAt
     AdvertBuyGetListDto:
       type: object
       properties:
         filter:
           $ref: "#/components/schemas/AdvertBuyGetListFilter"
         orderBy:
-          type: string
-          enum:
-            - name
-            - createdAt
+          $ref: "#/components/schemas/AdvertBuyGetListOrderType"
     AdvertBuyEntity:
       type: object
       properties:
@@ -2153,21 +2154,21 @@ components:
       type: object
       properties:
         productId:
-          type: number
+          type: integer
         cleaningId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         packingId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         qualityId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         recyclingId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         enabled:
@@ -2200,7 +2201,7 @@ components:
         purchasePointIds:
           type: array
           items:
-            type: number
+            type: integer
       required:
         - purchasePointIds
     AdvertBuyAddPurchasePointsResponseDto:
@@ -2209,7 +2210,7 @@ components:
         advertIds:
           type: array
           items:
-            type: number
+            type: integer
       required:
         - advertIds
     AdvertBuyRemovePurchasePointsDto:
@@ -2218,7 +2219,7 @@ components:
         purchasePointIds:
           type: array
           items:
-            type: number
+            type: integer
       required:
         - purchasePointIds
     AdvertBuyRemovePurchasePointsResponseDto:
@@ -2227,26 +2228,26 @@ components:
         advertIds:
           type: array
           items:
-            type: number
+            type: integer
       required:
         - advertIds
     AdvertBuyUpdateDto:
       type: object
       properties:
         cleaningId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         packingId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         qualityId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         recyclingId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         enabled:
@@ -2270,7 +2271,7 @@ components:
         advertBuy:
           $ref: "#/components/schemas/AdvertBuyEntity"
         updatedAdvertCount:
-          type: number
+          type: integer
       required:
         - updated
         - advertBuy
@@ -2298,30 +2299,30 @@ components:
     AdvertUpdateDto:
       type: object
       properties:
-        published:
-          type: boolean
         purchase:
           type: boolean
+        published:
+          type: boolean
         price:
-          type: number
+          type: integer
           minimum: 0
         quantity:
-          type: number
+          type: integer
           minimum: 1
         cleaningId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         packingId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         qualityId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         recyclingId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         info:
@@ -2339,28 +2340,28 @@ components:
         published:
           type: boolean
         price:
-          type: number
+          type: integer
           minimum: 0
         quantity:
-          type: number
+          type: integer
           minimum: 1
         productId:
-          type: number
+          type: integer
           minimum: 1
         cleaningId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         packingId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         qualityId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         recyclingId:
-          type: number
+          type: integer
           nullable: true
           minimum: 0
         info:
@@ -2418,8 +2419,9 @@ components:
       type: object
       properties:
         vkUserId:
-          type: bigint
+          type: integer
           nullable: true
+          format: int64
         type:
           type: integer
         isCompany:
@@ -2601,16 +2603,8 @@ components:
       type: object
       properties:
         type:
-          enum:
-            - system
-            - subscription
-            - user
           type: string
         status:
-          enum:
-            - unread
-            - read
-            - archived
           type: string
     NotificationGetListDto:
       type: object
@@ -2693,26 +2687,12 @@ components:
       properties:
         types:
           type: array
-          items: &a13
+          items:
             type: string
-            enum:
-              - system
-              - subscription
-              - user
         subtypes:
           type: array
-          items: &a14
+          items:
             type: string
-            enum:
-              - advert_published
-              - advert_changed_price
-              - advert_changed_status
-              - advert_changed_content
-              - purchase_point_published
-              - purchase_advert_published
-              - purchase_advert_changed_price
-              - purchase_advert_changed_status
-              - purchase_advert_changed_content
       required:
         - types
     PaginatedEntity:
@@ -2807,10 +2787,12 @@ components:
       properties:
         types:
           type: array
-          items: *a13
+          items:
+            type: string
         subtypes:
           type: array
-          items: *a14
+          items:
+            type: string
       required:
         - types
     SetReadNotificationDto:
@@ -2820,24 +2802,10 @@ components:
           type: array
           items:
             type: string
-            enum:
-              - system
-              - subscription
-              - user
         subtypes:
           type: array
           items:
             type: string
-            enum:
-              - advert_published
-              - advert_changed_price
-              - advert_changed_status
-              - advert_changed_content
-              - purchase_point_published
-              - purchase_advert_published
-              - purchase_advert_changed_price
-              - purchase_advert_changed_status
-              - purchase_advert_changed_content
       required:
         - types
     RegisterPhoneDto:
@@ -3054,16 +3022,18 @@ components:
           type: array
           items:
             type: integer
+    PurchasePointsGetPrivateListOrderBy:
+      type: string
+      enum:
+        - byName
+        - byCreatedAt
     PurchasePointsGetPrivateListDto:
       type: object
       properties:
         filter:
           $ref: "#/components/schemas/PurchasePointsGetPrivateListFilter"
         orderBy:
-          enum:
-            - name
-            - createdAt
-          type: string
+          $ref: "#/components/schemas/PurchasePointsGetPrivateListOrderBy"
     PurchasePointPrivateItemEntity:
       type: object
       properties:

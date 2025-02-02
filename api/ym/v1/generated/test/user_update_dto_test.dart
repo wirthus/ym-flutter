@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for UserUpdateDto
 void main() {
-  final instance = UserUpdateDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final UserUpdateDto? instance = /* UserUpdateDto(...) */ null;
+  // TODO add properties to the entity
 
   group(UserUpdateDto, () {
     // String name
@@ -17,7 +17,7 @@ void main() {
       // TODO
     });
 
-    // num type
+    // UserType type
     test('to test the property `type`', () async {
       // TODO
     });
@@ -32,7 +32,7 @@ void main() {
       // TODO
     });
 
-    // num regionId
+    // int regionId
     test('to test the property `regionId`', () async {
       // TODO
     });

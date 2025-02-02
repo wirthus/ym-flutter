@@ -3,6 +3,8 @@
 //
 
 import 'package:dio/dio.dart';
+import 'package:built_value/serializer.dart';
+import 'package:ym_api_client/src/serializers.dart';
 import 'package:ym_api_client/src/auth/api_key_auth.dart';
 import 'package:ym_api_client/src/auth/basic_auth.dart';
 import 'package:ym_api_client/src/auth/bearer_auth.dart';
@@ -24,11 +26,14 @@ class YmApiClient {
   static const String basePath = r'/api';
 
   final Dio dio;
+  final Serializers serializers;
+
   YmApiClient({
     Dio? dio,
+    Serializers? serializers,
     String? basePathOverride,
     List<Interceptor>? interceptors,
-  })  : 
+  })  : this.serializers = serializers ?? standardSerializers,
         this.dio = dio ??
             Dio(BaseOptions(
               baseUrl: basePathOverride ?? basePath,
@@ -74,72 +79,72 @@ class YmApiClient {
   /// Get AdvertsApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   AdvertsApi getAdvertsApi() {
-    return AdvertsApi(dio);
+    return AdvertsApi(dio, serializers);
   }
 
   /// Get AuthApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   AuthApi getAuthApi() {
-    return AuthApi(dio);
+    return AuthApi(dio, serializers);
   }
 
   /// Get CountriesApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   CountriesApi getCountriesApi() {
-    return CountriesApi(dio);
+    return CountriesApi(dio, serializers);
   }
 
   /// Get FeedbackApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   FeedbackApi getFeedbackApi() {
-    return FeedbackApi(dio);
+    return FeedbackApi(dio, serializers);
   }
 
   /// Get NotificationsApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   NotificationsApi getNotificationsApi() {
-    return NotificationsApi(dio);
+    return NotificationsApi(dio, serializers);
   }
 
   /// Get PhoneApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   PhoneApi getPhoneApi() {
-    return PhoneApi(dio);
+    return PhoneApi(dio, serializers);
   }
 
   /// Get ProductsApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   ProductsApi getProductsApi() {
-    return ProductsApi(dio);
+    return ProductsApi(dio, serializers);
   }
 
   /// Get PurchasePointsApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   PurchasePointsApi getPurchasePointsApi() {
-    return PurchasePointsApi(dio);
+    return PurchasePointsApi(dio, serializers);
   }
 
   /// Get RegionsApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   RegionsApi getRegionsApi() {
-    return RegionsApi(dio);
+    return RegionsApi(dio, serializers);
   }
 
   /// Get SubscriptionsApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   SubscriptionsApi getSubscriptionsApi() {
-    return SubscriptionsApi(dio);
+    return SubscriptionsApi(dio, serializers);
   }
 
   /// Get TestApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   TestApi getTestApi() {
-    return TestApi(dio);
+    return TestApi(dio, serializers);
   }
 
   /// Get UserApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   UserApi getUserApi() {
-    return UserApi(dio);
+    return UserApi(dio, serializers);
   }
 }

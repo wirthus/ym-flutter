@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for LoginVkDto
 void main() {
-  final instance = LoginVkDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final LoginVkDto? instance = /* LoginVkDto(...) */ null;
+  // TODO add properties to the entity
 
   group(LoginVkDto, () {
     // String version

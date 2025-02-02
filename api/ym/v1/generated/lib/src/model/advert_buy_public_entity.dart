@@ -3,88 +3,137 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'advert_buy_public_entity.g.dart';
 
+/// AdvertBuyPublicEntity
+///
+/// Properties:
+/// * [priceLow] 
+/// * [priceHigh] 
+/// * [description] 
+@BuiltValue()
+abstract class AdvertBuyPublicEntity implements Built<AdvertBuyPublicEntity, AdvertBuyPublicEntityBuilder> {
+  @BuiltValueField(wireName: r'priceLow')
+  num get priceLow;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class AdvertBuyPublicEntity {
-  /// Returns a new [AdvertBuyPublicEntity] instance.
-  AdvertBuyPublicEntity({
+  @BuiltValueField(wireName: r'priceHigh')
+  num get priceHigh;
 
-    required  this.priceLow,
+  @BuiltValueField(wireName: r'description')
+  String? get description;
 
-    required  this.priceHigh,
+  AdvertBuyPublicEntity._();
 
-    required  this.description,
-  });
+  factory AdvertBuyPublicEntity([void updates(AdvertBuyPublicEntityBuilder b)]) = _$AdvertBuyPublicEntity;
 
-          // minimum: 0
-  @JsonKey(
-    
-    name: r'priceLow',
-    required: true,
-    includeIfNull: false,
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AdvertBuyPublicEntityBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AdvertBuyPublicEntity> get serializer => _$AdvertBuyPublicEntitySerializer();
+}
 
-  final num priceLow;
-
-
-
-          // minimum: 0
-  @JsonKey(
-    
-    name: r'priceHigh',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final num priceHigh;
-
-
-
-  @JsonKey(
-    
-    name: r'description',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final String? description;
-
-
-
-
-
-    @override
-    bool operator ==(Object other) => identical(this, other) || other is AdvertBuyPublicEntity &&
-      other.priceLow == priceLow &&
-      other.priceHigh == priceHigh &&
-      other.description == description;
-
-    @override
-    int get hashCode =>
-        priceLow.hashCode +
-        priceHigh.hashCode +
-        (description == null ? 0 : description.hashCode);
-
-  factory AdvertBuyPublicEntity.fromJson(Map<String, dynamic> json) => _$AdvertBuyPublicEntityFromJson(json);
-
-  Map<String, dynamic> toJson() => _$AdvertBuyPublicEntityToJson(this);
+class _$AdvertBuyPublicEntitySerializer implements PrimitiveSerializer<AdvertBuyPublicEntity> {
+  @override
+  final Iterable<Type> types = const [AdvertBuyPublicEntity, _$AdvertBuyPublicEntity];
 
   @override
-  String toString() {
-    return toJson().toString();
+  final String wireName = r'AdvertBuyPublicEntity';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    AdvertBuyPublicEntity object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'priceLow';
+    yield serializers.serialize(
+      object.priceLow,
+      specifiedType: const FullType(num),
+    );
+    yield r'priceHigh';
+    yield serializers.serialize(
+      object.priceHigh,
+      specifiedType: const FullType(num),
+    );
+    yield r'description';
+    yield object.description == null ? null : serializers.serialize(
+      object.description,
+      specifiedType: const FullType.nullable(String),
+    );
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    AdvertBuyPublicEntity object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required AdvertBuyPublicEntityBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'priceLow':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(num),
+          ) as num;
+          result.priceLow = valueDes;
+          break;
+        case r'priceHigh':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(num),
+          ) as num;
+          result.priceHigh = valueDes;
+          break;
+        case r'description':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.description = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  AdvertBuyPublicEntity deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = AdvertBuyPublicEntityBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

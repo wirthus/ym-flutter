@@ -8,14 +8,14 @@ import 'package:ym_api_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**published** | **bool** |  | [optional] 
 **purchase** | **bool** |  | [optional] 
-**price** | **num** |  | [optional] 
-**quantity** | **num** |  | [optional] 
-**cleaningId** | **num** |  | [optional] 
-**packingId** | **num** |  | [optional] 
-**qualityId** | **num** |  | [optional] 
-**recyclingId** | **num** |  | [optional] 
+**published** | **bool** |  | [optional] 
+**price** | **int** |  | [optional] 
+**quantity** | **int** |  | [optional] 
+**cleaningId** | **int** |  | [optional] 
+**packingId** | **int** |  | [optional] 
+**qualityId** | **int** |  | [optional] 
+**recyclingId** | **int** |  | [optional] 
 **info** | **String** |  | [optional] 
 **address** | [**AddressDto**](AddressDto.md) |  | [optional] 
 

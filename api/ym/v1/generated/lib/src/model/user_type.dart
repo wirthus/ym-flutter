@@ -3,19 +3,32 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
+part 'user_type.g.dart';
 
-enum UserType {
-      @JsonValue('0')
-      n0(''0''),
-      @JsonValue('1')
-      n1(''1'');
+class UserType extends EnumClass {
 
-  const UserType(this.value);
+  @BuiltValueEnumConst(wireName: r'0')
+  static const UserType n0 = _$n0;
+  @BuiltValueEnumConst(wireName: r'1')
+  static const UserType n1 = _$n1;
 
-  final String value;
+  static Serializer<UserType> get serializer => _$userTypeSerializer;
 
-  @override
-  String toString() => value;
+  const UserType._(String name): super(name);
+
+  static BuiltSet<UserType> get values => _$values;
+  static UserType valueOf(String name) => _$valueOf(name);
 }
+
+/// Optionally, enum_class can generate a mixin to go with your enum for use
+/// with Angular. It exposes your enum constants as getters. So, if you mix it
+/// in to your Dart component class, the values become available to the
+/// corresponding Angular template.
+///
+/// Trigger mixin generation by writing a line like this one next to your enum.
+abstract class UserTypeMixin = Object with _$UserTypeMixin;
+
