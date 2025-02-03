@@ -19,12 +19,12 @@
   "dart.previewFlutterUiGuides": true,
   "dart.previewFlutterUiGuidesCustomTracking": true,
   "files.exclude": {
-    // "**/*.config.dart": true,
-    // "**/*.freezed.dart": true,
-    // "**/*.g.dart": true,
-    // "**/*.gen.dart": true,
-    // "**/*.gr.dart": true,
-    // "**/.gitkeep": true
+    "**/*.config.dart": true,
+    "**/*.freezed.dart": true,
+    "**/*.g.dart": true,
+    "**/*.gen.dart": true,
+    "**/*.gr.dart": true,
+    "**/.gitkeep": true
   },
   "files.watcherExclude": {
     "**/.fvm": true,

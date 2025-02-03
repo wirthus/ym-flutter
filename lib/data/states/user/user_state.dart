@@ -8,17 +8,18 @@ enum UserType {
 }
 
 @freezed
-class UserState with _$UserState {
-  const factory UserState({
-    @Default(0) int id,
-    @Default(UserType.personal) UserType type,
-    @Default('') String firstName,
-    @Default('') String lastName,
-    @Default(0) int countryId,
-    @Default(0) int regionId,
-    @Default('') String email,
-    @Default('') String phone,
-  }) = _UserState;
+sealed class UserState with _$UserState {
+  const factory UserState.loaded({
+    required int id,
+    required UserType type,
+    required String firstName,
+    required String lastName,
+    required int countryId,
+    required int regionId,
+    required String email,
+    required String phone,
+  }) = UserLoaded;
 
-  // const UserState._();
+  // Пустое состояние
+  const factory UserState.empty() = UserEmpty;
 }
