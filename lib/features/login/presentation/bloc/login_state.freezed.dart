@@ -16,12 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LoginState {
-  bool get isLoading => throw _privateConstructorUsedError;
-  set isLoading(bool value) => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
-  set email(String? value) => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
-  set password(String? value) => throw _privateConstructorUsedError;
+  bool get isSubmitting => throw _privateConstructorUsedError;
+  String? get emailError => throw _privateConstructorUsedError;
+  String? get passwordError => throw _privateConstructorUsedError;
+  LoginType get loginType => throw _privateConstructorUsedError;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -36,7 +36,13 @@ abstract class $LoginStateCopyWith<$Res> {
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
-  $Res call({bool isLoading, String? email, String? password});
+  $Res call(
+      {String? email,
+      String? password,
+      bool isSubmitting,
+      String? emailError,
+      String? passwordError,
+      LoginType loginType});
 }
 
 /// @nodoc
@@ -54,15 +60,14 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = null,
     Object? email = freezed,
     Object? password = freezed,
+    Object? isSubmitting = null,
+    Object? emailError = freezed,
+    Object? passwordError = freezed,
+    Object? loginType = null,
   }) {
     return _then(_value.copyWith(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -71,6 +76,22 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      emailError: freezed == emailError
+          ? _value.emailError
+          : emailError // ignore: cast_nullable_to_non_nullable
+              as String?,
+      passwordError: freezed == passwordError
+          ? _value.passwordError
+          : passwordError // ignore: cast_nullable_to_non_nullable
+              as String?,
+      loginType: null == loginType
+          ? _value.loginType
+          : loginType // ignore: cast_nullable_to_non_nullable
+              as LoginType,
     ) as $Val);
   }
 }
@@ -83,7 +104,13 @@ abstract class _$$LoginStateImplCopyWith<$Res>
       __$$LoginStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, String? email, String? password});
+  $Res call(
+      {String? email,
+      String? password,
+      bool isSubmitting,
+      String? emailError,
+      String? passwordError,
+      LoginType loginType});
 }
 
 /// @nodoc
@@ -99,15 +126,14 @@ class __$$LoginStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = null,
     Object? email = freezed,
     Object? password = freezed,
+    Object? isSubmitting = null,
+    Object? emailError = freezed,
+    Object? passwordError = freezed,
+    Object? loginType = null,
   }) {
     return _then(_$LoginStateImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -116,40 +142,77 @@ class __$$LoginStateImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      emailError: freezed == emailError
+          ? _value.emailError
+          : emailError // ignore: cast_nullable_to_non_nullable
+              as String?,
+      passwordError: freezed == passwordError
+          ? _value.passwordError
+          : passwordError // ignore: cast_nullable_to_non_nullable
+              as String?,
+      loginType: null == loginType
+          ? _value.loginType
+          : loginType // ignore: cast_nullable_to_non_nullable
+              as LoginType,
     ));
   }
 }
 
 /// @nodoc
 
-class _$LoginStateImpl with DiagnosticableTreeMixin implements _LoginState {
-  _$LoginStateImpl(
-      {this.isLoading = false, this.email = null, this.password = null});
+class _$LoginStateImpl implements _LoginState {
+  const _$LoginStateImpl(
+      {this.email,
+      this.password,
+      required this.isSubmitting,
+      required this.emailError,
+      required this.passwordError,
+      this.loginType = LoginType.loginEmail});
 
   @override
-  @JsonKey()
-  bool isLoading;
+  final String? email;
+  @override
+  final String? password;
+  @override
+  final bool isSubmitting;
+  @override
+  final String? emailError;
+  @override
+  final String? passwordError;
   @override
   @JsonKey()
-  String? email;
-  @override
-  @JsonKey()
-  String? password;
+  final LoginType loginType;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'LoginState(isLoading: $isLoading, email: $email, password: $password)';
+  String toString() {
+    return 'LoginState(email: $email, password: $password, isSubmitting: $isSubmitting, emailError: $emailError, passwordError: $passwordError, loginType: $loginType)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'LoginState'))
-      ..add(DiagnosticsProperty('isLoading', isLoading))
-      ..add(DiagnosticsProperty('email', email))
-      ..add(DiagnosticsProperty('password', password));
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoginStateImpl &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.emailError, emailError) ||
+                other.emailError == emailError) &&
+            (identical(other.passwordError, passwordError) ||
+                other.passwordError == passwordError) &&
+            (identical(other.loginType, loginType) ||
+                other.loginType == loginType));
   }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email, password, isSubmitting,
+      emailError, passwordError, loginType);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -161,18 +224,26 @@ class _$LoginStateImpl with DiagnosticableTreeMixin implements _LoginState {
 }
 
 abstract class _LoginState implements LoginState {
-  factory _LoginState({bool isLoading, String? email, String? password}) =
-      _$LoginStateImpl;
+  const factory _LoginState(
+      {final String? email,
+      final String? password,
+      required final bool isSubmitting,
+      required final String? emailError,
+      required final String? passwordError,
+      final LoginType loginType}) = _$LoginStateImpl;
 
   @override
-  bool get isLoading;
-  set isLoading(bool value);
-  @override
   String? get email;
-  set email(String? value);
   @override
   String? get password;
-  set password(String? value);
+  @override
+  bool get isSubmitting;
+  @override
+  String? get emailError;
+  @override
+  String? get passwordError;
+  @override
+  LoginType get loginType;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
