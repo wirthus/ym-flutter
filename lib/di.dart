@@ -8,7 +8,7 @@ import 'di.config.dart';
 final getIt = GetIt.instance;
 
 @InjectableInit()
-void configureDependencies() => getIt.init();
+Future<void> configureDependencies() async => getIt.init();
 
 // @module
 // abstract class RegisterModule {
@@ -19,9 +19,10 @@ void configureDependencies() => getIt.init();
 //   YmApiClient get ymApiClient => YmApiClient(dio: getIt.get<Dio>());
 // }
 
-void setupDependencies() {
-  // Регистрация Dio как синглтона
-  getIt.registerLazySingleton<Dio>(() {
+@module
+abstract class RegisterModule {
+  @lazySingleton
+  Dio get dio {
     final dio = Dio(
       BaseOptions(
         baseUrl: 'https://api.example.com',
@@ -38,7 +39,8 @@ void setupDependencies() {
     ));
 
     return dio;
-  });
+  }
 
-  getIt.registerLazySingleton<YmApiClient>(() => YmApiClient(dio: getIt.get<Dio>()));
+  @lazySingleton
+  YmApiClient get ymApiClient => YmApiClient(dio: getIt.get<Dio>());
 }

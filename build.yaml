@@ -5,14 +5,15 @@ targets:
         options:
           enable_cached_builds: true
         generate_for:
-          - lib/presentation/pages/main/**/*.dart
-          - lib/presentation/pages/screens/**/*.dart
-          - lib/presentation/pages/tabs/**/*.dart
+          - lib/ui/pages/main/**/*.dart
+          - lib/ui/pages/screens/**/*.dart
+          - lib/ui/pages/tabs/**/*.dart
+          - lib/features/**/presentation/*.dart
       auto_route_generator:auto_router_generator:
         options:
           enable_cached_builds: true
         generate_for:
-          - lib/presentation/route/route.dart
+          - lib/ui/route/route.dart
       freezed:
         options:
           enable_cached_builds: true
