@@ -16,12 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LoginState {
+  PageStates get status => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
-  bool get isSubmitting => throw _privateConstructorUsedError;
   String? get emailError => throw _privateConstructorUsedError;
   String? get passwordError => throw _privateConstructorUsedError;
-  LoginType get loginType => throw _privateConstructorUsedError;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -37,12 +36,11 @@ abstract class $LoginStateCopyWith<$Res> {
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
   $Res call(
-      {String? email,
+      {PageStates status,
+      String? email,
       String? password,
-      bool isSubmitting,
       String? emailError,
-      String? passwordError,
-      LoginType loginType});
+      String? passwordError});
 }
 
 /// @nodoc
@@ -60,14 +58,17 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? status = null,
     Object? email = freezed,
     Object? password = freezed,
-    Object? isSubmitting = null,
     Object? emailError = freezed,
     Object? passwordError = freezed,
-    Object? loginType = null,
   }) {
     return _then(_value.copyWith(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as PageStates,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -76,10 +77,6 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
-      isSubmitting: null == isSubmitting
-          ? _value.isSubmitting
-          : isSubmitting // ignore: cast_nullable_to_non_nullable
-              as bool,
       emailError: freezed == emailError
           ? _value.emailError
           : emailError // ignore: cast_nullable_to_non_nullable
@@ -88,10 +85,6 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.passwordError
           : passwordError // ignore: cast_nullable_to_non_nullable
               as String?,
-      loginType: null == loginType
-          ? _value.loginType
-          : loginType // ignore: cast_nullable_to_non_nullable
-              as LoginType,
     ) as $Val);
   }
 }
@@ -105,12 +98,11 @@ abstract class _$$LoginStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? email,
+      {PageStates status,
+      String? email,
       String? password,
-      bool isSubmitting,
       String? emailError,
-      String? passwordError,
-      LoginType loginType});
+      String? passwordError});
 }
 
 /// @nodoc
@@ -126,14 +118,17 @@ class __$$LoginStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? status = null,
     Object? email = freezed,
     Object? password = freezed,
-    Object? isSubmitting = null,
     Object? emailError = freezed,
     Object? passwordError = freezed,
-    Object? loginType = null,
   }) {
     return _then(_$LoginStateImpl(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as PageStates,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -142,10 +137,6 @@ class __$$LoginStateImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
-      isSubmitting: null == isSubmitting
-          ? _value.isSubmitting
-          : isSubmitting // ignore: cast_nullable_to_non_nullable
-              as bool,
       emailError: freezed == emailError
           ? _value.emailError
           : emailError // ignore: cast_nullable_to_non_nullable
@@ -154,10 +145,6 @@ class __$$LoginStateImplCopyWithImpl<$Res>
           ? _value.passwordError
           : passwordError // ignore: cast_nullable_to_non_nullable
               as String?,
-      loginType: null == loginType
-          ? _value.loginType
-          : loginType // ignore: cast_nullable_to_non_nullable
-              as LoginType,
     ));
   }
 }
@@ -166,30 +153,26 @@ class __$$LoginStateImplCopyWithImpl<$Res>
 
 class _$LoginStateImpl implements _LoginState {
   const _$LoginStateImpl(
-      {this.email,
+      {required this.status,
+      this.email,
       this.password,
-      required this.isSubmitting,
       required this.emailError,
-      required this.passwordError,
-      this.loginType = LoginType.loginEmail});
+      required this.passwordError});
 
+  @override
+  final PageStates status;
   @override
   final String? email;
   @override
   final String? password;
   @override
-  final bool isSubmitting;
-  @override
   final String? emailError;
   @override
   final String? passwordError;
-  @override
-  @JsonKey()
-  final LoginType loginType;
 
   @override
   String toString() {
-    return 'LoginState(email: $email, password: $password, isSubmitting: $isSubmitting, emailError: $emailError, passwordError: $passwordError, loginType: $loginType)';
+    return 'LoginState(status: $status, email: $email, password: $password, emailError: $emailError, passwordError: $passwordError)';
   }
 
   @override
@@ -197,22 +180,19 @@ class _$LoginStateImpl implements _LoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoginStateImpl &&
+            (identical(other.status, status) || other.status == status) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            (identical(other.isSubmitting, isSubmitting) ||
-                other.isSubmitting == isSubmitting) &&
             (identical(other.emailError, emailError) ||
                 other.emailError == emailError) &&
             (identical(other.passwordError, passwordError) ||
-                other.passwordError == passwordError) &&
-            (identical(other.loginType, loginType) ||
-                other.loginType == loginType));
+                other.passwordError == passwordError));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, password, isSubmitting,
-      emailError, passwordError, loginType);
+  int get hashCode => Object.hash(
+      runtimeType, status, email, password, emailError, passwordError);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -225,25 +205,22 @@ class _$LoginStateImpl implements _LoginState {
 
 abstract class _LoginState implements LoginState {
   const factory _LoginState(
-      {final String? email,
+      {required final PageStates status,
+      final String? email,
       final String? password,
-      required final bool isSubmitting,
       required final String? emailError,
-      required final String? passwordError,
-      final LoginType loginType}) = _$LoginStateImpl;
+      required final String? passwordError}) = _$LoginStateImpl;
 
+  @override
+  PageStates get status;
   @override
   String? get email;
   @override
   String? get password;
   @override
-  bool get isSubmitting;
-  @override
   String? get emailError;
   @override
   String? get passwordError;
-  @override
-  LoginType get loginType;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.

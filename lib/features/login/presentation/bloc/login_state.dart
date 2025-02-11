@@ -10,19 +10,25 @@ enum LoginType {
   forgotPassword,
 }
 
+enum PageStates {
+  initial,
+  loading,
+  success,
+  error,
+}
+
 @freezed
 class LoginState with _$LoginState {
   const factory LoginState({
+    required PageStates status,
     String? email,
     String? password,
-    required bool isSubmitting,
     required String? emailError,
     required String? passwordError,
-    @Default(LoginType.loginEmail) LoginType loginType,
   }) = _LoginState;
 
   factory LoginState.initial() => const LoginState(
-        isSubmitting: false,
+        status: PageStates.initial,
         emailError: null,
         passwordError: null,
       );

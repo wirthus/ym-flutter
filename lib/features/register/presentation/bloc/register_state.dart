@@ -22,5 +22,5 @@ class RegisterState with _$RegisterState {
         confirmPasswordError: null,
       );
 
-  const factory RegisterState.loading() = Loading;
+  const factory RegisterState.loading() = _Loading;
 }

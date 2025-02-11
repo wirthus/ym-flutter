@@ -9,5 +9,10 @@
   "page_points_title": "Узлы",
   "page_favorites_title": "Избранное",
   "page_subscriptions_title": "Подписки",
-  "page_profile_title": "Профиль"
+  "page_profile_title": "Профиль",
+  "login_email_hint": "Email",
+  "login_password_hint": "Пароль",
+  "login_button_text": "Войти",
+  "login_forgot_password_text": "Забыли пароль?",
+  "login_signup_text": "Создать аккаунт"
 }

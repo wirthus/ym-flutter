@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:yagodmarket/ui/widgets/loading_container.dart';
+import 'package:yagodmarket/utils/s.dart';
 
 @RoutePage()
 class LoginPage extends StatefulWidget {
@@ -12,15 +13,17 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+  final _emailController = TextEditingController(text: 'test@test.com');
+  final _passwordController = TextEditingController(text: '123456');
 
   bool _autoValidate = false;
   bool _loadingVisible = false;
 
   static const _borderRadius = BorderRadius.all(Radius.circular(32.0));
+  static const _outlineInputBorder = OutlineInputBorder(borderRadius: _borderRadius);
   static const _contentPadding = EdgeInsets.symmetric(vertical: 10, horizontal: 20);
   static const _inputPrefixPadding = EdgeInsets.only(left: 5.0);
+  static final _gray700 = Colors.grey[700];
 
   ButtonStyle get _raisedButtonStyle => ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
@@ -31,6 +34,21 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
+
+    _emailController.addListener(() {
+      setState(() {});
+    });
+
+    _passwordController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -50,13 +68,14 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    _buildLogo(),
-                    const SizedBox(height: 48.0),
+                    // _buildLogo(),
+                    // const SizedBox(height: 48.0),
                     _buildEmailField(),
                     const SizedBox(height: 24.0),
                     _buildPasswordField(),
-                    const SizedBox(height: 12.0),
+                    const SizedBox(height: 24.0),
                     _buildLoginButton(),
+                    const SizedBox(height: 12.0),
                     _buildForgotPasswordButton(),
                     _buildSignUpButton(),
                   ],
@@ -69,38 +88,39 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buildLogo() {
-    return Hero(
-      tag: 'hero',
-      child: CircleAvatar(
-        backgroundColor: Colors.transparent,
-        radius: 60.0,
-        child: ClipOval(
-          child: Image.asset(
-            'assets/images/default.png',
-            fit: BoxFit.cover,
-            width: 120.0,
-            height: 120.0,
-          ),
-        ),
-      ),
-    );
-  }
+  // Widget _buildLogo() {
+  //   return Hero(
+  //     tag: 'hero',
+  //     child: CircleAvatar(
+  //       backgroundColor: Colors.transparent,
+  //       radius: 60.0,
+  //       child: ClipOval(
+  //         child: Image.asset(
+  //           'assets/images/default.png',
+  //           fit: BoxFit.cover,
+  //           width: 120.0,
+  //           height: 120.0,
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Widget _buildEmailField() {
     return TextFormField(
       controller: _emailController,
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
+      autofillHints: const [AutofillHints.email],
       // validator: Validator.validateEmail,
       decoration: InputDecoration(
         prefixIcon: Padding(
           padding: _inputPrefixPadding,
           child: const Icon(Icons.email, color: Colors.grey),
         ),
-        hintText: 'Email',
+        hintText: S.of(context).login_email_hint,
         contentPadding: _contentPadding,
-        border: OutlineInputBorder(borderRadius: _borderRadius),
+        border: _outlineInputBorder,
       ),
     );
   }
@@ -110,47 +130,48 @@ class _LoginPageState extends State<LoginPage> {
       controller: _passwordController,
       obscureText: true,
       autofocus: false,
+      autofillHints: const [AutofillHints.password],
       // validator: Validator.validatePassword,
       decoration: InputDecoration(
         prefixIcon: Padding(
           padding: _inputPrefixPadding,
           child: const Icon(Icons.lock, color: Colors.grey),
         ),
-        hintText: 'Password',
+        hintText: S.of(context).login_password_hint,
         contentPadding: _contentPadding,
-        border: const OutlineInputBorder(borderRadius: _borderRadius),
+        border: _outlineInputBorder,
       ),
     );
   }
 
   Widget _buildLoginButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
-      child: ElevatedButton(
-        style: _raisedButtonStyle,
-        onPressed: _handleLogin,
-        child: const Text('SIGN IN', style: TextStyle(color: Colors.white)),
+    return ElevatedButton(
+      style: _raisedButtonStyle,
+      onPressed: _handleLogin,
+      child: Text(
+        S.of(context).login_button_text,
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }
 
   Widget _buildForgotPasswordButton() {
     return TextButton(
-      onPressed: () => Navigator.pushNamed(context, '/forgot-password'),
+      onPressed: _handleForgotPassword,
       child: Text(
-        'Forgot password?',
-        style: TextStyle(color: Colors.grey[700]),
+        S.of(context).login_forgot_password_text,
+        style: TextStyle(color: _gray700),
       ),
     );
   }
 
   Widget _buildSignUpButton() {
     return TextButton(
-      onPressed: () => Navigator.pushNamed(context, '/signup'),
+      onPressed: _handleSignUp,
       child: Text(
-        'Create an Account',
+        S.of(context).login_signup_text,
         style: TextStyle(
-          color: Colors.grey[700],
+          color: _gray700,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -165,7 +186,10 @@ class _LoginPageState extends State<LoginPage> {
 
     try {
       await _changeLoadingVisible(true);
-      // TODO: Реализовать логику входа
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Успешный вход')),
+      );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Login error: ${e.toString()}')),
@@ -173,6 +197,14 @@ class _LoginPageState extends State<LoginPage> {
     } finally {
       await _changeLoadingVisible(false);
     }
+  }
+
+  void _handleForgotPassword() {
+    Navigator.pushNamed(context, '/forgot-password');
+  }
+
+  void _handleSignUp() {
+    Navigator.pushNamed(context, '/signup');
   }
 
   Future<void> _changeLoadingVisible(bool value) async {

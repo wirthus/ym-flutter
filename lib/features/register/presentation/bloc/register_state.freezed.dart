@@ -62,19 +62,19 @@ mixin _$RegisterState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_RegisterState value) $default, {
-    required TResult Function(Loading value) loading,
+    required TResult Function(_Loading value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_RegisterState value)? $default, {
-    TResult? Function(Loading value)? loading,
+    TResult? Function(_Loading value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_RegisterState value)? $default, {
-    TResult Function(Loading value)? loading,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -313,7 +313,7 @@ class _$RegisterStateImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_RegisterState value) $default, {
-    required TResult Function(Loading value) loading,
+    required TResult Function(_Loading value) loading,
   }) {
     return $default(this);
   }
@@ -322,7 +322,7 @@ class _$RegisterStateImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_RegisterState value)? $default, {
-    TResult? Function(Loading value)? loading,
+    TResult? Function(_Loading value)? loading,
   }) {
     return $default?.call(this);
   }
@@ -331,7 +331,7 @@ class _$RegisterStateImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_RegisterState value)? $default, {
-    TResult Function(Loading value)? loading,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -387,7 +387,7 @@ class __$$LoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingImpl with DiagnosticableTreeMixin implements Loading {
+class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   const _$LoadingImpl();
 
   @override
@@ -469,7 +469,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_RegisterState value) $default, {
-    required TResult Function(Loading value) loading,
+    required TResult Function(_Loading value) loading,
   }) {
     return loading(this);
   }
@@ -478,7 +478,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_RegisterState value)? $default, {
-    TResult? Function(Loading value)? loading,
+    TResult? Function(_Loading value)? loading,
   }) {
     return loading?.call(this);
   }
@@ -487,7 +487,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_RegisterState value)? $default, {
-    TResult Function(Loading value)? loading,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -497,6 +497,6 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements Loading {
   }
 }
 
-abstract class Loading implements RegisterState {
-  const factory Loading() = _$LoadingImpl;
+abstract class _Loading implements RegisterState {
+  const factory _Loading() = _$LoadingImpl;
 }
