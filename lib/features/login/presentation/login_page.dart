@@ -1,7 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yagodmarket/features/login/presentation/bloc/login_bloc.dart';
 import 'package:yagodmarket/ui/widgets/loading_container.dart';
 import 'package:yagodmarket/utils/s.dart';
+
+import 'bloc/login_event.dart';
 
 @RoutePage()
 class LoginPage extends StatefulWidget {
@@ -13,8 +17,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController(text: 'test@test.com');
-  final _passwordController = TextEditingController(text: '123456');
+  // final _emailController = TextEditingController(text: 'test@test.com');
+  // final _passwordController = TextEditingController(text: '123456');
 
   bool _autoValidate = false;
   bool _loadingVisible = false;
@@ -35,50 +39,55 @@ class _LoginPageState extends State<LoginPage> {
   void initState() {
     super.initState();
 
-    _emailController.addListener(() {
-      setState(() {});
-    });
+    // _emailController.addListener(() {
+    //   setState(() {});
+    // });
 
-    _passwordController.addListener(() {
-      setState(() {});
-    });
+    // _passwordController.addListener(() {
+    //   setState(() {});
+    // });
   }
 
   @override
   void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
+    // _emailController.dispose();
+    // _passwordController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: LoadingContainer(
-        inAsyncCall: _loadingVisible,
-        child: Form(
-          key: _formKey,
-          autovalidateMode: _autoValidate ? AutovalidateMode.always : AutovalidateMode.disabled,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: Center(
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    // _buildLogo(),
-                    // const SizedBox(height: 48.0),
-                    _buildEmailField(),
-                    const SizedBox(height: 24.0),
-                    _buildPasswordField(),
-                    const SizedBox(height: 24.0),
-                    _buildLoginButton(),
-                    const SizedBox(height: 12.0),
-                    _buildForgotPasswordButton(),
-                    _buildSignUpButton(),
-                  ],
+    final bloc = context.read<LoginBloc>();
+
+    return BlocProvider(
+      create: (context) => LoginBloc(),
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: LoadingContainer(
+          inAsyncCall: _loadingVisible,
+          child: Form(
+            key: _formKey,
+            autovalidateMode: _autoValidate ? AutovalidateMode.always : AutovalidateMode.disabled,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Center(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      // _buildLogo(),
+                      // const SizedBox(height: 48.0),
+                      _buildEmailField(context, bloc),
+                      const SizedBox(height: 24.0),
+                      _buildPasswordField(context, bloc),
+                      const SizedBox(height: 24.0),
+                      _buildLoginButton(),
+                      const SizedBox(height: 12.0),
+                      _buildForgotPasswordButton(),
+                      _buildSignUpButton(),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -106,13 +115,13 @@ class _LoginPageState extends State<LoginPage> {
   //   );
   // }
 
-  Widget _buildEmailField() {
-    return TextFormField(
-      controller: _emailController,
+  Widget _buildEmailField(BuildContext context, LoginBloc bloc) {
+    return TextField(
+      // controller: _emailController,
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
       autofillHints: const [AutofillHints.email],
-      // validator: Validator.validateEmail,
+      onChanged: (value) => bloc.add(LoginEvent.emailChanged(value)),
       decoration: InputDecoration(
         prefixIcon: Padding(
           padding: _inputPrefixPadding,
@@ -121,17 +130,17 @@ class _LoginPageState extends State<LoginPage> {
         hintText: S.of(context).login_email_hint,
         contentPadding: _contentPadding,
         border: _outlineInputBorder,
+        errorText: bloc.state.email.error?.toString(),
       ),
     );
   }
 
-  Widget _buildPasswordField() {
-    return TextFormField(
-      controller: _passwordController,
+  Widget _buildPasswordField(BuildContext context, LoginBloc bloc) {
+    return TextField(
+      // controller: _passwordController,
       obscureText: true,
       autofocus: false,
       autofillHints: const [AutofillHints.password],
-      // validator: Validator.validatePassword,
       decoration: InputDecoration(
         prefixIcon: Padding(
           padding: _inputPrefixPadding,
@@ -140,6 +149,7 @@ class _LoginPageState extends State<LoginPage> {
         hintText: S.of(context).login_password_hint,
         contentPadding: _contentPadding,
         border: _outlineInputBorder,
+        errorText: bloc.state.password.error?.toString(),
       ),
     );
   }

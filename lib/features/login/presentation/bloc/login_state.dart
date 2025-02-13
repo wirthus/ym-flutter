@@ -1,4 +1,6 @@
+import 'package:form_model/form_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:yagodmarket/shared/bloc/status_state.dart';
 
 part 'login_state.freezed.dart';
 
@@ -20,16 +22,25 @@ enum PageStates {
 @freezed
 class LoginState with _$LoginState {
   const factory LoginState({
-    required PageStates status,
-    String? email,
-    String? password,
-    required String? emailError,
-    required String? passwordError,
+    @Default(StateStatus()) StateStatus status,
+    @Default(FormModel<String>(
+      validators: [
+        RequiredValidator(),
+        EmailValidator(),
+      ],
+    ))
+    FormModel email,
+    @Default(FormModel<String>(
+      validators: [
+        RequiredValidator(),
+      ],
+    ))
+    FormModel password,
   }) = _LoginState;
 
-  factory LoginState.initial() => const LoginState(
-        status: PageStates.initial,
-        emailError: null,
-        passwordError: null,
-      );
+  // factory LoginState.initial() => const LoginState(
+  //       status: PageStates.initial,
+  //       emailError: null,
+  //       passwordError: null,
+  //     );
 }

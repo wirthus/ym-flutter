@@ -16,11 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LoginState {
-  PageStates get status => throw _privateConstructorUsedError;
-  String? get email => throw _privateConstructorUsedError;
-  String? get password => throw _privateConstructorUsedError;
-  String? get emailError => throw _privateConstructorUsedError;
-  String? get passwordError => throw _privateConstructorUsedError;
+  StateStatus get status => throw _privateConstructorUsedError;
+  FormModel<Object> get email => throw _privateConstructorUsedError;
+  FormModel<Object> get password => throw _privateConstructorUsedError;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -36,11 +34,11 @@ abstract class $LoginStateCopyWith<$Res> {
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
   $Res call(
-      {PageStates status,
-      String? email,
-      String? password,
-      String? emailError,
-      String? passwordError});
+      {StateStatus status,
+      FormModel<Object> email,
+      FormModel<Object> password});
+
+  $StateStatusCopyWith<$Res> get status;
 }
 
 /// @nodoc
@@ -59,33 +57,33 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   @override
   $Res call({
     Object? status = null,
-    Object? email = freezed,
-    Object? password = freezed,
-    Object? emailError = freezed,
-    Object? passwordError = freezed,
+    Object? email = null,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as PageStates,
-      email: freezed == email
+              as StateStatus,
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      password: freezed == password
+              as FormModel<Object>,
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as String?,
-      emailError: freezed == emailError
-          ? _value.emailError
-          : emailError // ignore: cast_nullable_to_non_nullable
-              as String?,
-      passwordError: freezed == passwordError
-          ? _value.passwordError
-          : passwordError // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as FormModel<Object>,
     ) as $Val);
+  }
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StateStatusCopyWith<$Res> get status {
+    return $StateStatusCopyWith<$Res>(_value.status, (value) {
+      return _then(_value.copyWith(status: value) as $Val);
+    });
   }
 }
 
@@ -98,11 +96,12 @@ abstract class _$$LoginStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {PageStates status,
-      String? email,
-      String? password,
-      String? emailError,
-      String? passwordError});
+      {StateStatus status,
+      FormModel<Object> email,
+      FormModel<Object> password});
+
+  @override
+  $StateStatusCopyWith<$Res> get status;
 }
 
 /// @nodoc
@@ -119,32 +118,22 @@ class __$$LoginStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
-    Object? email = freezed,
-    Object? password = freezed,
-    Object? emailError = freezed,
-    Object? passwordError = freezed,
+    Object? email = null,
+    Object? password = null,
   }) {
     return _then(_$LoginStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as PageStates,
-      email: freezed == email
+              as StateStatus,
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      password: freezed == password
+              as FormModel<Object>,
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as String?,
-      emailError: freezed == emailError
-          ? _value.emailError
-          : emailError // ignore: cast_nullable_to_non_nullable
-              as String?,
-      passwordError: freezed == passwordError
-          ? _value.passwordError
-          : passwordError // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as FormModel<Object>,
     ));
   }
 }
@@ -153,26 +142,25 @@ class __$$LoginStateImplCopyWithImpl<$Res>
 
 class _$LoginStateImpl implements _LoginState {
   const _$LoginStateImpl(
-      {required this.status,
-      this.email,
-      this.password,
-      required this.emailError,
-      required this.passwordError});
+      {this.status = const StateStatus(),
+      this.email = const FormModel<String>(
+          validators: [RequiredValidator(), EmailValidator()]),
+      this.password =
+          const FormModel<String>(validators: [RequiredValidator()])});
 
   @override
-  final PageStates status;
+  @JsonKey()
+  final StateStatus status;
   @override
-  final String? email;
+  @JsonKey()
+  final FormModel<Object> email;
   @override
-  final String? password;
-  @override
-  final String? emailError;
-  @override
-  final String? passwordError;
+  @JsonKey()
+  final FormModel<Object> password;
 
   @override
   String toString() {
-    return 'LoginState(status: $status, email: $email, password: $password, emailError: $emailError, passwordError: $passwordError)';
+    return 'LoginState(status: $status, email: $email, password: $password)';
   }
 
   @override
@@ -183,16 +171,11 @@ class _$LoginStateImpl implements _LoginState {
             (identical(other.status, status) || other.status == status) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.emailError, emailError) ||
-                other.emailError == emailError) &&
-            (identical(other.passwordError, passwordError) ||
-                other.passwordError == passwordError));
+                other.password == password));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, status, email, password, emailError, passwordError);
+  int get hashCode => Object.hash(runtimeType, status, email, password);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -205,22 +188,16 @@ class _$LoginStateImpl implements _LoginState {
 
 abstract class _LoginState implements LoginState {
   const factory _LoginState(
-      {required final PageStates status,
-      final String? email,
-      final String? password,
-      required final String? emailError,
-      required final String? passwordError}) = _$LoginStateImpl;
+      {final StateStatus status,
+      final FormModel<Object> email,
+      final FormModel<Object> password}) = _$LoginStateImpl;
 
   @override
-  PageStates get status;
+  StateStatus get status;
   @override
-  String? get email;
+  FormModel<Object> get email;
   @override
-  String? get password;
-  @override
-  String? get emailError;
-  @override
-  String? get passwordError;
+  FormModel<Object> get password;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.

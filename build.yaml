@@ -22,3 +22,4 @@ targets:
           - lib/data/models/**/*.dart
           - lib/data/models/*.dart
           - lib/features/**/presentation/bloc/*.dart
+          - lib/shared/bloc/*.dart

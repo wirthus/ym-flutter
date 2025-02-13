@@ -48,8 +48,11 @@ dependencies:
   equatable: ^2.0.7
   faker: ^2.1.0
   flutter_bloc: ^9.0.0
+  form_model: ^1.0.2+2
   intl: ^0.19.0
+
   yandex_mapkit: ^4.1.0
+
   ym_api_client:
     path: api/ym/v1/generated
 

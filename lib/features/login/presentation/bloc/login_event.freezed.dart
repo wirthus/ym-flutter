@@ -18,63 +18,45 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LoginEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loginEmail,
-    required TResult Function() loginPhone,
-    required TResult Function() loginVK,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function(LoginType loginType) switchLoginType,
+    required TResult Function() submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loginEmail,
-    TResult? Function()? loginPhone,
-    TResult? Function()? loginVK,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
-    TResult? Function(LoginType loginType)? switchLoginType,
+    TResult? Function()? submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loginEmail,
-    TResult Function()? loginPhone,
-    TResult Function()? loginVK,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function(LoginType loginType)? switchLoginType,
+    TResult Function()? submitted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LoginEmail value) loginEmail,
-    required TResult Function(LoginPhone value) loginPhone,
-    required TResult Function(LoginVK value) loginVK,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(_SwitchLoginType value) switchLoginType,
+    required TResult Function(Submitted value) submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoginEmail value)? loginEmail,
-    TResult? Function(LoginPhone value)? loginPhone,
-    TResult? Function(LoginVK value)? loginVK,
     TResult? Function(EmailChanged value)? emailChanged,
     TResult? Function(PasswordChanged value)? passwordChanged,
-    TResult? Function(_SwitchLoginType value)? switchLoginType,
+    TResult? Function(Submitted value)? submitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoginEmail value)? loginEmail,
-    TResult Function(LoginPhone value)? loginPhone,
-    TResult Function(LoginVK value)? loginVK,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(_SwitchLoginType value)? switchLoginType,
+    TResult Function(Submitted value)? submitted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -99,393 +81,6 @@ class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
 
   /// Create a copy of LoginEvent
   /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$LoginEmailImplCopyWith<$Res> {
-  factory _$$LoginEmailImplCopyWith(
-          _$LoginEmailImpl value, $Res Function(_$LoginEmailImpl) then) =
-      __$$LoginEmailImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoginEmailImplCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$LoginEmailImpl>
-    implements _$$LoginEmailImplCopyWith<$Res> {
-  __$$LoginEmailImplCopyWithImpl(
-      _$LoginEmailImpl _value, $Res Function(_$LoginEmailImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LoginEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LoginEmailImpl implements LoginEmail {
-  const _$LoginEmailImpl();
-
-  @override
-  String toString() {
-    return 'LoginEvent.loginEmail()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoginEmailImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loginEmail,
-    required TResult Function() loginPhone,
-    required TResult Function() loginVK,
-    required TResult Function(String email) emailChanged,
-    required TResult Function(String password) passwordChanged,
-    required TResult Function(LoginType loginType) switchLoginType,
-  }) {
-    return loginEmail();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loginEmail,
-    TResult? Function()? loginPhone,
-    TResult? Function()? loginVK,
-    TResult? Function(String email)? emailChanged,
-    TResult? Function(String password)? passwordChanged,
-    TResult? Function(LoginType loginType)? switchLoginType,
-  }) {
-    return loginEmail?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loginEmail,
-    TResult Function()? loginPhone,
-    TResult Function()? loginVK,
-    TResult Function(String email)? emailChanged,
-    TResult Function(String password)? passwordChanged,
-    TResult Function(LoginType loginType)? switchLoginType,
-    required TResult orElse(),
-  }) {
-    if (loginEmail != null) {
-      return loginEmail();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoginEmail value) loginEmail,
-    required TResult Function(LoginPhone value) loginPhone,
-    required TResult Function(LoginVK value) loginVK,
-    required TResult Function(EmailChanged value) emailChanged,
-    required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(_SwitchLoginType value) switchLoginType,
-  }) {
-    return loginEmail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoginEmail value)? loginEmail,
-    TResult? Function(LoginPhone value)? loginPhone,
-    TResult? Function(LoginVK value)? loginVK,
-    TResult? Function(EmailChanged value)? emailChanged,
-    TResult? Function(PasswordChanged value)? passwordChanged,
-    TResult? Function(_SwitchLoginType value)? switchLoginType,
-  }) {
-    return loginEmail?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoginEmail value)? loginEmail,
-    TResult Function(LoginPhone value)? loginPhone,
-    TResult Function(LoginVK value)? loginVK,
-    TResult Function(EmailChanged value)? emailChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(_SwitchLoginType value)? switchLoginType,
-    required TResult orElse(),
-  }) {
-    if (loginEmail != null) {
-      return loginEmail(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LoginEmail implements LoginEvent {
-  const factory LoginEmail() = _$LoginEmailImpl;
-}
-
-/// @nodoc
-abstract class _$$LoginPhoneImplCopyWith<$Res> {
-  factory _$$LoginPhoneImplCopyWith(
-          _$LoginPhoneImpl value, $Res Function(_$LoginPhoneImpl) then) =
-      __$$LoginPhoneImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoginPhoneImplCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$LoginPhoneImpl>
-    implements _$$LoginPhoneImplCopyWith<$Res> {
-  __$$LoginPhoneImplCopyWithImpl(
-      _$LoginPhoneImpl _value, $Res Function(_$LoginPhoneImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LoginEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LoginPhoneImpl implements LoginPhone {
-  const _$LoginPhoneImpl();
-
-  @override
-  String toString() {
-    return 'LoginEvent.loginPhone()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoginPhoneImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loginEmail,
-    required TResult Function() loginPhone,
-    required TResult Function() loginVK,
-    required TResult Function(String email) emailChanged,
-    required TResult Function(String password) passwordChanged,
-    required TResult Function(LoginType loginType) switchLoginType,
-  }) {
-    return loginPhone();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loginEmail,
-    TResult? Function()? loginPhone,
-    TResult? Function()? loginVK,
-    TResult? Function(String email)? emailChanged,
-    TResult? Function(String password)? passwordChanged,
-    TResult? Function(LoginType loginType)? switchLoginType,
-  }) {
-    return loginPhone?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loginEmail,
-    TResult Function()? loginPhone,
-    TResult Function()? loginVK,
-    TResult Function(String email)? emailChanged,
-    TResult Function(String password)? passwordChanged,
-    TResult Function(LoginType loginType)? switchLoginType,
-    required TResult orElse(),
-  }) {
-    if (loginPhone != null) {
-      return loginPhone();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoginEmail value) loginEmail,
-    required TResult Function(LoginPhone value) loginPhone,
-    required TResult Function(LoginVK value) loginVK,
-    required TResult Function(EmailChanged value) emailChanged,
-    required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(_SwitchLoginType value) switchLoginType,
-  }) {
-    return loginPhone(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoginEmail value)? loginEmail,
-    TResult? Function(LoginPhone value)? loginPhone,
-    TResult? Function(LoginVK value)? loginVK,
-    TResult? Function(EmailChanged value)? emailChanged,
-    TResult? Function(PasswordChanged value)? passwordChanged,
-    TResult? Function(_SwitchLoginType value)? switchLoginType,
-  }) {
-    return loginPhone?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoginEmail value)? loginEmail,
-    TResult Function(LoginPhone value)? loginPhone,
-    TResult Function(LoginVK value)? loginVK,
-    TResult Function(EmailChanged value)? emailChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(_SwitchLoginType value)? switchLoginType,
-    required TResult orElse(),
-  }) {
-    if (loginPhone != null) {
-      return loginPhone(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LoginPhone implements LoginEvent {
-  const factory LoginPhone() = _$LoginPhoneImpl;
-}
-
-/// @nodoc
-abstract class _$$LoginVKImplCopyWith<$Res> {
-  factory _$$LoginVKImplCopyWith(
-          _$LoginVKImpl value, $Res Function(_$LoginVKImpl) then) =
-      __$$LoginVKImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoginVKImplCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$LoginVKImpl>
-    implements _$$LoginVKImplCopyWith<$Res> {
-  __$$LoginVKImplCopyWithImpl(
-      _$LoginVKImpl _value, $Res Function(_$LoginVKImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of LoginEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LoginVKImpl implements LoginVK {
-  const _$LoginVKImpl();
-
-  @override
-  String toString() {
-    return 'LoginEvent.loginVK()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoginVKImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loginEmail,
-    required TResult Function() loginPhone,
-    required TResult Function() loginVK,
-    required TResult Function(String email) emailChanged,
-    required TResult Function(String password) passwordChanged,
-    required TResult Function(LoginType loginType) switchLoginType,
-  }) {
-    return loginVK();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loginEmail,
-    TResult? Function()? loginPhone,
-    TResult? Function()? loginVK,
-    TResult? Function(String email)? emailChanged,
-    TResult? Function(String password)? passwordChanged,
-    TResult? Function(LoginType loginType)? switchLoginType,
-  }) {
-    return loginVK?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loginEmail,
-    TResult Function()? loginPhone,
-    TResult Function()? loginVK,
-    TResult Function(String email)? emailChanged,
-    TResult Function(String password)? passwordChanged,
-    TResult Function(LoginType loginType)? switchLoginType,
-    required TResult orElse(),
-  }) {
-    if (loginVK != null) {
-      return loginVK();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoginEmail value) loginEmail,
-    required TResult Function(LoginPhone value) loginPhone,
-    required TResult Function(LoginVK value) loginVK,
-    required TResult Function(EmailChanged value) emailChanged,
-    required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(_SwitchLoginType value) switchLoginType,
-  }) {
-    return loginVK(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoginEmail value)? loginEmail,
-    TResult? Function(LoginPhone value)? loginPhone,
-    TResult? Function(LoginVK value)? loginVK,
-    TResult? Function(EmailChanged value)? emailChanged,
-    TResult? Function(PasswordChanged value)? passwordChanged,
-    TResult? Function(_SwitchLoginType value)? switchLoginType,
-  }) {
-    return loginVK?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoginEmail value)? loginEmail,
-    TResult Function(LoginPhone value)? loginPhone,
-    TResult Function(LoginVK value)? loginVK,
-    TResult Function(EmailChanged value)? emailChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(_SwitchLoginType value)? switchLoginType,
-    required TResult orElse(),
-  }) {
-    if (loginVK != null) {
-      return loginVK(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LoginVK implements LoginEvent {
-  const factory LoginVK() = _$LoginVKImpl;
 }
 
 /// @nodoc
@@ -523,15 +118,23 @@ class __$$EmailChangedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EmailChangedImpl implements EmailChanged {
+class _$EmailChangedImpl with DiagnosticableTreeMixin implements EmailChanged {
   const _$EmailChangedImpl(this.email);
 
   @override
   final String email;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginEvent.emailChanged(email: $email)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginEvent.emailChanged'))
+      ..add(DiagnosticsProperty('email', email));
   }
 
   @override
@@ -556,12 +159,9 @@ class _$EmailChangedImpl implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loginEmail,
-    required TResult Function() loginPhone,
-    required TResult Function() loginVK,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function(LoginType loginType) switchLoginType,
+    required TResult Function() submitted,
   }) {
     return emailChanged(email);
   }
@@ -569,12 +169,9 @@ class _$EmailChangedImpl implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loginEmail,
-    TResult? Function()? loginPhone,
-    TResult? Function()? loginVK,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
-    TResult? Function(LoginType loginType)? switchLoginType,
+    TResult? Function()? submitted,
   }) {
     return emailChanged?.call(email);
   }
@@ -582,12 +179,9 @@ class _$EmailChangedImpl implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loginEmail,
-    TResult Function()? loginPhone,
-    TResult Function()? loginVK,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function(LoginType loginType)? switchLoginType,
+    TResult Function()? submitted,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -599,12 +193,9 @@ class _$EmailChangedImpl implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LoginEmail value) loginEmail,
-    required TResult Function(LoginPhone value) loginPhone,
-    required TResult Function(LoginVK value) loginVK,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(_SwitchLoginType value) switchLoginType,
+    required TResult Function(Submitted value) submitted,
   }) {
     return emailChanged(this);
   }
@@ -612,12 +203,9 @@ class _$EmailChangedImpl implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoginEmail value)? loginEmail,
-    TResult? Function(LoginPhone value)? loginPhone,
-    TResult? Function(LoginVK value)? loginVK,
     TResult? Function(EmailChanged value)? emailChanged,
     TResult? Function(PasswordChanged value)? passwordChanged,
-    TResult? Function(_SwitchLoginType value)? switchLoginType,
+    TResult? Function(Submitted value)? submitted,
   }) {
     return emailChanged?.call(this);
   }
@@ -625,12 +213,9 @@ class _$EmailChangedImpl implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoginEmail value)? loginEmail,
-    TResult Function(LoginPhone value)? loginPhone,
-    TResult Function(LoginVK value)? loginVK,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(_SwitchLoginType value)? switchLoginType,
+    TResult Function(Submitted value)? submitted,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -687,15 +272,25 @@ class __$$PasswordChangedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PasswordChangedImpl implements PasswordChanged {
+class _$PasswordChangedImpl
+    with DiagnosticableTreeMixin
+    implements PasswordChanged {
   const _$PasswordChangedImpl(this.password);
 
   @override
   final String password;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LoginEvent.passwordChanged(password: $password)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginEvent.passwordChanged'))
+      ..add(DiagnosticsProperty('password', password));
   }
 
   @override
@@ -722,12 +317,9 @@ class _$PasswordChangedImpl implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loginEmail,
-    required TResult Function() loginPhone,
-    required TResult Function() loginVK,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function(LoginType loginType) switchLoginType,
+    required TResult Function() submitted,
   }) {
     return passwordChanged(password);
   }
@@ -735,12 +327,9 @@ class _$PasswordChangedImpl implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loginEmail,
-    TResult? Function()? loginPhone,
-    TResult? Function()? loginVK,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
-    TResult? Function(LoginType loginType)? switchLoginType,
+    TResult? Function()? submitted,
   }) {
     return passwordChanged?.call(password);
   }
@@ -748,12 +337,9 @@ class _$PasswordChangedImpl implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loginEmail,
-    TResult Function()? loginPhone,
-    TResult Function()? loginVK,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function(LoginType loginType)? switchLoginType,
+    TResult Function()? submitted,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -765,12 +351,9 @@ class _$PasswordChangedImpl implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LoginEmail value) loginEmail,
-    required TResult Function(LoginPhone value) loginPhone,
-    required TResult Function(LoginVK value) loginVK,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(_SwitchLoginType value) switchLoginType,
+    required TResult Function(Submitted value) submitted,
   }) {
     return passwordChanged(this);
   }
@@ -778,12 +361,9 @@ class _$PasswordChangedImpl implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoginEmail value)? loginEmail,
-    TResult? Function(LoginPhone value)? loginPhone,
-    TResult? Function(LoginVK value)? loginVK,
     TResult? Function(EmailChanged value)? emailChanged,
     TResult? Function(PasswordChanged value)? passwordChanged,
-    TResult? Function(_SwitchLoginType value)? switchLoginType,
+    TResult? Function(Submitted value)? submitted,
   }) {
     return passwordChanged?.call(this);
   }
@@ -791,12 +371,9 @@ class _$PasswordChangedImpl implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoginEmail value)? loginEmail,
-    TResult Function(LoginPhone value)? loginPhone,
-    TResult Function(LoginVK value)? loginVK,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(_SwitchLoginType value)? switchLoginType,
+    TResult Function(Submitted value)? submitted,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -819,111 +396,79 @@ abstract class PasswordChanged implements LoginEvent {
 }
 
 /// @nodoc
-abstract class _$$SwitchLoginTypeImplCopyWith<$Res> {
-  factory _$$SwitchLoginTypeImplCopyWith(_$SwitchLoginTypeImpl value,
-          $Res Function(_$SwitchLoginTypeImpl) then) =
-      __$$SwitchLoginTypeImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LoginType loginType});
+abstract class _$$SubmittedImplCopyWith<$Res> {
+  factory _$$SubmittedImplCopyWith(
+          _$SubmittedImpl value, $Res Function(_$SubmittedImpl) then) =
+      __$$SubmittedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SwitchLoginTypeImplCopyWithImpl<$Res>
-    extends _$LoginEventCopyWithImpl<$Res, _$SwitchLoginTypeImpl>
-    implements _$$SwitchLoginTypeImplCopyWith<$Res> {
-  __$$SwitchLoginTypeImplCopyWithImpl(
-      _$SwitchLoginTypeImpl _value, $Res Function(_$SwitchLoginTypeImpl) _then)
+class __$$SubmittedImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$SubmittedImpl>
+    implements _$$SubmittedImplCopyWith<$Res> {
+  __$$SubmittedImplCopyWithImpl(
+      _$SubmittedImpl _value, $Res Function(_$SubmittedImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of LoginEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? loginType = null,
-  }) {
-    return _then(_$SwitchLoginTypeImpl(
-      null == loginType
-          ? _value.loginType
-          : loginType // ignore: cast_nullable_to_non_nullable
-              as LoginType,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$SwitchLoginTypeImpl implements _SwitchLoginType {
-  const _$SwitchLoginTypeImpl(this.loginType);
+class _$SubmittedImpl with DiagnosticableTreeMixin implements Submitted {
+  const _$SubmittedImpl();
 
   @override
-  final LoginType loginType;
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'LoginEvent.submitted()';
+  }
 
   @override
-  String toString() {
-    return 'LoginEvent.switchLoginType(loginType: $loginType)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'LoginEvent.submitted'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SwitchLoginTypeImpl &&
-            (identical(other.loginType, loginType) ||
-                other.loginType == loginType));
+        (other.runtimeType == runtimeType && other is _$SubmittedImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, loginType);
-
-  /// Create a copy of LoginEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SwitchLoginTypeImplCopyWith<_$SwitchLoginTypeImpl> get copyWith =>
-      __$$SwitchLoginTypeImplCopyWithImpl<_$SwitchLoginTypeImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loginEmail,
-    required TResult Function() loginPhone,
-    required TResult Function() loginVK,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
-    required TResult Function(LoginType loginType) switchLoginType,
+    required TResult Function() submitted,
   }) {
-    return switchLoginType(loginType);
+    return submitted();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loginEmail,
-    TResult? Function()? loginPhone,
-    TResult? Function()? loginVK,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
-    TResult? Function(LoginType loginType)? switchLoginType,
+    TResult? Function()? submitted,
   }) {
-    return switchLoginType?.call(loginType);
+    return submitted?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loginEmail,
-    TResult Function()? loginPhone,
-    TResult Function()? loginVK,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
-    TResult Function(LoginType loginType)? switchLoginType,
+    TResult Function()? submitted,
     required TResult orElse(),
   }) {
-    if (switchLoginType != null) {
-      return switchLoginType(loginType);
+    if (submitted != null) {
+      return submitted();
     }
     return orElse();
   }
@@ -931,56 +476,38 @@ class _$SwitchLoginTypeImpl implements _SwitchLoginType {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LoginEmail value) loginEmail,
-    required TResult Function(LoginPhone value) loginPhone,
-    required TResult Function(LoginVK value) loginVK,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(_SwitchLoginType value) switchLoginType,
+    required TResult Function(Submitted value) submitted,
   }) {
-    return switchLoginType(this);
+    return submitted(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoginEmail value)? loginEmail,
-    TResult? Function(LoginPhone value)? loginPhone,
-    TResult? Function(LoginVK value)? loginVK,
     TResult? Function(EmailChanged value)? emailChanged,
     TResult? Function(PasswordChanged value)? passwordChanged,
-    TResult? Function(_SwitchLoginType value)? switchLoginType,
+    TResult? Function(Submitted value)? submitted,
   }) {
-    return switchLoginType?.call(this);
+    return submitted?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoginEmail value)? loginEmail,
-    TResult Function(LoginPhone value)? loginPhone,
-    TResult Function(LoginVK value)? loginVK,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(_SwitchLoginType value)? switchLoginType,
+    TResult Function(Submitted value)? submitted,
     required TResult orElse(),
   }) {
-    if (switchLoginType != null) {
-      return switchLoginType(this);
+    if (submitted != null) {
+      return submitted(this);
     }
     return orElse();
   }
 }
 
-abstract class _SwitchLoginType implements LoginEvent {
-  const factory _SwitchLoginType(final LoginType loginType) =
-      _$SwitchLoginTypeImpl;
-
-  LoginType get loginType;
-
-  /// Create a copy of LoginEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SwitchLoginTypeImplCopyWith<_$SwitchLoginTypeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class Submitted implements LoginEvent {
+  const factory Submitted() = _$SubmittedImpl;
 }
