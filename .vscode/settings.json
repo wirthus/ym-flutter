@@ -16,7 +16,7 @@
     "unfreezed",
     "yagodmarket"
   ],
-  "dart.flutterSdkPath": ".fvm/versions/3.27.3",
+  "dart.flutterSdkPath": ".fvm/versions/3.29.0",
   "dart.lineLength": 120,
   "dart.previewFlutterUiGuides": true,
   "dart.previewFlutterUiGuidesCustomTracking": true,
