@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
+import 'package:yagodmarket/ui/route/route.dart';
 import 'package:ym_api_client/ym_api_client.dart';
 
 import 'di.config.dart';
@@ -25,7 +26,7 @@ abstract class RegisterModule {
   Dio get dio {
     final dio = Dio(
       BaseOptions(
-        baseUrl: 'https://api.example.com',
+        baseUrl: 'https://api.ym.kz',
         connectTimeout: const Duration(seconds: 30),
         receiveTimeout: const Duration(seconds: 30),
       ),
@@ -43,4 +44,7 @@ abstract class RegisterModule {
 
   @lazySingleton
   YmApiClient get ymApiClient => YmApiClient(dio: getIt.get<Dio>());
+
+  @lazySingleton
+  AppRouter get appRouter => AppRouter();
 }

@@ -16,9 +16,42 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LoginState {
-  StateStatus get status => throw _privateConstructorUsedError;
-  FormModel<Object> get email => throw _privateConstructorUsedError;
-  FormModel<Object> get password => throw _privateConstructorUsedError;
+  FormStatus get status =>
+      throw _privateConstructorUsedError; // @Default('test@test.com') String email,
+// @Default('123456') String password,
+  bool get isPasswordVisible => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FormStatus status, bool isPasswordVisible) init,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FormStatus status, bool isPasswordVisible)? init,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FormStatus status, bool isPasswordVisible)? init,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoginState value) init,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoginState value)? init,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoginState value)? init,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -33,12 +66,7 @@ abstract class $LoginStateCopyWith<$Res> {
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
-  $Res call(
-      {StateStatus status,
-      FormModel<Object> email,
-      FormModel<Object> password});
-
-  $StateStatusCopyWith<$Res> get status;
+  $Res call({FormStatus status, bool isPasswordVisible});
 }
 
 /// @nodoc
@@ -57,33 +85,18 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   @override
   $Res call({
     Object? status = null,
-    Object? email = null,
-    Object? password = null,
+    Object? isPasswordVisible = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as StateStatus,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as FormModel<Object>,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as FormModel<Object>,
+              as FormStatus,
+      isPasswordVisible: null == isPasswordVisible
+          ? _value.isPasswordVisible
+          : isPasswordVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
-  }
-
-  /// Create a copy of LoginState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $StateStatusCopyWith<$Res> get status {
-    return $StateStatusCopyWith<$Res>(_value.status, (value) {
-      return _then(_value.copyWith(status: value) as $Val);
-    });
   }
 }
 
@@ -95,13 +108,7 @@ abstract class _$$LoginStateImplCopyWith<$Res>
       __$$LoginStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {StateStatus status,
-      FormModel<Object> email,
-      FormModel<Object> password});
-
-  @override
-  $StateStatusCopyWith<$Res> get status;
+  $Res call({FormStatus status, bool isPasswordVisible});
 }
 
 /// @nodoc
@@ -118,22 +125,17 @@ class __$$LoginStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
-    Object? email = null,
-    Object? password = null,
+    Object? isPasswordVisible = null,
   }) {
     return _then(_$LoginStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as StateStatus,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as FormModel<Object>,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as FormModel<Object>,
+              as FormStatus,
+      isPasswordVisible: null == isPasswordVisible
+          ? _value.isPasswordVisible
+          : isPasswordVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -142,25 +144,20 @@ class __$$LoginStateImplCopyWithImpl<$Res>
 
 class _$LoginStateImpl implements _LoginState {
   const _$LoginStateImpl(
-      {this.status = const StateStatus(),
-      this.email = const FormModel<String>(
-          validators: [RequiredValidator(), EmailValidator()]),
-      this.password =
-          const FormModel<String>(validators: [RequiredValidator()])});
+      {this.status = FormStatus.initial, this.isPasswordVisible = false});
 
   @override
   @JsonKey()
-  final StateStatus status;
+  final FormStatus status;
+// @Default('test@test.com') String email,
+// @Default('123456') String password,
   @override
   @JsonKey()
-  final FormModel<Object> email;
-  @override
-  @JsonKey()
-  final FormModel<Object> password;
+  final bool isPasswordVisible;
 
   @override
   String toString() {
-    return 'LoginState(status: $status, email: $email, password: $password)';
+    return 'LoginState.init(status: $status, isPasswordVisible: $isPasswordVisible)';
   }
 
   @override
@@ -169,13 +166,12 @@ class _$LoginStateImpl implements _LoginState {
         (other.runtimeType == runtimeType &&
             other is _$LoginStateImpl &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password));
+            (identical(other.isPasswordVisible, isPasswordVisible) ||
+                other.isPasswordVisible == isPasswordVisible));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, email, password);
+  int get hashCode => Object.hash(runtimeType, status, isPasswordVisible);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -184,20 +180,74 @@ class _$LoginStateImpl implements _LoginState {
   @pragma('vm:prefer-inline')
   _$$LoginStateImplCopyWith<_$LoginStateImpl> get copyWith =>
       __$$LoginStateImplCopyWithImpl<_$LoginStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FormStatus status, bool isPasswordVisible) init,
+  }) {
+    return init(status, isPasswordVisible);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FormStatus status, bool isPasswordVisible)? init,
+  }) {
+    return init?.call(status, isPasswordVisible);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FormStatus status, bool isPasswordVisible)? init,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init(status, isPasswordVisible);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoginState value) init,
+  }) {
+    return init(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoginState value)? init,
+  }) {
+    return init?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoginState value)? init,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init(this);
+    }
+    return orElse();
+  }
 }
 
 abstract class _LoginState implements LoginState {
   const factory _LoginState(
-      {final StateStatus status,
-      final FormModel<Object> email,
-      final FormModel<Object> password}) = _$LoginStateImpl;
+      {final FormStatus status,
+      final bool isPasswordVisible}) = _$LoginStateImpl;
 
   @override
-  StateStatus get status;
+  FormStatus get status; // @Default('test@test.com') String email,
+// @Default('123456') String password,
   @override
-  FormModel<Object> get email;
-  @override
-  FormModel<Object> get password;
+  bool get isPasswordVisible;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.

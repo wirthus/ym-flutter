@@ -14,6 +14,11 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:yagodmarket/data/repositories/user_repository.dart' as _i808;
 import 'package:yagodmarket/di.dart' as _i410;
+import 'package:yagodmarket/features/login/presentation/bloc/login_cubit.dart'
+    as _i466;
+import 'package:yagodmarket/features/register/presentation/bloc/register_cubit.dart'
+    as _i259;
+import 'package:yagodmarket/ui/route/route.dart' as _i805;
 import 'package:ym_api_client/ym_api_client.dart' as _i798;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -28,10 +33,18 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final registerModule = _$RegisterModule();
+    gh.factory<_i259.RegisterCubit>(() => _i259.RegisterCubit());
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio);
     gh.lazySingleton<_i798.YmApiClient>(() => registerModule.ymApiClient);
+    gh.lazySingleton<_i805.AppRouter>(() => registerModule.appRouter);
+    gh.factory<_i259.RegisterFirstStepCubit>(
+        () => _i259.RegisterFirstStepCubit(gh<_i798.AuthApi>()));
     gh.singleton<_i808.UserRepository>(
         () => _i808.UserRepository(apiClient: gh<_i798.YmApiClient>()));
+    gh.factory<_i466.LoginCubit>(
+        () => _i466.LoginCubit(gh<_i798.YmApiClient>()));
+    gh.factory<_i259.RegisterSecondStepCubit>(
+        () => _i259.RegisterSecondStepCubit(gh<_i798.YmApiClient>()));
     return this;
   }
 }

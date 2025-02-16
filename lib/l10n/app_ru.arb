@@ -12,7 +12,9 @@
   "page_profile_title": "Профиль",
   "login_email_hint": "Email",
   "login_password_hint": "Пароль",
+  "login_confirm_password_hint": "Подтвердить пароль",
   "login_button_text": "Войти",
   "login_forgot_password_text": "Забыли пароль?",
-  "login_signup_text": "Создать аккаунт"
+  "login_signup_text": "Создать аккаунт",
+  "register_next_button_text": "Далее"
 }

@@ -14,6 +14,10 @@ class AppRouter extends RootStackRouter {
           initial: true,
         ),
         AutoRoute(
+          path: '/register',
+          page: RegisterRoute.page,
+        ),
+        AutoRoute(
           path: '/tabs',
           page: HomeRoute.page,
           // initial: true,
