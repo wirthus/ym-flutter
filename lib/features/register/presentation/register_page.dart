@@ -30,12 +30,10 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<RegisterCubit>();
-
     return FlowBuilder<RegisterState>(
       state: context.watch<RegisterCubit>().state,
       onGeneratePages: (state, pages) {
-        return [MaterialPage(child: _getStepWidget(state.step))];
+        return [MaterialPage(child: _getStepWidget(state))];
       },
       onComplete: (state) {
         // print('onComplete: $step');
@@ -44,11 +42,11 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  Widget _getStepWidget(RegisterStep step) {
-    switch (step) {
-      case RegisterStep.first:
+  Widget _getStepWidget(RegisterState state) {
+    switch (state) {
+      case RegisterStateFirstStep():
         return const RegisterFirstForm();
-      case RegisterStep.second:
+      case RegisterStateSecondStep():
         return const RegisterSecondForm();
     }
   }
