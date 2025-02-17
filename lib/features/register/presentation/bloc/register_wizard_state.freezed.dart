@@ -16,8 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegisterWizardState {
-  List<RegisterState> get steps => throw _privateConstructorUsedError;
-  int get currentIndex => throw _privateConstructorUsedError;
+  RegisterFirstStepState get firstStep => throw _privateConstructorUsedError;
+  RegisterSecondStepState get secondStep => throw _privateConstructorUsedError;
+  RegisterWizardStep get currentStep => throw _privateConstructorUsedError;
   bool get isComplete => throw _privateConstructorUsedError;
 
   /// Create a copy of RegisterWizardState
@@ -33,7 +34,14 @@ abstract class $RegisterWizardStateCopyWith<$Res> {
           RegisterWizardState value, $Res Function(RegisterWizardState) then) =
       _$RegisterWizardStateCopyWithImpl<$Res, RegisterWizardState>;
   @useResult
-  $Res call({List<RegisterState> steps, int currentIndex, bool isComplete});
+  $Res call(
+      {RegisterFirstStepState firstStep,
+      RegisterSecondStepState secondStep,
+      RegisterWizardStep currentStep,
+      bool isComplete});
+
+  $RegisterFirstStepStateCopyWith<$Res> get firstStep;
+  $RegisterSecondStepStateCopyWith<$Res> get secondStep;
 }
 
 /// @nodoc
@@ -51,24 +59,49 @@ class _$RegisterWizardStateCopyWithImpl<$Res, $Val extends RegisterWizardState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? steps = null,
-    Object? currentIndex = null,
+    Object? firstStep = null,
+    Object? secondStep = null,
+    Object? currentStep = null,
     Object? isComplete = null,
   }) {
     return _then(_value.copyWith(
-      steps: null == steps
-          ? _value.steps
-          : steps // ignore: cast_nullable_to_non_nullable
-              as List<RegisterState>,
-      currentIndex: null == currentIndex
-          ? _value.currentIndex
-          : currentIndex // ignore: cast_nullable_to_non_nullable
-              as int,
+      firstStep: null == firstStep
+          ? _value.firstStep
+          : firstStep // ignore: cast_nullable_to_non_nullable
+              as RegisterFirstStepState,
+      secondStep: null == secondStep
+          ? _value.secondStep
+          : secondStep // ignore: cast_nullable_to_non_nullable
+              as RegisterSecondStepState,
+      currentStep: null == currentStep
+          ? _value.currentStep
+          : currentStep // ignore: cast_nullable_to_non_nullable
+              as RegisterWizardStep,
       isComplete: null == isComplete
           ? _value.isComplete
           : isComplete // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
+  }
+
+  /// Create a copy of RegisterWizardState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RegisterFirstStepStateCopyWith<$Res> get firstStep {
+    return $RegisterFirstStepStateCopyWith<$Res>(_value.firstStep, (value) {
+      return _then(_value.copyWith(firstStep: value) as $Val);
+    });
+  }
+
+  /// Create a copy of RegisterWizardState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RegisterSecondStepStateCopyWith<$Res> get secondStep {
+    return $RegisterSecondStepStateCopyWith<$Res>(_value.secondStep, (value) {
+      return _then(_value.copyWith(secondStep: value) as $Val);
+    });
   }
 }
 
@@ -80,7 +113,16 @@ abstract class _$$RegisterWizardStateImplCopyWith<$Res>
       __$$RegisterWizardStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<RegisterState> steps, int currentIndex, bool isComplete});
+  $Res call(
+      {RegisterFirstStepState firstStep,
+      RegisterSecondStepState secondStep,
+      RegisterWizardStep currentStep,
+      bool isComplete});
+
+  @override
+  $RegisterFirstStepStateCopyWith<$Res> get firstStep;
+  @override
+  $RegisterSecondStepStateCopyWith<$Res> get secondStep;
 }
 
 /// @nodoc
@@ -96,19 +138,24 @@ class __$$RegisterWizardStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? steps = null,
-    Object? currentIndex = null,
+    Object? firstStep = null,
+    Object? secondStep = null,
+    Object? currentStep = null,
     Object? isComplete = null,
   }) {
     return _then(_$RegisterWizardStateImpl(
-      null == steps
-          ? _value._steps
-          : steps // ignore: cast_nullable_to_non_nullable
-              as List<RegisterState>,
-      null == currentIndex
-          ? _value.currentIndex
-          : currentIndex // ignore: cast_nullable_to_non_nullable
-              as int,
+      null == firstStep
+          ? _value.firstStep
+          : firstStep // ignore: cast_nullable_to_non_nullable
+              as RegisterFirstStepState,
+      null == secondStep
+          ? _value.secondStep
+          : secondStep // ignore: cast_nullable_to_non_nullable
+              as RegisterSecondStepState,
+      null == currentStep
+          ? _value.currentStep
+          : currentStep // ignore: cast_nullable_to_non_nullable
+              as RegisterWizardStep,
       null == isComplete
           ? _value.isComplete
           : isComplete // ignore: cast_nullable_to_non_nullable
@@ -121,25 +168,20 @@ class __$$RegisterWizardStateImplCopyWithImpl<$Res>
 
 class _$RegisterWizardStateImpl implements _RegisterWizardState {
   const _$RegisterWizardStateImpl(
-      final List<RegisterState> steps, this.currentIndex, this.isComplete)
-      : _steps = steps;
-
-  final List<RegisterState> _steps;
-  @override
-  List<RegisterState> get steps {
-    if (_steps is EqualUnmodifiableListView) return _steps;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_steps);
-  }
+      this.firstStep, this.secondStep, this.currentStep, this.isComplete);
 
   @override
-  final int currentIndex;
+  final RegisterFirstStepState firstStep;
+  @override
+  final RegisterSecondStepState secondStep;
+  @override
+  final RegisterWizardStep currentStep;
   @override
   final bool isComplete;
 
   @override
   String toString() {
-    return 'RegisterWizardState(steps: $steps, currentIndex: $currentIndex, isComplete: $isComplete)';
+    return 'RegisterWizardState(firstStep: $firstStep, secondStep: $secondStep, currentStep: $currentStep, isComplete: $isComplete)';
   }
 
   @override
@@ -147,16 +189,19 @@ class _$RegisterWizardStateImpl implements _RegisterWizardState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RegisterWizardStateImpl &&
-            const DeepCollectionEquality().equals(other._steps, _steps) &&
-            (identical(other.currentIndex, currentIndex) ||
-                other.currentIndex == currentIndex) &&
+            (identical(other.firstStep, firstStep) ||
+                other.firstStep == firstStep) &&
+            (identical(other.secondStep, secondStep) ||
+                other.secondStep == secondStep) &&
+            (identical(other.currentStep, currentStep) ||
+                other.currentStep == currentStep) &&
             (identical(other.isComplete, isComplete) ||
                 other.isComplete == isComplete));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_steps), currentIndex, isComplete);
+  int get hashCode =>
+      Object.hash(runtimeType, firstStep, secondStep, currentStep, isComplete);
 
   /// Create a copy of RegisterWizardState
   /// with the given fields replaced by the non-null parameter values.
@@ -170,14 +215,17 @@ class _$RegisterWizardStateImpl implements _RegisterWizardState {
 
 abstract class _RegisterWizardState implements RegisterWizardState {
   const factory _RegisterWizardState(
-      final List<RegisterState> steps,
-      final int currentIndex,
+      final RegisterFirstStepState firstStep,
+      final RegisterSecondStepState secondStep,
+      final RegisterWizardStep currentStep,
       final bool isComplete) = _$RegisterWizardStateImpl;
 
   @override
-  List<RegisterState> get steps;
+  RegisterFirstStepState get firstStep;
   @override
-  int get currentIndex;
+  RegisterSecondStepState get secondStep;
+  @override
+  RegisterWizardStep get currentStep;
   @override
   bool get isComplete;
 

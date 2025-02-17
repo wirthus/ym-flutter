@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:yagodmarket/features/register/presentation/bloc/register_state.dart';
 import 'package:yagodmarket/ui/widgets/custom_dropdown.dart';
 
-import '../bloc/register_cubit.dart' show RegisterCubit;
+import '../bloc/register_second_step_state.dart';
+import '../bloc/register_wizard_cubit.dart';
+import '../bloc/register_wizard_state.dart';
 
 class RegisterSecondForm extends StatefulWidget {
   const RegisterSecondForm({super.key});
@@ -15,10 +16,14 @@ class RegisterSecondForm extends StatefulWidget {
 class _RegisterSecondFormState extends State<RegisterSecondForm> {
   final _formKey = GlobalKey<FormState>();
 
+  @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterState>(
+    return BlocConsumer<RegisterWizardCubit, RegisterWizardState>(
+      buildWhen: (previous, current) => previous.secondStep != current.secondStep,
       listener: (context, state) {},
       builder: (context, state) {
+        final stepState = state.secondStep;
+
         return Scaffold(
           backgroundColor: Colors.white,
           body: Form(
@@ -31,9 +36,9 @@ class _RegisterSecondFormState extends State<RegisterSecondForm> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      _buildCountryDropdown(context, state),
+                      _buildCountryDropdown(context, stepState),
                       const SizedBox(height: 16),
-                      _buildRegionDropdown(context, state),
+                      _buildRegionDropdown(context, stepState),
                     ],
                   ),
                 ),
@@ -45,21 +50,21 @@ class _RegisterSecondFormState extends State<RegisterSecondForm> {
     );
   }
 
-  Widget _buildCountryDropdown(BuildContext context, RegisterState state) {
-    return CustomDropdown(
+  Widget _buildCountryDropdown(BuildContext context, RegisterSecondStepState state) {
+    return CustomDropdown<String>(
       hintText: 'Выберите страну',
-      value: state.selectedCountry,
-      items: state.countries,
-      onChanged: (value) => context.read<RegisterCubit>().onCountryChanged(value),
+      value: state.countryId,
+      items: state.allCountries,
+      onChanged: (value) => context.read<RegisterWizardCubit>().onCountryChanged(value),
     );
   }
 
-  Widget _buildRegionDropdown(BuildContext context, RegisterState state) {
+  Widget _buildRegionDropdown(BuildContext context, RegisterSecondStepState state) {
     return CustomDropdown(
       hintText: 'Выберите регион',
-      value: state.selectedRegion,
+      value: state.regionId,
       items: state.regions,
-      onChanged: (value) => context.read<RegisterCubit>().onRegionChanged(value),
+      onChanged: (value) => context.read<RegisterWizardCubit>().onRegionChanged(value),
     );
   }
 }

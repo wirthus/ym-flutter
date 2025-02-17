@@ -16,6 +16,8 @@ import 'package:yagodmarket/data/repositories/user_repository.dart' as _i808;
 import 'package:yagodmarket/di.dart' as _i410;
 import 'package:yagodmarket/features/login/presentation/bloc/login_cubit.dart'
     as _i466;
+import 'package:yagodmarket/features/register/presentation/bloc/register_wizard_cubit.dart'
+    as _i880;
 import 'package:yagodmarket/ui/route/route.dart' as _i805;
 import 'package:ym_api_client/ym_api_client.dart' as _i798;
 
@@ -31,6 +33,7 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final registerModule = _$RegisterModule();
+    gh.factory<_i880.RegisterWizardCubit>(() => _i880.RegisterWizardCubit());
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio);
     gh.lazySingleton<_i798.YmApiClient>(() => registerModule.ymApiClient);
     gh.lazySingleton<_i805.AppRouter>(() => registerModule.appRouter);

@@ -16,8 +16,14 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegisterSecondStepState {
+  List<CountryItem> get allCountries => throw _privateConstructorUsedError;
+  List<RegionItem> get allRegions => throw _privateConstructorUsedError;
+  List<CountryItem> get countries => throw _privateConstructorUsedError;
+  List<RegionItem> get regions => throw _privateConstructorUsedError;
   String? get countryId => throw _privateConstructorUsedError;
   int? get regionId => throw _privateConstructorUsedError;
+  bool get isLoadingCountries => throw _privateConstructorUsedError;
+  bool get isLoadingRegions => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -30,9 +36,6 @@ mixin _$RegisterSecondStepState {
             bool isLoadingCountries,
             bool isLoadingRegions)
         initial,
-    required TResult Function(String name, String countryId, int regionId,
-            String address, String description)
-        success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +50,6 @@ mixin _$RegisterSecondStepState {
             bool isLoadingCountries,
             bool isLoadingRegions)?
         initial,
-    TResult? Function(String name, String countryId, int regionId,
-            String address, String description)?
-        success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,28 +64,22 @@ mixin _$RegisterSecondStepState {
             bool isLoadingCountries,
             bool isLoadingRegions)?
         initial,
-    TResult Function(String name, String countryId, int regionId,
-            String address, String description)?
-        success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(RegisterSecondStepStateInitial value) initial,
-    required TResult Function(RegisterSecondStepStateSuccess value) success,
+    required TResult Function(_RegisterSecondStepStateInitial value) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RegisterSecondStepStateInitial value)? initial,
-    TResult? Function(RegisterSecondStepStateSuccess value)? success,
+    TResult? Function(_RegisterSecondStepStateInitial value)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(RegisterSecondStepStateInitial value)? initial,
-    TResult Function(RegisterSecondStepStateSuccess value)? success,
+    TResult Function(_RegisterSecondStepStateInitial value)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -103,7 +97,15 @@ abstract class $RegisterSecondStepStateCopyWith<$Res> {
           $Res Function(RegisterSecondStepState) then) =
       _$RegisterSecondStepStateCopyWithImpl<$Res, RegisterSecondStepState>;
   @useResult
-  $Res call({String countryId, int regionId});
+  $Res call(
+      {List<CountryItem> allCountries,
+      List<RegionItem> allRegions,
+      List<CountryItem> countries,
+      List<RegionItem> regions,
+      String? countryId,
+      int? regionId,
+      bool isLoadingCountries,
+      bool isLoadingRegions});
 }
 
 /// @nodoc
@@ -122,18 +124,48 @@ class _$RegisterSecondStepStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? countryId = null,
-    Object? regionId = null,
+    Object? allCountries = null,
+    Object? allRegions = null,
+    Object? countries = null,
+    Object? regions = null,
+    Object? countryId = freezed,
+    Object? regionId = freezed,
+    Object? isLoadingCountries = null,
+    Object? isLoadingRegions = null,
   }) {
     return _then(_value.copyWith(
-      countryId: null == countryId
-          ? _value.countryId!
+      allCountries: null == allCountries
+          ? _value.allCountries
+          : allCountries // ignore: cast_nullable_to_non_nullable
+              as List<CountryItem>,
+      allRegions: null == allRegions
+          ? _value.allRegions
+          : allRegions // ignore: cast_nullable_to_non_nullable
+              as List<RegionItem>,
+      countries: null == countries
+          ? _value.countries
+          : countries // ignore: cast_nullable_to_non_nullable
+              as List<CountryItem>,
+      regions: null == regions
+          ? _value.regions
+          : regions // ignore: cast_nullable_to_non_nullable
+              as List<RegionItem>,
+      countryId: freezed == countryId
+          ? _value.countryId
           : countryId // ignore: cast_nullable_to_non_nullable
-              as String,
-      regionId: null == regionId
-          ? _value.regionId!
+              as String?,
+      regionId: freezed == regionId
+          ? _value.regionId
           : regionId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
+      isLoadingCountries: null == isLoadingCountries
+          ? _value.isLoadingCountries
+          : isLoadingCountries // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoadingRegions: null == isLoadingRegions
+          ? _value.isLoadingRegions
+          : isLoadingRegions // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -222,7 +254,7 @@ class __$$RegisterSecondStepStateInitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RegisterSecondStepStateInitialImpl
-    implements RegisterSecondStepStateInitial {
+    implements _RegisterSecondStepStateInitial {
   const _$RegisterSecondStepStateInitialImpl(
       {final List<CountryItem> allCountries = const [],
       final List<RegionItem> allRegions = const [],
@@ -346,9 +378,6 @@ class _$RegisterSecondStepStateInitialImpl
             bool isLoadingCountries,
             bool isLoadingRegions)
         initial,
-    required TResult Function(String name, String countryId, int regionId,
-            String address, String description)
-        success,
   }) {
     return initial(allCountries, allRegions, countries, regions, countryId,
         regionId, isLoadingCountries, isLoadingRegions);
@@ -367,9 +396,6 @@ class _$RegisterSecondStepStateInitialImpl
             bool isLoadingCountries,
             bool isLoadingRegions)?
         initial,
-    TResult? Function(String name, String countryId, int regionId,
-            String address, String description)?
-        success,
   }) {
     return initial?.call(allCountries, allRegions, countries, regions,
         countryId, regionId, isLoadingCountries, isLoadingRegions);
@@ -388,9 +414,6 @@ class _$RegisterSecondStepStateInitialImpl
             bool isLoadingCountries,
             bool isLoadingRegions)?
         initial,
-    TResult Function(String name, String countryId, int regionId,
-            String address, String description)?
-        success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -403,8 +426,7 @@ class _$RegisterSecondStepStateInitialImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(RegisterSecondStepStateInitial value) initial,
-    required TResult Function(RegisterSecondStepStateSuccess value) success,
+    required TResult Function(_RegisterSecondStepStateInitial value) initial,
   }) {
     return initial(this);
   }
@@ -412,8 +434,7 @@ class _$RegisterSecondStepStateInitialImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RegisterSecondStepStateInitial value)? initial,
-    TResult? Function(RegisterSecondStepStateSuccess value)? success,
+    TResult? Function(_RegisterSecondStepStateInitial value)? initial,
   }) {
     return initial?.call(this);
   }
@@ -421,8 +442,7 @@ class _$RegisterSecondStepStateInitialImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(RegisterSecondStepStateInitial value)? initial,
-    TResult Function(RegisterSecondStepStateSuccess value)? success,
+    TResult Function(_RegisterSecondStepStateInitial value)? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -432,9 +452,9 @@ class _$RegisterSecondStepStateInitialImpl
   }
 }
 
-abstract class RegisterSecondStepStateInitial
+abstract class _RegisterSecondStepStateInitial
     implements RegisterSecondStepState {
-  const factory RegisterSecondStepStateInitial(
+  const factory _RegisterSecondStepStateInitial(
       {final List<CountryItem> allCountries,
       final List<RegionItem> allRegions,
       final List<CountryItem> countries,
@@ -444,15 +464,21 @@ abstract class RegisterSecondStepStateInitial
       final bool isLoadingCountries,
       final bool isLoadingRegions}) = _$RegisterSecondStepStateInitialImpl;
 
+  @override
   List<CountryItem> get allCountries;
+  @override
   List<RegionItem> get allRegions;
+  @override
   List<CountryItem> get countries;
+  @override
   List<RegionItem> get regions;
   @override
   String? get countryId;
   @override
   int? get regionId;
+  @override
   bool get isLoadingCountries;
+  @override
   bool get isLoadingRegions;
 
   /// Create a copy of RegisterSecondStepState
@@ -461,247 +487,5 @@ abstract class RegisterSecondStepStateInitial
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RegisterSecondStepStateInitialImplCopyWith<
           _$RegisterSecondStepStateInitialImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$RegisterSecondStepStateSuccessImplCopyWith<$Res>
-    implements $RegisterSecondStepStateCopyWith<$Res> {
-  factory _$$RegisterSecondStepStateSuccessImplCopyWith(
-          _$RegisterSecondStepStateSuccessImpl value,
-          $Res Function(_$RegisterSecondStepStateSuccessImpl) then) =
-      __$$RegisterSecondStepStateSuccessImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String name,
-      String countryId,
-      int regionId,
-      String address,
-      String description});
-}
-
-/// @nodoc
-class __$$RegisterSecondStepStateSuccessImplCopyWithImpl<$Res>
-    extends _$RegisterSecondStepStateCopyWithImpl<$Res,
-        _$RegisterSecondStepStateSuccessImpl>
-    implements _$$RegisterSecondStepStateSuccessImplCopyWith<$Res> {
-  __$$RegisterSecondStepStateSuccessImplCopyWithImpl(
-      _$RegisterSecondStepStateSuccessImpl _value,
-      $Res Function(_$RegisterSecondStepStateSuccessImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of RegisterSecondStepState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? countryId = null,
-    Object? regionId = null,
-    Object? address = null,
-    Object? description = null,
-  }) {
-    return _then(_$RegisterSecondStepStateSuccessImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      countryId: null == countryId
-          ? _value.countryId
-          : countryId // ignore: cast_nullable_to_non_nullable
-              as String,
-      regionId: null == regionId
-          ? _value.regionId
-          : regionId // ignore: cast_nullable_to_non_nullable
-              as int,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$RegisterSecondStepStateSuccessImpl
-    implements RegisterSecondStepStateSuccess {
-  const _$RegisterSecondStepStateSuccessImpl(
-      {required this.name,
-      required this.countryId,
-      required this.regionId,
-      required this.address,
-      required this.description});
-
-  @override
-  final String name;
-  @override
-  final String countryId;
-  @override
-  final int regionId;
-  @override
-  final String address;
-  @override
-  final String description;
-
-  @override
-  String toString() {
-    return 'RegisterSecondStepState.success(name: $name, countryId: $countryId, regionId: $regionId, address: $address, description: $description)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RegisterSecondStepStateSuccessImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.countryId, countryId) ||
-                other.countryId == countryId) &&
-            (identical(other.regionId, regionId) ||
-                other.regionId == regionId) &&
-            (identical(other.address, address) || other.address == address) &&
-            (identical(other.description, description) ||
-                other.description == description));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, countryId, regionId, address, description);
-
-  /// Create a copy of RegisterSecondStepState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RegisterSecondStepStateSuccessImplCopyWith<
-          _$RegisterSecondStepStateSuccessImpl>
-      get copyWith => __$$RegisterSecondStepStateSuccessImplCopyWithImpl<
-          _$RegisterSecondStepStateSuccessImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            List<CountryItem> allCountries,
-            List<RegionItem> allRegions,
-            List<CountryItem> countries,
-            List<RegionItem> regions,
-            String? countryId,
-            int? regionId,
-            bool isLoadingCountries,
-            bool isLoadingRegions)
-        initial,
-    required TResult Function(String name, String countryId, int regionId,
-            String address, String description)
-        success,
-  }) {
-    return success(name, countryId, regionId, address, description);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            List<CountryItem> allCountries,
-            List<RegionItem> allRegions,
-            List<CountryItem> countries,
-            List<RegionItem> regions,
-            String? countryId,
-            int? regionId,
-            bool isLoadingCountries,
-            bool isLoadingRegions)?
-        initial,
-    TResult? Function(String name, String countryId, int regionId,
-            String address, String description)?
-        success,
-  }) {
-    return success?.call(name, countryId, regionId, address, description);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            List<CountryItem> allCountries,
-            List<RegionItem> allRegions,
-            List<CountryItem> countries,
-            List<RegionItem> regions,
-            String? countryId,
-            int? regionId,
-            bool isLoadingCountries,
-            bool isLoadingRegions)?
-        initial,
-    TResult Function(String name, String countryId, int regionId,
-            String address, String description)?
-        success,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(name, countryId, regionId, address, description);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RegisterSecondStepStateInitial value) initial,
-    required TResult Function(RegisterSecondStepStateSuccess value) success,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RegisterSecondStepStateInitial value)? initial,
-    TResult? Function(RegisterSecondStepStateSuccess value)? success,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RegisterSecondStepStateInitial value)? initial,
-    TResult Function(RegisterSecondStepStateSuccess value)? success,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RegisterSecondStepStateSuccess
-    implements RegisterSecondStepState {
-  const factory RegisterSecondStepStateSuccess(
-          {required final String name,
-          required final String countryId,
-          required final int regionId,
-          required final String address,
-          required final String description}) =
-      _$RegisterSecondStepStateSuccessImpl;
-
-  String get name;
-  @override
-  String get countryId;
-  @override
-  int get regionId;
-  String get address;
-  String get description;
-
-  /// Create a copy of RegisterSecondStepState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RegisterSecondStepStateSuccessImplCopyWith<
-          _$RegisterSecondStepStateSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -16,43 +16,45 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegisterFirstStepState {
+  String get email => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(String email, String password) success,
+    required TResult Function(String email, String password) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(String email, String password)? success,
+    TResult? Function(String email, String password)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String email, String password)? success,
+    TResult Function(String email, String password)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(RegisterFirstStepStateInitial value) initial,
-    required TResult Function(RegisterFirstStepStateSuccess value) success,
+    required TResult Function(_RegisterFirstStepStateInitial value) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RegisterFirstStepStateInitial value)? initial,
-    TResult? Function(RegisterFirstStepStateSuccess value)? success,
+    TResult? Function(_RegisterFirstStepStateInitial value)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(RegisterFirstStepStateInitial value)? initial,
-    TResult Function(RegisterFirstStepStateSuccess value)? success,
+    TResult Function(_RegisterFirstStepStateInitial value)? initial,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  /// Create a copy of RegisterFirstStepState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $RegisterFirstStepStateCopyWith<RegisterFirstStepState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -61,6 +63,8 @@ abstract class $RegisterFirstStepStateCopyWith<$Res> {
   factory $RegisterFirstStepStateCopyWith(RegisterFirstStepState value,
           $Res Function(RegisterFirstStepState) then) =
       _$RegisterFirstStepStateCopyWithImpl<$Res, RegisterFirstStepState>;
+  @useResult
+  $Res call({String email, String password});
 }
 
 /// @nodoc
@@ -76,14 +80,35 @@ class _$RegisterFirstStepStateCopyWithImpl<$Res,
 
   /// Create a copy of RegisterFirstStepState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+  }) {
+    return _then(_value.copyWith(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$RegisterFirstStepStateInitialImplCopyWith<$Res> {
+abstract class _$$RegisterFirstStepStateInitialImplCopyWith<$Res>
+    implements $RegisterFirstStepStateCopyWith<$Res> {
   factory _$$RegisterFirstStepStateInitialImplCopyWith(
           _$RegisterFirstStepStateInitialImpl value,
           $Res Function(_$RegisterFirstStepStateInitialImpl) then) =
       __$$RegisterFirstStepStateInitialImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String email, String password});
 }
 
 /// @nodoc
@@ -98,131 +123,18 @@ class __$$RegisterFirstStepStateInitialImplCopyWithImpl<$Res>
 
   /// Create a copy of RegisterFirstStepState
   /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$RegisterFirstStepStateInitialImpl
-    implements RegisterFirstStepStateInitial {
-  const _$RegisterFirstStepStateInitialImpl();
-
-  @override
-  String toString() {
-    return 'RegisterFirstStepState.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RegisterFirstStepStateInitialImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(String email, String password) success,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(String email, String password)? success,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String email, String password)? success,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RegisterFirstStepStateInitial value) initial,
-    required TResult Function(RegisterFirstStepStateSuccess value) success,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RegisterFirstStepStateInitial value)? initial,
-    TResult? Function(RegisterFirstStepStateSuccess value)? success,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RegisterFirstStepStateInitial value)? initial,
-    TResult Function(RegisterFirstStepStateSuccess value)? success,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RegisterFirstStepStateInitial implements RegisterFirstStepState {
-  const factory RegisterFirstStepStateInitial() =
-      _$RegisterFirstStepStateInitialImpl;
-}
-
-/// @nodoc
-abstract class _$$RegisterFirstStepStateSuccessImplCopyWith<$Res> {
-  factory _$$RegisterFirstStepStateSuccessImplCopyWith(
-          _$RegisterFirstStepStateSuccessImpl value,
-          $Res Function(_$RegisterFirstStepStateSuccessImpl) then) =
-      __$$RegisterFirstStepStateSuccessImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String email, String password});
-}
-
-/// @nodoc
-class __$$RegisterFirstStepStateSuccessImplCopyWithImpl<$Res>
-    extends _$RegisterFirstStepStateCopyWithImpl<$Res,
-        _$RegisterFirstStepStateSuccessImpl>
-    implements _$$RegisterFirstStepStateSuccessImplCopyWith<$Res> {
-  __$$RegisterFirstStepStateSuccessImplCopyWithImpl(
-      _$RegisterFirstStepStateSuccessImpl _value,
-      $Res Function(_$RegisterFirstStepStateSuccessImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of RegisterFirstStepState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? email = null,
     Object? password = null,
   }) {
-    return _then(_$RegisterFirstStepStateSuccessImpl(
-      email: null == email
+    return _then(_$RegisterFirstStepStateInitialImpl(
+      null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      password: null == password
+      null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
@@ -232,26 +144,28 @@ class __$$RegisterFirstStepStateSuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RegisterFirstStepStateSuccessImpl
-    implements RegisterFirstStepStateSuccess {
-  const _$RegisterFirstStepStateSuccessImpl(
-      {required this.email, required this.password});
+class _$RegisterFirstStepStateInitialImpl
+    implements _RegisterFirstStepStateInitial {
+  const _$RegisterFirstStepStateInitialImpl(
+      [this.email = '', this.password = '']);
 
   @override
+  @JsonKey()
   final String email;
   @override
+  @JsonKey()
   final String password;
 
   @override
   String toString() {
-    return 'RegisterFirstStepState.success(email: $email, password: $password)';
+    return 'RegisterFirstStepState.initial(email: $email, password: $password)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RegisterFirstStepStateSuccessImpl &&
+            other is _$RegisterFirstStepStateInitialImpl &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password));
@@ -265,38 +179,35 @@ class _$RegisterFirstStepStateSuccessImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$RegisterFirstStepStateSuccessImplCopyWith<
-          _$RegisterFirstStepStateSuccessImpl>
-      get copyWith => __$$RegisterFirstStepStateSuccessImplCopyWithImpl<
-          _$RegisterFirstStepStateSuccessImpl>(this, _$identity);
+  _$$RegisterFirstStepStateInitialImplCopyWith<
+          _$RegisterFirstStepStateInitialImpl>
+      get copyWith => __$$RegisterFirstStepStateInitialImplCopyWithImpl<
+          _$RegisterFirstStepStateInitialImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(String email, String password) success,
+    required TResult Function(String email, String password) initial,
   }) {
-    return success(email, password);
+    return initial(email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(String email, String password)? success,
+    TResult? Function(String email, String password)? initial,
   }) {
-    return success?.call(email, password);
+    return initial?.call(email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String email, String password)? success,
+    TResult Function(String email, String password)? initial,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(email, password);
+    if (initial != null) {
+      return initial(email, password);
     }
     return orElse();
   }
@@ -304,47 +215,48 @@ class _$RegisterFirstStepStateSuccessImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(RegisterFirstStepStateInitial value) initial,
-    required TResult Function(RegisterFirstStepStateSuccess value) success,
+    required TResult Function(_RegisterFirstStepStateInitial value) initial,
   }) {
-    return success(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RegisterFirstStepStateInitial value)? initial,
-    TResult? Function(RegisterFirstStepStateSuccess value)? success,
+    TResult? Function(_RegisterFirstStepStateInitial value)? initial,
   }) {
-    return success?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(RegisterFirstStepStateInitial value)? initial,
-    TResult Function(RegisterFirstStepStateSuccess value)? success,
+    TResult Function(_RegisterFirstStepStateInitial value)? initial,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (initial != null) {
+      return initial(this);
     }
     return orElse();
   }
 }
 
-abstract class RegisterFirstStepStateSuccess implements RegisterFirstStepState {
-  const factory RegisterFirstStepStateSuccess(
-      {required final String email,
-      required final String password}) = _$RegisterFirstStepStateSuccessImpl;
+abstract class _RegisterFirstStepStateInitial
+    implements RegisterFirstStepState {
+  const factory _RegisterFirstStepStateInitial(
+      [final String email,
+      final String password]) = _$RegisterFirstStepStateInitialImpl;
 
+  @override
   String get email;
+  @override
   String get password;
 
   /// Create a copy of RegisterFirstStepState
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RegisterFirstStepStateSuccessImplCopyWith<
-          _$RegisterFirstStepStateSuccessImpl>
+  _$$RegisterFirstStepStateInitialImplCopyWith<
+          _$RegisterFirstStepStateInitialImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

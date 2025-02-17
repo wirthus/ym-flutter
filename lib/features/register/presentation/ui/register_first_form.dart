@@ -1,11 +1,9 @@
-import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:yagodmarket/features/register/presentation/bloc/register_wizard_cubit.dart';
 import 'package:yagodmarket/ui/widgets/input_field.dart';
 import 'package:yagodmarket/utils/s.dart';
 
-import '../bloc/register_first_step_state.dart';
+import '../bloc/register_wizard_cubit.dart';
 import '../bloc/register_wizard_state.dart';
 
 class RegisterFirstForm extends StatefulWidget {
@@ -23,8 +21,9 @@ class _RegisterFirstFormState extends State<RegisterFirstForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<RegisterWizardCubit, RegisterWizardState, RegisterFirstStepState>(
-      selector: (state) => state.currentStep() as RegisterFirstStepState,
+    return BlocConsumer<RegisterWizardCubit, RegisterWizardState>(
+      buildWhen: (previous, current) => previous.firstStep != current.firstStep,
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
           backgroundColor: Colors.white,
@@ -93,6 +92,6 @@ class _RegisterFirstFormState extends State<RegisterFirstForm> {
   }
 
   void _handleNextButtonPressed() {
-    // context.read<RegisterFirstStepState>();
+    context.read<RegisterWizardCubit>().nextStep();
   }
 }
