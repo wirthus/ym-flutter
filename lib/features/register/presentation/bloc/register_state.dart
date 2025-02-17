@@ -1,63 +1,59 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:yagodmarket/core/models/geo_types.dart';
 
 part 'register_state.freezed.dart';
 
 enum RegisterStep { first, second }
 
 @freezed
-class RegisterState with _$RegisterState {
-  const factory RegisterState({
-    @Default(RegisterFirstStepState.initial()) RegisterFirstStepState firstStep,
-    @Default(RegisterSecondStepState.initial()) RegisterSecondStepState secondStep,
-    @Default(RegisterStep.first) RegisterStep step,
-  }) = _RegisterStateData;
+sealed class RegisterState with _$RegisterState {
+  const factory RegisterState.firstStep({
+    @Default(RegisterFirstStepState.initial()) RegisterFirstStepState firstState,
+  }) = RegisterStateFirstStep;
+
+  const factory RegisterState.secondStep({
+    RegisterFirstStepStateSuccess firstState,
+    @Default(RegisterSecondStepState.initial()) RegisterSecondStepState secondState,
+  }) = RegisterStateSecondStep;
+
+  // const factory RegisterState({
+  //   @Default(RegisterFirstStepState.initial()) RegisterFirstStepState firstStep,
+  //   @Default(RegisterSecondStepState.initial()) RegisterSecondStepState secondStep,
+  //   @Default(RegisterStep.first) RegisterStep step,
+  // }) = _RegisterStateData;
 }
 
 @freezed
-class RegisterFirstStepState with _$RegisterFirstStepState {
+sealed class RegisterFirstStepState with _$RegisterFirstStepState {
   const factory RegisterFirstStepState.initial() = RegisterFirstStepStateInitial;
 
   const factory RegisterFirstStepState.success({
     required String email,
     required String password,
   }) = RegisterFirstStepStateSuccess;
-
-  const factory RegisterFirstStepState.loading() = RegisterFirstStepStateLoading;
-  const factory RegisterFirstStepState.error(String message) = RegisterFirstStepStateError;
 }
-
-class NameValue<T, L> {
-  final T value;
-  final L label;
-
-  NameValue({required this.value, required this.label});
-}
-
-typedef CountryItem = NameValue<String, String>;
-typedef RegionItem = NameValue<int, String>;
 
 @freezed
-class RegisterSecondStepState with _$RegisterSecondStepState {
+sealed class RegisterSecondStepState with _$RegisterSecondStepState {
   const factory RegisterSecondStepState.initial({
+    RegisterFirstStepStateSuccess firstStepState,
     @Default([]) List<CountryItem> allCountries,
     @Default([]) List<RegionItem> allRegions,
     @Default([]) List<CountryItem> countries,
     @Default([]) List<RegionItem> regions,
-    int? countryId,
+    String? countryId,
     int? regionId,
     @Default(false) bool isLoadingCountries,
     @Default(false) bool isLoadingRegions,
   }) = RegisterSecondStepStateInitial;
 
   const factory RegisterSecondStepState.success({
+    RegisterFirstStepStateSuccess firstStepState,
     required String name,
-    required int countryId,
+    required String countryId,
     required int regionId,
     required String address,
     required String description,
   }) = RegisterSecondStepStateSuccess;
-
-  const factory RegisterSecondStepState.loading() = RegisterSecondStepStateLoading;
-  const factory RegisterSecondStepState.error(String message) = RegisterSecondStepStateError;
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yagodmarket/features/register/presentation/bloc/register_state.dart';
+import 'package:yagodmarket/ui/widgets/custom_dropdown.dart';
 
 import '../bloc/register_cubit.dart' show RegisterCubit;
 
@@ -29,7 +30,11 @@ class _RegisterSecondFormState extends State<RegisterSecondForm> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [],
+                    children: [
+                      _buildCountryDropdown(context, state),
+                      const SizedBox(height: 16),
+                      _buildRegionDropdown(context, state),
+                    ],
                   ),
                 ),
               ),
@@ -37,6 +42,24 @@ class _RegisterSecondFormState extends State<RegisterSecondForm> {
           ),
         );
       },
+    );
+  }
+
+  Widget _buildCountryDropdown(BuildContext context, RegisterState state) {
+    return CustomDropdown(
+      hintText: 'Выберите страну',
+      value: state.selectedCountry,
+      items: state.countries,
+      onChanged: (value) => context.read<RegisterCubit>().onCountryChanged(value),
+    );
+  }
+
+  Widget _buildRegionDropdown(BuildContext context, RegisterState state) {
+    return CustomDropdown(
+      hintText: 'Выберите регион',
+      value: state.selectedRegion,
+      items: state.regions,
+      onChanged: (value) => context.read<RegisterCubit>().onRegionChanged(value),
     );
   }
 }

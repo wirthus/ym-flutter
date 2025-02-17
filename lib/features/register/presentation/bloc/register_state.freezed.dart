@@ -16,14 +16,50 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegisterState {
-  RegisterFirstStepState get firstStep => throw _privateConstructorUsedError;
-  RegisterSecondStepState get secondStep => throw _privateConstructorUsedError;
-  RegisterStep get step => throw _privateConstructorUsedError;
-
-  /// Create a copy of RegisterState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $RegisterStateCopyWith<RegisterState> get copyWith =>
+  InvalidType get firstState => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(RegisterFirstStepState firstState) firstStep,
+    required TResult Function(RegisterFirstStepStateSuccess firstState,
+            RegisterSecondStepState secondState)
+        secondStep,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(RegisterFirstStepState firstState)? firstStep,
+    TResult? Function(RegisterFirstStepStateSuccess firstState,
+            RegisterSecondStepState secondState)?
+        secondStep,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(RegisterFirstStepState firstState)? firstStep,
+    TResult Function(RegisterFirstStepStateSuccess firstState,
+            RegisterSecondStepState secondState)?
+        secondStep,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RegisterStateFirstStep value) firstStep,
+    required TResult Function(RegisterStateSecondStep value) secondStep,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RegisterStateFirstStep value)? firstStep,
+    TResult? Function(RegisterStateSecondStep value)? secondStep,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RegisterStateFirstStep value)? firstStep,
+    TResult Function(RegisterStateSecondStep value)? secondStep,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -32,14 +68,6 @@ abstract class $RegisterStateCopyWith<$Res> {
   factory $RegisterStateCopyWith(
           RegisterState value, $Res Function(RegisterState) then) =
       _$RegisterStateCopyWithImpl<$Res, RegisterState>;
-  @useResult
-  $Res call(
-      {RegisterFirstStepState firstStep,
-      RegisterSecondStepState secondStep,
-      RegisterStep step});
-
-  $RegisterFirstStepStateCopyWith<$Res> get firstStep;
-  $RegisterSecondStepStateCopyWith<$Res> get secondStep;
 }
 
 /// @nodoc
@@ -54,75 +82,27 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
 
   /// Create a copy of RegisterState
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? firstStep = null,
-    Object? secondStep = null,
-    Object? step = null,
-  }) {
-    return _then(_value.copyWith(
-      firstStep: null == firstStep
-          ? _value.firstStep
-          : firstStep // ignore: cast_nullable_to_non_nullable
-              as RegisterFirstStepState,
-      secondStep: null == secondStep
-          ? _value.secondStep
-          : secondStep // ignore: cast_nullable_to_non_nullable
-              as RegisterSecondStepState,
-      step: null == step
-          ? _value.step
-          : step // ignore: cast_nullable_to_non_nullable
-              as RegisterStep,
-    ) as $Val);
-  }
-
-  /// Create a copy of RegisterState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RegisterFirstStepStateCopyWith<$Res> get firstStep {
-    return $RegisterFirstStepStateCopyWith<$Res>(_value.firstStep, (value) {
-      return _then(_value.copyWith(firstStep: value) as $Val);
-    });
-  }
-
-  /// Create a copy of RegisterState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RegisterSecondStepStateCopyWith<$Res> get secondStep {
-    return $RegisterSecondStepStateCopyWith<$Res>(_value.secondStep, (value) {
-      return _then(_value.copyWith(secondStep: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$RegisterStateDataImplCopyWith<$Res>
-    implements $RegisterStateCopyWith<$Res> {
-  factory _$$RegisterStateDataImplCopyWith(_$RegisterStateDataImpl value,
-          $Res Function(_$RegisterStateDataImpl) then) =
-      __$$RegisterStateDataImplCopyWithImpl<$Res>;
-  @override
+abstract class _$$RegisterStateFirstStepImplCopyWith<$Res> {
+  factory _$$RegisterStateFirstStepImplCopyWith(
+          _$RegisterStateFirstStepImpl value,
+          $Res Function(_$RegisterStateFirstStepImpl) then) =
+      __$$RegisterStateFirstStepImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {RegisterFirstStepState firstStep,
-      RegisterSecondStepState secondStep,
-      RegisterStep step});
+  $Res call({RegisterFirstStepState firstState});
 
-  @override
-  $RegisterFirstStepStateCopyWith<$Res> get firstStep;
-  @override
-  $RegisterSecondStepStateCopyWith<$Res> get secondStep;
+  $RegisterFirstStepStateCopyWith<$Res> get firstState;
 }
 
 /// @nodoc
-class __$$RegisterStateDataImplCopyWithImpl<$Res>
-    extends _$RegisterStateCopyWithImpl<$Res, _$RegisterStateDataImpl>
-    implements _$$RegisterStateDataImplCopyWith<$Res> {
-  __$$RegisterStateDataImplCopyWithImpl(_$RegisterStateDataImpl _value,
-      $Res Function(_$RegisterStateDataImpl) _then)
+class __$$RegisterStateFirstStepImplCopyWithImpl<$Res>
+    extends _$RegisterStateCopyWithImpl<$Res, _$RegisterStateFirstStepImpl>
+    implements _$$RegisterStateFirstStepImplCopyWith<$Res> {
+  __$$RegisterStateFirstStepImplCopyWithImpl(
+      _$RegisterStateFirstStepImpl _value,
+      $Res Function(_$RegisterStateFirstStepImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of RegisterState
@@ -130,106 +110,347 @@ class __$$RegisterStateDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? firstStep = null,
-    Object? secondStep = null,
-    Object? step = null,
+    Object? firstState = null,
   }) {
-    return _then(_$RegisterStateDataImpl(
-      firstStep: null == firstStep
-          ? _value.firstStep
-          : firstStep // ignore: cast_nullable_to_non_nullable
+    return _then(_$RegisterStateFirstStepImpl(
+      firstState: null == firstState
+          ? _value.firstState
+          : firstState // ignore: cast_nullable_to_non_nullable
               as RegisterFirstStepState,
-      secondStep: null == secondStep
-          ? _value.secondStep
-          : secondStep // ignore: cast_nullable_to_non_nullable
-              as RegisterSecondStepState,
-      step: null == step
-          ? _value.step
-          : step // ignore: cast_nullable_to_non_nullable
-              as RegisterStep,
     ));
+  }
+
+  /// Create a copy of RegisterState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RegisterFirstStepStateCopyWith<$Res> get firstState {
+    return $RegisterFirstStepStateCopyWith<$Res>(_value.firstState, (value) {
+      return _then(_value.copyWith(firstState: value));
+    });
   }
 }
 
 /// @nodoc
 
-class _$RegisterStateDataImpl
+class _$RegisterStateFirstStepImpl
     with DiagnosticableTreeMixin
-    implements _RegisterStateData {
-  const _$RegisterStateDataImpl(
-      {this.firstStep = const RegisterFirstStepState.initial(),
-      this.secondStep = const RegisterSecondStepState.initial(),
-      this.step = RegisterStep.first});
+    implements RegisterStateFirstStep {
+  const _$RegisterStateFirstStepImpl(
+      {this.firstState = const RegisterFirstStepState.initial()});
 
   @override
   @JsonKey()
-  final RegisterFirstStepState firstStep;
-  @override
-  @JsonKey()
-  final RegisterSecondStepState secondStep;
-  @override
-  @JsonKey()
-  final RegisterStep step;
+  final RegisterFirstStepState firstState;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RegisterState(firstStep: $firstStep, secondStep: $secondStep, step: $step)';
+    return 'RegisterState.firstStep(firstState: $firstState)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'RegisterState'))
-      ..add(DiagnosticsProperty('firstStep', firstStep))
-      ..add(DiagnosticsProperty('secondStep', secondStep))
-      ..add(DiagnosticsProperty('step', step));
+      ..add(DiagnosticsProperty('type', 'RegisterState.firstStep'))
+      ..add(DiagnosticsProperty('firstState', firstState));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RegisterStateDataImpl &&
-            (identical(other.firstStep, firstStep) ||
-                other.firstStep == firstStep) &&
-            (identical(other.secondStep, secondStep) ||
-                other.secondStep == secondStep) &&
-            (identical(other.step, step) || other.step == step));
+            other is _$RegisterStateFirstStepImpl &&
+            (identical(other.firstState, firstState) ||
+                other.firstState == firstState));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, firstStep, secondStep, step);
+  int get hashCode => Object.hash(runtimeType, firstState);
 
   /// Create a copy of RegisterState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$RegisterStateDataImplCopyWith<_$RegisterStateDataImpl> get copyWith =>
-      __$$RegisterStateDataImplCopyWithImpl<_$RegisterStateDataImpl>(
-          this, _$identity);
+  _$$RegisterStateFirstStepImplCopyWith<_$RegisterStateFirstStepImpl>
+      get copyWith => __$$RegisterStateFirstStepImplCopyWithImpl<
+          _$RegisterStateFirstStepImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(RegisterFirstStepState firstState) firstStep,
+    required TResult Function(RegisterFirstStepStateSuccess firstState,
+            RegisterSecondStepState secondState)
+        secondStep,
+  }) {
+    return firstStep(firstState);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(RegisterFirstStepState firstState)? firstStep,
+    TResult? Function(RegisterFirstStepStateSuccess firstState,
+            RegisterSecondStepState secondState)?
+        secondStep,
+  }) {
+    return firstStep?.call(firstState);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(RegisterFirstStepState firstState)? firstStep,
+    TResult Function(RegisterFirstStepStateSuccess firstState,
+            RegisterSecondStepState secondState)?
+        secondStep,
+    required TResult orElse(),
+  }) {
+    if (firstStep != null) {
+      return firstStep(firstState);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RegisterStateFirstStep value) firstStep,
+    required TResult Function(RegisterStateSecondStep value) secondStep,
+  }) {
+    return firstStep(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RegisterStateFirstStep value)? firstStep,
+    TResult? Function(RegisterStateSecondStep value)? secondStep,
+  }) {
+    return firstStep?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RegisterStateFirstStep value)? firstStep,
+    TResult Function(RegisterStateSecondStep value)? secondStep,
+    required TResult orElse(),
+  }) {
+    if (firstStep != null) {
+      return firstStep(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _RegisterStateData implements RegisterState {
-  const factory _RegisterStateData(
-      {final RegisterFirstStepState firstStep,
-      final RegisterSecondStepState secondStep,
-      final RegisterStep step}) = _$RegisterStateDataImpl;
+abstract class RegisterStateFirstStep implements RegisterState {
+  const factory RegisterStateFirstStep(
+      {final RegisterFirstStepState firstState}) = _$RegisterStateFirstStepImpl;
 
   @override
-  RegisterFirstStepState get firstStep;
+  RegisterFirstStepState get firstState;
+
+  /// Create a copy of RegisterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RegisterStateFirstStepImplCopyWith<_$RegisterStateFirstStepImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RegisterStateSecondStepImplCopyWith<$Res> {
+  factory _$$RegisterStateSecondStepImplCopyWith(
+          _$RegisterStateSecondStepImpl value,
+          $Res Function(_$RegisterStateSecondStepImpl) then) =
+      __$$RegisterStateSecondStepImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {RegisterFirstStepStateSuccess firstState,
+      RegisterSecondStepState secondState});
+
+  $RegisterSecondStepStateCopyWith<$Res> get secondState;
+}
+
+/// @nodoc
+class __$$RegisterStateSecondStepImplCopyWithImpl<$Res>
+    extends _$RegisterStateCopyWithImpl<$Res, _$RegisterStateSecondStepImpl>
+    implements _$$RegisterStateSecondStepImplCopyWith<$Res> {
+  __$$RegisterStateSecondStepImplCopyWithImpl(
+      _$RegisterStateSecondStepImpl _value,
+      $Res Function(_$RegisterStateSecondStepImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RegisterState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
-  RegisterSecondStepState get secondStep;
-  @override
-  RegisterStep get step;
+  $Res call({
+    Object? firstState = freezed,
+    Object? secondState = null,
+  }) {
+    return _then(_$RegisterStateSecondStepImpl(
+      firstState: freezed == firstState
+          ? _value.firstState
+          : firstState // ignore: cast_nullable_to_non_nullable
+              as RegisterFirstStepStateSuccess,
+      secondState: null == secondState
+          ? _value.secondState
+          : secondState // ignore: cast_nullable_to_non_nullable
+              as RegisterSecondStepState,
+    ));
+  }
 
   /// Create a copy of RegisterState
   /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
+  $RegisterSecondStepStateCopyWith<$Res> get secondState {
+    return $RegisterSecondStepStateCopyWith<$Res>(_value.secondState, (value) {
+      return _then(_value.copyWith(secondState: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$RegisterStateSecondStepImpl
+    with DiagnosticableTreeMixin
+    implements RegisterStateSecondStep {
+  const _$RegisterStateSecondStepImpl(
+      {this.firstState,
+      this.secondState = const RegisterSecondStepState.initial()});
+
+  @override
+  final RegisterFirstStepStateSuccess firstState;
+  @override
+  @JsonKey()
+  final RegisterSecondStepState secondState;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RegisterState.secondStep(firstState: $firstState, secondState: $secondState)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RegisterState.secondStep'))
+      ..add(DiagnosticsProperty('firstState', firstState))
+      ..add(DiagnosticsProperty('secondState', secondState));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RegisterStateSecondStepImpl &&
+            const DeepCollectionEquality()
+                .equals(other.firstState, firstState) &&
+            (identical(other.secondState, secondState) ||
+                other.secondState == secondState));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(firstState), secondState);
+
+  /// Create a copy of RegisterState
+  /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RegisterStateDataImplCopyWith<_$RegisterStateDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RegisterStateSecondStepImplCopyWith<_$RegisterStateSecondStepImpl>
+      get copyWith => __$$RegisterStateSecondStepImplCopyWithImpl<
+          _$RegisterStateSecondStepImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(RegisterFirstStepState firstState) firstStep,
+    required TResult Function(RegisterFirstStepStateSuccess firstState,
+            RegisterSecondStepState secondState)
+        secondStep,
+  }) {
+    return secondStep(firstState, secondState);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(RegisterFirstStepState firstState)? firstStep,
+    TResult? Function(RegisterFirstStepStateSuccess firstState,
+            RegisterSecondStepState secondState)?
+        secondStep,
+  }) {
+    return secondStep?.call(firstState, secondState);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(RegisterFirstStepState firstState)? firstStep,
+    TResult Function(RegisterFirstStepStateSuccess firstState,
+            RegisterSecondStepState secondState)?
+        secondStep,
+    required TResult orElse(),
+  }) {
+    if (secondStep != null) {
+      return secondStep(firstState, secondState);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RegisterStateFirstStep value) firstStep,
+    required TResult Function(RegisterStateSecondStep value) secondStep,
+  }) {
+    return secondStep(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RegisterStateFirstStep value)? firstStep,
+    TResult? Function(RegisterStateSecondStep value)? secondStep,
+  }) {
+    return secondStep?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RegisterStateFirstStep value)? firstStep,
+    TResult Function(RegisterStateSecondStep value)? secondStep,
+    required TResult orElse(),
+  }) {
+    if (secondStep != null) {
+      return secondStep(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RegisterStateSecondStep implements RegisterState {
+  const factory RegisterStateSecondStep(
+          {final RegisterFirstStepStateSuccess firstState,
+          final RegisterSecondStepState secondState}) =
+      _$RegisterStateSecondStepImpl;
+
+  @override
+  RegisterFirstStepStateSuccess get firstState;
+  RegisterSecondStepState get secondState;
+
+  /// Create a copy of RegisterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RegisterStateSecondStepImplCopyWith<_$RegisterStateSecondStepImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -238,24 +459,18 @@ mixin _$RegisterFirstStepState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String email, String password) success,
-    required TResult Function() loading,
-    required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String email, String password)? success,
-    TResult? Function()? loading,
-    TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String email, String password)? success,
-    TResult Function()? loading,
-    TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -263,24 +478,18 @@ mixin _$RegisterFirstStepState {
   TResult map<TResult extends Object?>({
     required TResult Function(RegisterFirstStepStateInitial value) initial,
     required TResult Function(RegisterFirstStepStateSuccess value) success,
-    required TResult Function(RegisterFirstStepStateLoading value) loading,
-    required TResult Function(RegisterFirstStepStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RegisterFirstStepStateInitial value)? initial,
     TResult? Function(RegisterFirstStepStateSuccess value)? success,
-    TResult? Function(RegisterFirstStepStateLoading value)? loading,
-    TResult? Function(RegisterFirstStepStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RegisterFirstStepStateInitial value)? initial,
     TResult Function(RegisterFirstStepStateSuccess value)? success,
-    TResult Function(RegisterFirstStepStateLoading value)? loading,
-    TResult Function(RegisterFirstStepStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -364,8 +573,6 @@ class _$RegisterFirstStepStateInitialImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String email, String password) success,
-    required TResult Function() loading,
-    required TResult Function(String message) error,
   }) {
     return initial();
   }
@@ -375,8 +582,6 @@ class _$RegisterFirstStepStateInitialImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String email, String password)? success,
-    TResult? Function()? loading,
-    TResult? Function(String message)? error,
   }) {
     return initial?.call();
   }
@@ -386,8 +591,6 @@ class _$RegisterFirstStepStateInitialImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String email, String password)? success,
-    TResult Function()? loading,
-    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -401,8 +604,6 @@ class _$RegisterFirstStepStateInitialImpl
   TResult map<TResult extends Object?>({
     required TResult Function(RegisterFirstStepStateInitial value) initial,
     required TResult Function(RegisterFirstStepStateSuccess value) success,
-    required TResult Function(RegisterFirstStepStateLoading value) loading,
-    required TResult Function(RegisterFirstStepStateError value) error,
   }) {
     return initial(this);
   }
@@ -412,8 +613,6 @@ class _$RegisterFirstStepStateInitialImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RegisterFirstStepStateInitial value)? initial,
     TResult? Function(RegisterFirstStepStateSuccess value)? success,
-    TResult? Function(RegisterFirstStepStateLoading value)? loading,
-    TResult? Function(RegisterFirstStepStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -423,8 +622,6 @@ class _$RegisterFirstStepStateInitialImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RegisterFirstStepStateInitial value)? initial,
     TResult Function(RegisterFirstStepStateSuccess value)? success,
-    TResult Function(RegisterFirstStepStateLoading value)? loading,
-    TResult Function(RegisterFirstStepStateError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -535,8 +732,6 @@ class _$RegisterFirstStepStateSuccessImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String email, String password) success,
-    required TResult Function() loading,
-    required TResult Function(String message) error,
   }) {
     return success(email, password);
   }
@@ -546,8 +741,6 @@ class _$RegisterFirstStepStateSuccessImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String email, String password)? success,
-    TResult? Function()? loading,
-    TResult? Function(String message)? error,
   }) {
     return success?.call(email, password);
   }
@@ -557,8 +750,6 @@ class _$RegisterFirstStepStateSuccessImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String email, String password)? success,
-    TResult Function()? loading,
-    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -572,8 +763,6 @@ class _$RegisterFirstStepStateSuccessImpl
   TResult map<TResult extends Object?>({
     required TResult Function(RegisterFirstStepStateInitial value) initial,
     required TResult Function(RegisterFirstStepStateSuccess value) success,
-    required TResult Function(RegisterFirstStepStateLoading value) loading,
-    required TResult Function(RegisterFirstStepStateError value) error,
   }) {
     return success(this);
   }
@@ -583,8 +772,6 @@ class _$RegisterFirstStepStateSuccessImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RegisterFirstStepStateInitial value)? initial,
     TResult? Function(RegisterFirstStepStateSuccess value)? success,
-    TResult? Function(RegisterFirstStepStateLoading value)? loading,
-    TResult? Function(RegisterFirstStepStateError value)? error,
   }) {
     return success?.call(this);
   }
@@ -594,8 +781,6 @@ class _$RegisterFirstStepStateSuccessImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RegisterFirstStepStateInitial value)? initial,
     TResult Function(RegisterFirstStepStateSuccess value)? success,
-    TResult Function(RegisterFirstStepStateLoading value)? loading,
-    TResult Function(RegisterFirstStepStateError value)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -622,360 +807,67 @@ abstract class RegisterFirstStepStateSuccess implements RegisterFirstStepState {
 }
 
 /// @nodoc
-abstract class _$$RegisterFirstStepStateLoadingImplCopyWith<$Res> {
-  factory _$$RegisterFirstStepStateLoadingImplCopyWith(
-          _$RegisterFirstStepStateLoadingImpl value,
-          $Res Function(_$RegisterFirstStepStateLoadingImpl) then) =
-      __$$RegisterFirstStepStateLoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$RegisterFirstStepStateLoadingImplCopyWithImpl<$Res>
-    extends _$RegisterFirstStepStateCopyWithImpl<$Res,
-        _$RegisterFirstStepStateLoadingImpl>
-    implements _$$RegisterFirstStepStateLoadingImplCopyWith<$Res> {
-  __$$RegisterFirstStepStateLoadingImplCopyWithImpl(
-      _$RegisterFirstStepStateLoadingImpl _value,
-      $Res Function(_$RegisterFirstStepStateLoadingImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of RegisterFirstStepState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$RegisterFirstStepStateLoadingImpl
-    with DiagnosticableTreeMixin
-    implements RegisterFirstStepStateLoading {
-  const _$RegisterFirstStepStateLoadingImpl();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RegisterFirstStepState.loading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RegisterFirstStepState.loading'));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RegisterFirstStepStateLoadingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(String email, String password) success,
-    required TResult Function() loading,
-    required TResult Function(String message) error,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(String email, String password)? success,
-    TResult? Function()? loading,
-    TResult? Function(String message)? error,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String email, String password)? success,
-    TResult Function()? loading,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RegisterFirstStepStateInitial value) initial,
-    required TResult Function(RegisterFirstStepStateSuccess value) success,
-    required TResult Function(RegisterFirstStepStateLoading value) loading,
-    required TResult Function(RegisterFirstStepStateError value) error,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RegisterFirstStepStateInitial value)? initial,
-    TResult? Function(RegisterFirstStepStateSuccess value)? success,
-    TResult? Function(RegisterFirstStepStateLoading value)? loading,
-    TResult? Function(RegisterFirstStepStateError value)? error,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RegisterFirstStepStateInitial value)? initial,
-    TResult Function(RegisterFirstStepStateSuccess value)? success,
-    TResult Function(RegisterFirstStepStateLoading value)? loading,
-    TResult Function(RegisterFirstStepStateError value)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RegisterFirstStepStateLoading implements RegisterFirstStepState {
-  const factory RegisterFirstStepStateLoading() =
-      _$RegisterFirstStepStateLoadingImpl;
-}
-
-/// @nodoc
-abstract class _$$RegisterFirstStepStateErrorImplCopyWith<$Res> {
-  factory _$$RegisterFirstStepStateErrorImplCopyWith(
-          _$RegisterFirstStepStateErrorImpl value,
-          $Res Function(_$RegisterFirstStepStateErrorImpl) then) =
-      __$$RegisterFirstStepStateErrorImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String message});
-}
-
-/// @nodoc
-class __$$RegisterFirstStepStateErrorImplCopyWithImpl<$Res>
-    extends _$RegisterFirstStepStateCopyWithImpl<$Res,
-        _$RegisterFirstStepStateErrorImpl>
-    implements _$$RegisterFirstStepStateErrorImplCopyWith<$Res> {
-  __$$RegisterFirstStepStateErrorImplCopyWithImpl(
-      _$RegisterFirstStepStateErrorImpl _value,
-      $Res Function(_$RegisterFirstStepStateErrorImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of RegisterFirstStepState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$RegisterFirstStepStateErrorImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$RegisterFirstStepStateErrorImpl
-    with DiagnosticableTreeMixin
-    implements RegisterFirstStepStateError {
-  const _$RegisterFirstStepStateErrorImpl(this.message);
-
-  @override
-  final String message;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RegisterFirstStepState.error(message: $message)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RegisterFirstStepState.error'))
-      ..add(DiagnosticsProperty('message', message));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RegisterFirstStepStateErrorImpl &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
-
-  /// Create a copy of RegisterFirstStepState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RegisterFirstStepStateErrorImplCopyWith<_$RegisterFirstStepStateErrorImpl>
-      get copyWith => __$$RegisterFirstStepStateErrorImplCopyWithImpl<
-          _$RegisterFirstStepStateErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(String email, String password) success,
-    required TResult Function() loading,
-    required TResult Function(String message) error,
-  }) {
-    return error(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(String email, String password)? success,
-    TResult? Function()? loading,
-    TResult? Function(String message)? error,
-  }) {
-    return error?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String email, String password)? success,
-    TResult Function()? loading,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RegisterFirstStepStateInitial value) initial,
-    required TResult Function(RegisterFirstStepStateSuccess value) success,
-    required TResult Function(RegisterFirstStepStateLoading value) loading,
-    required TResult Function(RegisterFirstStepStateError value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RegisterFirstStepStateInitial value)? initial,
-    TResult? Function(RegisterFirstStepStateSuccess value)? success,
-    TResult? Function(RegisterFirstStepStateLoading value)? loading,
-    TResult? Function(RegisterFirstStepStateError value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RegisterFirstStepStateInitial value)? initial,
-    TResult Function(RegisterFirstStepStateSuccess value)? success,
-    TResult Function(RegisterFirstStepStateLoading value)? loading,
-    TResult Function(RegisterFirstStepStateError value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RegisterFirstStepStateError implements RegisterFirstStepState {
-  const factory RegisterFirstStepStateError(final String message) =
-      _$RegisterFirstStepStateErrorImpl;
-
-  String get message;
-
-  /// Create a copy of RegisterFirstStepState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RegisterFirstStepStateErrorImplCopyWith<_$RegisterFirstStepStateErrorImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 mixin _$RegisterSecondStepState {
+  InvalidType get firstStepState => throw _privateConstructorUsedError;
+  String? get countryId => throw _privateConstructorUsedError;
+  int? get regionId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
+            RegisterFirstStepStateSuccess firstStepState,
+            List<CountryItem> allCountries,
+            List<RegionItem> allRegions,
+            List<CountryItem> countries,
+            List<RegionItem> regions,
+            String? countryId,
             int? regionId,
             bool isLoadingCountries,
             bool isLoadingRegions)
         initial,
-    required TResult Function(String name, int countryId, int regionId,
-            String address, String description)
+    required TResult Function(
+            RegisterFirstStepStateSuccess firstStepState,
+            String name,
+            String countryId,
+            int regionId,
+            String address,
+            String description)
         success,
-    required TResult Function() loading,
-    required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
+            RegisterFirstStepStateSuccess firstStepState,
+            List<CountryItem> allCountries,
+            List<RegionItem> allRegions,
+            List<CountryItem> countries,
+            List<RegionItem> regions,
+            String? countryId,
             int? regionId,
             bool isLoadingCountries,
             bool isLoadingRegions)?
         initial,
-    TResult? Function(String name, int countryId, int regionId, String address,
-            String description)?
+    TResult? Function(RegisterFirstStepStateSuccess firstStepState, String name,
+            String countryId, int regionId, String address, String description)?
         success,
-    TResult? Function()? loading,
-    TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
+            RegisterFirstStepStateSuccess firstStepState,
+            List<CountryItem> allCountries,
+            List<RegionItem> allRegions,
+            List<CountryItem> countries,
+            List<RegionItem> regions,
+            String? countryId,
             int? regionId,
             bool isLoadingCountries,
             bool isLoadingRegions)?
         initial,
-    TResult Function(String name, int countryId, int regionId, String address,
-            String description)?
+    TResult Function(RegisterFirstStepStateSuccess firstStepState, String name,
+            String countryId, int regionId, String address, String description)?
         success,
-    TResult Function()? loading,
-    TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -983,26 +875,26 @@ mixin _$RegisterSecondStepState {
   TResult map<TResult extends Object?>({
     required TResult Function(RegisterSecondStepStateInitial value) initial,
     required TResult Function(RegisterSecondStepStateSuccess value) success,
-    required TResult Function(RegisterSecondStepStateLoading value) loading,
-    required TResult Function(RegisterSecondStepStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RegisterSecondStepStateInitial value)? initial,
     TResult? Function(RegisterSecondStepStateSuccess value)? success,
-    TResult? Function(RegisterSecondStepStateLoading value)? loading,
-    TResult? Function(RegisterSecondStepStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RegisterSecondStepStateInitial value)? initial,
     TResult Function(RegisterSecondStepStateSuccess value)? success,
-    TResult Function(RegisterSecondStepStateLoading value)? loading,
-    TResult Function(RegisterSecondStepStateError value)? error,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  /// Create a copy of RegisterSecondStepState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $RegisterSecondStepStateCopyWith<RegisterSecondStepState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1011,6 +903,8 @@ abstract class $RegisterSecondStepStateCopyWith<$Res> {
   factory $RegisterSecondStepStateCopyWith(RegisterSecondStepState value,
           $Res Function(RegisterSecondStepState) then) =
       _$RegisterSecondStepStateCopyWithImpl<$Res, RegisterSecondStepState>;
+  @useResult
+  $Res call({InvalidType firstStepState, String countryId, int regionId});
 }
 
 /// @nodoc
@@ -1026,21 +920,46 @@ class _$RegisterSecondStepStateCopyWithImpl<$Res,
 
   /// Create a copy of RegisterSecondStepState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? firstStepState = freezed,
+    Object? countryId = null,
+    Object? regionId = null,
+  }) {
+    return _then(_value.copyWith(
+      firstStepState: freezed == firstStepState
+          ? _value.firstStepState
+          : firstStepState // ignore: cast_nullable_to_non_nullable
+              as InvalidType,
+      countryId: null == countryId
+          ? _value.countryId!
+          : countryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      regionId: null == regionId
+          ? _value.regionId!
+          : regionId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$RegisterSecondStepStateInitialImplCopyWith<$Res> {
+abstract class _$$RegisterSecondStepStateInitialImplCopyWith<$Res>
+    implements $RegisterSecondStepStateCopyWith<$Res> {
   factory _$$RegisterSecondStepStateInitialImplCopyWith(
           _$RegisterSecondStepStateInitialImpl value,
           $Res Function(_$RegisterSecondStepStateInitialImpl) then) =
       __$$RegisterSecondStepStateInitialImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call(
-      {List<NameValue<String, String>> allCountries,
-      List<NameValue<int, String>> allRegions,
-      List<NameValue<String, String>> countries,
-      List<NameValue<int, String>> regions,
-      int? countryId,
+      {RegisterFirstStepStateSuccess firstStepState,
+      List<CountryItem> allCountries,
+      List<RegionItem> allRegions,
+      List<CountryItem> countries,
+      List<RegionItem> regions,
+      String? countryId,
       int? regionId,
       bool isLoadingCountries,
       bool isLoadingRegions});
@@ -1061,6 +980,7 @@ class __$$RegisterSecondStepStateInitialImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? firstStepState = freezed,
     Object? allCountries = null,
     Object? allRegions = null,
     Object? countries = null,
@@ -1071,26 +991,30 @@ class __$$RegisterSecondStepStateInitialImplCopyWithImpl<$Res>
     Object? isLoadingRegions = null,
   }) {
     return _then(_$RegisterSecondStepStateInitialImpl(
+      firstStepState: freezed == firstStepState
+          ? _value.firstStepState
+          : firstStepState // ignore: cast_nullable_to_non_nullable
+              as RegisterFirstStepStateSuccess,
       allCountries: null == allCountries
           ? _value._allCountries
           : allCountries // ignore: cast_nullable_to_non_nullable
-              as List<NameValue<String, String>>,
+              as List<CountryItem>,
       allRegions: null == allRegions
           ? _value._allRegions
           : allRegions // ignore: cast_nullable_to_non_nullable
-              as List<NameValue<int, String>>,
+              as List<RegionItem>,
       countries: null == countries
           ? _value._countries
           : countries // ignore: cast_nullable_to_non_nullable
-              as List<NameValue<String, String>>,
+              as List<CountryItem>,
       regions: null == regions
           ? _value._regions
           : regions // ignore: cast_nullable_to_non_nullable
-              as List<NameValue<int, String>>,
+              as List<RegionItem>,
       countryId: freezed == countryId
           ? _value.countryId
           : countryId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       regionId: freezed == regionId
           ? _value.regionId
           : regionId // ignore: cast_nullable_to_non_nullable
@@ -1113,10 +1037,11 @@ class _$RegisterSecondStepStateInitialImpl
     with DiagnosticableTreeMixin
     implements RegisterSecondStepStateInitial {
   const _$RegisterSecondStepStateInitialImpl(
-      {final List<NameValue<String, String>> allCountries = const [],
-      final List<NameValue<int, String>> allRegions = const [],
-      final List<NameValue<String, String>> countries = const [],
-      final List<NameValue<int, String>> regions = const [],
+      {this.firstStepState,
+      final List<CountryItem> allCountries = const [],
+      final List<RegionItem> allRegions = const [],
+      final List<CountryItem> countries = const [],
+      final List<RegionItem> regions = const [],
       this.countryId,
       this.regionId,
       this.isLoadingCountries = false,
@@ -1126,44 +1051,46 @@ class _$RegisterSecondStepStateInitialImpl
         _countries = countries,
         _regions = regions;
 
-  final List<NameValue<String, String>> _allCountries;
+  @override
+  final RegisterFirstStepStateSuccess firstStepState;
+  final List<CountryItem> _allCountries;
   @override
   @JsonKey()
-  List<NameValue<String, String>> get allCountries {
+  List<CountryItem> get allCountries {
     if (_allCountries is EqualUnmodifiableListView) return _allCountries;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_allCountries);
   }
 
-  final List<NameValue<int, String>> _allRegions;
+  final List<RegionItem> _allRegions;
   @override
   @JsonKey()
-  List<NameValue<int, String>> get allRegions {
+  List<RegionItem> get allRegions {
     if (_allRegions is EqualUnmodifiableListView) return _allRegions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_allRegions);
   }
 
-  final List<NameValue<String, String>> _countries;
+  final List<CountryItem> _countries;
   @override
   @JsonKey()
-  List<NameValue<String, String>> get countries {
+  List<CountryItem> get countries {
     if (_countries is EqualUnmodifiableListView) return _countries;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_countries);
   }
 
-  final List<NameValue<int, String>> _regions;
+  final List<RegionItem> _regions;
   @override
   @JsonKey()
-  List<NameValue<int, String>> get regions {
+  List<RegionItem> get regions {
     if (_regions is EqualUnmodifiableListView) return _regions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_regions);
   }
 
   @override
-  final int? countryId;
+  final String? countryId;
   @override
   final int? regionId;
   @override
@@ -1175,7 +1102,7 @@ class _$RegisterSecondStepStateInitialImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RegisterSecondStepState.initial(allCountries: $allCountries, allRegions: $allRegions, countries: $countries, regions: $regions, countryId: $countryId, regionId: $regionId, isLoadingCountries: $isLoadingCountries, isLoadingRegions: $isLoadingRegions)';
+    return 'RegisterSecondStepState.initial(firstStepState: $firstStepState, allCountries: $allCountries, allRegions: $allRegions, countries: $countries, regions: $regions, countryId: $countryId, regionId: $regionId, isLoadingCountries: $isLoadingCountries, isLoadingRegions: $isLoadingRegions)';
   }
 
   @override
@@ -1183,6 +1110,7 @@ class _$RegisterSecondStepStateInitialImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'RegisterSecondStepState.initial'))
+      ..add(DiagnosticsProperty('firstStepState', firstStepState))
       ..add(DiagnosticsProperty('allCountries', allCountries))
       ..add(DiagnosticsProperty('allRegions', allRegions))
       ..add(DiagnosticsProperty('countries', countries))
@@ -1198,6 +1126,8 @@ class _$RegisterSecondStepStateInitialImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RegisterSecondStepStateInitialImpl &&
+            const DeepCollectionEquality()
+                .equals(other.firstStepState, firstStepState) &&
             const DeepCollectionEquality()
                 .equals(other._allCountries, _allCountries) &&
             const DeepCollectionEquality()
@@ -1218,6 +1148,7 @@ class _$RegisterSecondStepStateInitialImpl
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(firstStepState),
       const DeepCollectionEquality().hash(_allCountries),
       const DeepCollectionEquality().hash(_allRegions),
       const DeepCollectionEquality().hash(_countries),
@@ -1241,71 +1172,73 @@ class _$RegisterSecondStepStateInitialImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
+            RegisterFirstStepStateSuccess firstStepState,
+            List<CountryItem> allCountries,
+            List<RegionItem> allRegions,
+            List<CountryItem> countries,
+            List<RegionItem> regions,
+            String? countryId,
             int? regionId,
             bool isLoadingCountries,
             bool isLoadingRegions)
         initial,
-    required TResult Function(String name, int countryId, int regionId,
-            String address, String description)
+    required TResult Function(
+            RegisterFirstStepStateSuccess firstStepState,
+            String name,
+            String countryId,
+            int regionId,
+            String address,
+            String description)
         success,
-    required TResult Function() loading,
-    required TResult Function(String message) error,
   }) {
-    return initial(allCountries, allRegions, countries, regions, countryId,
-        regionId, isLoadingCountries, isLoadingRegions);
+    return initial(firstStepState, allCountries, allRegions, countries, regions,
+        countryId, regionId, isLoadingCountries, isLoadingRegions);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
+            RegisterFirstStepStateSuccess firstStepState,
+            List<CountryItem> allCountries,
+            List<RegionItem> allRegions,
+            List<CountryItem> countries,
+            List<RegionItem> regions,
+            String? countryId,
             int? regionId,
             bool isLoadingCountries,
             bool isLoadingRegions)?
         initial,
-    TResult? Function(String name, int countryId, int regionId, String address,
-            String description)?
+    TResult? Function(RegisterFirstStepStateSuccess firstStepState, String name,
+            String countryId, int regionId, String address, String description)?
         success,
-    TResult? Function()? loading,
-    TResult? Function(String message)? error,
   }) {
-    return initial?.call(allCountries, allRegions, countries, regions,
-        countryId, regionId, isLoadingCountries, isLoadingRegions);
+    return initial?.call(firstStepState, allCountries, allRegions, countries,
+        regions, countryId, regionId, isLoadingCountries, isLoadingRegions);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
+            RegisterFirstStepStateSuccess firstStepState,
+            List<CountryItem> allCountries,
+            List<RegionItem> allRegions,
+            List<CountryItem> countries,
+            List<RegionItem> regions,
+            String? countryId,
             int? regionId,
             bool isLoadingCountries,
             bool isLoadingRegions)?
         initial,
-    TResult Function(String name, int countryId, int regionId, String address,
-            String description)?
+    TResult Function(RegisterFirstStepStateSuccess firstStepState, String name,
+            String countryId, int regionId, String address, String description)?
         success,
-    TResult Function()? loading,
-    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(allCountries, allRegions, countries, regions, countryId,
-          regionId, isLoadingCountries, isLoadingRegions);
+      return initial(firstStepState, allCountries, allRegions, countries,
+          regions, countryId, regionId, isLoadingCountries, isLoadingRegions);
     }
     return orElse();
   }
@@ -1315,8 +1248,6 @@ class _$RegisterSecondStepStateInitialImpl
   TResult map<TResult extends Object?>({
     required TResult Function(RegisterSecondStepStateInitial value) initial,
     required TResult Function(RegisterSecondStepStateSuccess value) success,
-    required TResult Function(RegisterSecondStepStateLoading value) loading,
-    required TResult Function(RegisterSecondStepStateError value) error,
   }) {
     return initial(this);
   }
@@ -1326,8 +1257,6 @@ class _$RegisterSecondStepStateInitialImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RegisterSecondStepStateInitial value)? initial,
     TResult? Function(RegisterSecondStepStateSuccess value)? success,
-    TResult? Function(RegisterSecondStepStateLoading value)? loading,
-    TResult? Function(RegisterSecondStepStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -1337,8 +1266,6 @@ class _$RegisterSecondStepStateInitialImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RegisterSecondStepStateInitial value)? initial,
     TResult Function(RegisterSecondStepStateSuccess value)? success,
-    TResult Function(RegisterSecondStepStateLoading value)? loading,
-    TResult Function(RegisterSecondStepStateError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1351,26 +1278,32 @@ class _$RegisterSecondStepStateInitialImpl
 abstract class RegisterSecondStepStateInitial
     implements RegisterSecondStepState {
   const factory RegisterSecondStepStateInitial(
-      {final List<NameValue<String, String>> allCountries,
-      final List<NameValue<int, String>> allRegions,
-      final List<NameValue<String, String>> countries,
-      final List<NameValue<int, String>> regions,
-      final int? countryId,
+      {final RegisterFirstStepStateSuccess firstStepState,
+      final List<CountryItem> allCountries,
+      final List<RegionItem> allRegions,
+      final List<CountryItem> countries,
+      final List<RegionItem> regions,
+      final String? countryId,
       final int? regionId,
       final bool isLoadingCountries,
       final bool isLoadingRegions}) = _$RegisterSecondStepStateInitialImpl;
 
-  List<NameValue<String, String>> get allCountries;
-  List<NameValue<int, String>> get allRegions;
-  List<NameValue<String, String>> get countries;
-  List<NameValue<int, String>> get regions;
-  int? get countryId;
+  @override
+  RegisterFirstStepStateSuccess get firstStepState;
+  List<CountryItem> get allCountries;
+  List<RegionItem> get allRegions;
+  List<CountryItem> get countries;
+  List<RegionItem> get regions;
+  @override
+  String? get countryId;
+  @override
   int? get regionId;
   bool get isLoadingCountries;
   bool get isLoadingRegions;
 
   /// Create a copy of RegisterSecondStepState
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RegisterSecondStepStateInitialImplCopyWith<
           _$RegisterSecondStepStateInitialImpl>
@@ -1378,15 +1311,18 @@ abstract class RegisterSecondStepStateInitial
 }
 
 /// @nodoc
-abstract class _$$RegisterSecondStepStateSuccessImplCopyWith<$Res> {
+abstract class _$$RegisterSecondStepStateSuccessImplCopyWith<$Res>
+    implements $RegisterSecondStepStateCopyWith<$Res> {
   factory _$$RegisterSecondStepStateSuccessImplCopyWith(
           _$RegisterSecondStepStateSuccessImpl value,
           $Res Function(_$RegisterSecondStepStateSuccessImpl) then) =
       __$$RegisterSecondStepStateSuccessImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call(
-      {String name,
-      int countryId,
+      {RegisterFirstStepStateSuccess firstStepState,
+      String name,
+      String countryId,
       int regionId,
       String address,
       String description});
@@ -1407,6 +1343,7 @@ class __$$RegisterSecondStepStateSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? firstStepState = freezed,
     Object? name = null,
     Object? countryId = null,
     Object? regionId = null,
@@ -1414,6 +1351,10 @@ class __$$RegisterSecondStepStateSuccessImplCopyWithImpl<$Res>
     Object? description = null,
   }) {
     return _then(_$RegisterSecondStepStateSuccessImpl(
+      firstStepState: freezed == firstStepState
+          ? _value.firstStepState
+          : firstStepState // ignore: cast_nullable_to_non_nullable
+              as RegisterFirstStepStateSuccess,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1421,7 +1362,7 @@ class __$$RegisterSecondStepStateSuccessImplCopyWithImpl<$Res>
       countryId: null == countryId
           ? _value.countryId
           : countryId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       regionId: null == regionId
           ? _value.regionId
           : regionId // ignore: cast_nullable_to_non_nullable
@@ -1444,16 +1385,19 @@ class _$RegisterSecondStepStateSuccessImpl
     with DiagnosticableTreeMixin
     implements RegisterSecondStepStateSuccess {
   const _$RegisterSecondStepStateSuccessImpl(
-      {required this.name,
+      {this.firstStepState,
+      required this.name,
       required this.countryId,
       required this.regionId,
       required this.address,
       required this.description});
 
   @override
+  final RegisterFirstStepStateSuccess firstStepState;
+  @override
   final String name;
   @override
-  final int countryId;
+  final String countryId;
   @override
   final int regionId;
   @override
@@ -1463,7 +1407,7 @@ class _$RegisterSecondStepStateSuccessImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RegisterSecondStepState.success(name: $name, countryId: $countryId, regionId: $regionId, address: $address, description: $description)';
+    return 'RegisterSecondStepState.success(firstStepState: $firstStepState, name: $name, countryId: $countryId, regionId: $regionId, address: $address, description: $description)';
   }
 
   @override
@@ -1471,6 +1415,7 @@ class _$RegisterSecondStepStateSuccessImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'RegisterSecondStepState.success'))
+      ..add(DiagnosticsProperty('firstStepState', firstStepState))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('countryId', countryId))
       ..add(DiagnosticsProperty('regionId', regionId))
@@ -1483,6 +1428,8 @@ class _$RegisterSecondStepStateSuccessImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RegisterSecondStepStateSuccessImpl &&
+            const DeepCollectionEquality()
+                .equals(other.firstStepState, firstStepState) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.countryId, countryId) ||
                 other.countryId == countryId) &&
@@ -1494,8 +1441,14 @@ class _$RegisterSecondStepStateSuccessImpl
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, countryId, regionId, address, description);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(firstStepState),
+      name,
+      countryId,
+      regionId,
+      address,
+      description);
 
   /// Create a copy of RegisterSecondStepState
   /// with the given fields replaced by the non-null parameter values.
@@ -1511,68 +1464,73 @@ class _$RegisterSecondStepStateSuccessImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
+            RegisterFirstStepStateSuccess firstStepState,
+            List<CountryItem> allCountries,
+            List<RegionItem> allRegions,
+            List<CountryItem> countries,
+            List<RegionItem> regions,
+            String? countryId,
             int? regionId,
             bool isLoadingCountries,
             bool isLoadingRegions)
         initial,
-    required TResult Function(String name, int countryId, int regionId,
-            String address, String description)
+    required TResult Function(
+            RegisterFirstStepStateSuccess firstStepState,
+            String name,
+            String countryId,
+            int regionId,
+            String address,
+            String description)
         success,
-    required TResult Function() loading,
-    required TResult Function(String message) error,
   }) {
-    return success(name, countryId, regionId, address, description);
+    return success(
+        firstStepState, name, countryId, regionId, address, description);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
+            RegisterFirstStepStateSuccess firstStepState,
+            List<CountryItem> allCountries,
+            List<RegionItem> allRegions,
+            List<CountryItem> countries,
+            List<RegionItem> regions,
+            String? countryId,
             int? regionId,
             bool isLoadingCountries,
             bool isLoadingRegions)?
         initial,
-    TResult? Function(String name, int countryId, int regionId, String address,
-            String description)?
+    TResult? Function(RegisterFirstStepStateSuccess firstStepState, String name,
+            String countryId, int regionId, String address, String description)?
         success,
-    TResult? Function()? loading,
-    TResult? Function(String message)? error,
   }) {
-    return success?.call(name, countryId, regionId, address, description);
+    return success?.call(
+        firstStepState, name, countryId, regionId, address, description);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
+            RegisterFirstStepStateSuccess firstStepState,
+            List<CountryItem> allCountries,
+            List<RegionItem> allRegions,
+            List<CountryItem> countries,
+            List<RegionItem> regions,
+            String? countryId,
             int? regionId,
             bool isLoadingCountries,
             bool isLoadingRegions)?
         initial,
-    TResult Function(String name, int countryId, int regionId, String address,
-            String description)?
+    TResult Function(RegisterFirstStepStateSuccess firstStepState, String name,
+            String countryId, int regionId, String address, String description)?
         success,
-    TResult Function()? loading,
-    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(name, countryId, regionId, address, description);
+      return success(
+          firstStepState, name, countryId, regionId, address, description);
     }
     return orElse();
   }
@@ -1582,8 +1540,6 @@ class _$RegisterSecondStepStateSuccessImpl
   TResult map<TResult extends Object?>({
     required TResult Function(RegisterSecondStepStateInitial value) initial,
     required TResult Function(RegisterSecondStepStateSuccess value) success,
-    required TResult Function(RegisterSecondStepStateLoading value) loading,
-    required TResult Function(RegisterSecondStepStateError value) error,
   }) {
     return success(this);
   }
@@ -1593,8 +1549,6 @@ class _$RegisterSecondStepStateSuccessImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RegisterSecondStepStateInitial value)? initial,
     TResult? Function(RegisterSecondStepStateSuccess value)? success,
-    TResult? Function(RegisterSecondStepStateLoading value)? loading,
-    TResult? Function(RegisterSecondStepStateError value)? error,
   }) {
     return success?.call(this);
   }
@@ -1604,8 +1558,6 @@ class _$RegisterSecondStepStateSuccessImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RegisterSecondStepStateInitial value)? initial,
     TResult Function(RegisterSecondStepStateSuccess value)? success,
-    TResult Function(RegisterSecondStepStateLoading value)? loading,
-    TResult Function(RegisterSecondStepStateError value)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1618,390 +1570,29 @@ class _$RegisterSecondStepStateSuccessImpl
 abstract class RegisterSecondStepStateSuccess
     implements RegisterSecondStepState {
   const factory RegisterSecondStepStateSuccess(
-          {required final String name,
-          required final int countryId,
+          {final RegisterFirstStepStateSuccess firstStepState,
+          required final String name,
+          required final String countryId,
           required final int regionId,
           required final String address,
           required final String description}) =
       _$RegisterSecondStepStateSuccessImpl;
 
+  @override
+  RegisterFirstStepStateSuccess get firstStepState;
   String get name;
-  int get countryId;
+  @override
+  String get countryId;
+  @override
   int get regionId;
   String get address;
   String get description;
 
   /// Create a copy of RegisterSecondStepState
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RegisterSecondStepStateSuccessImplCopyWith<
           _$RegisterSecondStepStateSuccessImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$RegisterSecondStepStateLoadingImplCopyWith<$Res> {
-  factory _$$RegisterSecondStepStateLoadingImplCopyWith(
-          _$RegisterSecondStepStateLoadingImpl value,
-          $Res Function(_$RegisterSecondStepStateLoadingImpl) then) =
-      __$$RegisterSecondStepStateLoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$RegisterSecondStepStateLoadingImplCopyWithImpl<$Res>
-    extends _$RegisterSecondStepStateCopyWithImpl<$Res,
-        _$RegisterSecondStepStateLoadingImpl>
-    implements _$$RegisterSecondStepStateLoadingImplCopyWith<$Res> {
-  __$$RegisterSecondStepStateLoadingImplCopyWithImpl(
-      _$RegisterSecondStepStateLoadingImpl _value,
-      $Res Function(_$RegisterSecondStepStateLoadingImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of RegisterSecondStepState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$RegisterSecondStepStateLoadingImpl
-    with DiagnosticableTreeMixin
-    implements RegisterSecondStepStateLoading {
-  const _$RegisterSecondStepStateLoadingImpl();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RegisterSecondStepState.loading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RegisterSecondStepState.loading'));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RegisterSecondStepStateLoadingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
-            int? regionId,
-            bool isLoadingCountries,
-            bool isLoadingRegions)
-        initial,
-    required TResult Function(String name, int countryId, int regionId,
-            String address, String description)
-        success,
-    required TResult Function() loading,
-    required TResult Function(String message) error,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
-            int? regionId,
-            bool isLoadingCountries,
-            bool isLoadingRegions)?
-        initial,
-    TResult? Function(String name, int countryId, int regionId, String address,
-            String description)?
-        success,
-    TResult? Function()? loading,
-    TResult? Function(String message)? error,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
-            int? regionId,
-            bool isLoadingCountries,
-            bool isLoadingRegions)?
-        initial,
-    TResult Function(String name, int countryId, int regionId, String address,
-            String description)?
-        success,
-    TResult Function()? loading,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RegisterSecondStepStateInitial value) initial,
-    required TResult Function(RegisterSecondStepStateSuccess value) success,
-    required TResult Function(RegisterSecondStepStateLoading value) loading,
-    required TResult Function(RegisterSecondStepStateError value) error,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RegisterSecondStepStateInitial value)? initial,
-    TResult? Function(RegisterSecondStepStateSuccess value)? success,
-    TResult? Function(RegisterSecondStepStateLoading value)? loading,
-    TResult? Function(RegisterSecondStepStateError value)? error,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RegisterSecondStepStateInitial value)? initial,
-    TResult Function(RegisterSecondStepStateSuccess value)? success,
-    TResult Function(RegisterSecondStepStateLoading value)? loading,
-    TResult Function(RegisterSecondStepStateError value)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RegisterSecondStepStateLoading
-    implements RegisterSecondStepState {
-  const factory RegisterSecondStepStateLoading() =
-      _$RegisterSecondStepStateLoadingImpl;
-}
-
-/// @nodoc
-abstract class _$$RegisterSecondStepStateErrorImplCopyWith<$Res> {
-  factory _$$RegisterSecondStepStateErrorImplCopyWith(
-          _$RegisterSecondStepStateErrorImpl value,
-          $Res Function(_$RegisterSecondStepStateErrorImpl) then) =
-      __$$RegisterSecondStepStateErrorImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String message});
-}
-
-/// @nodoc
-class __$$RegisterSecondStepStateErrorImplCopyWithImpl<$Res>
-    extends _$RegisterSecondStepStateCopyWithImpl<$Res,
-        _$RegisterSecondStepStateErrorImpl>
-    implements _$$RegisterSecondStepStateErrorImplCopyWith<$Res> {
-  __$$RegisterSecondStepStateErrorImplCopyWithImpl(
-      _$RegisterSecondStepStateErrorImpl _value,
-      $Res Function(_$RegisterSecondStepStateErrorImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of RegisterSecondStepState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$RegisterSecondStepStateErrorImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$RegisterSecondStepStateErrorImpl
-    with DiagnosticableTreeMixin
-    implements RegisterSecondStepStateError {
-  const _$RegisterSecondStepStateErrorImpl(this.message);
-
-  @override
-  final String message;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RegisterSecondStepState.error(message: $message)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RegisterSecondStepState.error'))
-      ..add(DiagnosticsProperty('message', message));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RegisterSecondStepStateErrorImpl &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
-
-  /// Create a copy of RegisterSecondStepState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RegisterSecondStepStateErrorImplCopyWith<
-          _$RegisterSecondStepStateErrorImpl>
-      get copyWith => __$$RegisterSecondStepStateErrorImplCopyWithImpl<
-          _$RegisterSecondStepStateErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
-            int? regionId,
-            bool isLoadingCountries,
-            bool isLoadingRegions)
-        initial,
-    required TResult Function(String name, int countryId, int regionId,
-            String address, String description)
-        success,
-    required TResult Function() loading,
-    required TResult Function(String message) error,
-  }) {
-    return error(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
-            int? regionId,
-            bool isLoadingCountries,
-            bool isLoadingRegions)?
-        initial,
-    TResult? Function(String name, int countryId, int regionId, String address,
-            String description)?
-        success,
-    TResult? Function()? loading,
-    TResult? Function(String message)? error,
-  }) {
-    return error?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            List<NameValue<String, String>> allCountries,
-            List<NameValue<int, String>> allRegions,
-            List<NameValue<String, String>> countries,
-            List<NameValue<int, String>> regions,
-            int? countryId,
-            int? regionId,
-            bool isLoadingCountries,
-            bool isLoadingRegions)?
-        initial,
-    TResult Function(String name, int countryId, int regionId, String address,
-            String description)?
-        success,
-    TResult Function()? loading,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RegisterSecondStepStateInitial value) initial,
-    required TResult Function(RegisterSecondStepStateSuccess value) success,
-    required TResult Function(RegisterSecondStepStateLoading value) loading,
-    required TResult Function(RegisterSecondStepStateError value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RegisterSecondStepStateInitial value)? initial,
-    TResult? Function(RegisterSecondStepStateSuccess value)? success,
-    TResult? Function(RegisterSecondStepStateLoading value)? loading,
-    TResult? Function(RegisterSecondStepStateError value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RegisterSecondStepStateInitial value)? initial,
-    TResult Function(RegisterSecondStepStateSuccess value)? success,
-    TResult Function(RegisterSecondStepStateLoading value)? loading,
-    TResult Function(RegisterSecondStepStateError value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RegisterSecondStepStateError implements RegisterSecondStepState {
-  const factory RegisterSecondStepStateError(final String message) =
-      _$RegisterSecondStepStateErrorImpl;
-
-  String get message;
-
-  /// Create a copy of RegisterSecondStepState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RegisterSecondStepStateErrorImplCopyWith<
-          _$RegisterSecondStepStateErrorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
