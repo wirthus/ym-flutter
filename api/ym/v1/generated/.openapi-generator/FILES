@@ -255,4 +255,3 @@ lib/src/model/vk_access_token.dart
 lib/src/serializers.dart
 lib/ym_api_client.dart
 pubspec.yaml
-test/notification_sub_type_test.dart

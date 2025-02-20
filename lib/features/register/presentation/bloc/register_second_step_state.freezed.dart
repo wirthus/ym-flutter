@@ -16,10 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegisterSecondStepState {
-  List<CountryItem> get allCountries => throw _privateConstructorUsedError;
-  List<RegionItem> get allRegions => throw _privateConstructorUsedError;
-  List<CountryItem> get countries => throw _privateConstructorUsedError;
-  List<RegionItem> get regions => throw _privateConstructorUsedError;
+  List<CountryWithRegions> get allCountries =>
+      throw _privateConstructorUsedError;
+  List<Region> get allRegions => throw _privateConstructorUsedError;
   String? get countryId => throw _privateConstructorUsedError;
   int? get regionId => throw _privateConstructorUsedError;
   bool get isLoadingCountries => throw _privateConstructorUsedError;
@@ -27,10 +26,8 @@ mixin _$RegisterSecondStepState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            List<CountryItem> allCountries,
-            List<RegionItem> allRegions,
-            List<CountryItem> countries,
-            List<RegionItem> regions,
+            List<CountryWithRegions> allCountries,
+            List<Region> allRegions,
             String? countryId,
             int? regionId,
             bool isLoadingCountries,
@@ -41,10 +38,8 @@ mixin _$RegisterSecondStepState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-            List<CountryItem> allCountries,
-            List<RegionItem> allRegions,
-            List<CountryItem> countries,
-            List<RegionItem> regions,
+            List<CountryWithRegions> allCountries,
+            List<Region> allRegions,
             String? countryId,
             int? regionId,
             bool isLoadingCountries,
@@ -55,10 +50,8 @@ mixin _$RegisterSecondStepState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            List<CountryItem> allCountries,
-            List<RegionItem> allRegions,
-            List<CountryItem> countries,
-            List<RegionItem> regions,
+            List<CountryWithRegions> allCountries,
+            List<Region> allRegions,
             String? countryId,
             int? regionId,
             bool isLoadingCountries,
@@ -98,10 +91,8 @@ abstract class $RegisterSecondStepStateCopyWith<$Res> {
       _$RegisterSecondStepStateCopyWithImpl<$Res, RegisterSecondStepState>;
   @useResult
   $Res call(
-      {List<CountryItem> allCountries,
-      List<RegionItem> allRegions,
-      List<CountryItem> countries,
-      List<RegionItem> regions,
+      {List<CountryWithRegions> allCountries,
+      List<Region> allRegions,
       String? countryId,
       int? regionId,
       bool isLoadingCountries,
@@ -126,8 +117,6 @@ class _$RegisterSecondStepStateCopyWithImpl<$Res,
   $Res call({
     Object? allCountries = null,
     Object? allRegions = null,
-    Object? countries = null,
-    Object? regions = null,
     Object? countryId = freezed,
     Object? regionId = freezed,
     Object? isLoadingCountries = null,
@@ -137,19 +126,11 @@ class _$RegisterSecondStepStateCopyWithImpl<$Res,
       allCountries: null == allCountries
           ? _value.allCountries
           : allCountries // ignore: cast_nullable_to_non_nullable
-              as List<CountryItem>,
+              as List<CountryWithRegions>,
       allRegions: null == allRegions
           ? _value.allRegions
           : allRegions // ignore: cast_nullable_to_non_nullable
-              as List<RegionItem>,
-      countries: null == countries
-          ? _value.countries
-          : countries // ignore: cast_nullable_to_non_nullable
-              as List<CountryItem>,
-      regions: null == regions
-          ? _value.regions
-          : regions // ignore: cast_nullable_to_non_nullable
-              as List<RegionItem>,
+              as List<Region>,
       countryId: freezed == countryId
           ? _value.countryId
           : countryId // ignore: cast_nullable_to_non_nullable
@@ -180,10 +161,8 @@ abstract class _$$RegisterSecondStepStateInitialImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<CountryItem> allCountries,
-      List<RegionItem> allRegions,
-      List<CountryItem> countries,
-      List<RegionItem> regions,
+      {List<CountryWithRegions> allCountries,
+      List<Region> allRegions,
       String? countryId,
       int? regionId,
       bool isLoadingCountries,
@@ -207,8 +186,6 @@ class __$$RegisterSecondStepStateInitialImplCopyWithImpl<$Res>
   $Res call({
     Object? allCountries = null,
     Object? allRegions = null,
-    Object? countries = null,
-    Object? regions = null,
     Object? countryId = freezed,
     Object? regionId = freezed,
     Object? isLoadingCountries = null,
@@ -218,19 +195,11 @@ class __$$RegisterSecondStepStateInitialImplCopyWithImpl<$Res>
       allCountries: null == allCountries
           ? _value._allCountries
           : allCountries // ignore: cast_nullable_to_non_nullable
-              as List<CountryItem>,
+              as List<CountryWithRegions>,
       allRegions: null == allRegions
           ? _value._allRegions
           : allRegions // ignore: cast_nullable_to_non_nullable
-              as List<RegionItem>,
-      countries: null == countries
-          ? _value._countries
-          : countries // ignore: cast_nullable_to_non_nullable
-              as List<CountryItem>,
-      regions: null == regions
-          ? _value._regions
-          : regions // ignore: cast_nullable_to_non_nullable
-              as List<RegionItem>,
+              as List<Region>,
       countryId: freezed == countryId
           ? _value.countryId
           : countryId // ignore: cast_nullable_to_non_nullable
@@ -256,53 +225,31 @@ class __$$RegisterSecondStepStateInitialImplCopyWithImpl<$Res>
 class _$RegisterSecondStepStateInitialImpl
     implements _RegisterSecondStepStateInitial {
   const _$RegisterSecondStepStateInitialImpl(
-      {final List<CountryItem> allCountries = const [],
-      final List<RegionItem> allRegions = const [],
-      final List<CountryItem> countries = const [],
-      final List<RegionItem> regions = const [],
+      {final List<CountryWithRegions> allCountries = const [],
+      final List<Region> allRegions = const [],
       this.countryId,
       this.regionId,
       this.isLoadingCountries = false,
       this.isLoadingRegions = false})
       : _allCountries = allCountries,
-        _allRegions = allRegions,
-        _countries = countries,
-        _regions = regions;
+        _allRegions = allRegions;
 
-  final List<CountryItem> _allCountries;
+  final List<CountryWithRegions> _allCountries;
   @override
   @JsonKey()
-  List<CountryItem> get allCountries {
+  List<CountryWithRegions> get allCountries {
     if (_allCountries is EqualUnmodifiableListView) return _allCountries;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_allCountries);
   }
 
-  final List<RegionItem> _allRegions;
+  final List<Region> _allRegions;
   @override
   @JsonKey()
-  List<RegionItem> get allRegions {
+  List<Region> get allRegions {
     if (_allRegions is EqualUnmodifiableListView) return _allRegions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_allRegions);
-  }
-
-  final List<CountryItem> _countries;
-  @override
-  @JsonKey()
-  List<CountryItem> get countries {
-    if (_countries is EqualUnmodifiableListView) return _countries;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_countries);
-  }
-
-  final List<RegionItem> _regions;
-  @override
-  @JsonKey()
-  List<RegionItem> get regions {
-    if (_regions is EqualUnmodifiableListView) return _regions;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_regions);
   }
 
   @override
@@ -318,7 +265,7 @@ class _$RegisterSecondStepStateInitialImpl
 
   @override
   String toString() {
-    return 'RegisterSecondStepState.initial(allCountries: $allCountries, allRegions: $allRegions, countries: $countries, regions: $regions, countryId: $countryId, regionId: $regionId, isLoadingCountries: $isLoadingCountries, isLoadingRegions: $isLoadingRegions)';
+    return 'RegisterSecondStepState.initial(allCountries: $allCountries, allRegions: $allRegions, countryId: $countryId, regionId: $regionId, isLoadingCountries: $isLoadingCountries, isLoadingRegions: $isLoadingRegions)';
   }
 
   @override
@@ -330,9 +277,6 @@ class _$RegisterSecondStepStateInitialImpl
                 .equals(other._allCountries, _allCountries) &&
             const DeepCollectionEquality()
                 .equals(other._allRegions, _allRegions) &&
-            const DeepCollectionEquality()
-                .equals(other._countries, _countries) &&
-            const DeepCollectionEquality().equals(other._regions, _regions) &&
             (identical(other.countryId, countryId) ||
                 other.countryId == countryId) &&
             (identical(other.regionId, regionId) ||
@@ -348,8 +292,6 @@ class _$RegisterSecondStepStateInitialImpl
       runtimeType,
       const DeepCollectionEquality().hash(_allCountries),
       const DeepCollectionEquality().hash(_allRegions),
-      const DeepCollectionEquality().hash(_countries),
-      const DeepCollectionEquality().hash(_regions),
       countryId,
       regionId,
       isLoadingCountries,
@@ -369,46 +311,40 @@ class _$RegisterSecondStepStateInitialImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            List<CountryItem> allCountries,
-            List<RegionItem> allRegions,
-            List<CountryItem> countries,
-            List<RegionItem> regions,
+            List<CountryWithRegions> allCountries,
+            List<Region> allRegions,
             String? countryId,
             int? regionId,
             bool isLoadingCountries,
             bool isLoadingRegions)
         initial,
   }) {
-    return initial(allCountries, allRegions, countries, regions, countryId,
-        regionId, isLoadingCountries, isLoadingRegions);
+    return initial(allCountries, allRegions, countryId, regionId,
+        isLoadingCountries, isLoadingRegions);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-            List<CountryItem> allCountries,
-            List<RegionItem> allRegions,
-            List<CountryItem> countries,
-            List<RegionItem> regions,
+            List<CountryWithRegions> allCountries,
+            List<Region> allRegions,
             String? countryId,
             int? regionId,
             bool isLoadingCountries,
             bool isLoadingRegions)?
         initial,
   }) {
-    return initial?.call(allCountries, allRegions, countries, regions,
-        countryId, regionId, isLoadingCountries, isLoadingRegions);
+    return initial?.call(allCountries, allRegions, countryId, regionId,
+        isLoadingCountries, isLoadingRegions);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            List<CountryItem> allCountries,
-            List<RegionItem> allRegions,
-            List<CountryItem> countries,
-            List<RegionItem> regions,
+            List<CountryWithRegions> allCountries,
+            List<Region> allRegions,
             String? countryId,
             int? regionId,
             bool isLoadingCountries,
@@ -417,8 +353,8 @@ class _$RegisterSecondStepStateInitialImpl
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(allCountries, allRegions, countries, regions, countryId,
-          regionId, isLoadingCountries, isLoadingRegions);
+      return initial(allCountries, allRegions, countryId, regionId,
+          isLoadingCountries, isLoadingRegions);
     }
     return orElse();
   }
@@ -455,23 +391,17 @@ class _$RegisterSecondStepStateInitialImpl
 abstract class _RegisterSecondStepStateInitial
     implements RegisterSecondStepState {
   const factory _RegisterSecondStepStateInitial(
-      {final List<CountryItem> allCountries,
-      final List<RegionItem> allRegions,
-      final List<CountryItem> countries,
-      final List<RegionItem> regions,
+      {final List<CountryWithRegions> allCountries,
+      final List<Region> allRegions,
       final String? countryId,
       final int? regionId,
       final bool isLoadingCountries,
       final bool isLoadingRegions}) = _$RegisterSecondStepStateInitialImpl;
 
   @override
-  List<CountryItem> get allCountries;
+  List<CountryWithRegions> get allCountries;
   @override
-  List<RegionItem> get allRegions;
-  @override
-  List<CountryItem> get countries;
-  @override
-  List<RegionItem> get regions;
+  List<Region> get allRegions;
   @override
   String? get countryId;
   @override

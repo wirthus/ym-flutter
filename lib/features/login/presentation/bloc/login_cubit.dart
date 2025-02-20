@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:yagodmarket/data/repositories/auth_repository.dart';
 import 'package:yagodmarket/di.dart';
 import 'package:yagodmarket/shared/bloc/form_status.dart';
 import 'package:yagodmarket/ui/route/route.dart';
 import 'package:yagodmarket/ui/route/route.gr.dart';
-import 'package:ym_api_client/ym_api_client.dart';
 
 import 'login_state.dart';
 
 @injectable
 class LoginCubit extends Cubit<LoginState> {
-  final YmApiClient _ymApiClient;
+  final AuthRepository _authRepository;
 
-  LoginCubit(this._ymApiClient) : super(LoginState.init());
+  LoginCubit(this._authRepository) : super(LoginState.init());
 
   void togglePasswordVisibility() {
     emit(state.copyWith(isPasswordVisible: !state.isPasswordVisible));
@@ -23,14 +23,13 @@ class LoginCubit extends Cubit<LoginState> {
     emit(state.copyWith(status: FormStatus.inProgress));
 
     try {
-      await Future.delayed(const Duration(seconds: 1));
+      // final loginDto = LoginDto((b) => {
+      //   b.
+      // }
 
-      // final loginDto = LoginDto((b) => b
-      //   ..username = email
-      //   ..password = password);
+      // await _authRepository.login(loginDto);
 
-      // final response = await _authApi.authControllerLogin(loginDto: loginDto);
-
+      // await _authRepository.login(LoginDto((b) => {
       emit(state.copyWith(status: FormStatus.success));
     } catch (e) {
       emit(state.copyWith(status: FormStatus.failure));

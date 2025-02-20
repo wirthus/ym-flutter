@@ -131,6 +131,9 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
           return AdvertBuyGetListDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'AdvertBuyGetListFilter':
           return AdvertBuyGetListFilter.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'AdvertBuyGetListOrderType':
+          
+          
         case 'AdvertBuyGetListResponseDto':
           return AdvertBuyGetListResponseDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'AdvertBuyPublicEntity':
@@ -169,6 +172,12 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
           return AdvertPublicFilterDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'AdvertSearchDto':
           return AdvertSearchDto.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'AdvertSortType':
+          
+          
+        case 'AdvertStatus':
+          
+          
         case 'AdvertUpdateDto':
           return AdvertUpdateDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'AdvertUpdateFavoriteDto':
@@ -201,6 +210,9 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
           return LoginVkResponseDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'LogoutDto':
           return LogoutDto.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'ModerationStatus':
+          
+          
         case 'NotificationAdvertEntity':
           return NotificationAdvertEntity.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'NotificationEntity':
@@ -215,6 +227,15 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
           return NotificationGetListCountDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'NotificationGetListDto':
           return NotificationGetListDto.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'NotificationStatus':
+          
+          
+        case 'NotificationSubType':
+          
+          
+        case 'NotificationType':
+          
+          
         case 'PackingEntity':
           return PackingEntity.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'PaginateParamsDto':

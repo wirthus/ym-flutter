@@ -1,5 +1,5 @@
 import 'package:faker/faker.dart';
-import 'package:yagodmarket/data/models/advert.dart';
+import 'package:yagodmarket/data/model/ym/advert.dart';
 
 class AdvertMocks {
   static final _faker = Faker(seed: 123456);

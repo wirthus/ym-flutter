@@ -26,7 +26,7 @@ abstract class RegisterModule {
   Dio get dio {
     final dio = Dio(
       BaseOptions(
-        baseUrl: 'https://api.ym.kz',
+        baseUrl: 'http://192.168.1.78:3001/api',
         connectTimeout: const Duration(seconds: 30),
         receiveTimeout: const Duration(seconds: 30),
       ),

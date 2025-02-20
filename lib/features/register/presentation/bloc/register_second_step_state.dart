@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:yagodmarket/core/models/geo_types.dart';
+import 'package:yagodmarket/data/model/ym/country.dart';
+import 'package:yagodmarket/data/model/ym/region.dart';
 
 import 'register_state.dart';
 
@@ -8,12 +9,10 @@ part 'register_second_step_state.freezed.dart';
 @freezed
 sealed class RegisterSecondStepState with _$RegisterSecondStepState implements RegisterState {
   const factory RegisterSecondStepState.initial({
-    @Default([]) List<CountryItem> allCountries,
-    @Default([]) List<RegionItem> allRegions,
-    @Default([]) List<CountryItem> countries,
-    @Default([]) List<RegionItem> regions,
-    String? countryId,
-    int? regionId,
+    @Default([]) List<CountryWithRegions> allCountries,
+    @Default([]) List<Region> allRegions,
+    CountryKey? countryId,
+    RegionKey? regionId,
     @Default(false) bool isLoadingCountries,
     @Default(false) bool isLoadingRegions,
   }) = _RegisterSecondStepStateInitial;

@@ -1,5 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:yagodmarket/data/model/ym/country.dart';
+import 'package:yagodmarket/data/model/ym/region.dart';
+import 'package:yagodmarket/data/repositories/country_repository.dart';
 
 import 'register_first_step_state.dart';
 import 'register_second_step_state.dart';
@@ -7,13 +10,44 @@ import 'register_wizard_state.dart';
 
 @injectable
 class RegisterWizardCubit extends Cubit<RegisterWizardState> {
-  RegisterWizardCubit()
+  final CountryRepository _countryRepository;
+  // final RegionRepository _regionRepository;
+
+  RegisterWizardCubit(this._countryRepository)
       : super(const RegisterWizardState(
           RegisterFirstStepState.initial(),
           RegisterSecondStepState.initial(),
           RegisterWizardStep.firstStep,
           false,
         ));
+
+  void initSecondStep() async {
+    emit(state.copyWith(
+        secondStep: state.secondStep.copyWith(
+      isLoadingCountries: true,
+      isLoadingRegions: true,
+    )));
+
+    final countries = await _countryRepository.getCountries();
+
+    try {
+      emit(state.copyWith(
+          secondStep: state.secondStep.copyWith(
+        isLoadingCountries: false,
+        isLoadingRegions: false,
+        allCountries: countries,
+        allRegions: [],
+      )));
+    } catch (e) {
+      emit(state.copyWith(
+        secondStep: state.secondStep.copyWith(
+          isLoadingCountries: false,
+          isLoadingRegions: false,
+        ),
+      ));
+    }
+    // final regions = await _regionRepository.getRegions(countries.first.id);
+  }
 
   void nextStep() {
     if (state.currentStep == RegisterWizardStep.firstStep) {
@@ -29,11 +63,18 @@ class RegisterWizardCubit extends Cubit<RegisterWizardState> {
     emit(state.copyWith(currentStep: RegisterWizardStep.firstStep));
   }
 
-  void onCountryChanged(String? countryId) {
-    emit(state.copyWith(secondStep: state.secondStep.copyWith(countryId: countryId)));
+  void onCountryChanged(CountryKey? countryId) {
+    final country = state.secondStep.allCountries.firstWhere((element) => element.id == countryId);
+
+    emit(state.copyWith(
+        secondStep: state.secondStep.copyWith(
+      allRegions: country.regions,
+      countryId: countryId,
+      regionId: null,
+    )));
   }
 
-  void onRegionChanged(int? regionId) {
+  void onRegionChanged(RegionKey? regionId) {
     emit(state.copyWith(secondStep: state.secondStep.copyWith(regionId: regionId)));
   }
 }

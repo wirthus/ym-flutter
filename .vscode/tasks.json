@@ -95,5 +95,9 @@
       "group": "build",
       "isBackground": true,
     },
-  ]
+  ],
+  "taskHistory": {
+    "maxHistory": 100,
+    "saveHistory": true
+  }
 }

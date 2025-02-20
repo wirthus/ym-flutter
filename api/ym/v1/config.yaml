@@ -10,4 +10,4 @@ additionalProperties:
   sortModelPropertiesByRequiredFlag: false
   sortParamsByRequiredFlag: false
   # serializationLibrary: json_serializable
-  # generateDioExceptions: true
+  # equalityCheckMethod: equatable
