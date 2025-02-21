@@ -7,12 +7,12 @@ void main() {
   final instance = YmApiClient().getRegionsApi();
 
   group(RegionsApi, () {
-    //Future<RegionEntity> regionControllerGet(num id) async
+    //Future<RegionEntity> regionControllerGet(int id) async
     test('test regionControllerGet', () async {
       // TODO
     });
 
-    //Future<List<RegionEntity>> regionControllerGetAll({ String countryId, bool test }) async
+    //Future<BuiltList<RegionEntity>> regionControllerGetAll({ String countryId, bool test }) async
     test('test regionControllerGetAll', () async {
       // TODO
     });

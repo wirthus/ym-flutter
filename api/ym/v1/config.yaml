@@ -9,5 +9,5 @@ additionalProperties:
   useEnumExtension: true
   sortModelPropertiesByRequiredFlag: false
   sortParamsByRequiredFlag: false
-  serializationLibrary: json_serializable
+  # serializationLibrary: json_serializable
   equalityCheckMethod: equatable

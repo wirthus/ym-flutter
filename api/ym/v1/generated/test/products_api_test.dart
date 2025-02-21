@@ -12,57 +12,57 @@ void main() {
       // TODO
     });
 
-    //Future<ProductEntity> productControllerGet(num id) async
+    //Future<ProductEntity> productControllerGet(int id) async
     test('test productControllerGet', () async {
       // TODO
     });
 
-    //Future<ProductGroupWithProductsEntity> productControllerGetGroupWithProducts(num id, { bool subGroups }) async
+    //Future<ProductGroupWithProductsEntity> productControllerGetGroupWithProducts(int id, { bool subGroups }) async
     test('test productControllerGetGroupWithProducts', () async {
       // TODO
     });
 
-    //Future<List<ProductGroupEntity>> productControllerGetGroups() async
+    //Future<BuiltList<ProductGroupEntity>> productControllerGetGroups() async
     test('test productControllerGetGroups', () async {
       // TODO
     });
 
-    //Future<List<GroupProductsCountEntity>> productControllerGetGroupsProductsCount() async
+    //Future<BuiltList<GroupProductsCountEntity>> productControllerGetGroupsProductsCount() async
     test('test productControllerGetGroupsProductsCount', () async {
       // TODO
     });
 
-    //Future<List<ProductGroupWithProductsEntity>> productControllerGetGroupsWithProducts({ bool subGroups }) async
+    //Future<BuiltList<ProductGroupWithProductsEntity>> productControllerGetGroupsWithProducts({ bool subGroups }) async
     test('test productControllerGetGroupsWithProducts', () async {
       // TODO
     });
 
-    //Future<ProductInfoEntity> productControllerGetInfo(num id) async
+    //Future<ProductInfoEntity> productControllerGetInfo(int id) async
     test('test productControllerGetInfo', () async {
       // TODO
     });
 
-    //Future<List<ProductEntity>> productControllerGetProductsByGroup(num id) async
+    //Future<BuiltList<ProductEntity>> productControllerGetProductsByGroup(int id) async
     test('test productControllerGetProductsByGroup', () async {
       // TODO
     });
 
-    //Future<List<ProductGroupEntity>> productControllerGetSubGroups() async
+    //Future<BuiltList<ProductGroupEntity>> productControllerGetSubGroups() async
     test('test productControllerGetSubGroups', () async {
       // TODO
     });
 
-    //Future<List<ProductSubGroupEntity>> productControllerGetSubGroupsByProductId(num id) async
+    //Future<BuiltList<ProductSubGroupEntity>> productControllerGetSubGroupsByProductId(int id) async
     test('test productControllerGetSubGroupsByProductId', () async {
       // TODO
     });
 
-    //Future<List<ProductEntity>> productControllerSearch(String name) async
+    //Future<BuiltList<ProductEntity>> productControllerSearch(String name) async
     test('test productControllerSearch', () async {
       // TODO
     });
 
-    //Future<List<ProductSearchResultEntity>> productControllerSearchEx(SearchProductAdvancedDto searchProductAdvancedDto) async
+    //Future<BuiltList<ProductSearchResultEntity>> productControllerSearchEx(SearchProductAdvancedDto searchProductAdvancedDto) async
     test('test productControllerSearchEx', () async {
       // TODO
     });

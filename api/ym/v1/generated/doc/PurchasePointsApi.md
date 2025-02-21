@@ -35,7 +35,7 @@ Method | HTTP request | Description
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getPurchasePointsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 final PurchasePointAddAdvertsDto purchasePointAddAdvertsDto = ; // PurchasePointAddAdvertsDto | 
 
 try {
@@ -50,7 +50,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
  **purchasePointAddAdvertsDto** | [**PurchasePointAddAdvertsDto**](PurchasePointAddAdvertsDto.md)|  | 
 
 ### Return type
@@ -78,7 +78,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getPurchasePointsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 final PurchasePointCloneDto purchasePointCloneDto = ; // PurchasePointCloneDto | 
 
 try {
@@ -93,7 +93,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
  **purchasePointCloneDto** | [**PurchasePointCloneDto**](PurchasePointCloneDto.md)|  | 
 
 ### Return type
@@ -121,7 +121,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getPurchasePointsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 final PurchasePointCloneAdvertsDto purchasePointCloneAdvertsDto = ; // PurchasePointCloneAdvertsDto | 
 
 try {
@@ -136,7 +136,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
  **purchasePointCloneAdvertsDto** | [**PurchasePointCloneAdvertsDto**](PurchasePointCloneAdvertsDto.md)|  | 
 
 ### Return type
@@ -205,7 +205,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getPurchasePointsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.purchasePointControllerDelete(id);
@@ -219,7 +219,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -237,7 +237,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **purchasePointControllerGetAdverts**
-> List<AdvertBuyEntity> purchasePointControllerGetAdverts(id)
+> BuiltList<AdvertBuyEntity> purchasePointControllerGetAdverts(id)
 
 
 
@@ -246,7 +246,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getPurchasePointsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.purchasePointControllerGetAdverts(id);
@@ -260,11 +260,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
-[**List&lt;AdvertBuyEntity&gt;**](AdvertBuyEntity.md)
+[**BuiltList&lt;AdvertBuyEntity&gt;**](AdvertBuyEntity.md)
 
 ### Authorization
 
@@ -319,7 +319,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **purchasePointControllerGetList**
-> List<PurchasePointPrivateItemEntity> purchasePointControllerGetList(purchasePointsGetPrivateListDto)
+> BuiltList<PurchasePointPrivateItemEntity> purchasePointControllerGetList(purchasePointsGetPrivateListDto)
 
 
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;PurchasePointPrivateItemEntity&gt;**](PurchasePointPrivateItemEntity.md)
+[**BuiltList&lt;PurchasePointPrivateItemEntity&gt;**](PurchasePointPrivateItemEntity.md)
 
 ### Authorization
 
@@ -369,7 +369,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getPurchasePointsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.purchasePointControllerGetPrivate(id);
@@ -383,7 +383,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -410,7 +410,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getPurchasePointsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.purchasePointControllerGetPublic(id);
@@ -424,7 +424,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -451,7 +451,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getPurchasePointsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 final PurchasePointRemoveAdvertsDto purchasePointRemoveAdvertsDto = ; // PurchasePointRemoveAdvertsDto | 
 
 try {
@@ -466,7 +466,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
  **purchasePointRemoveAdvertsDto** | [**PurchasePointRemoveAdvertsDto**](PurchasePointRemoveAdvertsDto.md)|  | 
 
 ### Return type
@@ -494,8 +494,8 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getPurchasePointsApi();
-final num id = 8.14; // num | 
-final num advertBuyId = 8.14; // num | 
+final int id = 56; // int | 
+final int advertBuyId = 56; // int | 
 final PurchasePointSetAdvertEnabledDto purchasePointSetAdvertEnabledDto = ; // PurchasePointSetAdvertEnabledDto | 
 
 try {
@@ -510,8 +510,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
- **advertBuyId** | **num**|  | 
+ **id** | **int**|  | 
+ **advertBuyId** | **int**|  | 
  **purchasePointSetAdvertEnabledDto** | [**PurchasePointSetAdvertEnabledDto**](PurchasePointSetAdvertEnabledDto.md)|  | 
 
 ### Return type
@@ -539,7 +539,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getPurchasePointsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 final PurchasePointSetEnabledDto purchasePointSetEnabledDto = ; // PurchasePointSetEnabledDto | 
 
 try {
@@ -554,7 +554,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
  **purchasePointSetEnabledDto** | [**PurchasePointSetEnabledDto**](PurchasePointSetEnabledDto.md)|  | 
 
 ### Return type
@@ -582,7 +582,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getPurchasePointsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 final PurchasePointUpdateDto purchasePointUpdateDto = ; // PurchasePointUpdateDto | 
 
 try {
@@ -597,7 +597,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
  **purchasePointUpdateDto** | [**PurchasePointUpdateDto**](PurchasePointUpdateDto.md)|  | 
 
 ### Return type

@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for SubscriptionEntity
 void main() {
-  final SubscriptionEntity? instance = /* SubscriptionEntity(...) */ null;
-  // TODO add properties to the entity
+  final instance = SubscriptionEntityBuilder();
+  // TODO add properties to the builder and call build()
 
   group(SubscriptionEntity, () {
     // bool isActive
@@ -17,12 +17,12 @@ void main() {
       // TODO
     });
 
-    // List<int> productIds
+    // BuiltList<int> productIds
     test('to test the property `productIds`', () async {
       // TODO
     });
 
-    // List<int> regionIds
+    // BuiltList<int> regionIds
     test('to test the property `regionIds`', () async {
       // TODO
     });

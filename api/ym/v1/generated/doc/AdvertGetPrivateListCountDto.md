@@ -8,7 +8,7 @@ import 'package:ym_api_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filters** | [**List&lt;AdvertFilterDto&gt;**](AdvertFilterDto.md) |  | [optional] 
+**filters** | [**BuiltList&lt;AdvertFilterDto&gt;**](AdvertFilterDto.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,102 +3,140 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:json_annotation/json_annotation.dart';
-import 'package:equatable/src/equatable_utils.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'search_product_advanced_dto.g.dart';
 
+/// SearchProductAdvancedDto
+///
+/// Properties:
+/// * [name] 
+/// * [limit] 
+/// * [offset] 
+@BuiltValue()
+abstract class SearchProductAdvancedDto implements Built<SearchProductAdvancedDto, SearchProductAdvancedDtoBuilder> {
+  @BuiltValueField(wireName: r'name')
+  String get name;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class SearchProductAdvancedDto {
-  /// Returns a new [SearchProductAdvancedDto] instance.
-  SearchProductAdvancedDto({
+  @BuiltValueField(wireName: r'limit')
+  int? get limit;
 
-    required  this.name,
+  @BuiltValueField(wireName: r'offset')
+  int? get offset;
 
-     this.limit,
+  SearchProductAdvancedDto._();
 
-     this.offset,
-  });
+  factory SearchProductAdvancedDto([void updates(SearchProductAdvancedDtoBuilder b)]) = _$SearchProductAdvancedDto;
 
-  @JsonKey(
-    
-    name: r'name',
-    required: true,
-    includeIfNull: false,
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SearchProductAdvancedDtoBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SearchProductAdvancedDto> get serializer => _$SearchProductAdvancedDtoSerializer();
+}
 
-  final String name;
-
-
-
-          // minimum: 1
-  @JsonKey(
-    
-    name: r'limit',
-    required: false,
-    includeIfNull: false,
-  )
-
-
-  final int? limit;
-
-
-
-          // minimum: 0
-  @JsonKey(
-    
-    name: r'offset',
-    required: false,
-    includeIfNull: false,
-  )
-
-
-  final int? offset;
-
-
-
-
-    bool operator ==(Object other) {
-      return identical(this, other) ||
-      other is SearchProductAdvancedDto &&
-      runtimeType == other.runtimeType &&
-      equals(
-        [
-            name,
-            limit,
-            offset,
-        ],
-        [
-            other.name,
-            other.limit,
-            other.offset,
-        ]
-      );
-    }
-
-
-    @override
-    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
-        name,
-        limit,
-        offset,
-    ],);
-
-  factory SearchProductAdvancedDto.fromJson(Map<String, dynamic> json) => _$SearchProductAdvancedDtoFromJson(json);
-
-  Map<String, dynamic> toJson() => _$SearchProductAdvancedDtoToJson(this);
+class _$SearchProductAdvancedDtoSerializer implements PrimitiveSerializer<SearchProductAdvancedDto> {
+  @override
+  final Iterable<Type> types = const [SearchProductAdvancedDto, _$SearchProductAdvancedDto];
 
   @override
-  String toString() {
-    return toJson().toString();
+  final String wireName = r'SearchProductAdvancedDto';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    SearchProductAdvancedDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'name';
+    yield serializers.serialize(
+      object.name,
+      specifiedType: const FullType(String),
+    );
+    if (object.limit != null) {
+      yield r'limit';
+      yield serializers.serialize(
+        object.limit,
+        specifiedType: const FullType(int),
+      );
+    }
+    if (object.offset != null) {
+      yield r'offset';
+      yield serializers.serialize(
+        object.offset,
+        specifiedType: const FullType(int),
+      );
+    }
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    SearchProductAdvancedDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required SearchProductAdvancedDtoBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'name':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.name = valueDes;
+          break;
+        case r'limit':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.limit = valueDes;
+          break;
+        case r'offset':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.offset = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  SearchProductAdvancedDto deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SearchProductAdvancedDtoBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

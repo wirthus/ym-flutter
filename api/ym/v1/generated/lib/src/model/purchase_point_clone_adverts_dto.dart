@@ -3,66 +3,104 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:json_annotation/json_annotation.dart';
-import 'package:equatable/src/equatable_utils.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'purchase_point_clone_adverts_dto.g.dart';
 
+/// PurchasePointCloneAdvertsDto
+///
+/// Properties:
+/// * [destPurchasePointId] 
+@BuiltValue()
+abstract class PurchasePointCloneAdvertsDto implements Built<PurchasePointCloneAdvertsDto, PurchasePointCloneAdvertsDtoBuilder> {
+  @BuiltValueField(wireName: r'destPurchasePointId')
+  int get destPurchasePointId;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class PurchasePointCloneAdvertsDto {
-  /// Returns a new [PurchasePointCloneAdvertsDto] instance.
-  PurchasePointCloneAdvertsDto({
+  PurchasePointCloneAdvertsDto._();
 
-    required  this.destPurchasePointId,
-  });
+  factory PurchasePointCloneAdvertsDto([void updates(PurchasePointCloneAdvertsDtoBuilder b)]) = _$PurchasePointCloneAdvertsDto;
 
-  @JsonKey(
-    
-    name: r'destPurchasePointId',
-    required: true,
-    includeIfNull: false,
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PurchasePointCloneAdvertsDtoBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PurchasePointCloneAdvertsDto> get serializer => _$PurchasePointCloneAdvertsDtoSerializer();
+}
 
-  final int destPurchasePointId;
-
-
-
-
-    bool operator ==(Object other) {
-      return identical(this, other) ||
-      other is PurchasePointCloneAdvertsDto &&
-      runtimeType == other.runtimeType &&
-      equals(
-        [
-            destPurchasePointId,
-        ],
-        [
-            other.destPurchasePointId,
-        ]
-      );
-    }
-
-
-    @override
-    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
-        destPurchasePointId,
-    ],);
-
-  factory PurchasePointCloneAdvertsDto.fromJson(Map<String, dynamic> json) => _$PurchasePointCloneAdvertsDtoFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PurchasePointCloneAdvertsDtoToJson(this);
+class _$PurchasePointCloneAdvertsDtoSerializer implements PrimitiveSerializer<PurchasePointCloneAdvertsDto> {
+  @override
+  final Iterable<Type> types = const [PurchasePointCloneAdvertsDto, _$PurchasePointCloneAdvertsDto];
 
   @override
-  String toString() {
-    return toJson().toString();
+  final String wireName = r'PurchasePointCloneAdvertsDto';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    PurchasePointCloneAdvertsDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'destPurchasePointId';
+    yield serializers.serialize(
+      object.destPurchasePointId,
+      specifiedType: const FullType(int),
+    );
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    PurchasePointCloneAdvertsDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required PurchasePointCloneAdvertsDtoBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'destPurchasePointId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.destPurchasePointId = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  PurchasePointCloneAdvertsDto deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PurchasePointCloneAdvertsDtoBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

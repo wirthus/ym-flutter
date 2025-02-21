@@ -74,7 +74,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getProductsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.productControllerGet(id);
@@ -88,7 +88,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -115,7 +115,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getProductsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 final bool subGroups = true; // bool | 
 
 try {
@@ -130,7 +130,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
  **subGroups** | **bool**|  | [optional] 
 
 ### Return type
@@ -149,7 +149,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerGetGroups**
-> List<ProductGroupEntity> productControllerGetGroups()
+> BuiltList<ProductGroupEntity> productControllerGetGroups()
 
 
 
@@ -172,7 +172,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;ProductGroupEntity&gt;**](ProductGroupEntity.md)
+[**BuiltList&lt;ProductGroupEntity&gt;**](ProductGroupEntity.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerGetGroupsProductsCount**
-> List<GroupProductsCountEntity> productControllerGetGroupsProductsCount()
+> BuiltList<GroupProductsCountEntity> productControllerGetGroupsProductsCount()
 
 
 
@@ -209,7 +209,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;GroupProductsCountEntity&gt;**](GroupProductsCountEntity.md)
+[**BuiltList&lt;GroupProductsCountEntity&gt;**](GroupProductsCountEntity.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerGetGroupsWithProducts**
-> List<ProductGroupWithProductsEntity> productControllerGetGroupsWithProducts(subGroups)
+> BuiltList<ProductGroupWithProductsEntity> productControllerGetGroupsWithProducts(subGroups)
 
 
 
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;ProductGroupWithProductsEntity&gt;**](ProductGroupWithProductsEntity.md)
+[**BuiltList&lt;ProductGroupWithProductsEntity&gt;**](ProductGroupWithProductsEntity.md)
 
 ### Authorization
 
@@ -273,7 +273,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getProductsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.productControllerGetInfo(id);
@@ -287,7 +287,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -305,7 +305,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerGetProductsByGroup**
-> List<ProductEntity> productControllerGetProductsByGroup(id)
+> BuiltList<ProductEntity> productControllerGetProductsByGroup(id)
 
 
 
@@ -314,7 +314,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getProductsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.productControllerGetProductsByGroup(id);
@@ -328,11 +328,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
-[**List&lt;ProductEntity&gt;**](ProductEntity.md)
+[**BuiltList&lt;ProductEntity&gt;**](ProductEntity.md)
 
 ### Authorization
 
@@ -346,7 +346,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerGetSubGroups**
-> List<ProductGroupEntity> productControllerGetSubGroups()
+> BuiltList<ProductGroupEntity> productControllerGetSubGroups()
 
 
 
@@ -369,7 +369,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;ProductGroupEntity&gt;**](ProductGroupEntity.md)
+[**BuiltList&lt;ProductGroupEntity&gt;**](ProductGroupEntity.md)
 
 ### Authorization
 
@@ -383,7 +383,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerGetSubGroupsByProductId**
-> List<ProductSubGroupEntity> productControllerGetSubGroupsByProductId(id)
+> BuiltList<ProductSubGroupEntity> productControllerGetSubGroupsByProductId(id)
 
 
 
@@ -392,7 +392,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getProductsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.productControllerGetSubGroupsByProductId(id);
@@ -406,11 +406,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
-[**List&lt;ProductSubGroupEntity&gt;**](ProductSubGroupEntity.md)
+[**BuiltList&lt;ProductSubGroupEntity&gt;**](ProductSubGroupEntity.md)
 
 ### Authorization
 
@@ -424,7 +424,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerSearch**
-> List<ProductEntity> productControllerSearch(name)
+> BuiltList<ProductEntity> productControllerSearch(name)
 
 
 
@@ -451,7 +451,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;ProductEntity&gt;**](ProductEntity.md)
+[**BuiltList&lt;ProductEntity&gt;**](ProductEntity.md)
 
 ### Authorization
 
@@ -465,7 +465,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **productControllerSearchEx**
-> List<ProductSearchResultEntity> productControllerSearchEx(searchProductAdvancedDto)
+> BuiltList<ProductSearchResultEntity> productControllerSearchEx(searchProductAdvancedDto)
 
 
 
@@ -492,7 +492,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;ProductSearchResultEntity&gt;**](ProductSearchResultEntity.md)
+[**BuiltList&lt;ProductSearchResultEntity&gt;**](ProductSearchResultEntity.md)
 
 ### Authorization
 

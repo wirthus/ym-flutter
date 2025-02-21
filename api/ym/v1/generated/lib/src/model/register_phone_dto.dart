@@ -3,83 +3,120 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:json_annotation/json_annotation.dart';
-import 'package:equatable/src/equatable_utils.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'register_phone_dto.g.dart';
 
+/// RegisterPhoneDto
+///
+/// Properties:
+/// * [requestId] 
+/// * [clientNumber] 
+@BuiltValue()
+abstract class RegisterPhoneDto implements Built<RegisterPhoneDto, RegisterPhoneDtoBuilder> {
+  @BuiltValueField(wireName: r'requestId')
+  String get requestId;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class RegisterPhoneDto {
-  /// Returns a new [RegisterPhoneDto] instance.
-  RegisterPhoneDto({
+  @BuiltValueField(wireName: r'clientNumber')
+  String get clientNumber;
 
-    required  this.requestId,
+  RegisterPhoneDto._();
 
-    required  this.clientNumber,
-  });
+  factory RegisterPhoneDto([void updates(RegisterPhoneDtoBuilder b)]) = _$RegisterPhoneDto;
 
-  @JsonKey(
-    
-    name: r'requestId',
-    required: true,
-    includeIfNull: false,
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RegisterPhoneDtoBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RegisterPhoneDto> get serializer => _$RegisterPhoneDtoSerializer();
+}
 
-  final String requestId;
-
-
-
-  @JsonKey(
-    
-    name: r'clientNumber',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final String clientNumber;
-
-
-
-
-    bool operator ==(Object other) {
-      return identical(this, other) ||
-      other is RegisterPhoneDto &&
-      runtimeType == other.runtimeType &&
-      equals(
-        [
-            requestId,
-            clientNumber,
-        ],
-        [
-            other.requestId,
-            other.clientNumber,
-        ]
-      );
-    }
-
-
-    @override
-    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
-        requestId,
-        clientNumber,
-    ],);
-
-  factory RegisterPhoneDto.fromJson(Map<String, dynamic> json) => _$RegisterPhoneDtoFromJson(json);
-
-  Map<String, dynamic> toJson() => _$RegisterPhoneDtoToJson(this);
+class _$RegisterPhoneDtoSerializer implements PrimitiveSerializer<RegisterPhoneDto> {
+  @override
+  final Iterable<Type> types = const [RegisterPhoneDto, _$RegisterPhoneDto];
 
   @override
-  String toString() {
-    return toJson().toString();
+  final String wireName = r'RegisterPhoneDto';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    RegisterPhoneDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'requestId';
+    yield serializers.serialize(
+      object.requestId,
+      specifiedType: const FullType(String),
+    );
+    yield r'clientNumber';
+    yield serializers.serialize(
+      object.clientNumber,
+      specifiedType: const FullType(String),
+    );
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    RegisterPhoneDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required RegisterPhoneDtoBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'requestId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.requestId = valueDes;
+          break;
+        case r'clientNumber':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.clientNumber = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  RegisterPhoneDto deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RegisterPhoneDtoBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

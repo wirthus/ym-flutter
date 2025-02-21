@@ -4,100 +4,137 @@
 
 // ignore_for_file: unused_element
 import 'package:ym_api_client/src/model/region_entity.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:equatable/src/equatable_utils.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'country_with_regions_entity.g.dart';
 
+/// CountryWithRegionsEntity
+///
+/// Properties:
+/// * [id] 
+/// * [name] 
+/// * [regions] 
+@BuiltValue()
+abstract class CountryWithRegionsEntity implements Built<CountryWithRegionsEntity, CountryWithRegionsEntityBuilder> {
+  @BuiltValueField(wireName: r'id')
+  String get id;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class CountryWithRegionsEntity {
-  /// Returns a new [CountryWithRegionsEntity] instance.
-  CountryWithRegionsEntity({
+  @BuiltValueField(wireName: r'name')
+  String get name;
 
-    required  this.id,
+  @BuiltValueField(wireName: r'regions')
+  BuiltList<RegionEntity> get regions;
 
-    required  this.name,
+  CountryWithRegionsEntity._();
 
-    required  this.regions,
-  });
+  factory CountryWithRegionsEntity([void updates(CountryWithRegionsEntityBuilder b)]) = _$CountryWithRegionsEntity;
 
-  @JsonKey(
-    
-    name: r'id',
-    required: true,
-    includeIfNull: false,
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CountryWithRegionsEntityBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CountryWithRegionsEntity> get serializer => _$CountryWithRegionsEntitySerializer();
+}
 
-  final String id;
-
-
-
-  @JsonKey(
-    
-    name: r'name',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final String name;
-
-
-
-  @JsonKey(
-    
-    name: r'regions',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final List<RegionEntity> regions;
-
-
-
-
-    bool operator ==(Object other) {
-      return identical(this, other) ||
-      other is CountryWithRegionsEntity &&
-      runtimeType == other.runtimeType &&
-      equals(
-        [
-            id,
-            name,
-            regions,
-        ],
-        [
-            other.id,
-            other.name,
-            other.regions,
-        ]
-      );
-    }
-
-
-    @override
-    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
-        id,
-        name,
-        regions,
-    ],);
-
-  factory CountryWithRegionsEntity.fromJson(Map<String, dynamic> json) => _$CountryWithRegionsEntityFromJson(json);
-
-  Map<String, dynamic> toJson() => _$CountryWithRegionsEntityToJson(this);
+class _$CountryWithRegionsEntitySerializer implements PrimitiveSerializer<CountryWithRegionsEntity> {
+  @override
+  final Iterable<Type> types = const [CountryWithRegionsEntity, _$CountryWithRegionsEntity];
 
   @override
-  String toString() {
-    return toJson().toString();
+  final String wireName = r'CountryWithRegionsEntity';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    CountryWithRegionsEntity object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(String),
+    );
+    yield r'name';
+    yield serializers.serialize(
+      object.name,
+      specifiedType: const FullType(String),
+    );
+    yield r'regions';
+    yield serializers.serialize(
+      object.regions,
+      specifiedType: const FullType(BuiltList, [FullType(RegionEntity)]),
+    );
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    CountryWithRegionsEntity object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required CountryWithRegionsEntityBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.id = valueDes;
+          break;
+        case r'name':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.name = valueDes;
+          break;
+        case r'regions':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(RegionEntity)]),
+          ) as BuiltList<RegionEntity>;
+          result.regions.replace(valueDes);
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  CountryWithRegionsEntity deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CountryWithRegionsEntityBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

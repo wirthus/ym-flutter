@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for CleaningEntity
 void main() {
-  final CleaningEntity? instance = /* CleaningEntity(...) */ null;
-  // TODO add properties to the entity
+  final instance = CleaningEntityBuilder();
+  // TODO add properties to the builder and call build()
 
   group(CleaningEntity, () {
     // int id

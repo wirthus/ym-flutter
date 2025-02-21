@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for RegionEntity
 void main() {
-  final RegionEntity? instance = /* RegionEntity(...) */ null;
-  // TODO add properties to the entity
+  final instance = RegionEntityBuilder();
+  // TODO add properties to the builder and call build()
 
   group(RegionEntity, () {
     // int id

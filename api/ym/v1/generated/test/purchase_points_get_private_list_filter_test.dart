@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for PurchasePointsGetPrivateListFilter
 void main() {
-  final PurchasePointsGetPrivateListFilter? instance = /* PurchasePointsGetPrivateListFilter(...) */ null;
-  // TODO add properties to the entity
+  final instance = PurchasePointsGetPrivateListFilterBuilder();
+  // TODO add properties to the builder and call build()
 
   group(PurchasePointsGetPrivateListFilter, () {
     // bool enabled
@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // List<int> advertBuyIds
+    // BuiltList<int> advertBuyIds
     test('to test the property `advertBuyIds`', () async {
       // TODO
     });

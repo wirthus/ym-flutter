@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for UserUpdateDto
 void main() {
-  final UserUpdateDto? instance = /* UserUpdateDto(...) */ null;
-  // TODO add properties to the entity
+  final instance = UserUpdateDtoBuilder();
+  // TODO add properties to the builder and call build()
 
   group(UserUpdateDto, () {
     // String name

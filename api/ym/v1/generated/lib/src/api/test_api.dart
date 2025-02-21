@@ -4,17 +4,19 @@
 
 import 'dart:async';
 
-// ignore: unused_import
-import 'dart:convert';
-import 'package:ym_api_client/src/deserialize.dart';
+import 'package:built_value/json_object.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
+import 'package:built_collection/built_collection.dart';
 
 class TestApi {
 
   final Dio _dio;
 
-  const TestApi(this._dio);
+  final Serializers _serializers;
+
+  const TestApi(this._dio, this._serializers);
 
   /// testControllerAutoFillRegions
   /// 
@@ -106,8 +108,9 @@ class TestApi {
     num? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<num, num>(rawData, 'num', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as num;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -175,8 +178,9 @@ _responseData = rawData == null ? null : deserialize<num, num>(rawData, 'num', g
     num? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<num, num>(rawData, 'num', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as num;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -210,9 +214,9 @@ _responseData = rawData == null ? null : deserialize<num, num>(rawData, 'num', g
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [List<String>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<String>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<List<String>>> testControllerFillRegionsLocation({ 
+  Future<Response<BuiltList<String>>> testControllerFillRegionsLocation({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -241,11 +245,15 @@ _responseData = rawData == null ? null : deserialize<num, num>(rawData, 'num', g
       onReceiveProgress: onReceiveProgress,
     );
 
-    List<String>? _responseData;
+    BuiltList<String>? _responseData;
 
     try {
-final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<List<String>, String>(rawData, 'List<String>', growable: true);
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
+      ) as BuiltList<String>;
+
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -256,7 +264,7 @@ _responseData = rawData == null ? null : deserialize<List<String>, String>(rawDa
       );
     }
 
-    return Response<List<String>>(
+    return Response<BuiltList<String>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

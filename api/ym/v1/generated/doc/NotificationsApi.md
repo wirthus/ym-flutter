@@ -143,7 +143,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **notificationControllerGetList**
-> List<NotificationEntity> notificationControllerGetList(notificationGetListDto)
+> BuiltList<NotificationEntity> notificationControllerGetList(notificationGetListDto)
 
 
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;NotificationEntity&gt;**](NotificationEntity.md)
+[**BuiltList&lt;NotificationEntity&gt;**](NotificationEntity.md)
 
 ### Authorization
 
@@ -184,7 +184,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **notificationControllerGetOne**
-> Object notificationControllerGetOne(id)
+> JsonObject notificationControllerGetOne(id)
 
 
 
@@ -193,7 +193,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getNotificationsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.notificationControllerGetOne(id);
@@ -207,11 +207,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
-**Object**
+[**JsonObject**](JsonObject.md)
 
 ### Authorization
 
@@ -234,7 +234,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getNotificationsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.notificationControllerSetRead(id);
@@ -248,7 +248,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 

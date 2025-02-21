@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **purchase** | **bool** |  | 
 **countryId** | **String** |  | [optional] 
-**regionIds** | **List&lt;int&gt;** |  | [optional] 
+**regionIds** | **BuiltList&lt;int&gt;** |  | [optional] 
 **quantityStart** | **int** |  | [optional] 
 **quantityEnd** | **int** |  | [optional] 
 **priceStart** | **num** |  | [optional] 

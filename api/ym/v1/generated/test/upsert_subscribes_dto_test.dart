@@ -3,16 +3,16 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for UpsertSubscribesDto
 void main() {
-  final UpsertSubscribesDto? instance = /* UpsertSubscribesDto(...) */ null;
-  // TODO add properties to the entity
+  final instance = UpsertSubscribesDtoBuilder();
+  // TODO add properties to the builder and call build()
 
   group(UpsertSubscribesDto, () {
-    // List<int> productIds
+    // BuiltList<int> productIds
     test('to test the property `productIds`', () async {
       // TODO
     });
 
-    // List<int> regionIds
+    // BuiltList<int> regionIds
     test('to test the property `regionIds`', () async {
       // TODO
     });

@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertGetLastPublicListDto
 void main() {
-  final AdvertGetLastPublicListDto? instance = /* AdvertGetLastPublicListDto(...) */ null;
-  // TODO add properties to the entity
+  final instance = AdvertGetLastPublicListDtoBuilder();
+  // TODO add properties to the builder and call build()
 
   group(AdvertGetLastPublicListDto, () {
     // bool purchase
@@ -17,7 +17,7 @@ void main() {
       // TODO
     });
 
-    // List<int> regionIds
+    // BuiltList<int> regionIds
     test('to test the property `regionIds`', () async {
       // TODO
     });

@@ -7,12 +7,12 @@ void main() {
   final instance = YmApiClient().getAdvertsApi();
 
   group(AdvertsApi, () {
-    //Future<AdvertBuyAddPurchasePointsResponseDto> advertControllerAddPurchasePoints(num id, AdvertBuyAddPurchasePointsDto advertBuyAddPurchasePointsDto) async
+    //Future<AdvertBuyAddPurchasePointsResponseDto> advertControllerAddPurchasePoints(int id, AdvertBuyAddPurchasePointsDto advertBuyAddPurchasePointsDto) async
     test('test advertControllerAddPurchasePoints', () async {
       // TODO
     });
 
-    //Future<AdvertPrivateEntity> advertControllerCloneBuy(num id) async
+    //Future<AdvertPrivateEntity> advertControllerCloneBuy(int id) async
     test('test advertControllerCloneBuy', () async {
       // TODO
     });
@@ -27,22 +27,22 @@ void main() {
       // TODO
     });
 
-    //Future<bool> advertControllerDelete(num id) async
+    //Future<bool> advertControllerDelete(int id) async
     test('test advertControllerDelete', () async {
       // TODO
     });
 
-    //Future<num> advertControllerDeleteBuy(num id) async
+    //Future<num> advertControllerDeleteBuy(int id) async
     test('test advertControllerDeleteBuy', () async {
       // TODO
     });
 
-    //Future<bool> advertControllerEnableBuy(num id, AdvertBuySetEnabledDto advertBuySetEnabledDto) async
+    //Future<bool> advertControllerEnableBuy(int id, AdvertBuySetEnabledDto advertBuySetEnabledDto) async
     test('test advertControllerEnableBuy', () async {
       // TODO
     });
 
-    //Future<AdvertBuyEntity> advertControllerGetBuy(num id) async
+    //Future<AdvertBuyEntity> advertControllerGetBuy(int id) async
     test('test advertControllerGetBuy', () async {
       // TODO
     });
@@ -52,22 +52,22 @@ void main() {
       // TODO
     });
 
-    //Future<List<AdvertPublicFavoriteEntity>> advertControllerGetFavorites() async
+    //Future<BuiltList<AdvertPublicFavoriteEntity>> advertControllerGetFavorites() async
     test('test advertControllerGetFavorites', () async {
       // TODO
     });
 
-    //Future<List<AdvertPublicFavoriteEntity>> advertControllerGetLast(AdvertGetLastPublicListDto advertGetLastPublicListDto) async
+    //Future<BuiltList<AdvertPublicFavoriteEntity>> advertControllerGetLast(AdvertGetLastPublicListDto advertGetLastPublicListDto) async
     test('test advertControllerGetLast', () async {
       // TODO
     });
 
-    //Future<List<AdvertMapEntity>> advertControllerGetMap(AdvertGetPublicMapListDto advertGetPublicMapListDto) async
+    //Future<BuiltList<AdvertMapEntity>> advertControllerGetMap(AdvertGetPublicMapListDto advertGetPublicMapListDto) async
     test('test advertControllerGetMap', () async {
       // TODO
     });
 
-    //Future<AdvertPrivateEntity> advertControllerGetPrivate(num id) async
+    //Future<AdvertPrivateEntity> advertControllerGetPrivate(int id) async
     test('test advertControllerGetPrivate', () async {
       // TODO
     });
@@ -77,37 +77,37 @@ void main() {
       // TODO
     });
 
-    //Future<List<AdvertPrivateEntity>> advertControllerGetPrivateList(AdvertGetPrivateListDto advertGetPrivateListDto) async
+    //Future<BuiltList<AdvertPrivateEntity>> advertControllerGetPrivateList(AdvertGetPrivateListDto advertGetPrivateListDto) async
     test('test advertControllerGetPrivateList', () async {
       // TODO
     });
 
-    //Future<AdvertPublicFavoriteEntity> advertControllerGetPublic(num id) async
+    //Future<AdvertPublicFavoriteEntity> advertControllerGetPublic(int id) async
     test('test advertControllerGetPublic', () async {
       // TODO
     });
 
-    //Future<AdvertBuyRemovePurchasePointsResponseDto> advertControllerRemovePurchasePoints(num id, AdvertBuyRemovePurchasePointsDto advertBuyRemovePurchasePointsDto) async
+    //Future<AdvertBuyRemovePurchasePointsResponseDto> advertControllerRemovePurchasePoints(int id, AdvertBuyRemovePurchasePointsDto advertBuyRemovePurchasePointsDto) async
     test('test advertControllerRemovePurchasePoints', () async {
       // TODO
     });
 
-    //Future<List<AdvertPublicFavoriteEntity>> advertControllerSearch(AdvertSearchDto advertSearchDto) async
+    //Future<BuiltList<AdvertPublicFavoriteEntity>> advertControllerSearch(AdvertSearchDto advertSearchDto) async
     test('test advertControllerSearch', () async {
       // TODO
     });
 
-    //Future<bool> advertControllerSetFavorite(num id, AdvertUpdateFavoriteDto advertUpdateFavoriteDto) async
+    //Future<bool> advertControllerSetFavorite(int id, AdvertUpdateFavoriteDto advertUpdateFavoriteDto) async
     test('test advertControllerSetFavorite', () async {
       // TODO
     });
 
-    //Future<AdvertPrivateEntity> advertControllerUpdate(num id, AdvertUpdateDto advertUpdateDto) async
+    //Future<AdvertPrivateEntity> advertControllerUpdate(int id, AdvertUpdateDto advertUpdateDto) async
     test('test advertControllerUpdate', () async {
       // TODO
     });
 
-    //Future<AdvertBuyUpdateResponseDto> advertControllerUpdateBuy(num id, AdvertBuyUpdateDto advertBuyUpdateDto) async
+    //Future<AdvertBuyUpdateResponseDto> advertControllerUpdateBuy(int id, AdvertBuyUpdateDto advertBuyUpdateDto) async
     test('test advertControllerUpdateBuy', () async {
       // TODO
     });

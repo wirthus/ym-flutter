@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for PurchasePointCloneDto
 void main() {
-  final PurchasePointCloneDto? instance = /* PurchasePointCloneDto(...) */ null;
-  // TODO add properties to the entity
+  final instance = PurchasePointCloneDtoBuilder();
+  // TODO add properties to the builder and call build()
 
   group(PurchasePointCloneDto, () {
     // bool enabled

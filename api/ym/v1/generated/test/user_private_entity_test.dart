@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for UserPrivateEntity
 void main() {
-  final UserPrivateEntity? instance = /* UserPrivateEntity(...) */ null;
-  // TODO add properties to the entity
+  final instance = UserPrivateEntityBuilder();
+  // TODO add properties to the builder and call build()
 
   group(UserPrivateEntity, () {
     // int id

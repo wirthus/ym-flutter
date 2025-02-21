@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for RegisterPhoneDto
 void main() {
-  final RegisterPhoneDto? instance = /* RegisterPhoneDto(...) */ null;
-  // TODO add properties to the entity
+  final instance = RegisterPhoneDtoBuilder();
+  // TODO add properties to the builder and call build()
 
   group(RegisterPhoneDto, () {
     // String requestId

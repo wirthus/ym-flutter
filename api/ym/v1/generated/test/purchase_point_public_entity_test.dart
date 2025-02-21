@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for PurchasePointPublicEntity
 void main() {
-  final PurchasePointPublicEntity? instance = /* PurchasePointPublicEntity(...) */ null;
-  // TODO add properties to the entity
+  final instance = PurchasePointPublicEntityBuilder();
+  // TODO add properties to the builder and call build()
 
   group(PurchasePointPublicEntity, () {
     // int id

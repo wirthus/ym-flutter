@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for SearchProductAdvancedDto
 void main() {
-  final SearchProductAdvancedDto? instance = /* SearchProductAdvancedDto(...) */ null;
-  // TODO add properties to the entity
+  final instance = SearchProductAdvancedDtoBuilder();
+  // TODO add properties to the builder and call build()
 
   group(SearchProductAdvancedDto, () {
     // String name

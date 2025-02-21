@@ -7,17 +7,17 @@ void main() {
   final instance = YmApiClient().getPurchasePointsApi();
 
   group(PurchasePointsApi, () {
-    //Future<PurchasePointAddAdvertsResponseDto> purchasePointControllerAddAdverts(num id, PurchasePointAddAdvertsDto purchasePointAddAdvertsDto) async
+    //Future<PurchasePointAddAdvertsResponseDto> purchasePointControllerAddAdverts(int id, PurchasePointAddAdvertsDto purchasePointAddAdvertsDto) async
     test('test purchasePointControllerAddAdverts', () async {
       // TODO
     });
 
-    //Future<PurchasePointCloneResponseDto> purchasePointControllerClone(num id, PurchasePointCloneDto purchasePointCloneDto) async
+    //Future<PurchasePointCloneResponseDto> purchasePointControllerClone(int id, PurchasePointCloneDto purchasePointCloneDto) async
     test('test purchasePointControllerClone', () async {
       // TODO
     });
 
-    //Future<PurchasePointCloneAdvertsResponseDto> purchasePointControllerCloneAdverts(num id, PurchasePointCloneAdvertsDto purchasePointCloneAdvertsDto) async
+    //Future<PurchasePointCloneAdvertsResponseDto> purchasePointControllerCloneAdverts(int id, PurchasePointCloneAdvertsDto purchasePointCloneAdvertsDto) async
     test('test purchasePointControllerCloneAdverts', () async {
       // TODO
     });
@@ -27,12 +27,12 @@ void main() {
       // TODO
     });
 
-    //Future<num> purchasePointControllerDelete(num id) async
+    //Future<num> purchasePointControllerDelete(int id) async
     test('test purchasePointControllerDelete', () async {
       // TODO
     });
 
-    //Future<List<AdvertBuyEntity>> purchasePointControllerGetAdverts(num id) async
+    //Future<BuiltList<AdvertBuyEntity>> purchasePointControllerGetAdverts(int id) async
     test('test purchasePointControllerGetAdverts', () async {
       // TODO
     });
@@ -42,37 +42,37 @@ void main() {
       // TODO
     });
 
-    //Future<List<PurchasePointPrivateItemEntity>> purchasePointControllerGetList(PurchasePointsGetPrivateListDto purchasePointsGetPrivateListDto) async
+    //Future<BuiltList<PurchasePointPrivateItemEntity>> purchasePointControllerGetList(PurchasePointsGetPrivateListDto purchasePointsGetPrivateListDto) async
     test('test purchasePointControllerGetList', () async {
       // TODO
     });
 
-    //Future<PurchasePointPrivateEntity> purchasePointControllerGetPrivate(num id) async
+    //Future<PurchasePointPrivateEntity> purchasePointControllerGetPrivate(int id) async
     test('test purchasePointControllerGetPrivate', () async {
       // TODO
     });
 
-    //Future<PurchasePointPublicEntity> purchasePointControllerGetPublic(num id) async
+    //Future<PurchasePointPublicEntity> purchasePointControllerGetPublic(int id) async
     test('test purchasePointControllerGetPublic', () async {
       // TODO
     });
 
-    //Future<PurchasePointRemoveAdvertsResponseDto> purchasePointControllerRemoveAdverts(num id, PurchasePointRemoveAdvertsDto purchasePointRemoveAdvertsDto) async
+    //Future<PurchasePointRemoveAdvertsResponseDto> purchasePointControllerRemoveAdverts(int id, PurchasePointRemoveAdvertsDto purchasePointRemoveAdvertsDto) async
     test('test purchasePointControllerRemoveAdverts', () async {
       // TODO
     });
 
-    //Future<PurchasePointSetAdvertEnabledResponseDto> purchasePointControllerSetAdvertEnabled(num id, num advertBuyId, PurchasePointSetAdvertEnabledDto purchasePointSetAdvertEnabledDto) async
+    //Future<PurchasePointSetAdvertEnabledResponseDto> purchasePointControllerSetAdvertEnabled(int id, int advertBuyId, PurchasePointSetAdvertEnabledDto purchasePointSetAdvertEnabledDto) async
     test('test purchasePointControllerSetAdvertEnabled', () async {
       // TODO
     });
 
-    //Future<PurchasePointSetEnabledResponseDto> purchasePointControllerSetEnabled(num id, PurchasePointSetEnabledDto purchasePointSetEnabledDto) async
+    //Future<PurchasePointSetEnabledResponseDto> purchasePointControllerSetEnabled(int id, PurchasePointSetEnabledDto purchasePointSetEnabledDto) async
     test('test purchasePointControllerSetEnabled', () async {
       // TODO
     });
 
-    //Future<PurchasePointUpdateResponseDto> purchasePointControllerUpdate(num id, PurchasePointUpdateDto purchasePointUpdateDto) async
+    //Future<PurchasePointUpdateResponseDto> purchasePointControllerUpdate(int id, PurchasePointUpdateDto purchasePointUpdateDto) async
     test('test purchasePointControllerUpdate', () async {
       // TODO
     });

@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertPublicFavoriteEntity
 void main() {
-  final AdvertPublicFavoriteEntity? instance = /* AdvertPublicFavoriteEntity(...) */ null;
-  // TODO add properties to the entity
+  final instance = AdvertPublicFavoriteEntityBuilder();
+  // TODO add properties to the builder and call build()
 
   group(AdvertPublicFavoriteEntity, () {
     // int id

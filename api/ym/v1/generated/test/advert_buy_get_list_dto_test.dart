@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertBuyGetListDto
 void main() {
-  final AdvertBuyGetListDto? instance = /* AdvertBuyGetListDto(...) */ null;
-  // TODO add properties to the entity
+  final instance = AdvertBuyGetListDtoBuilder();
+  // TODO add properties to the builder and call build()
 
   group(AdvertBuyGetListDto, () {
     // AdvertBuyGetListFilter filter

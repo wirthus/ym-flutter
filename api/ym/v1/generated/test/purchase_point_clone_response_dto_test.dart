@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for PurchasePointCloneResponseDto
 void main() {
-  final PurchasePointCloneResponseDto? instance = /* PurchasePointCloneResponseDto(...) */ null;
-  // TODO add properties to the entity
+  final instance = PurchasePointCloneResponseDtoBuilder();
+  // TODO add properties to the builder and call build()
 
   group(PurchasePointCloneResponseDto, () {
     // PurchasePointPrivateEntity purchasePoint
@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // List<int> advertIds
+    // BuiltList<int> advertIds
     test('to test the property `advertIds`', () async {
       // TODO
     });

@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for GroupProductsCountEntity
 void main() {
-  final GroupProductsCountEntity? instance = /* GroupProductsCountEntity(...) */ null;
-  // TODO add properties to the entity
+  final instance = GroupProductsCountEntityBuilder();
+  // TODO add properties to the builder and call build()
 
   group(GroupProductsCountEntity, () {
     // int groupId

@@ -3,83 +3,125 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:json_annotation/json_annotation.dart';
-import 'package:equatable/src/equatable_utils.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'advert_buy_get_list_filter.g.dart';
 
+/// AdvertBuyGetListFilter
+///
+/// Properties:
+/// * [enabled] 
+/// * [purchasePointIds] 
+@BuiltValue()
+abstract class AdvertBuyGetListFilter implements Built<AdvertBuyGetListFilter, AdvertBuyGetListFilterBuilder> {
+  @BuiltValueField(wireName: r'enabled')
+  bool? get enabled;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class AdvertBuyGetListFilter {
-  /// Returns a new [AdvertBuyGetListFilter] instance.
-  AdvertBuyGetListFilter({
+  @BuiltValueField(wireName: r'purchasePointIds')
+  BuiltList<int>? get purchasePointIds;
 
-     this.enabled,
+  AdvertBuyGetListFilter._();
 
-     this.purchasePointIds,
-  });
+  factory AdvertBuyGetListFilter([void updates(AdvertBuyGetListFilterBuilder b)]) = _$AdvertBuyGetListFilter;
 
-  @JsonKey(
-    
-    name: r'enabled',
-    required: false,
-    includeIfNull: false,
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AdvertBuyGetListFilterBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AdvertBuyGetListFilter> get serializer => _$AdvertBuyGetListFilterSerializer();
+}
 
-  final bool? enabled;
-
-
-
-  @JsonKey(
-    
-    name: r'purchasePointIds',
-    required: false,
-    includeIfNull: false,
-  )
-
-
-  final List<int>? purchasePointIds;
-
-
-
-
-    bool operator ==(Object other) {
-      return identical(this, other) ||
-      other is AdvertBuyGetListFilter &&
-      runtimeType == other.runtimeType &&
-      equals(
-        [
-            enabled,
-            purchasePointIds,
-        ],
-        [
-            other.enabled,
-            other.purchasePointIds,
-        ]
-      );
-    }
-
-
-    @override
-    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
-        enabled,
-        purchasePointIds,
-    ],);
-
-  factory AdvertBuyGetListFilter.fromJson(Map<String, dynamic> json) => _$AdvertBuyGetListFilterFromJson(json);
-
-  Map<String, dynamic> toJson() => _$AdvertBuyGetListFilterToJson(this);
+class _$AdvertBuyGetListFilterSerializer implements PrimitiveSerializer<AdvertBuyGetListFilter> {
+  @override
+  final Iterable<Type> types = const [AdvertBuyGetListFilter, _$AdvertBuyGetListFilter];
 
   @override
-  String toString() {
-    return toJson().toString();
+  final String wireName = r'AdvertBuyGetListFilter';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    AdvertBuyGetListFilter object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    if (object.enabled != null) {
+      yield r'enabled';
+      yield serializers.serialize(
+        object.enabled,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.purchasePointIds != null) {
+      yield r'purchasePointIds';
+      yield serializers.serialize(
+        object.purchasePointIds,
+        specifiedType: const FullType(BuiltList, [FullType(int)]),
+      );
+    }
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    AdvertBuyGetListFilter object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required AdvertBuyGetListFilterBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'enabled':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enabled = valueDes;
+          break;
+        case r'purchasePointIds':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(int)]),
+          ) as BuiltList<int>;
+          result.purchasePointIds.replace(valueDes);
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  AdvertBuyGetListFilter deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = AdvertBuyGetListFilterBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

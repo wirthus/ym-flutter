@@ -3,11 +3,11 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for NotificationGetListDto
 void main() {
-  final NotificationGetListDto? instance = /* NotificationGetListDto(...) */ null;
-  // TODO add properties to the entity
+  final instance = NotificationGetListDtoBuilder();
+  // TODO add properties to the builder and call build()
 
   group(NotificationGetListDto, () {
-    // List<NotificationFilterDto> filters
+    // BuiltList<NotificationFilterDto> filters
     test('to test the property `filters`', () async {
       // TODO
     });

@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertPrivateEntity
 void main() {
-  final AdvertPrivateEntity? instance = /* AdvertPrivateEntity(...) */ null;
-  // TODO add properties to the entity
+  final instance = AdvertPrivateEntityBuilder();
+  // TODO add properties to the builder and call build()
 
   group(AdvertPrivateEntity, () {
     // int id

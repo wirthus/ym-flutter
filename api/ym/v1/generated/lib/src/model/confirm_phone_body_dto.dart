@@ -3,202 +3,235 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:json_annotation/json_annotation.dart';
-import 'package:equatable/src/equatable_utils.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'confirm_phone_body_dto.g.dart';
 
+/// ConfirmPhoneBodyDto
+///
+/// Properties:
+/// * [callId] 
+/// * [clientNumber] 
+/// * [confirmationNumber] 
+/// * [isMnp] 
+/// * [operatorName] 
+/// * [operatorNameMnp] 
+/// * [regionName] 
+/// * [qrCodeUri] 
+/// * [userData] 
+@BuiltValue()
+abstract class ConfirmPhoneBodyDto implements Built<ConfirmPhoneBodyDto, ConfirmPhoneBodyDtoBuilder> {
+  @BuiltValueField(wireName: r'callId')
+  String get callId;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class ConfirmPhoneBodyDto {
-  /// Returns a new [ConfirmPhoneBodyDto] instance.
-  ConfirmPhoneBodyDto({
+  @BuiltValueField(wireName: r'clientNumber')
+  String get clientNumber;
 
-    required  this.callId,
+  @BuiltValueField(wireName: r'confirmationNumber')
+  String get confirmationNumber;
 
-    required  this.clientNumber,
+  @BuiltValueField(wireName: r'isMnp')
+  bool get isMnp;
 
-    required  this.confirmationNumber,
+  @BuiltValueField(wireName: r'operatorName')
+  String? get operatorName;
 
-    required  this.isMnp,
+  @BuiltValueField(wireName: r'operatorNameMnp')
+  String? get operatorNameMnp;
 
-    required  this.operatorName,
+  @BuiltValueField(wireName: r'regionName')
+  String get regionName;
 
-    required  this.operatorNameMnp,
+  @BuiltValueField(wireName: r'qrCodeUri')
+  String get qrCodeUri;
 
-    required  this.regionName,
+  @BuiltValueField(wireName: r'userData')
+  String? get userData;
 
-    required  this.qrCodeUri,
+  ConfirmPhoneBodyDto._();
 
-    required  this.userData,
-  });
+  factory ConfirmPhoneBodyDto([void updates(ConfirmPhoneBodyDtoBuilder b)]) = _$ConfirmPhoneBodyDto;
 
-  @JsonKey(
-    
-    name: r'callId',
-    required: true,
-    includeIfNull: false,
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ConfirmPhoneBodyDtoBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ConfirmPhoneBodyDto> get serializer => _$ConfirmPhoneBodyDtoSerializer();
+}
 
-  final String callId;
-
-
-
-  @JsonKey(
-    
-    name: r'clientNumber',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final String clientNumber;
-
-
-
-  @JsonKey(
-    
-    name: r'confirmationNumber',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final String confirmationNumber;
-
-
-
-  @JsonKey(
-    
-    name: r'isMnp',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final bool isMnp;
-
-
-
-  @JsonKey(
-    
-    name: r'operatorName',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final String? operatorName;
-
-
-
-  @JsonKey(
-    
-    name: r'operatorNameMnp',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final String? operatorNameMnp;
-
-
-
-  @JsonKey(
-    
-    name: r'regionName',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final String regionName;
-
-
-
-  @JsonKey(
-    
-    name: r'qrCodeUri',
-    required: true,
-    includeIfNull: false,
-  )
-
-
-  final String qrCodeUri;
-
-
-
-  @JsonKey(
-    
-    name: r'userData',
-    required: true,
-    includeIfNull: true,
-  )
-
-
-  final String? userData;
-
-
-
-
-    bool operator ==(Object other) {
-      return identical(this, other) ||
-      other is ConfirmPhoneBodyDto &&
-      runtimeType == other.runtimeType &&
-      equals(
-        [
-            callId,
-            clientNumber,
-            confirmationNumber,
-            isMnp,
-            operatorName,
-            operatorNameMnp,
-            regionName,
-            qrCodeUri,
-            userData,
-        ],
-        [
-            other.callId,
-            other.clientNumber,
-            other.confirmationNumber,
-            other.isMnp,
-            other.operatorName,
-            other.operatorNameMnp,
-            other.regionName,
-            other.qrCodeUri,
-            other.userData,
-        ]
-      );
-    }
-
-
-    @override
-    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
-        callId,
-        clientNumber,
-        confirmationNumber,
-        isMnp,
-        operatorName,
-        operatorNameMnp,
-        regionName,
-        qrCodeUri,
-        userData,
-    ],);
-
-  factory ConfirmPhoneBodyDto.fromJson(Map<String, dynamic> json) => _$ConfirmPhoneBodyDtoFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ConfirmPhoneBodyDtoToJson(this);
+class _$ConfirmPhoneBodyDtoSerializer implements PrimitiveSerializer<ConfirmPhoneBodyDto> {
+  @override
+  final Iterable<Type> types = const [ConfirmPhoneBodyDto, _$ConfirmPhoneBodyDto];
 
   @override
-  String toString() {
-    return toJson().toString();
+  final String wireName = r'ConfirmPhoneBodyDto';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    ConfirmPhoneBodyDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'callId';
+    yield serializers.serialize(
+      object.callId,
+      specifiedType: const FullType(String),
+    );
+    yield r'clientNumber';
+    yield serializers.serialize(
+      object.clientNumber,
+      specifiedType: const FullType(String),
+    );
+    yield r'confirmationNumber';
+    yield serializers.serialize(
+      object.confirmationNumber,
+      specifiedType: const FullType(String),
+    );
+    yield r'isMnp';
+    yield serializers.serialize(
+      object.isMnp,
+      specifiedType: const FullType(bool),
+    );
+    yield r'operatorName';
+    yield object.operatorName == null ? null : serializers.serialize(
+      object.operatorName,
+      specifiedType: const FullType.nullable(String),
+    );
+    yield r'operatorNameMnp';
+    yield object.operatorNameMnp == null ? null : serializers.serialize(
+      object.operatorNameMnp,
+      specifiedType: const FullType.nullable(String),
+    );
+    yield r'regionName';
+    yield serializers.serialize(
+      object.regionName,
+      specifiedType: const FullType(String),
+    );
+    yield r'qrCodeUri';
+    yield serializers.serialize(
+      object.qrCodeUri,
+      specifiedType: const FullType(String),
+    );
+    yield r'userData';
+    yield object.userData == null ? null : serializers.serialize(
+      object.userData,
+      specifiedType: const FullType.nullable(String),
+    );
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    ConfirmPhoneBodyDto object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required ConfirmPhoneBodyDtoBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'callId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.callId = valueDes;
+          break;
+        case r'clientNumber':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.clientNumber = valueDes;
+          break;
+        case r'confirmationNumber':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.confirmationNumber = valueDes;
+          break;
+        case r'isMnp':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.isMnp = valueDes;
+          break;
+        case r'operatorName':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.operatorName = valueDes;
+          break;
+        case r'operatorNameMnp':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.operatorNameMnp = valueDes;
+          break;
+        case r'regionName':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.regionName = valueDes;
+          break;
+        case r'qrCodeUri':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.qrCodeUri = valueDes;
+          break;
+        case r'userData':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.userData = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  ConfirmPhoneBodyDto deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ConfirmPhoneBodyDtoBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

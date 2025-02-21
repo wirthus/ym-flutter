@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for ProductInfoEntity
 void main() {
-  final ProductInfoEntity? instance = /* ProductInfoEntity(...) */ null;
-  // TODO add properties to the entity
+  final instance = ProductInfoEntityBuilder();
+  // TODO add properties to the builder and call build()
 
   group(ProductInfoEntity, () {
     // int id
@@ -17,22 +17,22 @@ void main() {
       // TODO
     });
 
-    // List<QualityEntity> qualityItems
+    // BuiltList<QualityEntity> qualityItems
     test('to test the property `qualityItems`', () async {
       // TODO
     });
 
-    // List<CleaningEntity> cleaningItems
+    // BuiltList<CleaningEntity> cleaningItems
     test('to test the property `cleaningItems`', () async {
       // TODO
     });
 
-    // List<PackingEntity> packingItems
+    // BuiltList<PackingEntity> packingItems
     test('to test the property `packingItems`', () async {
       // TODO
     });
 
-    // List<RecyclingEntity> recyclingItems
+    // BuiltList<RecyclingEntity> recyclingItems
     test('to test the property `recyclingItems`', () async {
       // TODO
     });

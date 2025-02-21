@@ -42,7 +42,7 @@ Method | HTTP request | Description
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getAdvertsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 final AdvertBuyAddPurchasePointsDto advertBuyAddPurchasePointsDto = ; // AdvertBuyAddPurchasePointsDto | 
 
 try {
@@ -57,7 +57,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
  **advertBuyAddPurchasePointsDto** | [**AdvertBuyAddPurchasePointsDto**](AdvertBuyAddPurchasePointsDto.md)|  | 
 
 ### Return type
@@ -85,7 +85,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getAdvertsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.advertControllerCloneBuy(id);
@@ -99,7 +99,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -208,7 +208,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getAdvertsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.advertControllerDelete(id);
@@ -222,7 +222,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -249,7 +249,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getAdvertsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.advertControllerDeleteBuy(id);
@@ -263,7 +263,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -290,7 +290,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getAdvertsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 final AdvertBuySetEnabledDto advertBuySetEnabledDto = ; // AdvertBuySetEnabledDto | 
 
 try {
@@ -305,7 +305,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
  **advertBuySetEnabledDto** | [**AdvertBuySetEnabledDto**](AdvertBuySetEnabledDto.md)|  | 
 
 ### Return type
@@ -333,7 +333,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getAdvertsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.advertControllerGetBuy(id);
@@ -347,7 +347,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -406,7 +406,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **advertControllerGetFavorites**
-> List<AdvertPublicFavoriteEntity> advertControllerGetFavorites()
+> BuiltList<AdvertPublicFavoriteEntity> advertControllerGetFavorites()
 
 
 
@@ -429,7 +429,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;AdvertPublicFavoriteEntity&gt;**](AdvertPublicFavoriteEntity.md)
+[**BuiltList&lt;AdvertPublicFavoriteEntity&gt;**](AdvertPublicFavoriteEntity.md)
 
 ### Authorization
 
@@ -443,7 +443,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **advertControllerGetLast**
-> List<AdvertPublicFavoriteEntity> advertControllerGetLast(advertGetLastPublicListDto)
+> BuiltList<AdvertPublicFavoriteEntity> advertControllerGetLast(advertGetLastPublicListDto)
 
 
 
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;AdvertPublicFavoriteEntity&gt;**](AdvertPublicFavoriteEntity.md)
+[**BuiltList&lt;AdvertPublicFavoriteEntity&gt;**](AdvertPublicFavoriteEntity.md)
 
 ### Authorization
 
@@ -484,7 +484,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **advertControllerGetMap**
-> List<AdvertMapEntity> advertControllerGetMap(advertGetPublicMapListDto)
+> BuiltList<AdvertMapEntity> advertControllerGetMap(advertGetPublicMapListDto)
 
 
 
@@ -511,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;AdvertMapEntity&gt;**](AdvertMapEntity.md)
+[**BuiltList&lt;AdvertMapEntity&gt;**](AdvertMapEntity.md)
 
 ### Authorization
 
@@ -534,7 +534,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getAdvertsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.advertControllerGetPrivate(id);
@@ -548,7 +548,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -607,7 +607,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **advertControllerGetPrivateList**
-> List<AdvertPrivateEntity> advertControllerGetPrivateList(advertGetPrivateListDto)
+> BuiltList<AdvertPrivateEntity> advertControllerGetPrivateList(advertGetPrivateListDto)
 
 
 
@@ -634,7 +634,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;AdvertPrivateEntity&gt;**](AdvertPrivateEntity.md)
+[**BuiltList&lt;AdvertPrivateEntity&gt;**](AdvertPrivateEntity.md)
 
 ### Authorization
 
@@ -657,7 +657,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getAdvertsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 
 try {
     final response = api.advertControllerGetPublic(id);
@@ -671,7 +671,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -698,7 +698,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getAdvertsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 final AdvertBuyRemovePurchasePointsDto advertBuyRemovePurchasePointsDto = ; // AdvertBuyRemovePurchasePointsDto | 
 
 try {
@@ -713,7 +713,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
  **advertBuyRemovePurchasePointsDto** | [**AdvertBuyRemovePurchasePointsDto**](AdvertBuyRemovePurchasePointsDto.md)|  | 
 
 ### Return type
@@ -732,7 +732,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **advertControllerSearch**
-> List<AdvertPublicFavoriteEntity> advertControllerSearch(advertSearchDto)
+> BuiltList<AdvertPublicFavoriteEntity> advertControllerSearch(advertSearchDto)
 
 
 
@@ -759,7 +759,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;AdvertPublicFavoriteEntity&gt;**](AdvertPublicFavoriteEntity.md)
+[**BuiltList&lt;AdvertPublicFavoriteEntity&gt;**](AdvertPublicFavoriteEntity.md)
 
 ### Authorization
 
@@ -782,7 +782,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getAdvertsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 final AdvertUpdateFavoriteDto advertUpdateFavoriteDto = ; // AdvertUpdateFavoriteDto | 
 
 try {
@@ -797,7 +797,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
  **advertUpdateFavoriteDto** | [**AdvertUpdateFavoriteDto**](AdvertUpdateFavoriteDto.md)|  | 
 
 ### Return type
@@ -825,7 +825,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getAdvertsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 final AdvertUpdateDto advertUpdateDto = ; // AdvertUpdateDto | 
 
 try {
@@ -840,7 +840,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
  **advertUpdateDto** | [**AdvertUpdateDto**](AdvertUpdateDto.md)|  | 
 
 ### Return type
@@ -868,7 +868,7 @@ No authorization required
 import 'package:ym_api_client/api.dart';
 
 final api = YmApiClient().getAdvertsApi();
-final num id = 8.14; // num | 
+final int id = 56; // int | 
 final AdvertBuyUpdateDto advertBuyUpdateDto = ; // AdvertBuyUpdateDto | 
 
 try {
@@ -883,7 +883,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**|  | 
+ **id** | **int**|  | 
  **advertBuyUpdateDto** | [**AdvertBuyUpdateDto**](AdvertBuyUpdateDto.md)|  | 
 
 ### Return type

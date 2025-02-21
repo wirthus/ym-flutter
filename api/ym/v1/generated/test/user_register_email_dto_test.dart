@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for UserRegisterEmailDto
 void main() {
-  final UserRegisterEmailDto? instance = /* UserRegisterEmailDto(...) */ null;
-  // TODO add properties to the entity
+  final instance = UserRegisterEmailDtoBuilder();
+  // TODO add properties to the builder and call build()
 
   group(UserRegisterEmailDto, () {
     // String email
@@ -22,7 +22,7 @@ void main() {
       // TODO
     });
 
-    // num userType
+    // UserType userType
     test('to test the property `userType`', () async {
       // TODO
     });

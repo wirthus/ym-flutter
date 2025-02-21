@@ -22,17 +22,17 @@ void main() {
       // TODO
     });
 
-    //Future<List<NotificationEntity>> notificationControllerGetList(NotificationGetListDto notificationGetListDto) async
+    //Future<BuiltList<NotificationEntity>> notificationControllerGetList(NotificationGetListDto notificationGetListDto) async
     test('test notificationControllerGetList', () async {
       // TODO
     });
 
-    //Future<Object> notificationControllerGetOne(num id) async
+    //Future<JsonObject> notificationControllerGetOne(int id) async
     test('test notificationControllerGetOne', () async {
       // TODO
     });
 
-    //Future<bool> notificationControllerSetRead(num id) async
+    //Future<bool> notificationControllerSetRead(int id) async
     test('test notificationControllerSetRead', () async {
       // TODO
     });

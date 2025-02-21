@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for CreateFeedbackDto
 void main() {
-  final CreateFeedbackDto? instance = /* CreateFeedbackDto(...) */ null;
-  // TODO add properties to the entity
+  final instance = CreateFeedbackDtoBuilder();
+  // TODO add properties to the builder and call build()
 
   group(CreateFeedbackDto, () {
     // String name

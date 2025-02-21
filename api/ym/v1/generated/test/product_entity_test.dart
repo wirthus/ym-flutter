@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for ProductEntity
 void main() {
-  final ProductEntity? instance = /* ProductEntity(...) */ null;
-  // TODO add properties to the entity
+  final instance = ProductEntityBuilder();
+  // TODO add properties to the builder and call build()
 
   group(ProductEntity, () {
     // int id

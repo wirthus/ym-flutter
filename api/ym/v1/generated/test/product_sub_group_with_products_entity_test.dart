@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for ProductSubGroupWithProductsEntity
 void main() {
-  final ProductSubGroupWithProductsEntity? instance = /* ProductSubGroupWithProductsEntity(...) */ null;
-  // TODO add properties to the entity
+  final instance = ProductSubGroupWithProductsEntityBuilder();
+  // TODO add properties to the builder and call build()
 
   group(ProductSubGroupWithProductsEntity, () {
     // int id
@@ -17,7 +17,7 @@ void main() {
       // TODO
     });
 
-    // List<ProductEntity> products
+    // BuiltList<ProductEntity> products
     test('to test the property `products`', () async {
       // TODO
     });

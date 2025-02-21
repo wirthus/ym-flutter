@@ -3,8 +3,8 @@ import 'package:ym_api_client/ym_api_client.dart';
 
 // tests for AdvertBuySetEnabledDto
 void main() {
-  final AdvertBuySetEnabledDto? instance = /* AdvertBuySetEnabledDto(...) */ null;
-  // TODO add properties to the entity
+  final instance = AdvertBuySetEnabledDtoBuilder();
+  // TODO add properties to the builder and call build()
 
   group(AdvertBuySetEnabledDto, () {
     // bool value

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
 **name** | **String** |  | 
-**regions** | [**List&lt;RegionEntity&gt;**](RegionEntity.md) |  | 
+**regions** | [**BuiltList&lt;RegionEntity&gt;**](RegionEntity.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

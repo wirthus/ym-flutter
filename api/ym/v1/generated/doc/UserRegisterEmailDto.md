@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **email** | **String** |  | 
 **phone** | **String** |  | [optional] 
 **password** | **String** |  | 
-**userType** | **num** |  | 
+**userType** | [**UserType**](UserType.md) |  | 
 **contactName** | **String** |  | 
 **countryId** | **String** |  | 
 **regionId** | **int** |  | [optional] 
