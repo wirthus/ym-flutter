@@ -7,12 +7,12 @@ void main() {
   // TODO add properties to the entity
 
   group(NotificationGetListAdvertsCountDto, () {
-    // List<String> types
+    // List<NotificationType> types
     test('to test the property `types`', () async {
       // TODO
     });
 
-    // List<String> subtypes
+    // List<NotificationSubType> subtypes
     test('to test the property `subtypes`', () async {
       // TODO
     });

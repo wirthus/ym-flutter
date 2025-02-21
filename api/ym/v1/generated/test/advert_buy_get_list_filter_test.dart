@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // List<num> purchasePointIds
+    // List<int> purchasePointIds
     test('to test the property `purchasePointIds`', () async {
       // TODO
     });

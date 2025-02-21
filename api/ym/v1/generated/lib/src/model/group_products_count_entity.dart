@@ -3,120 +3,83 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'group_products_count_entity.g.dart';
 
-/// GroupProductsCountEntity
-///
-/// Properties:
-/// * [groupId] 
-/// * [productsCount] 
-@BuiltValue()
-abstract class GroupProductsCountEntity implements Built<GroupProductsCountEntity, GroupProductsCountEntityBuilder> {
-  @BuiltValueField(wireName: r'groupId')
-  int get groupId;
 
-  @BuiltValueField(wireName: r'productsCount')
-  int get productsCount;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class GroupProductsCountEntity {
+  /// Returns a new [GroupProductsCountEntity] instance.
+  GroupProductsCountEntity({
 
-  GroupProductsCountEntity._();
+    required  this.groupId,
 
-  factory GroupProductsCountEntity([void updates(GroupProductsCountEntityBuilder b)]) = _$GroupProductsCountEntity;
+    required  this.productsCount,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(GroupProductsCountEntityBuilder b) => b;
+  @JsonKey(
+    
+    name: r'groupId',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<GroupProductsCountEntity> get serializer => _$GroupProductsCountEntitySerializer();
-}
 
-class _$GroupProductsCountEntitySerializer implements PrimitiveSerializer<GroupProductsCountEntity> {
-  @override
-  final Iterable<Type> types = const [GroupProductsCountEntity, _$GroupProductsCountEntity];
+  final int groupId;
 
-  @override
-  final String wireName = r'GroupProductsCountEntity';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    GroupProductsCountEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'groupId';
-    yield serializers.serialize(
-      object.groupId,
-      specifiedType: const FullType(int),
-    );
-    yield r'productsCount';
-    yield serializers.serialize(
-      object.productsCount,
-      specifiedType: const FullType(int),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    GroupProductsCountEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'productsCount',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required GroupProductsCountEntityBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'groupId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.groupId = valueDes;
-          break;
-        case r'productsCount':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.productsCount = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
+
+  final int productsCount;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is GroupProductsCountEntity &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            groupId,
+            productsCount,
+        ],
+        [
+            other.groupId,
+            other.productsCount,
+        ]
+      );
     }
-  }
+
+
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        groupId,
+        productsCount,
+    ],);
+
+  factory GroupProductsCountEntity.fromJson(Map<String, dynamic> json) => _$GroupProductsCountEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GroupProductsCountEntityToJson(this);
 
   @override
-  GroupProductsCountEntity deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = GroupProductsCountEntityBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

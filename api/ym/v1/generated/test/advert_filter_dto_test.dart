@@ -12,12 +12,12 @@ void main() {
       // TODO
     });
 
-    // num moderate
+    // ModerationStatus moderate
     test('to test the property `moderate`', () async {
       // TODO
     });
 
-    // num status
+    // AdvertStatus status
     test('to test the property `status`', () async {
       // TODO
     });

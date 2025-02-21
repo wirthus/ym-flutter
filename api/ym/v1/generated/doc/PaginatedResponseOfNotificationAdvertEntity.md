@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **pageSize** | **num** |  | 
 **hasNextPage** | **bool** |  | 
 **hasPrevPage** | **bool** |  | 
-**items** | [**BuiltList&lt;NotificationAdvertEntity&gt;**](NotificationAdvertEntity.md) |  | 
+**items** | [**List&lt;NotificationAdvertEntity&gt;**](NotificationAdvertEntity.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

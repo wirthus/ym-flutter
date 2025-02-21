@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **isActive** | **bool** |  | 
 **purchase** | **bool** |  | 
-**productIds** | **BuiltList&lt;int&gt;** |  | 
-**regionIds** | **BuiltList&lt;int&gt;** |  | 
+**productIds** | **List&lt;int&gt;** |  | 
+**regionIds** | **List&lt;int&gt;** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

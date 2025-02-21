@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // String orderBy
+    // AdvertBuyGetListOrderType orderBy
     test('to test the property `orderBy`', () async {
       // TODO
     });

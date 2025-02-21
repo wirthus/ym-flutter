@@ -3,120 +3,83 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'paginate_params_dto.g.dart';
 
-/// PaginateParamsDto
-///
-/// Properties:
-/// * [pageIndex] 
-/// * [pageSize] 
-@BuiltValue()
-abstract class PaginateParamsDto implements Built<PaginateParamsDto, PaginateParamsDtoBuilder> {
-  @BuiltValueField(wireName: r'pageIndex')
-  num get pageIndex;
 
-  @BuiltValueField(wireName: r'pageSize')
-  num get pageSize;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class PaginateParamsDto {
+  /// Returns a new [PaginateParamsDto] instance.
+  PaginateParamsDto({
 
-  PaginateParamsDto._();
+    required  this.pageIndex,
 
-  factory PaginateParamsDto([void updates(PaginateParamsDtoBuilder b)]) = _$PaginateParamsDto;
+    required  this.pageSize,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PaginateParamsDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'pageIndex',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PaginateParamsDto> get serializer => _$PaginateParamsDtoSerializer();
-}
 
-class _$PaginateParamsDtoSerializer implements PrimitiveSerializer<PaginateParamsDto> {
-  @override
-  final Iterable<Type> types = const [PaginateParamsDto, _$PaginateParamsDto];
+  final num pageIndex;
 
-  @override
-  final String wireName = r'PaginateParamsDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    PaginateParamsDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'pageIndex';
-    yield serializers.serialize(
-      object.pageIndex,
-      specifiedType: const FullType(num),
-    );
-    yield r'pageSize';
-    yield serializers.serialize(
-      object.pageSize,
-      specifiedType: const FullType(num),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    PaginateParamsDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'pageSize',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required PaginateParamsDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'pageIndex':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.pageIndex = valueDes;
-          break;
-        case r'pageSize':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.pageSize = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
+
+  final num pageSize;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is PaginateParamsDto &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            pageIndex,
+            pageSize,
+        ],
+        [
+            other.pageIndex,
+            other.pageSize,
+        ]
+      );
     }
-  }
+
+
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        pageIndex,
+        pageSize,
+    ],);
+
+  factory PaginateParamsDto.fromJson(Map<String, dynamic> json) => _$PaginateParamsDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PaginateParamsDtoToJson(this);
 
   @override
-  PaginateParamsDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = PaginateParamsDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

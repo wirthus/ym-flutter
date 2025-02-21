@@ -4,136 +4,100 @@
 
 // ignore_for_file: unused_element
 import 'package:ym_api_client/src/model/advert_buy_entity.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'advert_buy_update_response_dto.g.dart';
 
-/// AdvertBuyUpdateResponseDto
-///
-/// Properties:
-/// * [updated] 
-/// * [advertBuy] 
-/// * [updatedAdvertCount] 
-@BuiltValue()
-abstract class AdvertBuyUpdateResponseDto implements Built<AdvertBuyUpdateResponseDto, AdvertBuyUpdateResponseDtoBuilder> {
-  @BuiltValueField(wireName: r'updated')
-  bool get updated;
 
-  @BuiltValueField(wireName: r'advertBuy')
-  AdvertBuyEntity get advertBuy;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class AdvertBuyUpdateResponseDto {
+  /// Returns a new [AdvertBuyUpdateResponseDto] instance.
+  AdvertBuyUpdateResponseDto({
 
-  @BuiltValueField(wireName: r'updatedAdvertCount')
-  int get updatedAdvertCount;
+    required  this.updated,
 
-  AdvertBuyUpdateResponseDto._();
+    required  this.advertBuy,
 
-  factory AdvertBuyUpdateResponseDto([void updates(AdvertBuyUpdateResponseDtoBuilder b)]) = _$AdvertBuyUpdateResponseDto;
+    required  this.updatedAdvertCount,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AdvertBuyUpdateResponseDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'updated',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<AdvertBuyUpdateResponseDto> get serializer => _$AdvertBuyUpdateResponseDtoSerializer();
-}
 
-class _$AdvertBuyUpdateResponseDtoSerializer implements PrimitiveSerializer<AdvertBuyUpdateResponseDto> {
-  @override
-  final Iterable<Type> types = const [AdvertBuyUpdateResponseDto, _$AdvertBuyUpdateResponseDto];
+  final bool updated;
 
-  @override
-  final String wireName = r'AdvertBuyUpdateResponseDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    AdvertBuyUpdateResponseDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'updated';
-    yield serializers.serialize(
-      object.updated,
-      specifiedType: const FullType(bool),
-    );
-    yield r'advertBuy';
-    yield serializers.serialize(
-      object.advertBuy,
-      specifiedType: const FullType(AdvertBuyEntity),
-    );
-    yield r'updatedAdvertCount';
-    yield serializers.serialize(
-      object.updatedAdvertCount,
-      specifiedType: const FullType(int),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    AdvertBuyUpdateResponseDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'advertBuy',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required AdvertBuyUpdateResponseDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'updated':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.updated = valueDes;
-          break;
-        case r'advertBuy':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(AdvertBuyEntity),
-          ) as AdvertBuyEntity;
-          result.advertBuy.replace(valueDes);
-          break;
-        case r'updatedAdvertCount':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.updatedAdvertCount = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
+
+  final AdvertBuyEntity advertBuy;
+
+
+
+  @JsonKey(
+    
+    name: r'updatedAdvertCount',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final int updatedAdvertCount;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is AdvertBuyUpdateResponseDto &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            updated,
+            advertBuy,
+            updatedAdvertCount,
+        ],
+        [
+            other.updated,
+            other.advertBuy,
+            other.updatedAdvertCount,
+        ]
+      );
     }
-  }
+
+
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        updated,
+        advertBuy,
+        updatedAdvertCount,
+    ],);
+
+  factory AdvertBuyUpdateResponseDto.fromJson(Map<String, dynamic> json) => _$AdvertBuyUpdateResponseDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AdvertBuyUpdateResponseDtoToJson(this);
 
   @override
-  AdvertBuyUpdateResponseDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = AdvertBuyUpdateResponseDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

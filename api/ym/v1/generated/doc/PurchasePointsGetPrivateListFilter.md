@@ -9,7 +9,7 @@ import 'package:ym_api_client/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **enabled** | **bool** |  | [optional] 
-**advertBuyIds** | **BuiltList&lt;int&gt;** |  | [optional] 
+**advertBuyIds** | **List&lt;int&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

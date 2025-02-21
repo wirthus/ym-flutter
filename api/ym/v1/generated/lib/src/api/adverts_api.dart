@@ -4,12 +4,11 @@
 
 import 'dart:async';
 
-import 'package:built_value/json_object.dart';
-import 'package:built_value/serializer.dart';
+// ignore: unused_import
+import 'dart:convert';
+import 'package:ym_api_client/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:built_collection/built_collection.dart';
-import 'package:ym_api_client/src/api_util.dart';
 import 'package:ym_api_client/src/model/advert_buy_add_purchase_points_dto.dart';
 import 'package:ym_api_client/src/model/advert_buy_add_purchase_points_response_dto.dart';
 import 'package:ym_api_client/src/model/advert_buy_create_dto.dart';
@@ -37,9 +36,7 @@ class AdvertsApi {
 
   final Dio _dio;
 
-  final Serializers _serializers;
-
-  const AdvertsApi(this._dio, this._serializers);
+  const AdvertsApi(this._dio);
 
   /// advertControllerAddPurchasePoints
   /// 
@@ -66,7 +63,7 @@ class AdvertsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/adverts/buy/{id}/purchasePoints'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
+    final _path = r'/adverts/buy/{id}/purchasePoints'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -83,9 +80,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertBuyAddPurchasePointsDto);
-      _bodyData = _serializers.serialize(advertBuyAddPurchasePointsDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertBuyAddPurchasePointsDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -110,12 +105,8 @@ class AdvertsApi {
     AdvertBuyAddPurchasePointsResponseDto? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AdvertBuyAddPurchasePointsResponseDto),
-      ) as AdvertBuyAddPurchasePointsResponseDto;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<AdvertBuyAddPurchasePointsResponseDto, AdvertBuyAddPurchasePointsResponseDto>(rawData, 'AdvertBuyAddPurchasePointsResponseDto', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -161,7 +152,7 @@ class AdvertsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/adverts/buy/{id}/clone'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
+    final _path = r'/adverts/buy/{id}/clone'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -185,12 +176,8 @@ class AdvertsApi {
     AdvertPrivateEntity? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AdvertPrivateEntity),
-      ) as AdvertPrivateEntity;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<AdvertPrivateEntity, AdvertPrivateEntity>(rawData, 'AdvertPrivateEntity', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -253,9 +240,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertCreateDto);
-      _bodyData = _serializers.serialize(advertCreateDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertCreateDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -280,12 +265,8 @@ class AdvertsApi {
     AdvertPrivateEntity? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AdvertPrivateEntity),
-      ) as AdvertPrivateEntity;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<AdvertPrivateEntity, AdvertPrivateEntity>(rawData, 'AdvertPrivateEntity', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -348,9 +329,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertBuyCreateDto);
-      _bodyData = _serializers.serialize(advertBuyCreateDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertBuyCreateDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -375,12 +354,8 @@ class AdvertsApi {
     AdvertBuyEntity? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AdvertBuyEntity),
-      ) as AdvertBuyEntity;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<AdvertBuyEntity, AdvertBuyEntity>(rawData, 'AdvertBuyEntity', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -426,7 +401,7 @@ class AdvertsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/adverts/{id}'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
+    final _path = r'/adverts/{id}'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -450,9 +425,8 @@ class AdvertsApi {
     bool? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : rawResponse as bool;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<bool, bool>(rawData, 'bool', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -498,7 +472,7 @@ class AdvertsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/adverts/buy/{id}'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
+    final _path = r'/adverts/buy/{id}'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -522,9 +496,8 @@ class AdvertsApi {
     num? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : rawResponse as num;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<num, num>(rawData, 'num', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -572,7 +545,7 @@ class AdvertsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/adverts/buy/{id}/enable'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
+    final _path = r'/adverts/buy/{id}/enable'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'PUT',
       headers: <String, dynamic>{
@@ -589,9 +562,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertBuySetEnabledDto);
-      _bodyData = _serializers.serialize(advertBuySetEnabledDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertBuySetEnabledDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -616,9 +587,8 @@ class AdvertsApi {
     bool? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : rawResponse as bool;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<bool, bool>(rawData, 'bool', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -664,7 +634,7 @@ class AdvertsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/adverts/buy/{id}'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
+    final _path = r'/adverts/buy/{id}'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -688,12 +658,8 @@ class AdvertsApi {
     AdvertBuyEntity? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AdvertBuyEntity),
-      ) as AdvertBuyEntity;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<AdvertBuyEntity, AdvertBuyEntity>(rawData, 'AdvertBuyEntity', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -756,9 +722,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertBuyGetListDto);
-      _bodyData = _serializers.serialize(advertBuyGetListDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertBuyGetListDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -783,12 +747,8 @@ class AdvertsApi {
     AdvertBuyGetListResponseDto? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AdvertBuyGetListResponseDto),
-      ) as AdvertBuyGetListResponseDto;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<AdvertBuyGetListResponseDto, AdvertBuyGetListResponseDto>(rawData, 'AdvertBuyGetListResponseDto', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -822,9 +782,9 @@ class AdvertsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<AdvertPublicFavoriteEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [List<AdvertPublicFavoriteEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<AdvertPublicFavoriteEntity>>> advertControllerGetFavorites({ 
+  Future<Response<List<AdvertPublicFavoriteEntity>>> advertControllerGetFavorites({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -853,15 +813,11 @@ class AdvertsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<AdvertPublicFavoriteEntity>? _responseData;
+    List<AdvertPublicFavoriteEntity>? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(AdvertPublicFavoriteEntity)]),
-      ) as BuiltList<AdvertPublicFavoriteEntity>;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<List<AdvertPublicFavoriteEntity>, AdvertPublicFavoriteEntity>(rawData, 'List<AdvertPublicFavoriteEntity>', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -872,7 +828,7 @@ class AdvertsApi {
       );
     }
 
-    return Response<BuiltList<AdvertPublicFavoriteEntity>>(
+    return Response<List<AdvertPublicFavoriteEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -896,9 +852,9 @@ class AdvertsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<AdvertPublicFavoriteEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [List<AdvertPublicFavoriteEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<AdvertPublicFavoriteEntity>>> advertControllerGetLast({ 
+  Future<Response<List<AdvertPublicFavoriteEntity>>> advertControllerGetLast({ 
     required AdvertGetLastPublicListDto advertGetLastPublicListDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -924,9 +880,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertGetLastPublicListDto);
-      _bodyData = _serializers.serialize(advertGetLastPublicListDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertGetLastPublicListDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -948,15 +902,11 @@ class AdvertsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<AdvertPublicFavoriteEntity>? _responseData;
+    List<AdvertPublicFavoriteEntity>? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(AdvertPublicFavoriteEntity)]),
-      ) as BuiltList<AdvertPublicFavoriteEntity>;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<List<AdvertPublicFavoriteEntity>, AdvertPublicFavoriteEntity>(rawData, 'List<AdvertPublicFavoriteEntity>', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -967,7 +917,7 @@ class AdvertsApi {
       );
     }
 
-    return Response<BuiltList<AdvertPublicFavoriteEntity>>(
+    return Response<List<AdvertPublicFavoriteEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -991,9 +941,9 @@ class AdvertsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<AdvertMapEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [List<AdvertMapEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<AdvertMapEntity>>> advertControllerGetMap({ 
+  Future<Response<List<AdvertMapEntity>>> advertControllerGetMap({ 
     required AdvertGetPublicMapListDto advertGetPublicMapListDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1019,9 +969,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertGetPublicMapListDto);
-      _bodyData = _serializers.serialize(advertGetPublicMapListDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertGetPublicMapListDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -1043,15 +991,11 @@ class AdvertsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<AdvertMapEntity>? _responseData;
+    List<AdvertMapEntity>? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(AdvertMapEntity)]),
-      ) as BuiltList<AdvertMapEntity>;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<List<AdvertMapEntity>, AdvertMapEntity>(rawData, 'List<AdvertMapEntity>', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1062,7 +1006,7 @@ class AdvertsApi {
       );
     }
 
-    return Response<BuiltList<AdvertMapEntity>>(
+    return Response<List<AdvertMapEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1097,7 +1041,7 @@ class AdvertsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/adverts/{id}/edit'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
+    final _path = r'/adverts/{id}/edit'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -1121,12 +1065,8 @@ class AdvertsApi {
     AdvertPrivateEntity? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AdvertPrivateEntity),
-      ) as AdvertPrivateEntity;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<AdvertPrivateEntity, AdvertPrivateEntity>(rawData, 'AdvertPrivateEntity', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1189,9 +1129,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertGetPrivateListCountDto);
-      _bodyData = _serializers.serialize(advertGetPrivateListCountDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertGetPrivateListCountDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -1216,9 +1154,8 @@ class AdvertsApi {
     num? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : rawResponse as num;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<num, num>(rawData, 'num', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1253,9 +1190,9 @@ class AdvertsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<AdvertPrivateEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [List<AdvertPrivateEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<AdvertPrivateEntity>>> advertControllerGetPrivateList({ 
+  Future<Response<List<AdvertPrivateEntity>>> advertControllerGetPrivateList({ 
     required AdvertGetPrivateListDto advertGetPrivateListDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1281,9 +1218,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertGetPrivateListDto);
-      _bodyData = _serializers.serialize(advertGetPrivateListDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertGetPrivateListDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -1305,15 +1240,11 @@ class AdvertsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<AdvertPrivateEntity>? _responseData;
+    List<AdvertPrivateEntity>? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(AdvertPrivateEntity)]),
-      ) as BuiltList<AdvertPrivateEntity>;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<List<AdvertPrivateEntity>, AdvertPrivateEntity>(rawData, 'List<AdvertPrivateEntity>', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1324,7 +1255,7 @@ class AdvertsApi {
       );
     }
 
-    return Response<BuiltList<AdvertPrivateEntity>>(
+    return Response<List<AdvertPrivateEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1359,7 +1290,7 @@ class AdvertsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/adverts/{id}'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
+    final _path = r'/adverts/{id}'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -1383,12 +1314,8 @@ class AdvertsApi {
     AdvertPublicFavoriteEntity? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AdvertPublicFavoriteEntity),
-      ) as AdvertPublicFavoriteEntity;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<AdvertPublicFavoriteEntity, AdvertPublicFavoriteEntity>(rawData, 'AdvertPublicFavoriteEntity', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1436,7 +1363,7 @@ class AdvertsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/adverts/buy/{id}/purchasePoints'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
+    final _path = r'/adverts/buy/{id}/purchasePoints'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -1453,9 +1380,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertBuyRemovePurchasePointsDto);
-      _bodyData = _serializers.serialize(advertBuyRemovePurchasePointsDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertBuyRemovePurchasePointsDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -1480,12 +1405,8 @@ class AdvertsApi {
     AdvertBuyRemovePurchasePointsResponseDto? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AdvertBuyRemovePurchasePointsResponseDto),
-      ) as AdvertBuyRemovePurchasePointsResponseDto;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<AdvertBuyRemovePurchasePointsResponseDto, AdvertBuyRemovePurchasePointsResponseDto>(rawData, 'AdvertBuyRemovePurchasePointsResponseDto', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1520,9 +1441,9 @@ class AdvertsApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<AdvertPublicFavoriteEntity>] as data
+  /// Returns a [Future] containing a [Response] with a [List<AdvertPublicFavoriteEntity>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<AdvertPublicFavoriteEntity>>> advertControllerSearch({ 
+  Future<Response<List<AdvertPublicFavoriteEntity>>> advertControllerSearch({ 
     required AdvertSearchDto advertSearchDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1548,9 +1469,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertSearchDto);
-      _bodyData = _serializers.serialize(advertSearchDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertSearchDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -1572,15 +1491,11 @@ class AdvertsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<AdvertPublicFavoriteEntity>? _responseData;
+    List<AdvertPublicFavoriteEntity>? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(BuiltList, [FullType(AdvertPublicFavoriteEntity)]),
-      ) as BuiltList<AdvertPublicFavoriteEntity>;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<List<AdvertPublicFavoriteEntity>, AdvertPublicFavoriteEntity>(rawData, 'List<AdvertPublicFavoriteEntity>', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1591,7 +1506,7 @@ class AdvertsApi {
       );
     }
 
-    return Response<BuiltList<AdvertPublicFavoriteEntity>>(
+    return Response<List<AdvertPublicFavoriteEntity>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1628,7 +1543,7 @@ class AdvertsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/adverts/{id}/favorite'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
+    final _path = r'/adverts/{id}/favorite'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'PUT',
       headers: <String, dynamic>{
@@ -1645,9 +1560,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertUpdateFavoriteDto);
-      _bodyData = _serializers.serialize(advertUpdateFavoriteDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertUpdateFavoriteDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -1672,9 +1585,8 @@ class AdvertsApi {
     bool? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : rawResponse as bool;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<bool, bool>(rawData, 'bool', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1722,7 +1634,7 @@ class AdvertsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/adverts/{id}'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
+    final _path = r'/adverts/{id}'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'PUT',
       headers: <String, dynamic>{
@@ -1739,9 +1651,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertUpdateDto);
-      _bodyData = _serializers.serialize(advertUpdateDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertUpdateDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -1766,12 +1676,8 @@ class AdvertsApi {
     AdvertPrivateEntity? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AdvertPrivateEntity),
-      ) as AdvertPrivateEntity;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<AdvertPrivateEntity, AdvertPrivateEntity>(rawData, 'AdvertPrivateEntity', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1819,7 +1725,7 @@ class AdvertsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/adverts/buy/{id}'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(num)).toString());
+    final _path = r'/adverts/buy/{id}'.replaceAll('{' r'id' '}', id.toString());
     final _options = Options(
       method: r'PUT',
       headers: <String, dynamic>{
@@ -1836,9 +1742,7 @@ class AdvertsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AdvertBuyUpdateDto);
-      _bodyData = _serializers.serialize(advertBuyUpdateDto, specifiedType: _type);
-
+_bodyData=jsonEncode(advertBuyUpdateDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -1863,12 +1767,8 @@ class AdvertsApi {
     AdvertBuyUpdateResponseDto? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AdvertBuyUpdateResponseDto),
-      ) as AdvertBuyUpdateResponseDto;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<AdvertBuyUpdateResponseDto, AdvertBuyUpdateResponseDto>(rawData, 'AdvertBuyUpdateResponseDto', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,

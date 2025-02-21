@@ -4,199 +4,151 @@
 
 // ignore_for_file: unused_element
 import 'package:ym_api_client/src/model/address_dto.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'purchase_point_clone_dto.g.dart';
 
-/// PurchasePointCloneDto
-///
-/// Properties:
-/// * [enabled] 
-/// * [alias] 
-/// * [contactName] 
-/// * [phone] 
-/// * [description] 
-/// * [address] 
-@BuiltValue()
-abstract class PurchasePointCloneDto implements Built<PurchasePointCloneDto, PurchasePointCloneDtoBuilder> {
-  @BuiltValueField(wireName: r'enabled')
-  bool? get enabled;
 
-  @BuiltValueField(wireName: r'alias')
-  String? get alias;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class PurchasePointCloneDto {
+  /// Returns a new [PurchasePointCloneDto] instance.
+  PurchasePointCloneDto({
 
-  @BuiltValueField(wireName: r'contactName')
-  String? get contactName;
+     this.enabled,
 
-  @BuiltValueField(wireName: r'phone')
-  String? get phone;
+     this.alias,
 
-  @BuiltValueField(wireName: r'description')
-  String? get description;
+     this.contactName,
 
-  @BuiltValueField(wireName: r'address')
-  AddressDto? get address;
+     this.phone,
 
-  PurchasePointCloneDto._();
+     this.description,
 
-  factory PurchasePointCloneDto([void updates(PurchasePointCloneDtoBuilder b)]) = _$PurchasePointCloneDto;
+     this.address,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PurchasePointCloneDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'enabled',
+    required: false,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PurchasePointCloneDto> get serializer => _$PurchasePointCloneDtoSerializer();
-}
 
-class _$PurchasePointCloneDtoSerializer implements PrimitiveSerializer<PurchasePointCloneDto> {
-  @override
-  final Iterable<Type> types = const [PurchasePointCloneDto, _$PurchasePointCloneDto];
+  final bool? enabled;
 
-  @override
-  final String wireName = r'PurchasePointCloneDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    PurchasePointCloneDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    if (object.enabled != null) {
-      yield r'enabled';
-      yield serializers.serialize(
-        object.enabled,
-        specifiedType: const FullType(bool),
+
+  @JsonKey(
+    
+    name: r'alias',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final String? alias;
+
+
+
+  @JsonKey(
+    
+    name: r'contactName',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final String? contactName;
+
+
+
+  @JsonKey(
+    
+    name: r'phone',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final String? phone;
+
+
+
+  @JsonKey(
+    
+    name: r'description',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final String? description;
+
+
+
+  @JsonKey(
+    
+    name: r'address',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final AddressDto? address;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is PurchasePointCloneDto &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            enabled,
+            alias,
+            contactName,
+            phone,
+            description,
+            address,
+        ],
+        [
+            other.enabled,
+            other.alias,
+            other.contactName,
+            other.phone,
+            other.description,
+            other.address,
+        ]
       );
     }
-    if (object.alias != null) {
-      yield r'alias';
-      yield serializers.serialize(
-        object.alias,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
-    if (object.contactName != null) {
-      yield r'contactName';
-      yield serializers.serialize(
-        object.contactName,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.phone != null) {
-      yield r'phone';
-      yield serializers.serialize(
-        object.phone,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.description != null) {
-      yield r'description';
-      yield serializers.serialize(
-        object.description,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
-    if (object.address != null) {
-      yield r'address';
-      yield serializers.serialize(
-        object.address,
-        specifiedType: const FullType.nullable(AddressDto),
-      );
-    }
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    PurchasePointCloneDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required PurchasePointCloneDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'enabled':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.enabled = valueDes;
-          break;
-        case r'alias':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.alias = valueDes;
-          break;
-        case r'contactName':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.contactName = valueDes;
-          break;
-        case r'phone':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.phone = valueDes;
-          break;
-        case r'description':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.description = valueDes;
-          break;
-        case r'address':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(AddressDto),
-          ) as AddressDto?;
-          if (valueDes == null) continue;
-          result.address.replace(valueDes);
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        enabled,
+        alias,
+        contactName,
+        phone,
+        description,
+        address,
+    ],);
+
+  factory PurchasePointCloneDto.fromJson(Map<String, dynamic> json) => _$PurchasePointCloneDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PurchasePointCloneDtoToJson(this);
 
   @override
-  PurchasePointCloneDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = PurchasePointCloneDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

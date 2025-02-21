@@ -7,7 +7,7 @@ void main() {
   // TODO add properties to the entity
 
   group(AdvertBuyAddPurchasePointsDto, () {
-    // List<num> purchasePointIds
+    // List<int> purchasePointIds
     test('to test the property `purchasePointIds`', () async {
       // TODO
     });

@@ -17,7 +17,7 @@ void main() {
       // TODO
     });
 
-    // List<num> regionIds
+    // List<int> regionIds
     test('to test the property `regionIds`', () async {
       // TODO
     });

@@ -17,37 +17,37 @@ void main() {
       // TODO
     });
 
-    // num price
+    // int price
     test('to test the property `price`', () async {
       // TODO
     });
 
-    // num quantity
+    // int quantity
     test('to test the property `quantity`', () async {
       // TODO
     });
 
-    // num productId
+    // int productId
     test('to test the property `productId`', () async {
       // TODO
     });
 
-    // num cleaningId
+    // int cleaningId
     test('to test the property `cleaningId`', () async {
       // TODO
     });
 
-    // num packingId
+    // int packingId
     test('to test the property `packingId`', () async {
       // TODO
     });
 
-    // num qualityId
+    // int qualityId
     test('to test the property `qualityId`', () async {
       // TODO
     });
 
-    // num recyclingId
+    // int recyclingId
     test('to test the property `recyclingId`', () async {
       // TODO
     });

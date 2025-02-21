@@ -4,120 +4,83 @@
 
 // ignore_for_file: unused_element
 import 'package:ym_api_client/src/model/purchase_point_private_entity.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'purchase_point_update_response_dto.g.dart';
 
-/// PurchasePointUpdateResponseDto
-///
-/// Properties:
-/// * [updated] 
-/// * [purchasePoint] 
-@BuiltValue()
-abstract class PurchasePointUpdateResponseDto implements Built<PurchasePointUpdateResponseDto, PurchasePointUpdateResponseDtoBuilder> {
-  @BuiltValueField(wireName: r'updated')
-  bool get updated;
 
-  @BuiltValueField(wireName: r'purchasePoint')
-  PurchasePointPrivateEntity get purchasePoint;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class PurchasePointUpdateResponseDto {
+  /// Returns a new [PurchasePointUpdateResponseDto] instance.
+  PurchasePointUpdateResponseDto({
 
-  PurchasePointUpdateResponseDto._();
+    required  this.updated,
 
-  factory PurchasePointUpdateResponseDto([void updates(PurchasePointUpdateResponseDtoBuilder b)]) = _$PurchasePointUpdateResponseDto;
+    required  this.purchasePoint,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PurchasePointUpdateResponseDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'updated',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PurchasePointUpdateResponseDto> get serializer => _$PurchasePointUpdateResponseDtoSerializer();
-}
 
-class _$PurchasePointUpdateResponseDtoSerializer implements PrimitiveSerializer<PurchasePointUpdateResponseDto> {
-  @override
-  final Iterable<Type> types = const [PurchasePointUpdateResponseDto, _$PurchasePointUpdateResponseDto];
+  final bool updated;
 
-  @override
-  final String wireName = r'PurchasePointUpdateResponseDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    PurchasePointUpdateResponseDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'updated';
-    yield serializers.serialize(
-      object.updated,
-      specifiedType: const FullType(bool),
-    );
-    yield r'purchasePoint';
-    yield serializers.serialize(
-      object.purchasePoint,
-      specifiedType: const FullType(PurchasePointPrivateEntity),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    PurchasePointUpdateResponseDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'purchasePoint',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required PurchasePointUpdateResponseDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'updated':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.updated = valueDes;
-          break;
-        case r'purchasePoint':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(PurchasePointPrivateEntity),
-          ) as PurchasePointPrivateEntity;
-          result.purchasePoint.replace(valueDes);
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
+
+  final PurchasePointPrivateEntity purchasePoint;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is PurchasePointUpdateResponseDto &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            updated,
+            purchasePoint,
+        ],
+        [
+            other.updated,
+            other.purchasePoint,
+        ]
+      );
     }
-  }
+
+
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        updated,
+        purchasePoint,
+    ],);
+
+  factory PurchasePointUpdateResponseDto.fromJson(Map<String, dynamic> json) => _$PurchasePointUpdateResponseDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PurchasePointUpdateResponseDtoToJson(this);
 
   @override
-  PurchasePointUpdateResponseDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = PurchasePointUpdateResponseDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

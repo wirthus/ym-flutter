@@ -3,153 +3,117 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'subscription_entity.g.dart';
 
-/// SubscriptionEntity
-///
-/// Properties:
-/// * [isActive] 
-/// * [purchase] 
-/// * [productIds] 
-/// * [regionIds] 
-@BuiltValue()
-abstract class SubscriptionEntity implements Built<SubscriptionEntity, SubscriptionEntityBuilder> {
-  @BuiltValueField(wireName: r'isActive')
-  bool get isActive;
 
-  @BuiltValueField(wireName: r'purchase')
-  bool get purchase;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class SubscriptionEntity {
+  /// Returns a new [SubscriptionEntity] instance.
+  SubscriptionEntity({
 
-  @BuiltValueField(wireName: r'productIds')
-  BuiltList<int> get productIds;
+    required  this.isActive,
 
-  @BuiltValueField(wireName: r'regionIds')
-  BuiltList<int> get regionIds;
+    required  this.purchase,
 
-  SubscriptionEntity._();
+    required  this.productIds,
 
-  factory SubscriptionEntity([void updates(SubscriptionEntityBuilder b)]) = _$SubscriptionEntity;
+    required  this.regionIds,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SubscriptionEntityBuilder b) => b;
+  @JsonKey(
+    
+    name: r'isActive',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SubscriptionEntity> get serializer => _$SubscriptionEntitySerializer();
-}
 
-class _$SubscriptionEntitySerializer implements PrimitiveSerializer<SubscriptionEntity> {
-  @override
-  final Iterable<Type> types = const [SubscriptionEntity, _$SubscriptionEntity];
+  final bool isActive;
 
-  @override
-  final String wireName = r'SubscriptionEntity';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    SubscriptionEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'isActive';
-    yield serializers.serialize(
-      object.isActive,
-      specifiedType: const FullType(bool),
-    );
-    yield r'purchase';
-    yield serializers.serialize(
-      object.purchase,
-      specifiedType: const FullType(bool),
-    );
-    yield r'productIds';
-    yield serializers.serialize(
-      object.productIds,
-      specifiedType: const FullType(BuiltList, [FullType(int)]),
-    );
-    yield r'regionIds';
-    yield serializers.serialize(
-      object.regionIds,
-      specifiedType: const FullType(BuiltList, [FullType(int)]),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    SubscriptionEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'purchase',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required SubscriptionEntityBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'isActive':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.isActive = valueDes;
-          break;
-        case r'purchase':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.purchase = valueDes;
-          break;
-        case r'productIds':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(int)]),
-          ) as BuiltList<int>;
-          result.productIds.replace(valueDes);
-          break;
-        case r'regionIds':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(int)]),
-          ) as BuiltList<int>;
-          result.regionIds.replace(valueDes);
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
+
+  final bool purchase;
+
+
+
+  @JsonKey(
+    
+    name: r'productIds',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final List<int> productIds;
+
+
+
+  @JsonKey(
+    
+    name: r'regionIds',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final List<int> regionIds;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is SubscriptionEntity &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            isActive,
+            purchase,
+            productIds,
+            regionIds,
+        ],
+        [
+            other.isActive,
+            other.purchase,
+            other.productIds,
+            other.regionIds,
+        ]
+      );
     }
-  }
+
+
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        isActive,
+        purchase,
+        productIds,
+        regionIds,
+    ],);
+
+  factory SubscriptionEntity.fromJson(Map<String, dynamic> json) => _$SubscriptionEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SubscriptionEntityToJson(this);
 
   @override
-  SubscriptionEntity deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = SubscriptionEntityBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

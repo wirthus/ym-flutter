@@ -3,46 +3,33 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'notification_sub_type.g.dart';
 
-class NotificationSubType extends EnumClass {
+enum NotificationSubType {
+      @JsonValue(r'advert_published')
+      advertPublished(r'advert_published'),
+      @JsonValue(r'advert_changed_price')
+      advertChangedPrice(r'advert_changed_price'),
+      @JsonValue(r'advert_changed_status')
+      advertChangedStatus(r'advert_changed_status'),
+      @JsonValue(r'advert_changed_content')
+      advertChangedContent(r'advert_changed_content'),
+      @JsonValue(r'purchase_point_published')
+      purchasePointPublished(r'purchase_point_published'),
+      @JsonValue(r'purchase_advert_published')
+      purchaseAdvertPublished(r'purchase_advert_published'),
+      @JsonValue(r'purchase_advert_changed_price')
+      purchaseAdvertChangedPrice(r'purchase_advert_changed_price'),
+      @JsonValue(r'purchase_advert_changed_status')
+      purchaseAdvertChangedStatus(r'purchase_advert_changed_status'),
+      @JsonValue(r'purchase_advert_changed_content')
+      purchaseAdvertChangedContent(r'purchase_advert_changed_content');
 
-  @BuiltValueEnumConst(wireName: r'advert_published')
-  static const NotificationSubType advertPublished = _$advertPublished;
-  @BuiltValueEnumConst(wireName: r'advert_changed_price')
-  static const NotificationSubType advertChangedPrice = _$advertChangedPrice;
-  @BuiltValueEnumConst(wireName: r'advert_changed_status')
-  static const NotificationSubType advertChangedStatus = _$advertChangedStatus;
-  @BuiltValueEnumConst(wireName: r'advert_changed_content')
-  static const NotificationSubType advertChangedContent = _$advertChangedContent;
-  @BuiltValueEnumConst(wireName: r'purchase_point_published')
-  static const NotificationSubType purchasePointPublished = _$purchasePointPublished;
-  @BuiltValueEnumConst(wireName: r'purchase_advert_published')
-  static const NotificationSubType purchaseAdvertPublished = _$purchaseAdvertPublished;
-  @BuiltValueEnumConst(wireName: r'purchase_advert_changed_price')
-  static const NotificationSubType purchaseAdvertChangedPrice = _$purchaseAdvertChangedPrice;
-  @BuiltValueEnumConst(wireName: r'purchase_advert_changed_status')
-  static const NotificationSubType purchaseAdvertChangedStatus = _$purchaseAdvertChangedStatus;
-  @BuiltValueEnumConst(wireName: r'purchase_advert_changed_content')
-  static const NotificationSubType purchaseAdvertChangedContent = _$purchaseAdvertChangedContent;
+  const NotificationSubType(this.value);
 
-  static Serializer<NotificationSubType> get serializer => _$notificationSubTypeSerializer;
+  final String value;
 
-  const NotificationSubType._(String name): super(name);
-
-  static BuiltSet<NotificationSubType> get values => _$values;
-  static NotificationSubType valueOf(String name) => _$valueOf(name);
+  @override
+  String toString() => value;
 }
-
-/// Optionally, enum_class can generate a mixin to go with your enum for use
-/// with Angular. It exposes your enum constants as getters. So, if you mix it
-/// in to your Dart component class, the values become available to the
-/// corresponding Angular template.
-///
-/// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class NotificationSubTypeMixin = Object with _$NotificationSubTypeMixin;
-

@@ -3,170 +3,134 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'user_private_mobile_entity.g.dart';
 
-/// UserPrivateMobileEntity
-///
-/// Properties:
-/// * [vkUserId] 
-/// * [type] 
-/// * [isCompany] 
-/// * [isRegistrationCompleted] 
-/// * [companyInn] 
-@BuiltValue()
-abstract class UserPrivateMobileEntity implements Built<UserPrivateMobileEntity, UserPrivateMobileEntityBuilder> {
-  @BuiltValueField(wireName: r'vkUserId')
-  int? get vkUserId;
 
-  @BuiltValueField(wireName: r'type')
-  int get type;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class UserPrivateMobileEntity {
+  /// Returns a new [UserPrivateMobileEntity] instance.
+  UserPrivateMobileEntity({
 
-  @BuiltValueField(wireName: r'isCompany')
-  bool get isCompany;
+    required  this.vkUserId,
 
-  @BuiltValueField(wireName: r'isRegistrationCompleted')
-  bool get isRegistrationCompleted;
+    required  this.type,
 
-  @BuiltValueField(wireName: r'companyInn')
-  String? get companyInn;
+    required  this.isCompany,
 
-  UserPrivateMobileEntity._();
+    required  this.isRegistrationCompleted,
 
-  factory UserPrivateMobileEntity([void updates(UserPrivateMobileEntityBuilder b)]) = _$UserPrivateMobileEntity;
+    required  this.companyInn,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UserPrivateMobileEntityBuilder b) => b;
+  @JsonKey(
+    
+    name: r'vkUserId',
+    required: true,
+    includeIfNull: true,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserPrivateMobileEntity> get serializer => _$UserPrivateMobileEntitySerializer();
-}
 
-class _$UserPrivateMobileEntitySerializer implements PrimitiveSerializer<UserPrivateMobileEntity> {
-  @override
-  final Iterable<Type> types = const [UserPrivateMobileEntity, _$UserPrivateMobileEntity];
+  final int? vkUserId;
 
-  @override
-  final String wireName = r'UserPrivateMobileEntity';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    UserPrivateMobileEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'vkUserId';
-    yield object.vkUserId == null ? null : serializers.serialize(
-      object.vkUserId,
-      specifiedType: const FullType.nullable(int),
-    );
-    yield r'type';
-    yield serializers.serialize(
-      object.type,
-      specifiedType: const FullType(int),
-    );
-    yield r'isCompany';
-    yield serializers.serialize(
-      object.isCompany,
-      specifiedType: const FullType(bool),
-    );
-    yield r'isRegistrationCompleted';
-    yield serializers.serialize(
-      object.isRegistrationCompleted,
-      specifiedType: const FullType(bool),
-    );
-    yield r'companyInn';
-    yield object.companyInn == null ? null : serializers.serialize(
-      object.companyInn,
-      specifiedType: const FullType.nullable(String),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    UserPrivateMobileEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'type',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required UserPrivateMobileEntityBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'vkUserId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(int),
-          ) as int?;
-          if (valueDes == null) continue;
-          result.vkUserId = valueDes;
-          break;
-        case r'type':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.type = valueDes;
-          break;
-        case r'isCompany':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.isCompany = valueDes;
-          break;
-        case r'isRegistrationCompleted':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.isRegistrationCompleted = valueDes;
-          break;
-        case r'companyInn':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.companyInn = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
+
+  final int type;
+
+
+
+  @JsonKey(
+    
+    name: r'isCompany',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final bool isCompany;
+
+
+
+  @JsonKey(
+    
+    name: r'isRegistrationCompleted',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final bool isRegistrationCompleted;
+
+
+
+  @JsonKey(
+    
+    name: r'companyInn',
+    required: true,
+    includeIfNull: true,
+  )
+
+
+  final String? companyInn;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is UserPrivateMobileEntity &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            vkUserId,
+            type,
+            isCompany,
+            isRegistrationCompleted,
+            companyInn,
+        ],
+        [
+            other.vkUserId,
+            other.type,
+            other.isCompany,
+            other.isRegistrationCompleted,
+            other.companyInn,
+        ]
+      );
     }
-  }
+
+
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        vkUserId,
+        type,
+        isCompany,
+        isRegistrationCompleted,
+        companyInn,
+    ],);
+
+  factory UserPrivateMobileEntity.fromJson(Map<String, dynamic> json) => _$UserPrivateMobileEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserPrivateMobileEntityToJson(this);
 
   @override
-  UserPrivateMobileEntity deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserPrivateMobileEntityBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

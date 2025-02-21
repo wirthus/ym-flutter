@@ -7,7 +7,7 @@ void main() {
   // TODO add properties to the entity
 
   group(UserPrivateMobileEntity, () {
-    // Bigint vkUserId
+    // int vkUserId
     test('to test the property `vkUserId`', () async {
       // TODO
     });

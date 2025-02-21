@@ -3,120 +3,83 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'recycling_entity.g.dart';
 
-/// RecyclingEntity
-///
-/// Properties:
-/// * [id] 
-/// * [name] 
-@BuiltValue()
-abstract class RecyclingEntity implements Built<RecyclingEntity, RecyclingEntityBuilder> {
-  @BuiltValueField(wireName: r'id')
-  num get id;
 
-  @BuiltValueField(wireName: r'name')
-  String get name;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class RecyclingEntity {
+  /// Returns a new [RecyclingEntity] instance.
+  RecyclingEntity({
 
-  RecyclingEntity._();
+    required  this.id,
 
-  factory RecyclingEntity([void updates(RecyclingEntityBuilder b)]) = _$RecyclingEntity;
+    required  this.name,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RecyclingEntityBuilder b) => b;
+  @JsonKey(
+    
+    name: r'id',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RecyclingEntity> get serializer => _$RecyclingEntitySerializer();
-}
 
-class _$RecyclingEntitySerializer implements PrimitiveSerializer<RecyclingEntity> {
-  @override
-  final Iterable<Type> types = const [RecyclingEntity, _$RecyclingEntity];
+  final num id;
 
-  @override
-  final String wireName = r'RecyclingEntity';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    RecyclingEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'id';
-    yield serializers.serialize(
-      object.id,
-      specifiedType: const FullType(num),
-    );
-    yield r'name';
-    yield serializers.serialize(
-      object.name,
-      specifiedType: const FullType(String),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    RecyclingEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'name',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required RecyclingEntityBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'id':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.id = valueDes;
-          break;
-        case r'name':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.name = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
+
+  final String name;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is RecyclingEntity &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            id,
+            name,
+        ],
+        [
+            other.id,
+            other.name,
+        ]
+      );
     }
-  }
+
+
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        id,
+        name,
+    ],);
+
+  factory RecyclingEntity.fromJson(Map<String, dynamic> json) => _$RecyclingEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RecyclingEntityToJson(this);
 
   @override
-  RecyclingEntity deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = RecyclingEntityBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

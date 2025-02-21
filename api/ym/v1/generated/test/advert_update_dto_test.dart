@@ -7,42 +7,42 @@ void main() {
   // TODO add properties to the entity
 
   group(AdvertUpdateDto, () {
-    // bool published
-    test('to test the property `published`', () async {
-      // TODO
-    });
-
     // bool purchase
     test('to test the property `purchase`', () async {
       // TODO
     });
 
-    // num price
+    // bool published
+    test('to test the property `published`', () async {
+      // TODO
+    });
+
+    // int price
     test('to test the property `price`', () async {
       // TODO
     });
 
-    // num quantity
+    // int quantity
     test('to test the property `quantity`', () async {
       // TODO
     });
 
-    // num cleaningId
+    // int cleaningId
     test('to test the property `cleaningId`', () async {
       // TODO
     });
 
-    // num packingId
+    // int packingId
     test('to test the property `packingId`', () async {
       // TODO
     });
 
-    // num qualityId
+    // int qualityId
     test('to test the property `qualityId`', () async {
       // TODO
     });
 
-    // num recyclingId
+    // int recyclingId
     test('to test the property `recyclingId`', () async {
       // TODO
     });

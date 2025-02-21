@@ -3,217 +3,151 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'paginated_entity.g.dart';
 
-/// PaginatedEntity
-///
-/// Properties:
-/// * [totalCount] 
-/// * [totalPageCount] 
-/// * [pageIndex] 
-/// * [pageSize] 
-/// * [hasNextPage] 
-/// * [hasPrevPage] 
-@BuiltValue(instantiable: false)
-abstract class PaginatedEntity  {
-  @BuiltValueField(wireName: r'totalCount')
-  num get totalCount;
 
-  @BuiltValueField(wireName: r'totalPageCount')
-  num get totalPageCount;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class PaginatedEntity {
+  /// Returns a new [PaginatedEntity] instance.
+  PaginatedEntity({
 
-  @BuiltValueField(wireName: r'pageIndex')
-  num get pageIndex;
+    required  this.totalCount,
 
-  @BuiltValueField(wireName: r'pageSize')
-  num get pageSize;
+    required  this.totalPageCount,
 
-  @BuiltValueField(wireName: r'hasNextPage')
-  bool get hasNextPage;
+    required  this.pageIndex,
 
-  @BuiltValueField(wireName: r'hasPrevPage')
-  bool get hasPrevPage;
+    required  this.pageSize,
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PaginatedEntity> get serializer => _$PaginatedEntitySerializer();
-}
+    required  this.hasNextPage,
 
-class _$PaginatedEntitySerializer implements PrimitiveSerializer<PaginatedEntity> {
-  @override
-  final Iterable<Type> types = const [PaginatedEntity];
+    required  this.hasPrevPage,
+  });
 
-  @override
-  final String wireName = r'PaginatedEntity';
+  @JsonKey(
+    
+    name: r'totalCount',
+    required: true,
+    includeIfNull: false,
+  )
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    PaginatedEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'totalCount';
-    yield serializers.serialize(
-      object.totalCount,
-      specifiedType: const FullType(num),
-    );
-    yield r'totalPageCount';
-    yield serializers.serialize(
-      object.totalPageCount,
-      specifiedType: const FullType(num),
-    );
-    yield r'pageIndex';
-    yield serializers.serialize(
-      object.pageIndex,
-      specifiedType: const FullType(num),
-    );
-    yield r'pageSize';
-    yield serializers.serialize(
-      object.pageSize,
-      specifiedType: const FullType(num),
-    );
-    yield r'hasNextPage';
-    yield serializers.serialize(
-      object.hasNextPage,
-      specifiedType: const FullType(bool),
-    );
-    yield r'hasPrevPage';
-    yield serializers.serialize(
-      object.hasPrevPage,
-      specifiedType: const FullType(bool),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    PaginatedEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  final num totalCount;
 
-  @override
-  PaginatedEntity deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($PaginatedEntity)) as $PaginatedEntity;
-  }
-}
 
-/// a concrete implementation of [PaginatedEntity], since [PaginatedEntity] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $PaginatedEntity implements PaginatedEntity, Built<$PaginatedEntity, $PaginatedEntityBuilder> {
-  $PaginatedEntity._();
 
-  factory $PaginatedEntity([void Function($PaginatedEntityBuilder)? updates]) = _$$PaginatedEntity;
+  @JsonKey(
+    
+    name: r'totalPageCount',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PaginatedEntityBuilder b) => b;
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$PaginatedEntity> get serializer => _$$PaginatedEntitySerializer();
-}
+  final num totalPageCount;
 
-class _$$PaginatedEntitySerializer implements PrimitiveSerializer<$PaginatedEntity> {
-  @override
-  final Iterable<Type> types = const [$PaginatedEntity, _$$PaginatedEntity];
 
-  @override
-  final String wireName = r'$PaginatedEntity';
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    $PaginatedEntity object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(PaginatedEntity))!;
-  }
+  @JsonKey(
+    
+    name: r'pageIndex',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required PaginatedEntityBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'totalCount':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.totalCount = valueDes;
-          break;
-        case r'totalPageCount':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.totalPageCount = valueDes;
-          break;
-        case r'pageIndex':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.pageIndex = valueDes;
-          break;
-        case r'pageSize':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.pageSize = valueDes;
-          break;
-        case r'hasNextPage':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.hasNextPage = valueDes;
-          break;
-        case r'hasPrevPage':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.hasPrevPage = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
+
+  final num pageIndex;
+
+
+
+  @JsonKey(
+    
+    name: r'pageSize',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final num pageSize;
+
+
+
+  @JsonKey(
+    
+    name: r'hasNextPage',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final bool hasNextPage;
+
+
+
+  @JsonKey(
+    
+    name: r'hasPrevPage',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final bool hasPrevPage;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is PaginatedEntity &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            totalCount,
+            totalPageCount,
+            pageIndex,
+            pageSize,
+            hasNextPage,
+            hasPrevPage,
+        ],
+        [
+            other.totalCount,
+            other.totalPageCount,
+            other.pageIndex,
+            other.pageSize,
+            other.hasNextPage,
+            other.hasPrevPage,
+        ]
+      );
     }
-  }
+
+
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        totalCount,
+        totalPageCount,
+        pageIndex,
+        pageSize,
+        hasNextPage,
+        hasPrevPage,
+    ],);
+
+  factory PaginatedEntity.fromJson(Map<String, dynamic> json) => _$PaginatedEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PaginatedEntityToJson(this);
 
   @override
-  $PaginatedEntity deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = $PaginatedEntityBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

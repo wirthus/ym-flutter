@@ -3,120 +3,85 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'advert_change_price_properties.g.dart';
 
-/// AdvertChangePriceProperties
-///
-/// Properties:
-/// * [newPrice] 
-/// * [oldPrice] 
-@BuiltValue()
-abstract class AdvertChangePriceProperties implements Built<AdvertChangePriceProperties, AdvertChangePricePropertiesBuilder> {
-  @BuiltValueField(wireName: r'newPrice')
-  num get newPrice;
 
-  @BuiltValueField(wireName: r'oldPrice')
-  num get oldPrice;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class AdvertChangePriceProperties {
+  /// Returns a new [AdvertChangePriceProperties] instance.
+  AdvertChangePriceProperties({
 
-  AdvertChangePriceProperties._();
+    required  this.newPrice,
 
-  factory AdvertChangePriceProperties([void updates(AdvertChangePricePropertiesBuilder b)]) = _$AdvertChangePriceProperties;
+    required  this.oldPrice,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AdvertChangePricePropertiesBuilder b) => b;
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'newPrice',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<AdvertChangePriceProperties> get serializer => _$AdvertChangePricePropertiesSerializer();
-}
 
-class _$AdvertChangePricePropertiesSerializer implements PrimitiveSerializer<AdvertChangePriceProperties> {
-  @override
-  final Iterable<Type> types = const [AdvertChangePriceProperties, _$AdvertChangePriceProperties];
+  final num newPrice;
 
-  @override
-  final String wireName = r'AdvertChangePriceProperties';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    AdvertChangePriceProperties object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'newPrice';
-    yield serializers.serialize(
-      object.newPrice,
-      specifiedType: const FullType(num),
-    );
-    yield r'oldPrice';
-    yield serializers.serialize(
-      object.oldPrice,
-      specifiedType: const FullType(num),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    AdvertChangePriceProperties object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'oldPrice',
+    required: true,
+    includeIfNull: false,
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required AdvertChangePricePropertiesBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'newPrice':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.newPrice = valueDes;
-          break;
-        case r'oldPrice':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.oldPrice = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
+
+  final num oldPrice;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is AdvertChangePriceProperties &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            newPrice,
+            oldPrice,
+        ],
+        [
+            other.newPrice,
+            other.oldPrice,
+        ]
+      );
     }
-  }
+
+
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        newPrice,
+        oldPrice,
+    ],);
+
+  factory AdvertChangePriceProperties.fromJson(Map<String, dynamic> json) => _$AdvertChangePricePropertiesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AdvertChangePricePropertiesToJson(this);
 
   @override
-  AdvertChangePriceProperties deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = AdvertChangePricePropertiesBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

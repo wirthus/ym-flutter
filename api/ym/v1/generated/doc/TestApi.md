@@ -126,7 +126,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **testControllerFillRegionsLocation**
-> BuiltList<String> testControllerFillRegionsLocation()
+> List<String> testControllerFillRegionsLocation()
 
 
 
@@ -149,7 +149,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**BuiltList&lt;String&gt;**
+**List&lt;String&gt;**
 
 ### Authorization
 

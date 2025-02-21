@@ -3,311 +3,269 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'user_register_email_dto.g.dart';
 
-/// UserRegisterEmailDto
-///
-/// Properties:
-/// * [email] 
-/// * [phone] 
-/// * [password] 
-/// * [userType] 
-/// * [contactName] 
-/// * [countryId] 
-/// * [regionId] 
-/// * [address] 
-/// * [isCompany] 
-/// * [companyName] 
-/// * [companyInn] 
-/// * [description] 
-@BuiltValue()
-abstract class UserRegisterEmailDto implements Built<UserRegisterEmailDto, UserRegisterEmailDtoBuilder> {
-  @BuiltValueField(wireName: r'email')
-  String get email;
 
-  @BuiltValueField(wireName: r'phone')
-  String? get phone;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class UserRegisterEmailDto {
+  /// Returns a new [UserRegisterEmailDto] instance.
+  UserRegisterEmailDto({
 
-  @BuiltValueField(wireName: r'password')
-  String get password;
+    required  this.email,
 
-  @BuiltValueField(wireName: r'userType')
-  UserRegisterEmailDtoUserTypeEnum get userType;
-  // enum userTypeEnum {  0,  1,  };
+     this.phone,
 
-  @BuiltValueField(wireName: r'contactName')
-  String get contactName;
+    required  this.password,
 
-  @BuiltValueField(wireName: r'countryId')
-  String get countryId;
+    required  this.userType,
 
-  @BuiltValueField(wireName: r'regionId')
-  int? get regionId;
+    required  this.contactName,
 
-  @BuiltValueField(wireName: r'address')
-  String? get address;
+    required  this.countryId,
 
-  @BuiltValueField(wireName: r'isCompany')
-  bool? get isCompany;
+     this.regionId,
 
-  @BuiltValueField(wireName: r'companyName')
-  String? get companyName;
+     this.address,
 
-  @BuiltValueField(wireName: r'companyInn')
-  String? get companyInn;
+     this.isCompany,
 
-  @BuiltValueField(wireName: r'description')
-  String? get description;
+     this.companyName,
 
-  UserRegisterEmailDto._();
+     this.companyInn,
 
-  factory UserRegisterEmailDto([void updates(UserRegisterEmailDtoBuilder b)]) = _$UserRegisterEmailDto;
+     this.description,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UserRegisterEmailDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'email',
+    required: true,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserRegisterEmailDto> get serializer => _$UserRegisterEmailDtoSerializer();
+
+  final String email;
+
+
+
+  @JsonKey(
+    
+    name: r'phone',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final String? phone;
+
+
+
+  @JsonKey(
+    
+    name: r'password',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final String password;
+
+
+
+  @JsonKey(
+    
+    name: r'userType',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final UserRegisterEmailDtoUserTypeEnum userType;
+
+
+
+  @JsonKey(
+    
+    name: r'contactName',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final String contactName;
+
+
+
+  @JsonKey(
+    
+    name: r'countryId',
+    required: true,
+    includeIfNull: false,
+  )
+
+
+  final String countryId;
+
+
+
+  @JsonKey(
+    
+    name: r'regionId',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final int? regionId;
+
+
+
+  @JsonKey(
+    
+    name: r'address',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final String? address;
+
+
+
+  @JsonKey(
+    
+    name: r'isCompany',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final bool? isCompany;
+
+
+
+  @JsonKey(
+    
+    name: r'companyName',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final String? companyName;
+
+
+
+  @JsonKey(
+    
+    name: r'companyInn',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final String? companyInn;
+
+
+
+  @JsonKey(
+    
+    name: r'description',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final String? description;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is UserRegisterEmailDto &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            email,
+            phone,
+            password,
+            userType,
+            contactName,
+            countryId,
+            regionId,
+            address,
+            isCompany,
+            companyName,
+            companyInn,
+            description,
+        ],
+        [
+            other.email,
+            other.phone,
+            other.password,
+            other.userType,
+            other.contactName,
+            other.countryId,
+            other.regionId,
+            other.address,
+            other.isCompany,
+            other.companyName,
+            other.companyInn,
+            other.description,
+        ]
+      );
+    }
+
+
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        email,
+        phone,
+        password,
+        userType,
+        contactName,
+        countryId,
+        regionId,
+        address,
+        isCompany,
+        companyName,
+        companyInn,
+        description,
+    ],);
+
+  factory UserRegisterEmailDto.fromJson(Map<String, dynamic> json) => _$UserRegisterEmailDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserRegisterEmailDtoToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
+  }
+
 }
 
-class _$UserRegisterEmailDtoSerializer implements PrimitiveSerializer<UserRegisterEmailDto> {
-  @override
-  final Iterable<Type> types = const [UserRegisterEmailDto, _$UserRegisterEmailDto];
 
-  @override
-  final String wireName = r'UserRegisterEmailDto';
+enum UserRegisterEmailDtoUserTypeEnum {
+@JsonValue('0')
+n0(''0''),
+@JsonValue('1')
+n1(''1'');
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    UserRegisterEmailDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'email';
-    yield serializers.serialize(
-      object.email,
-      specifiedType: const FullType(String),
-    );
-    if (object.phone != null) {
-      yield r'phone';
-      yield serializers.serialize(
-        object.phone,
-        specifiedType: const FullType(String),
-      );
-    }
-    yield r'password';
-    yield serializers.serialize(
-      object.password,
-      specifiedType: const FullType(String),
-    );
-    yield r'userType';
-    yield serializers.serialize(
-      object.userType,
-      specifiedType: const FullType(UserRegisterEmailDtoUserTypeEnum),
-    );
-    yield r'contactName';
-    yield serializers.serialize(
-      object.contactName,
-      specifiedType: const FullType(String),
-    );
-    yield r'countryId';
-    yield serializers.serialize(
-      object.countryId,
-      specifiedType: const FullType(String),
-    );
-    if (object.regionId != null) {
-      yield r'regionId';
-      yield serializers.serialize(
-        object.regionId,
-        specifiedType: const FullType(int),
-      );
-    }
-    if (object.address != null) {
-      yield r'address';
-      yield serializers.serialize(
-        object.address,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.isCompany != null) {
-      yield r'isCompany';
-      yield serializers.serialize(
-        object.isCompany,
-        specifiedType: const FullType(bool),
-      );
-    }
-    if (object.companyName != null) {
-      yield r'companyName';
-      yield serializers.serialize(
-        object.companyName,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.companyInn != null) {
-      yield r'companyInn';
-      yield serializers.serialize(
-        object.companyInn,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.description != null) {
-      yield r'description';
-      yield serializers.serialize(
-        object.description,
-        specifiedType: const FullType(String),
-      );
-    }
-  }
+const UserRegisterEmailDtoUserTypeEnum(this.value);
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    UserRegisterEmailDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+final String value;
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required UserRegisterEmailDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'email':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.email = valueDes;
-          break;
-        case r'phone':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.phone = valueDes;
-          break;
-        case r'password':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.password = valueDes;
-          break;
-        case r'userType':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(UserRegisterEmailDtoUserTypeEnum),
-          ) as UserRegisterEmailDtoUserTypeEnum;
-          result.userType = valueDes;
-          break;
-        case r'contactName':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.contactName = valueDes;
-          break;
-        case r'countryId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.countryId = valueDes;
-          break;
-        case r'regionId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.regionId = valueDes;
-          break;
-        case r'address':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.address = valueDes;
-          break;
-        case r'isCompany':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.isCompany = valueDes;
-          break;
-        case r'companyName':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.companyName = valueDes;
-          break;
-        case r'companyInn':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.companyInn = valueDes;
-          break;
-        case r'description':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.description = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
-
-  @override
-  UserRegisterEmailDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserRegisterEmailDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
-  }
+@override
+String toString() => value;
 }
 
-class UserRegisterEmailDtoUserTypeEnum extends EnumClass {
-
-  @BuiltValueEnumConst(wireName: r'0')
-  static const UserRegisterEmailDtoUserTypeEnum n0 = _$userRegisterEmailDtoUserTypeEnum_n0;
-  @BuiltValueEnumConst(wireName: r'1')
-  static const UserRegisterEmailDtoUserTypeEnum n1 = _$userRegisterEmailDtoUserTypeEnum_n1;
-
-  static Serializer<UserRegisterEmailDtoUserTypeEnum> get serializer => _$userRegisterEmailDtoUserTypeEnumSerializer;
-
-  const UserRegisterEmailDtoUserTypeEnum._(String name): super(name);
-
-  static BuiltSet<UserRegisterEmailDtoUserTypeEnum> get values => _$userRegisterEmailDtoUserTypeEnumValues;
-  static UserRegisterEmailDtoUserTypeEnum valueOf(String name) => _$userRegisterEmailDtoUserTypeEnumValueOf(name);
-}
 

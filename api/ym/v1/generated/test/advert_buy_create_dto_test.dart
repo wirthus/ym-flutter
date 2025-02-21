@@ -7,27 +7,27 @@ void main() {
   // TODO add properties to the entity
 
   group(AdvertBuyCreateDto, () {
-    // num productId
+    // int productId
     test('to test the property `productId`', () async {
       // TODO
     });
 
-    // num cleaningId
+    // int cleaningId
     test('to test the property `cleaningId`', () async {
       // TODO
     });
 
-    // num packingId
+    // int packingId
     test('to test the property `packingId`', () async {
       // TODO
     });
 
-    // num qualityId
+    // int qualityId
     test('to test the property `qualityId`', () async {
       // TODO
     });
 
-    // num recyclingId
+    // int recyclingId
     test('to test the property `recyclingId`', () async {
       // TODO
     });

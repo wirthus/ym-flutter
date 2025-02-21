@@ -3,255 +3,208 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'advert_buy_update_dto.g.dart';
 
-/// AdvertBuyUpdateDto
-///
-/// Properties:
-/// * [cleaningId] 
-/// * [packingId] 
-/// * [qualityId] 
-/// * [recyclingId] 
-/// * [enabled] 
-/// * [temporary] 
-/// * [priceLow] 
-/// * [priceHigh] 
-/// * [description] 
-@BuiltValue()
-abstract class AdvertBuyUpdateDto implements Built<AdvertBuyUpdateDto, AdvertBuyUpdateDtoBuilder> {
-  @BuiltValueField(wireName: r'cleaningId')
-  int? get cleaningId;
 
-  @BuiltValueField(wireName: r'packingId')
-  int? get packingId;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class AdvertBuyUpdateDto {
+  /// Returns a new [AdvertBuyUpdateDto] instance.
+  AdvertBuyUpdateDto({
 
-  @BuiltValueField(wireName: r'qualityId')
-  int? get qualityId;
+     this.cleaningId,
 
-  @BuiltValueField(wireName: r'recyclingId')
-  int? get recyclingId;
+     this.packingId,
 
-  @BuiltValueField(wireName: r'enabled')
-  bool? get enabled;
+     this.qualityId,
 
-  @BuiltValueField(wireName: r'temporary')
-  bool? get temporary;
+     this.recyclingId,
 
-  @BuiltValueField(wireName: r'priceLow')
-  num? get priceLow;
+     this.enabled,
 
-  @BuiltValueField(wireName: r'priceHigh')
-  num? get priceHigh;
+     this.temporary,
 
-  @BuiltValueField(wireName: r'description')
-  String? get description;
+     this.priceLow,
 
-  AdvertBuyUpdateDto._();
+     this.priceHigh,
 
-  factory AdvertBuyUpdateDto([void updates(AdvertBuyUpdateDtoBuilder b)]) = _$AdvertBuyUpdateDto;
+     this.description,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AdvertBuyUpdateDtoBuilder b) => b;
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'cleaningId',
+    required: false,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<AdvertBuyUpdateDto> get serializer => _$AdvertBuyUpdateDtoSerializer();
-}
 
-class _$AdvertBuyUpdateDtoSerializer implements PrimitiveSerializer<AdvertBuyUpdateDto> {
-  @override
-  final Iterable<Type> types = const [AdvertBuyUpdateDto, _$AdvertBuyUpdateDto];
+  final int? cleaningId;
 
-  @override
-  final String wireName = r'AdvertBuyUpdateDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    AdvertBuyUpdateDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    if (object.cleaningId != null) {
-      yield r'cleaningId';
-      yield serializers.serialize(
-        object.cleaningId,
-        specifiedType: const FullType.nullable(int),
+
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'packingId',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final int? packingId;
+
+
+
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'qualityId',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final int? qualityId;
+
+
+
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'recyclingId',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final int? recyclingId;
+
+
+
+  @JsonKey(
+    
+    name: r'enabled',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final bool? enabled;
+
+
+
+  @JsonKey(
+    
+    name: r'temporary',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final bool? temporary;
+
+
+
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'priceLow',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final num? priceLow;
+
+
+
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'priceHigh',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final num? priceHigh;
+
+
+
+  @JsonKey(
+    
+    name: r'description',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final String? description;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is AdvertBuyUpdateDto &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            cleaningId,
+            packingId,
+            qualityId,
+            recyclingId,
+            enabled,
+            temporary,
+            priceLow,
+            priceHigh,
+            description,
+        ],
+        [
+            other.cleaningId,
+            other.packingId,
+            other.qualityId,
+            other.recyclingId,
+            other.enabled,
+            other.temporary,
+            other.priceLow,
+            other.priceHigh,
+            other.description,
+        ]
       );
     }
-    if (object.packingId != null) {
-      yield r'packingId';
-      yield serializers.serialize(
-        object.packingId,
-        specifiedType: const FullType.nullable(int),
-      );
-    }
-    if (object.qualityId != null) {
-      yield r'qualityId';
-      yield serializers.serialize(
-        object.qualityId,
-        specifiedType: const FullType.nullable(int),
-      );
-    }
-    if (object.recyclingId != null) {
-      yield r'recyclingId';
-      yield serializers.serialize(
-        object.recyclingId,
-        specifiedType: const FullType.nullable(int),
-      );
-    }
-    if (object.enabled != null) {
-      yield r'enabled';
-      yield serializers.serialize(
-        object.enabled,
-        specifiedType: const FullType(bool),
-      );
-    }
-    if (object.temporary != null) {
-      yield r'temporary';
-      yield serializers.serialize(
-        object.temporary,
-        specifiedType: const FullType(bool),
-      );
-    }
-    if (object.priceLow != null) {
-      yield r'priceLow';
-      yield serializers.serialize(
-        object.priceLow,
-        specifiedType: const FullType(num),
-      );
-    }
-    if (object.priceHigh != null) {
-      yield r'priceHigh';
-      yield serializers.serialize(
-        object.priceHigh,
-        specifiedType: const FullType(num),
-      );
-    }
-    if (object.description != null) {
-      yield r'description';
-      yield serializers.serialize(
-        object.description,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    AdvertBuyUpdateDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required AdvertBuyUpdateDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'cleaningId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(int),
-          ) as int?;
-          if (valueDes == null) continue;
-          result.cleaningId = valueDes;
-          break;
-        case r'packingId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(int),
-          ) as int?;
-          if (valueDes == null) continue;
-          result.packingId = valueDes;
-          break;
-        case r'qualityId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(int),
-          ) as int?;
-          if (valueDes == null) continue;
-          result.qualityId = valueDes;
-          break;
-        case r'recyclingId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(int),
-          ) as int?;
-          if (valueDes == null) continue;
-          result.recyclingId = valueDes;
-          break;
-        case r'enabled':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.enabled = valueDes;
-          break;
-        case r'temporary':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.temporary = valueDes;
-          break;
-        case r'priceLow':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.priceLow = valueDes;
-          break;
-        case r'priceHigh':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.priceHigh = valueDes;
-          break;
-        case r'description':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.description = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        cleaningId,
+        packingId,
+        qualityId,
+        recyclingId,
+        enabled,
+        temporary,
+        priceLow,
+        priceHigh,
+        description,
+    ],);
+
+  factory AdvertBuyUpdateDto.fromJson(Map<String, dynamic> json) => _$AdvertBuyUpdateDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AdvertBuyUpdateDtoToJson(this);
 
   @override
-  AdvertBuyUpdateDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = AdvertBuyUpdateDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

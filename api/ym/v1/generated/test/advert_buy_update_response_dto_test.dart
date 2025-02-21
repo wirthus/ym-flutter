@@ -17,7 +17,7 @@ void main() {
       // TODO
     });
 
-    // num updatedAdvertCount
+    // int updatedAdvertCount
     test('to test the property `updatedAdvertCount`', () async {
       // TODO
     });

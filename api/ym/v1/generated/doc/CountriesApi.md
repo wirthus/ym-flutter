@@ -55,7 +55,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **countryControllerGetAll**
-> BuiltList<CountryWithRegionsEntity> countryControllerGetAll()
+> List<CountryWithRegionsEntity> countryControllerGetAll()
 
 
 
@@ -78,7 +78,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;CountryWithRegionsEntity&gt;**](CountryWithRegionsEntity.md)
+[**List&lt;CountryWithRegionsEntity&gt;**](CountryWithRegionsEntity.md)
 
 ### Authorization
 

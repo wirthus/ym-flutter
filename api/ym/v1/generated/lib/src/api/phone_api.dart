@@ -4,8 +4,9 @@
 
 import 'dart:async';
 
-import 'package:built_value/json_object.dart';
-import 'package:built_value/serializer.dart';
+// ignore: unused_import
+import 'dart:convert';
+import 'package:ym_api_client/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
 import 'package:ym_api_client/src/model/confirm_phone_body_dto.dart';
@@ -17,9 +18,7 @@ class PhoneApi {
 
   final Dio _dio;
 
-  final Serializers _serializers;
-
-  const PhoneApi(this._dio, this._serializers);
+  const PhoneApi(this._dio);
 
   /// phoneControllerCheck
   /// 
@@ -61,9 +60,7 @@ class PhoneApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(PhoneKeyDto);
-      _bodyData = _serializers.serialize(phoneKeyDto, specifiedType: _type);
-
+_bodyData=jsonEncode(phoneKeyDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -88,9 +85,8 @@ class PhoneApi {
     bool? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : rawResponse as bool;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<bool, bool>(rawData, 'bool', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -153,9 +149,7 @@ class PhoneApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(ConfirmPhoneBodyDto);
-      _bodyData = _serializers.serialize(confirmPhoneBodyDto, specifiedType: _type);
-
+_bodyData=jsonEncode(confirmPhoneBodyDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -220,9 +214,7 @@ class PhoneApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(PhoneKeyDto);
-      _bodyData = _serializers.serialize(phoneKeyDto, specifiedType: _type);
-
+_bodyData=jsonEncode(phoneKeyDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -247,9 +239,8 @@ class PhoneApi {
     String? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : rawResponse as String;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<String, String>(rawData, 'String', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -312,9 +303,7 @@ class PhoneApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(RegisterPhoneDto);
-      _bodyData = _serializers.serialize(registerPhoneDto, specifiedType: _type);
-
+_bodyData=jsonEncode(registerPhoneDto);
     } catch(error, stackTrace) {
       throw DioException(
          requestOptions: _options.compose(
@@ -339,12 +328,8 @@ class PhoneApi {
     RegisterPhoneResponseDto? _responseData;
 
     try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(RegisterPhoneResponseDto),
-      ) as RegisterPhoneResponseDto;
-
+final rawData = _response.data;
+_responseData = rawData == null ? null : deserialize<RegisterPhoneResponseDto, RegisterPhoneResponseDto>(rawData, 'RegisterPhoneResponseDto', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,

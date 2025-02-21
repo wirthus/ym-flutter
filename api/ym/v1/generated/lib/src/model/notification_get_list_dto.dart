@@ -3,126 +3,85 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:ym_api_client/src/model/notification_filter_dto.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'notification_get_list_dto.g.dart';
 
-/// NotificationGetListDto
-///
-/// Properties:
-/// * [filters] 
-/// * [limit] 
-@BuiltValue()
-abstract class NotificationGetListDto implements Built<NotificationGetListDto, NotificationGetListDtoBuilder> {
-  @BuiltValueField(wireName: r'filters')
-  BuiltList<NotificationFilterDto>? get filters;
 
-  @BuiltValueField(wireName: r'limit')
-  int? get limit;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class NotificationGetListDto {
+  /// Returns a new [NotificationGetListDto] instance.
+  NotificationGetListDto({
 
-  NotificationGetListDto._();
+     this.filters,
 
-  factory NotificationGetListDto([void updates(NotificationGetListDtoBuilder b)]) = _$NotificationGetListDto;
+     this.limit,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(NotificationGetListDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'filters',
+    required: false,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<NotificationGetListDto> get serializer => _$NotificationGetListDtoSerializer();
-}
 
-class _$NotificationGetListDtoSerializer implements PrimitiveSerializer<NotificationGetListDto> {
-  @override
-  final Iterable<Type> types = const [NotificationGetListDto, _$NotificationGetListDto];
+  final List<NotificationFilterDto>? filters;
 
-  @override
-  final String wireName = r'NotificationGetListDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    NotificationGetListDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    if (object.filters != null) {
-      yield r'filters';
-      yield serializers.serialize(
-        object.filters,
-        specifiedType: const FullType(BuiltList, [FullType(NotificationFilterDto)]),
+
+          // minimum: 0
+  @JsonKey(
+    
+    name: r'limit',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final int? limit;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is NotificationGetListDto &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            filters,
+            limit,
+        ],
+        [
+            other.filters,
+            other.limit,
+        ]
       );
     }
-    if (object.limit != null) {
-      yield r'limit';
-      yield serializers.serialize(
-        object.limit,
-        specifiedType: const FullType(int),
-      );
-    }
-  }
+
+
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        filters,
+        limit,
+    ],);
+
+  factory NotificationGetListDto.fromJson(Map<String, dynamic> json) => _$NotificationGetListDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NotificationGetListDtoToJson(this);
 
   @override
-  Object serialize(
-    Serializers serializers,
-    NotificationGetListDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  String toString() {
+    return toJson().toString();
   }
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required NotificationGetListDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'filters':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(NotificationFilterDto)]),
-          ) as BuiltList<NotificationFilterDto>;
-          result.filters.replace(valueDes);
-          break;
-        case r'limit':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.limit = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
-
-  @override
-  NotificationGetListDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = NotificationGetListDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
-  }
 }
 

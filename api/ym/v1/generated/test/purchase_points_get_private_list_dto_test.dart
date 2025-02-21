@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // String orderBy
+    // PurchasePointsGetPrivateListOrderBy orderBy
     test('to test the property `orderBy`', () async {
       // TODO
     });

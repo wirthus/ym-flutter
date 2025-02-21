@@ -55,7 +55,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **regionControllerGetAll**
-> BuiltList<RegionEntity> regionControllerGetAll(countryId, test)
+> List<RegionEntity> regionControllerGetAll(countryId, test)
 
 
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;RegionEntity&gt;**](RegionEntity.md)
+[**List&lt;RegionEntity&gt;**](RegionEntity.md)
 
 ### Authorization
 

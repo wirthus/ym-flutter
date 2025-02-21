@@ -5,125 +5,83 @@
 // ignore_for_file: unused_element
 import 'package:ym_api_client/src/model/advert_buy_get_list_order_type.dart';
 import 'package:ym_api_client/src/model/advert_buy_get_list_filter.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/src/equatable_utils.dart';
 
 part 'advert_buy_get_list_dto.g.dart';
 
-/// AdvertBuyGetListDto
-///
-/// Properties:
-/// * [filter] 
-/// * [orderBy] 
-@BuiltValue()
-abstract class AdvertBuyGetListDto implements Built<AdvertBuyGetListDto, AdvertBuyGetListDtoBuilder> {
-  @BuiltValueField(wireName: r'filter')
-  AdvertBuyGetListFilter? get filter;
 
-  @BuiltValueField(wireName: r'orderBy')
-  AdvertBuyGetListOrderType? get orderBy;
-  // enum orderByEnum {  byName,  byCreatedAt,  };
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class AdvertBuyGetListDto {
+  /// Returns a new [AdvertBuyGetListDto] instance.
+  AdvertBuyGetListDto({
 
-  AdvertBuyGetListDto._();
+     this.filter,
 
-  factory AdvertBuyGetListDto([void updates(AdvertBuyGetListDtoBuilder b)]) = _$AdvertBuyGetListDto;
+     this.orderBy,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AdvertBuyGetListDtoBuilder b) => b;
+  @JsonKey(
+    
+    name: r'filter',
+    required: false,
+    includeIfNull: false,
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<AdvertBuyGetListDto> get serializer => _$AdvertBuyGetListDtoSerializer();
-}
 
-class _$AdvertBuyGetListDtoSerializer implements PrimitiveSerializer<AdvertBuyGetListDto> {
-  @override
-  final Iterable<Type> types = const [AdvertBuyGetListDto, _$AdvertBuyGetListDto];
+  final AdvertBuyGetListFilter? filter;
 
-  @override
-  final String wireName = r'AdvertBuyGetListDto';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    AdvertBuyGetListDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    if (object.filter != null) {
-      yield r'filter';
-      yield serializers.serialize(
-        object.filter,
-        specifiedType: const FullType(AdvertBuyGetListFilter),
+
+  @JsonKey(
+    
+    name: r'orderBy',
+    required: false,
+    includeIfNull: false,
+  )
+
+
+  final AdvertBuyGetListOrderType? orderBy;
+
+
+
+
+    bool operator ==(Object other) {
+      return identical(this, other) ||
+      other is AdvertBuyGetListDto &&
+      runtimeType == other.runtimeType &&
+      equals(
+        [
+            filter,
+            orderBy,
+        ],
+        [
+            other.filter,
+            other.orderBy,
+        ]
       );
     }
-    if (object.orderBy != null) {
-      yield r'orderBy';
-      yield serializers.serialize(
-        object.orderBy,
-        specifiedType: const FullType(AdvertBuyGetListOrderType),
-      );
-    }
-  }
+
+
+    @override
+    int get hashCode => runtimeType.hashCode ^ mapPropsToHashCode([
+        filter,
+        orderBy,
+    ],);
+
+  factory AdvertBuyGetListDto.fromJson(Map<String, dynamic> json) => _$AdvertBuyGetListDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AdvertBuyGetListDtoToJson(this);
 
   @override
-  Object serialize(
-    Serializers serializers,
-    AdvertBuyGetListDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  String toString() {
+    return toJson().toString();
   }
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required AdvertBuyGetListDtoBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'filter':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(AdvertBuyGetListFilter),
-          ) as AdvertBuyGetListFilter;
-          result.filter.replace(valueDes);
-          break;
-        case r'orderBy':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(AdvertBuyGetListOrderType),
-          ) as AdvertBuyGetListOrderType;
-          result.orderBy = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
-
-  @override
-  AdvertBuyGetListDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = AdvertBuyGetListDtoBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
-  }
 }
 

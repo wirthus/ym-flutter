@@ -22,17 +22,17 @@ void main() {
       // TODO
     });
 
-    // List<num> regionIds
+    // List<int> regionIds
     test('to test the property `regionIds`', () async {
       // TODO
     });
 
-    // num quantityStart
+    // int quantityStart
     test('to test the property `quantityStart`', () async {
       // TODO
     });
 
-    // num quantityEnd
+    // int quantityEnd
     test('to test the property `quantityEnd`', () async {
       // TODO
     });
@@ -47,17 +47,17 @@ void main() {
       // TODO
     });
 
-    // String sortType
+    // AdvertSortType sortType
     test('to test the property `sortType`', () async {
       // TODO
     });
 
-    // num limit
+    // int limit
     test('to test the property `limit`', () async {
       // TODO
     });
 
-    // num offset
+    // int offset
     test('to test the property `offset`', () async {
       // TODO
     });

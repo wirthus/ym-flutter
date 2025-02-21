@@ -7,12 +7,12 @@ void main() {
   // TODO add properties to the entity
 
   group(NotificationFilterDto, () {
-    // String type
+    // NotificationType type
     test('to test the property `type`', () async {
       // TODO
     });
 
-    // String status
+    // NotificationStatus status
     test('to test the property `status`', () async {
       // TODO
     });
