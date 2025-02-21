@@ -24,3 +24,8 @@ targets:
           - lib/data/model/ym/*.dart
           - lib/features/**/presentation/bloc/*.dart
           - lib/shared/bloc/*.dart
+      riverpod_generator:
+        enabled: true
+        generate_for:
+          include:
+            - lib/**.dart
