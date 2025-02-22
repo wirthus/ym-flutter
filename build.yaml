@@ -25,8 +25,11 @@ targets:
           - lib/features/**/presentation/bloc/*.dart
           - lib/shared/bloc/*.dart
           - lib/features/**/domain/*.dart
+          - lib/core/models/*.dart
       riverpod_generator:
         enabled: true
         generate_for:
           include:
             - lib/features/**/presentation/providers/*.dart
+            - lib/data/repositories/*.dart
+            - lib/core/providers/*.dart

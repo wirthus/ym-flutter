@@ -17,7 +17,7 @@ class DefaultUserRepositoryImpl implements UserRepository {
       final response = await _userApi.userControllerGet();
       return response.data!;
     } on DioException catch (e) {
-      throw _handleError(e, 'Не удалось получить данные пользователя');
+      throw RepositoryException.fromDioException(e, 'Не удалось получить данные пользователя');
     }
   }
 
@@ -27,7 +27,7 @@ class DefaultUserRepositoryImpl implements UserRepository {
       final response = await _userApi.userControllerUpdate(userUpdateDto: data);
       return response.data!;
     } on DioException catch (e) {
-      throw _handleError(e, 'Ошибка обновления данных пользователя');
+      throw RepositoryException.fromDioException(e, 'Ошибка обновления данных пользователя');
     }
   }
 
@@ -36,15 +36,7 @@ class DefaultUserRepositoryImpl implements UserRepository {
     try {
       await _userApi.userControllerRegisterPushToken(userRegisterPushTokenDto: data);
     } on DioException catch (e) {
-      throw _handleError(e, 'Ошибка регистрации push-токена');
+      throw RepositoryException.fromDioException(e, 'Ошибка регистрации push-токена');
     }
-  }
-
-  RepositoryException _handleError(DioException e, String defaultMsg) {
-    return RepositoryException(
-      message: e.response?.data['message'] ?? defaultMsg,
-      code: e.response?.statusCode ?? 500,
-      originalException: e,
-    );
   }
 }

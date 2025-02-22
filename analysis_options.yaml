@@ -14,10 +14,14 @@ formatter:
 
 
 analyzer:
+  plugins:
+    - custom_lint
   strong-mode:
     implicit-casts: false
     implicit-dynamic: false
   exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
     - api/**
     - build/**
   errors:

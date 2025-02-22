@@ -1,7 +1,14 @@
+import 'dart:async';
+
 import 'package:fpdart/fpdart.dart';
-import 'package:yagodmarket/core/presentation/riverpod_framework.dart';
-import 'package:yagodmarket/features/login/domain/sign_in_with_email.dart';
-import 'package:yagodmarket/features/login/domain/user.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:yagodmarket/core/models/auth.dart';
+import 'package:yagodmarket/core/models/user.dart';
+import 'package:yagodmarket/core/providers/auth_state_provider.dart';
+import 'package:yagodmarket/core/providers/user_state_provider.dart';
+import 'package:yagodmarket/data/repositories/auth_repository.dart';
+import 'package:yagodmarket/data/repositories/user_repository.dart';
+import 'package:ym_api_client/ym_api_client.dart';
 
 part 'sign_in_provider.g.dart';
 
@@ -10,12 +17,43 @@ class SignInState extends _$SignInState {
   @override
   FutureOr<Option<User>> build() => const None();
 
-  Future<void> signIn(SignInWithEmail params) async {
+  Future<void> signIn(LoginDto params) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      // final authRepository = getIt<AuthRepository>();
-      // final user = await authRepository.login()
-      // return Some(user);
+      final loginResponse = await ref.read(authRepoProvider).login(params);
+
+      final auth = Auth(
+        userId: loginResponse.userId,
+        accessToken: loginResponse.accessToken,
+        refreshToken: '',
+      );
+
+      ref.read(authStateProvider.notifier).authenticateUser(auth);
+
+      final userResponse = await ref.read(userRepoProvider).getCurrentUser();
+
+      final user = User(
+        id: userResponse.id,
+        name: userResponse.name,
+        email: userResponse.email,
+        phone: userResponse.phones ?? '',
+        address: userResponse.address ?? '',
+      );
+
+      ref.read(userStateProvider.notifier).setUser(user);
+
+      return Some(user);
+    });
+  }
+
+  Future<void> signOut() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(() async {
+      unawaited(ref.read(authRepoProvider).signOut());
+
+      ref.read(authStateProvider.notifier).unAuthenticateUser();
+      ref.read(userStateProvider.notifier).clearUser();
+
       return const None();
     });
   }

@@ -19,7 +19,7 @@ class DefaultRegionRepositoryImpl implements RegionRepository {
       final response = await _regionsApi.regionControllerGetAll(countryId: countryId);
       return response.data!.map(RegionX.fromApiModel).toList();
     } on DioException catch (e) {
-      throw _handleError(e, 'Не удалось получить список регионов');
+      throw RepositoryException.fromDioException(e, 'Не удалось получить список регионов');
     }
   }
 
@@ -29,15 +29,7 @@ class DefaultRegionRepositoryImpl implements RegionRepository {
       final response = await _regionsApi.regionControllerGet(id: regionId);
       return RegionX.fromApiModel(response.data!);
     } on DioException catch (e) {
-      throw _handleError(e, 'Не удалось получить регион');
+      throw RepositoryException.fromDioException(e, 'Не удалось получить регион');
     }
-  }
-
-  RepositoryException _handleError(DioException e, String defaultMsg) {
-    return RepositoryException(
-      message: e.response?.data['message'] ?? defaultMsg,
-      code: e.response?.statusCode ?? 500,
-      originalException: e,
-    );
   }
 }

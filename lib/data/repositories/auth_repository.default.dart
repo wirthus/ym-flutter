@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:result_dart/result_dart.dart';
 import 'package:yagodmarket/data/exceptions/repository_exception.dart';
+import 'package:yagodmarket/data/model/ym/auth.dart';
 import 'package:ym_api_client/ym_api_client.dart';
 
 import 'auth_repository.dart';
@@ -17,7 +19,17 @@ class DefaultAuthRepositoryImpl implements AuthRepository {
       final response = await _authApi.authControllerLogin(loginDto: payload);
       return response.data!;
     } on DioException catch (e) {
-      throw _handleError(e, 'Не удалось выполнить вход');
+      throw RepositoryException.fromDioException(e, 'Не удалось выполнить вход');
+    }
+  }
+
+  @override
+  Future<Result> signOut() async {
+    try {
+      await _authApi.authControllerLogout(logoutDto: LogoutDto());
+      return Success.unit();
+    } on DioException catch (e) {
+      return Failure(RepositoryException.fromDioException(e, 'Не удалось выполнить выход'));
     }
   }
 
@@ -27,7 +39,7 @@ class DefaultAuthRepositoryImpl implements AuthRepository {
       final response = await _authApi.authControllerSignup(userRegisterEmailDto: payload);
       return response.data!;
     } on DioException catch (e) {
-      throw _handleError(e, 'Не удалось выполнить регистрацию');
+      throw RepositoryException.fromDioException(e, 'Не удалось выполнить регистрацию');
     }
   }
 
@@ -36,11 +48,8 @@ class DefaultAuthRepositoryImpl implements AuthRepository {
     // Реализация сброса пароля
   }
 
-  RepositoryException _handleError(DioException e, String defaultMsg) {
-    return RepositoryException(
-      message: e.response?.data['message'] ?? defaultMsg,
-      code: e.response?.statusCode ?? 500,
-      originalException: e,
-    );
+  @override
+  Future<Result<AuthToken>> getAuthToken({bool forceRefresh = false}) async {
+    return Success(AuthToken(accessToken: 'accessToken', refreshToken: 'refreshToken'));
   }
 }

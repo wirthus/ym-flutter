@@ -19,6 +19,8 @@ class YmInputField extends StatefulWidget {
 
   final bool obscureText;
 
+  final void Function(String)? onFieldSubmitted;
+
   const YmInputField({
     super.key,
     required this.controller,
@@ -32,6 +34,7 @@ class YmInputField extends StatefulWidget {
     this.autofillHints,
     this.validator,
     this.obscureText = false,
+    this.onFieldSubmitted,
   });
 
   @override
@@ -53,6 +56,7 @@ class _YmInputFieldState extends State<YmInputField> {
       autofillHints: widget.autofillHints,
       validator: widget.validator,
       obscureText: widget.obscureText,
+      onFieldSubmitted: widget.onFieldSubmitted,
       decoration: InputDecoration(
         prefixIcon: _createIcon(widget.prefixIcon, widget.onPrefixIconTap),
         suffixIcon: _createIcon(widget.suffixIcon, widget.onSuffixIconTap),

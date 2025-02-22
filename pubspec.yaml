@@ -74,6 +74,8 @@ dependencies:
   built_collection: ">=5.1.1 <6.0.0"
   flow_builder: ^0.1.0
   collection: ^1.19.1
+  result_dart: ^2.0.0
+  http_exception: ^2.0.1
 
 dev_dependencies:
   flutter_test:

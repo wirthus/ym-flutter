@@ -18,7 +18,7 @@ class DefaultCountryRepositoryImpl implements CountryRepository {
       final response = await _countriesApi.countryControllerGet(id: countryId);
       return CountryWithRegionsX.fromApiModel(response.data!);
     } on DioException catch (e) {
-      throw _handleError(e, 'Не удалось получить данные страны');
+      throw RepositoryException.fromDioException(e, 'Не удалось получить данные страны');
     }
   }
 
@@ -28,15 +28,7 @@ class DefaultCountryRepositoryImpl implements CountryRepository {
       final response = await _countriesApi.countryControllerGetAll();
       return response.data!.map(CountryWithRegionsX.fromApiModel).toList();
     } on DioException catch (e) {
-      throw _handleError(e, 'Не удалось получить список стран');
+      throw RepositoryException.fromDioException(e, 'Не удалось получить список стран');
     }
-  }
-
-  RepositoryException _handleError(DioException e, String defaultMsg) {
-    return RepositoryException(
-      message: e.response?.data['message'] ?? defaultMsg,
-      code: e.response?.statusCode ?? 500,
-      originalException: e,
-    );
   }
 }

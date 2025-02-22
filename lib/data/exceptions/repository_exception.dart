@@ -1,4 +1,6 @@
 // Новый файл с общим исключением
+import 'package:dio/dio.dart';
+
 base class RepositoryException implements Exception {
   final String message;
   final int code;
@@ -12,4 +14,12 @@ base class RepositoryException implements Exception {
 
   @override
   String toString() => 'RepositoryException: $message (code: $code)';
+
+  factory RepositoryException.fromDioException(DioException e, String defaultMsg) {
+    return RepositoryException(
+      message: e.response?.data['message'] ?? defaultMsg,
+      code: e.response?.statusCode ?? 500,
+      originalException: e,
+    );
+  }
 }
