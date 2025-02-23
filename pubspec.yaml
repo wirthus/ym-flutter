@@ -83,6 +83,9 @@ dependencies:
   flutter_adaptive_scaffold: ^0.3.2
   flutter_platform_widgets: ^7.0.1
   fluttertoast: ^8.2.12
+  material_floating_search_bar:
+    git:
+      url: https://github.com/Railway-Engineering-Solutions/material_floating_search_bar.git
 
   # Utils
   built_collection: ">=5.1.1 <6.0.0"
@@ -92,6 +95,7 @@ dependencies:
   equatable: ^2.0.7
   faker: ^2.1.0
   flow_builder: ^0.1.0
+  flutter_fadein: ^2.0.0
   http_exception: ^2.0.1
   one_of_serializer: ">=1.5.0 <2.0.0"
   one_of: ">=1.5.0 <2.0.0"

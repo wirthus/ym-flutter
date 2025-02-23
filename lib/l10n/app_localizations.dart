@@ -129,6 +129,18 @@ abstract class AppLocalizations {
   /// **'Повторить'**
   String get retry;
 
+  /// No description provided for @you_are_currently_offline.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вы сейчас не в сети'**
+  String get you_are_currently_offline;
+
+  /// No description provided for @you_are_back_online.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вы снова в сети'**
+  String get you_are_back_online;
+
   /// No description provided for @page_search_title.
   ///
   /// In ru, this message translates to:

@@ -27,6 +27,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get retry => 'Повторить';
 
   @override
+  String get you_are_currently_offline => 'Вы сейчас не в сети';
+
+  @override
+  String get you_are_back_online => 'Вы снова в сети';
+
+  @override
   String get page_search_title => 'Поиск';
 
   @override

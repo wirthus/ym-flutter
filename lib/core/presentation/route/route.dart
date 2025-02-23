@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:yagodmarket/core/presentation/pages/no_internet_screen/no_internet_screen.dart';
 import 'package:yagodmarket/core/presentation/route/route.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
@@ -16,6 +17,14 @@ class AppRouter extends RootStackRouter {
         AutoRoute(
           path: '/register',
           page: RegisterRoute.page,
+        ),
+        AutoRoute(
+          path: '/no_internet',
+          page: NoInternetRoute.page,
+        ),
+        AutoRoute(
+          path: '/splash',
+          page: SplashRoute.page,
         ),
         AutoRoute(
           path: '/tabs',

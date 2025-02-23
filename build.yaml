@@ -7,13 +7,15 @@ targets:
         generate_for:
           - lib/core/presentation/pages/main/**/*.dart
           - lib/core/presentation/pages/screens/**/*.dart
+          - lib/core/presentation/pages/no_internet_screen/*.dart
+          - lib/core/presentation/pages/splash_screen/*.dart
           - lib/core/presentation/pages/tabs/**/*.dart
           - lib/features/**/presentation/*.dart
       auto_route_generator:auto_router_generator:
         options:
           enable_cached_builds: true
         generate_for:
-          - lib/ui/route/route.dart
+          - lib/core/presentation/route/route.dart
       freezed:
         enabled: true
         generate_for:

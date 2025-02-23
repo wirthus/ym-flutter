@@ -6,6 +6,8 @@
   "please_check_your_device_network": "Пожалуйста, проверьте интернет соединение на вашем устройстве",
   "screen_not_found": "Страница не найдена",
   "retry": "Повторить",
+  "you_are_currently_offline": "Вы сейчас не в сети",
+  "you_are_back_online": "Вы снова в сети",
   "page_search_title": "Поиск",
   "page_adverts_title": "Объявления",
   "page_points_title": "Узлы",
