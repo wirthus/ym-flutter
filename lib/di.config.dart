@@ -26,8 +26,6 @@ import 'package:yagodmarket/core/repositories/user_repository.dart' as _i923;
 import 'package:yagodmarket/core/repositories/user_repository.default.dart'
     as _i978;
 import 'package:yagodmarket/di.dart' as _i410;
-import 'package:yagodmarket/features/register/presentation/bloc/register_wizard_cubit.dart'
-    as _i880;
 import 'package:ym_api_client/ym_api_client.dart' as _i798;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -53,8 +51,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i1040.DefaultAuthRepositoryImpl(gh<_i798.YmApiClient>()));
     gh.factory<_i22.RegionRepository>(
         () => _i659.DefaultRegionRepositoryImpl(gh<_i798.YmApiClient>()));
-    gh.factory<_i880.RegisterWizardCubit>(
-        () => _i880.RegisterWizardCubit(gh<_i424.CountryRepository>()));
     return this;
   }
 }

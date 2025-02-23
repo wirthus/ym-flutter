@@ -14,10 +14,10 @@ class AppRouter extends RootStackRouter {
           page: LoginRoute.page,
           initial: true,
         ),
-        AutoRoute(
-          path: '/register',
-          page: RegisterRoute.page,
-        ),
+        // AutoRoute(
+        //   path: '/register',
+        //   page: RegisterRoute.page,
+        // ),
         AutoRoute(
           path: '/no_internet',
           page: NoInternetRoute.page,
