@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yagodmarket/core/infrastructure/network/network_info.dart';
 import 'package:yagodmarket/core/presentation/styles/styles.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';
-import 'package:yagodmarket/core/utils/s.dart';
+import 'package:yagodmarket/core/presentation/helpers/localization_helper.dart';
 
 import 'custom_elevated_button.dart';
 import 'loading_widgets.dart';

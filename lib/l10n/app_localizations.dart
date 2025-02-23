@@ -206,6 +206,18 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Далее'**
   String get register_next_button_text;
+
+  /// No description provided for @lang_english.
+  ///
+  /// In ru, this message translates to:
+  /// **'Английский'**
+  String get lang_english;
+
+  /// No description provided for @lang_russian.
+  ///
+  /// In ru, this message translates to:
+  /// **'Русский'**
+  String get lang_russian;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

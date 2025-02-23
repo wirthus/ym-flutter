@@ -64,4 +64,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get register_next_button_text => 'Далее';
+
+  @override
+  String get lang_english => 'Английский';
+
+  @override
+  String get lang_russian => 'Русский';
 }

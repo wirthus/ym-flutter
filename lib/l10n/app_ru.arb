@@ -18,5 +18,7 @@
   "login_button_text": "Войти",
   "login_forgot_password_text": "Забыли пароль?",
   "login_signup_text": "Создать аккаунт",
-  "register_next_button_text": "Далее"
+  "register_next_button_text": "Далее",
+  "lang_english": "Английский",
+  "lang_russian": "Русский"
 }

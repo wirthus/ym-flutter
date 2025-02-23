@@ -4,7 +4,7 @@ import 'package:yagodmarket/core/presentation/extensions/widget_ref_extension.da
 import 'package:yagodmarket/core/presentation/styles/sizes.dart';
 import 'package:yagodmarket/core/presentation/widgets/input_field.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';
-import 'package:yagodmarket/core/utils/s.dart';
+import 'package:yagodmarket/core/presentation/helpers/localization_helper.dart';
 import 'package:yagodmarket/features/login/presentation/providers/password_visibility_provider.dart';
 import 'package:yagodmarket/features/login/presentation/providers/sign_in_provider.dart';
 import 'package:ym_api_client/ym_api_client.dart';

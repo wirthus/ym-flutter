@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yagodmarket/core/presentation/widgets/input_field.dart';
-import 'package:yagodmarket/core/utils/s.dart';
+import 'package:yagodmarket/core/presentation/helpers/localization_helper.dart';
 
 import '../bloc/register_wizard_cubit.dart';
 import '../bloc/register_wizard_state.dart';

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:yagodmarket/core/utils/s.dart';
+import 'package:yagodmarket/core/presentation/helpers/localization_helper.dart';
 import 'package:yagodmarket/features/login/presentation/widgets/login_form_component.dart';
 
 @RoutePage()

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yagodmarket/core/presentation/styles/sizes.dart';
-import 'package:yagodmarket/core/utils/s.dart';
+import 'package:yagodmarket/core/presentation/helpers/localization_helper.dart';
 
 class LoginLogoComponent extends StatelessWidget {
   const LoginLogoComponent({super.key});
