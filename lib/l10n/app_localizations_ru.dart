@@ -15,6 +15,18 @@ class AppLocalizationsRu extends AppLocalizations {
   String get font_family => 'Poppins';
 
   @override
+  String get no_internet_connection => 'Нет интернет соединения';
+
+  @override
+  String get please_check_your_device_network => 'Пожалуйста, проверьте интернет соединение на вашем устройстве';
+
+  @override
+  String get screen_not_found => 'Страница не найдена';
+
+  @override
+  String get retry => 'Повторить';
+
+  @override
   String get page_search_title => 'Поиск';
 
   @override

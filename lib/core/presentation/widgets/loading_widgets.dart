@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-
 import 'package:lottie/lottie.dart';
+import 'package:yagodmarket/core/presentation/styles/styles.dart';
 import 'package:yagodmarket/core/theme/presentation/utils/custom_colors.dart';
-
-import '../../../gen/my_assets.dart';
-import '../styles/styles.dart';
+import 'package:yagodmarket/gen/my_assets.dart';
 
 class LoadingIndicator extends StatelessWidget {
   const LoadingIndicator({this.padding, super.key});

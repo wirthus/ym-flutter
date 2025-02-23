@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:yagodmarket/core/infrastructure/network/network_info.dart';
+import 'package:yagodmarket/core/presentation/styles/styles.dart';
+import 'package:yagodmarket/core/utils/riverpod_framework.dart';
+import 'package:yagodmarket/core/utils/s.dart';
 
-import '../../infrastructure/network/network_info.dart';
-import '../helpers/localization_helper.dart';
-import '../routing/app_router.dart';
-import '../styles/styles.dart';
-import '../utils/riverpod_framework.dart';
 import 'custom_elevated_button.dart';
 import 'loading_widgets.dart';
 
@@ -21,7 +20,7 @@ class NoInternetErrorWidget extends StatelessWidget {
           height: Sizes.marginV32,
         ),
         Text(
-          tr(context).noInternetConnection,
+          tr(context).no_internet_connection,
           style: TextStyles.f20(context),
           textAlign: TextAlign.center,
         ),
@@ -29,7 +28,7 @@ class NoInternetErrorWidget extends StatelessWidget {
           height: Sizes.marginV12,
         ),
         Text(
-          tr(context).pleaseCheckYourDeviceNetwork,
+          tr(context).please_check_your_device_network,
           style: TextStyles.f14(context),
           textAlign: TextAlign.center,
         ),
@@ -48,7 +47,7 @@ class NoInternetErrorWidget extends StatelessWidget {
               await networkInfo.hasInternetConnection.then(
                 (value) {
                   if (value) {
-                    if (context.mounted) const SplashRoute().go(context);
+                    // if (context.mounted) const SplashRoute().go(context);
                   }
                 },
               );

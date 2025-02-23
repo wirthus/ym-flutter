@@ -105,7 +105,31 @@ abstract class AppLocalizations {
   /// **'Poppins'**
   String get font_family;
 
-  /// Title text displayed on the character selection dialog
+  /// No description provided for @no_internet_connection.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нет интернет соединения'**
+  String get no_internet_connection;
+
+  /// No description provided for @please_check_your_device_network.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пожалуйста, проверьте интернет соединение на вашем устройстве'**
+  String get please_check_your_device_network;
+
+  /// No description provided for @screen_not_found.
+  ///
+  /// In ru, this message translates to:
+  /// **'Страница не найдена'**
+  String get screen_not_found;
+
+  /// No description provided for @retry.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повторить'**
+  String get retry;
+
+  /// No description provided for @page_search_title.
   ///
   /// In ru, this message translates to:
   /// **'Поиск'**
