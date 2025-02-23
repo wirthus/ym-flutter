@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:yagodmarket/data/model/ym/country.dart';
-import 'package:yagodmarket/data/model/ym/region.dart';
-import 'package:yagodmarket/data/repositories/country_repository.dart';
+import 'package:yagodmarket/core/models/country.dart';
+import 'package:yagodmarket/core/models/region.dart';
+import 'package:yagodmarket/core/repositories/country_repository.dart';
 
 import 'register_first_step_state.dart';
 import 'register_second_step_state.dart';

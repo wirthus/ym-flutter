@@ -1,25 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sign_in_provider.dart';
+part of 'country_repository.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$signInStateHash() => r'fe41a5bd10488206137288f7862a734e3df8b9d4';
+String _$countryRepoHash() => r'16147ba5ff729afacd54966670b2d94294335dc1';
 
-/// See also [SignInState].
-@ProviderFor(SignInState)
-final signInStateProvider =
-    AutoDisposeAsyncNotifierProvider<SignInState, Option<User>>.internal(
-  SignInState.new,
-  name: r'signInStateProvider',
+/// See also [countryRepo].
+@ProviderFor(countryRepo)
+final countryRepoProvider = Provider<CountryRepository>.internal(
+  countryRepo,
+  name: r'countryRepoProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$signInStateHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$countryRepoHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$SignInState = AutoDisposeAsyncNotifier<Option<User>>;
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef CountryRepoRef = ProviderRef<CountryRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

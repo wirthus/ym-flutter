@@ -18,9 +18,14 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$User {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
+  String? get phones => throw _privateConstructorUsedError;
+  String? get companyName => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
+  String? get address =>
+      throw _privateConstructorUsedError; // // required Country country,
+// // required Region region,
+  String? get info => throw _privateConstructorUsedError;
+  String? get infoRu => throw _privateConstructorUsedError;
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.
@@ -33,7 +38,15 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({int id, String name, String email, String phone, String address});
+  $Res call(
+      {int id,
+      String name,
+      String? phones,
+      String? companyName,
+      String? city,
+      String? address,
+      String? info,
+      String? infoRu});
 }
 
 /// @nodoc
@@ -53,9 +66,12 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? email = null,
-    Object? phone = null,
-    Object? address = null,
+    Object? phones = freezed,
+    Object? companyName = freezed,
+    Object? city = freezed,
+    Object? address = freezed,
+    Object? info = freezed,
+    Object? infoRu = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -66,18 +82,30 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
+      phones: freezed == phones
+          ? _value.phones
+          : phones // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyName: freezed == companyName
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      info: freezed == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as String?,
+      infoRu: freezed == infoRu
+          ? _value.infoRu
+          : infoRu // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -89,7 +117,15 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, String email, String phone, String address});
+  $Res call(
+      {int id,
+      String name,
+      String? phones,
+      String? companyName,
+      String? city,
+      String? address,
+      String? info,
+      String? infoRu});
 }
 
 /// @nodoc
@@ -106,9 +142,12 @@ class __$$UserImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? email = null,
-    Object? phone = null,
-    Object? address = null,
+    Object? phones = freezed,
+    Object? companyName = freezed,
+    Object? city = freezed,
+    Object? address = freezed,
+    Object? info = freezed,
+    Object? infoRu = freezed,
   }) {
     return _then(_$UserImpl(
       id: null == id
@@ -119,18 +158,30 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
+      phones: freezed == phones
+          ? _value.phones
+          : phones // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyName: freezed == companyName
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      info: freezed == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as String?,
+      infoRu: freezed == infoRu
+          ? _value.infoRu
+          : infoRu // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -141,24 +192,35 @@ class _$UserImpl implements _User {
   const _$UserImpl(
       {required this.id,
       required this.name,
-      required this.email,
-      required this.phone,
-      required this.address});
+      this.phones,
+      this.companyName,
+      this.city,
+      this.address,
+      this.info,
+      this.infoRu});
 
   @override
   final int id;
   @override
   final String name;
   @override
-  final String email;
+  final String? phones;
   @override
-  final String phone;
+  final String? companyName;
   @override
-  final String address;
+  final String? city;
+  @override
+  final String? address;
+// // required Country country,
+// // required Region region,
+  @override
+  final String? info;
+  @override
+  final String? infoRu;
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, email: $email, phone: $phone, address: $address)';
+    return 'User(id: $id, name: $name, phones: $phones, companyName: $companyName, city: $city, address: $address, info: $info, infoRu: $infoRu)';
   }
 
   @override
@@ -168,13 +230,18 @@ class _$UserImpl implements _User {
             other is _$UserImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.phone, phone) || other.phone == phone) &&
-            (identical(other.address, address) || other.address == address));
+            (identical(other.phones, phones) || other.phones == phones) &&
+            (identical(other.companyName, companyName) ||
+                other.companyName == companyName) &&
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.info, info) || other.info == info) &&
+            (identical(other.infoRu, infoRu) || other.infoRu == infoRu));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, email, phone, address);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, phones, companyName, city, address, info, infoRu);
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.
@@ -189,20 +256,30 @@ abstract class _User implements User {
   const factory _User(
       {required final int id,
       required final String name,
-      required final String email,
-      required final String phone,
-      required final String address}) = _$UserImpl;
+      final String? phones,
+      final String? companyName,
+      final String? city,
+      final String? address,
+      final String? info,
+      final String? infoRu}) = _$UserImpl;
 
   @override
   int get id;
   @override
   String get name;
   @override
-  String get email;
+  String? get phones;
   @override
-  String get phone;
+  String? get companyName;
   @override
-  String get address;
+  String? get city;
+  @override
+  String? get address; // // required Country country,
+// // required Region region,
+  @override
+  String? get info;
+  @override
+  String? get infoRu;
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.

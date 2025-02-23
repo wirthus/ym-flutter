@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:yagodmarket/core/models/name_value.dart';
-import 'package:yagodmarket/data/model/ym/country.dart';
-import 'package:yagodmarket/data/model/ym/region.dart';
-import 'package:yagodmarket/ui/widgets/custom_dropdown.dart';
+import 'package:yagodmarket/core/presentation/models/name_value.dart';
+import 'package:yagodmarket/core/models/country.dart';
+import 'package:yagodmarket/core/models/region.dart';
+import 'package:yagodmarket/core/presentation/widgets/custom_dropdown.dart';
 
 import '../bloc/register_second_step_state.dart';
 import '../bloc/register_wizard_cubit.dart';

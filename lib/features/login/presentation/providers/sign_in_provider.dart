@@ -6,8 +6,8 @@ import 'package:yagodmarket/core/models/auth.dart';
 import 'package:yagodmarket/core/models/user.dart';
 import 'package:yagodmarket/core/providers/auth_state_provider.dart';
 import 'package:yagodmarket/core/providers/user_state_provider.dart';
-import 'package:yagodmarket/data/repositories/auth_repository.dart';
-import 'package:yagodmarket/data/repositories/user_repository.dart';
+import 'package:yagodmarket/core/repositories/auth_repository.dart';
+import 'package:yagodmarket/core/repositories/user_repository.dart';
 import 'package:ym_api_client/ym_api_client.dart';
 
 part 'sign_in_provider.g.dart';
@@ -31,14 +31,7 @@ class SignInState extends _$SignInState {
       ref.read(authStateProvider.notifier).authenticateUser(auth);
 
       final userResponse = await ref.read(userRepoProvider).getCurrentUser();
-
-      final user = User(
-        id: userResponse.id,
-        name: userResponse.name,
-        email: userResponse.email,
-        phone: userResponse.phones ?? '',
-        address: userResponse.address ?? '',
-      );
+      final user = userResponse.toDomain();
 
       ref.read(userStateProvider.notifier).setUser(user);
 

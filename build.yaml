@@ -5,9 +5,9 @@ targets:
         options:
           enable_cached_builds: true
         generate_for:
-          - lib/ui/pages/main/**/*.dart
-          - lib/ui/pages/screens/**/*.dart
-          - lib/ui/pages/tabs/**/*.dart
+          - lib/core/presentation/pages/main/**/*.dart
+          - lib/core/presentation/pages/screens/**/*.dart
+          - lib/core/presentation/pages/tabs/**/*.dart
           - lib/features/**/presentation/*.dart
       auto_route_generator:auto_router_generator:
         options:
@@ -18,18 +18,16 @@ targets:
         options:
           enable_cached_builds: true
         generate_for:
-          - lib/data/states/**/*.dart
-          - lib/data/models/**/*.dart
-          - lib/data/models/*.dart
-          - lib/data/model/ym/*.dart
-          - lib/features/**/presentation/bloc/*.dart
-          - lib/shared/bloc/*.dart
-          - lib/features/**/domain/*.dart
           - lib/core/models/*.dart
+          - lib/core/models/**/*.dart
+          - lib/core/presentation/models/*.dart
+          - lib/core/states/**/*.dart
+          - lib/features/**/domain/*.dart
+          - lib/features/**/presentation/bloc/*.dart
       riverpod_generator:
         enabled: true
         generate_for:
           include:
-            - lib/features/**/presentation/providers/*.dart
-            - lib/data/repositories/*.dart
             - lib/core/providers/*.dart
+            - lib/core/repositories/*.dart
+            - lib/features/**/presentation/providers/*.dart

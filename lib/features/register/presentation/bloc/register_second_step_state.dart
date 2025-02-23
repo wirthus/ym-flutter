@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:yagodmarket/data/model/ym/country.dart';
-import 'package:yagodmarket/data/model/ym/region.dart';
+import 'package:yagodmarket/core/models/country.dart';
+import 'package:yagodmarket/core/models/region.dart';
 
 import 'register_state.dart';
 

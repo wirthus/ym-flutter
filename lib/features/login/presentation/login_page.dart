@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:yagodmarket/features/login/presentation/widgets/login_form_component.dart';
-import 'package:yagodmarket/utils/s.dart';
+import 'package:yagodmarket/core/utils/s.dart';
 
 @RoutePage()
 class LoginPage extends StatefulWidget {

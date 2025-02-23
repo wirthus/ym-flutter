@@ -5,8 +5,8 @@ import 'package:yagodmarket/core/presentation/styles/sizes.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';
 import 'package:yagodmarket/features/login/presentation/providers/password_visibility_provider.dart';
 import 'package:yagodmarket/features/login/presentation/providers/sign_in_provider.dart';
-import 'package:yagodmarket/ui/widgets/input_field.dart';
-import 'package:yagodmarket/utils/s.dart';
+import 'package:yagodmarket/core/presentation/widgets/input_field.dart';
+import 'package:yagodmarket/core/utils/s.dart';
 
 class LoginFormComponent extends ConsumerStatefulWidget {
   const LoginFormComponent({super.key});

@@ -1,25 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sign_in_provider.dart';
+part of 'county_region_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$signInStateHash() => r'fe41a5bd10488206137288f7862a734e3df8b9d4';
+String _$countyRegionHash() => r'998c7d42b2d94f067491c449a0073ccaf3a93bae';
 
-/// See also [SignInState].
-@ProviderFor(SignInState)
-final signInStateProvider =
-    AutoDisposeAsyncNotifierProvider<SignInState, Option<User>>.internal(
-  SignInState.new,
-  name: r'signInStateProvider',
+/// See also [CountyRegion].
+@ProviderFor(CountyRegion)
+final countyRegionProvider =
+    NotifierProvider<CountyRegion, CountyRegionState>.internal(
+  CountyRegion.new,
+  name: r'countyRegionProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$signInStateHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$countyRegionHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$SignInState = AutoDisposeAsyncNotifier<Option<User>>;
+typedef _$CountyRegion = Notifier<CountyRegionState>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -1,4 +1,4 @@
-import 'package:yagodmarket/core/models/name_value.dart';
+import 'package:yagodmarket/core/presentation/models/name_value.dart';
 
 typedef CountryItem = NameValue<String, String>;
 typedef RegionItem = NameValue<int, String>;
