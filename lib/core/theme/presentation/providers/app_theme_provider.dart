@@ -1,5 +1,5 @@
+import 'package:yagodmarket/core/theme/infrastructure/repos/theme_repo.dart';
 import 'package:yagodmarket/core/theme/presentation/utils/app_theme.dart';
-import 'package:yagodmarket/core/theme/repos/theme_repo.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';
 
 part 'app_theme_provider.g.dart';

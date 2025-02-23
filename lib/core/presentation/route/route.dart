@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:yagodmarket/core/presentation/pages/no_internet_screen/no_internet_screen.dart';
 import 'package:yagodmarket/core/presentation/route/route.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
