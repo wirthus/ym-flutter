@@ -1,3 +1,4 @@
+import 'package:result_dart/result_dart.dart';
 import 'package:yagodmarket/core/locale/infrastructure/data_sources/locale_local_data_source.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';
 
@@ -15,7 +16,7 @@ class LocaleRepo {
 
   final LocaleLocalDataSource localDataSource;
 
-  String getAppLocale() => localDataSource.getAppLocale();
+  Result<String> getAppLocale() => localDataSource.getAppLocale();
 
   Future<void> cacheAppLocale(String languageCode) => localDataSource.cacheAppLocale(languageCode);
 }

@@ -6,6 +6,8 @@ import 'package:yagodmarket/core/utils/riverpod_framework.dart';
 
 part 'app_locale_provider.g.dart';
 
+const _defaultLocale = AppLocale.russian;
+
 @Riverpod(keepAlive: true)
 class AppLocaleController extends _$AppLocaleController {
   var _firstBuild = true;
@@ -31,7 +33,11 @@ class AppLocaleController extends _$AppLocaleController {
 
   AppLocale _getUserStoredLocale() {
     final storedLocale = ref.watch(localeRepoProvider).getAppLocale();
-    return AppLocale.values.firstWhere((l) => l.code == storedLocale);
+
+    return storedLocale.fold(
+      (success) => AppLocale.values.firstWhere((l) => l.code == success, orElse: () => _defaultLocale),
+      (failure) => _defaultLocale,
+    );
   }
 
   Future<void> changeLocale(AppLocale appLocale) async {

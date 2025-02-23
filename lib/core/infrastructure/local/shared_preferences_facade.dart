@@ -6,12 +6,14 @@ import 'extensions/local_error_extension.dart';
 part 'shared_preferences_facade.g.dart';
 
 @Riverpod(keepAlive: true)
-Future<SharedPreferences> sharedPrefsAsync(Ref ref) async {
-  return SharedPreferences.getInstance();
+Future<SharedPreferencesWithCache> sharedPrefsAsync(Ref ref) async {
+  return SharedPreferencesWithCache.create(
+    cacheOptions: const SharedPreferencesWithCacheOptions(),
+  );
 }
 
 @Riverpod(keepAlive: true)
-SharedPreferences _sharedPrefs(Ref ref) {
+SharedPreferencesWithCache _sharedPrefs(Ref ref) {
   return ref.watch(sharedPrefsAsyncProvider).requireValue;
 }
 
@@ -25,9 +27,9 @@ SharedPreferencesFacade sharedPreferencesFacade(Ref ref) {
 class SharedPreferencesFacade {
   SharedPreferencesFacade({required this.sharedPrefs});
 
-  final SharedPreferences sharedPrefs;
+  final SharedPreferencesWithCache sharedPrefs;
 
-  Future<bool> saveData({
+  Future<void> saveData({
     required String key,
     required Object value,
   }) async {
@@ -52,10 +54,10 @@ class SharedPreferencesFacade {
     return _errorHandler(
       () {
         return switch (T) {
-          String => sharedPrefs.getString(key) as T?,
-          int => sharedPrefs.getInt(key) as T?,
-          double => sharedPrefs.getDouble(key) as T?,
-          bool => sharedPrefs.getBool(key) as T?,
+          const (String) => sharedPrefs.getString(key) as T?,
+          const (int) => sharedPrefs.getInt(key) as T?,
+          const (double) => sharedPrefs.getDouble(key) as T?,
+          const (bool) => sharedPrefs.getBool(key) as T?,
           const (List<String>) => sharedPrefs.getStringList(key) as T?,
           _ => throw UnsupportedError(
               'The generic type is not supported. '
@@ -66,7 +68,7 @@ class SharedPreferencesFacade {
     );
   }
 
-  Future<bool> clearAll() async {
+  Future<void> clearAll() async {
     return _futureErrorHandler(
       () async {
         return sharedPrefs.clear();
@@ -74,7 +76,7 @@ class SharedPreferencesFacade {
     );
   }
 
-  Future<bool> clearKey(String key) async {
+  Future<void> clearKey(String key) async {
     return _futureErrorHandler(
       () async {
         return sharedPrefs.remove(key);

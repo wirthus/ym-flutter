@@ -1,3 +1,4 @@
+import 'package:result_dart/result_dart.dart';
 import 'package:yagodmarket/core/infrastructure/error/app_exception.dart';
 import 'package:yagodmarket/core/infrastructure/local/shared_preferences_facade.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';
@@ -18,15 +19,15 @@ class LocaleLocalDataSource {
 
   static const String appLocaleKey = 'app_locale';
 
-  String getAppLocale() {
+  Result<String> getAppLocale() {
     final locale = sharedPreferences.restoreData<String>(appLocaleKey);
     if (locale != null) {
-      return locale;
+      return Success(locale);
     } else {
-      throw const CacheException(
+      return Failure(const CacheException(
         type: CacheExceptionType.notFound,
         message: 'Cache Not Found',
-      );
+      ));
     }
   }
 

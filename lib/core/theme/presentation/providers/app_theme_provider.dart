@@ -4,6 +4,8 @@ import 'package:yagodmarket/core/utils/riverpod_framework.dart';
 
 part 'app_theme_provider.g.dart';
 
+const _defaultTheme = AppThemeMode.light;
+
 @Riverpod(keepAlive: true)
 class AppThemeController extends _$AppThemeController {
   @override
@@ -13,7 +15,10 @@ class AppThemeController extends _$AppThemeController {
 
   AppThemeMode _getUserStoredTheme() {
     final storedTheme = ref.watch(themeRepoProvider).getAppThemeMode();
-    return AppThemeMode.values.byName(storedTheme);
+    return storedTheme.fold(
+      (success) => AppThemeMode.values.byName(success),
+      (failure) => _defaultTheme,
+    );
   }
 
   Future<void> changeTheme(AppThemeMode appTheme) async {

@@ -7,7 +7,7 @@ part of 'app_locale_provider.dart';
 // **************************************************************************
 
 String _$appLocaleControllerHash() =>
-    r'4c275599fe4c8172d8331d62ea3a54ed1cb54f8a';
+    r'62ed573b35212f527e280b63fd1778133d39bf2a';
 
 /// See also [AppLocaleController].
 @ProviderFor(AppLocaleController)

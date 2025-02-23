@@ -1,3 +1,4 @@
+import 'package:result_dart/result_dart.dart';
 import 'package:yagodmarket/core/theme/data_sources/theme_local_data_source.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';
 
@@ -15,7 +16,7 @@ class ThemeRepo {
 
   final ThemeLocalDataSource localDataSource;
 
-  String getAppThemeMode() => localDataSource.getAppThemeMode();
+  Result<String> getAppThemeMode() => localDataSource.getAppThemeMode();
 
   Future<void> cacheAppThemeMode(String themeString) => localDataSource.cacheAppThemeMode(themeString);
 }
