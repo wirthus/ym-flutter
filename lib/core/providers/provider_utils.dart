@@ -2,6 +2,7 @@
 
 import 'package:riverpod/src/notifier.dart' as notifier;
 
+// ignore: unused_import
 import '../utils/riverpod_framework.dart';
 
 export 'package:yagodmarket/core/utils/event.dart';

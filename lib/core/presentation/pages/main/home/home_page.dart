@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:yagodmarket/core/presentation/helpers/localization_helper.dart';
 import 'package:yagodmarket/core/presentation/models/navigation_item.dart';
 import 'package:yagodmarket/core/presentation/pages/main/home/widgets/main_navigation_bar.dart';
 import 'package:yagodmarket/core/presentation/route/route.gr.dart';
-import 'package:yagodmarket/core/presentation/helpers/localization_helper.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:yagodmarket/core/models/county_region_state.dart';
-import 'package:yagodmarket/core/utils/riverpod_framework.dart';
 import 'package:yagodmarket/core/models/country.dart';
+import 'package:yagodmarket/core/models/county_region_state.dart';
 import 'package:yagodmarket/core/models/region.dart';
+import 'package:yagodmarket/core/utils/riverpod_framework.dart';
 
 part 'county_region_provider.g.dart';
 

@@ -16,7 +16,7 @@ SharedPreferences _sharedPrefs(Ref ref) {
 }
 
 @Riverpod(keepAlive: true)
-SharedPreferencesFacade sharedPreferencesFacade(SharedPreferencesFacadeRef ref) {
+SharedPreferencesFacade sharedPreferencesFacade(Ref ref) {
   return SharedPreferencesFacade(
     sharedPrefs: ref.watch(_sharedPrefsProvider),
   );

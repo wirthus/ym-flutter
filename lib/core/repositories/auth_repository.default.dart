@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:result_dart/result_dart.dart';
-import 'package:yagodmarket/core/models/auth.dart';
 import 'package:yagodmarket/core/exceptions/repository_exception.dart';
+import 'package:yagodmarket/core/models/auth.dart';
 import 'package:ym_api_client/ym_api_client.dart';
 
 import 'auth_repository.dart';

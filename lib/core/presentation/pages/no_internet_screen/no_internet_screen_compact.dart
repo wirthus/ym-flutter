@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/no_internet_error_widget.dart';
 import '../../styles/styles.dart';
+import '../../widgets/no_internet_error_widget.dart';
 import '../full_screen_scaffold.dart';
 
 class NoInternetScreenCompact extends StatelessWidget {

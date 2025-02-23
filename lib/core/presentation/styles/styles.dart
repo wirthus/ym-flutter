@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'package:yagodmarket/core/theme/presentation/utils/custom_colors.dart';
 import 'package:yagodmarket/core/presentation/helpers/localization_helper.dart';
+import 'package:yagodmarket/core/theme/presentation/utils/custom_colors.dart';
 
 part 'sizes.dart';
 part 'text_styles.dart';

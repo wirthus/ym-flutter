@@ -40,7 +40,7 @@ final _sharedPrefsProvider = Provider<SharedPreferences>.internal(
 // ignore: unused_element
 typedef _SharedPrefsRef = ProviderRef<SharedPreferences>;
 String _$sharedPreferencesFacadeHash() =>
-    r'72adcc6265431ab4aeea928a93fe53bb839e70a4';
+    r'e716af68c977e50daaaa030ad200605b9d2ecad6';
 
 /// See also [sharedPreferencesFacade].
 @ProviderFor(sharedPreferencesFacade)
