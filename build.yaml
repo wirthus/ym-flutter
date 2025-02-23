@@ -15,19 +15,12 @@ targets:
         generate_for:
           - lib/ui/route/route.dart
       freezed:
-        options:
-          enable_cached_builds: true
+        enabled: true
         generate_for:
-          - lib/core/models/*.dart
-          - lib/core/models/**/*.dart
-          - lib/core/presentation/models/*.dart
-          - lib/core/states/**/*.dart
-          - lib/features/**/domain/*.dart
-          - lib/features/**/presentation/bloc/*.dart
+          include:
+            - lib/**.dart
       riverpod_generator:
         enabled: true
         generate_for:
           include:
-            - lib/core/providers/*.dart
-            - lib/core/repositories/*.dart
-            - lib/features/**/presentation/providers/*.dart
+            - lib/**.dart

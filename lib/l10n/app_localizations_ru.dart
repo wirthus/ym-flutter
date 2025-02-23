@@ -12,6 +12,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get app_name => 'Ягод Маркет';
 
   @override
+  String get font_family => 'Poppins';
+
+  @override
   String get page_search_title => 'Поиск';
 
   @override

@@ -99,6 +99,12 @@ abstract class AppLocalizations {
   /// **'Ягод Маркет'**
   String get app_name;
 
+  /// No description provided for @font_family.
+  ///
+  /// In ru, this message translates to:
+  /// **'Poppins'**
+  String get font_family;
+
   /// Title text displayed on the character selection dialog
   ///
   /// In ru, this message translates to:

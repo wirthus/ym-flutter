@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:yagodmarket/core/presentation/extensions/widget_ref_extension.dart';
 import 'package:yagodmarket/core/presentation/styles/sizes.dart';
+import 'package:yagodmarket/core/presentation/widgets/input_field.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';
+import 'package:yagodmarket/core/utils/s.dart';
 import 'package:yagodmarket/features/login/presentation/providers/password_visibility_provider.dart';
 import 'package:yagodmarket/features/login/presentation/providers/sign_in_provider.dart';
-import 'package:yagodmarket/core/presentation/widgets/input_field.dart';
-import 'package:yagodmarket/core/utils/s.dart';
+import 'package:ym_api_client/ym_api_client.dart';
 
 class LoginFormComponent extends ConsumerStatefulWidget {
   const LoginFormComponent({super.key});
@@ -53,8 +54,13 @@ class _LoginFormComponentState extends ConsumerState<LoginFormComponent> {
   }
 
   void _handleSignIn() {
-    // final cubit = context.read<LoginCubit>();
-    // cubit.signIn(email: _emailController.text, password: _passwordController.text);
+    if (!_formKey.currentState!.validate()) return;
+
+    final payload = LoginDto((b) => b
+      ..username = _emailController.text
+      ..password = _passwordController.text);
+
+    ref.read(signInStateProvider.notifier).signIn(payload);
   }
 
   Widget _buildEmailField(BuildContext context) {
@@ -93,7 +99,7 @@ class _LoginFormComponentState extends ConsumerState<LoginFormComponent> {
     // final isEnabled = cubit.state.status != FormStatus.inProgress;
 
     return ElevatedButton(
-      onPressed: _handleSignIn,
+      onPressed: ref.isLoading(signInStateProvider) ? null : _handleSignIn,
       child: Text(
         S.of(context).login_button_text,
         style: const TextStyle(color: Colors.white),

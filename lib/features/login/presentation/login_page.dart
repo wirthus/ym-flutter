@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:yagodmarket/features/login/presentation/widgets/login_form_component.dart';
 import 'package:yagodmarket/core/utils/s.dart';
+import 'package:yagodmarket/features/login/presentation/widgets/login_form_component.dart';
 
 @RoutePage()
 class LoginPage extends StatefulWidget {
@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildSignUpButton() {
     return TextButton(
-      onPressed: null,
+      onPressed: handleSignUp,
       child: Text(
         S.of(context).login_signup_text,
         style: TextStyle(
@@ -104,6 +104,11 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void handleSignUp() {
+    // Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterPage()));
+    // context.router.push(const RegisterPage());
   }
 
   // Future<void> _handleLogin() async {

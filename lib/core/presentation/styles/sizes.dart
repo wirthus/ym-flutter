@@ -1,4 +1,4 @@
-// part of 'styles.dart';
+part of 'styles.dart';
 
 abstract class Sizes {
   // static final double statusBarHeight =

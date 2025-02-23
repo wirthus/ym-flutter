@@ -19,3 +19,5 @@ class S {
 
   static AppLocalizations of(BuildContext context) => AppLocalizations.of(context)!;
 }
+
+AppLocalizations tr(BuildContext context) => S.of(context);

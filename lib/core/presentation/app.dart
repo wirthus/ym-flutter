@@ -1,10 +1,9 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:yagodmarket/core/states/app/app_bloc.dart';
-import 'package:yagodmarket/di.dart';
 import 'package:yagodmarket/core/presentation/route/route.dart';
 import 'package:yagodmarket/core/utils/s.dart';
+import 'package:yagodmarket/di.dart';
 
 class YagodMarketApp extends StatelessWidget {
   const YagodMarketApp({super.key});
@@ -14,18 +13,15 @@ class YagodMarketApp extends StatelessWidget {
     var locale = S.ru;
     final appRouter = getIt<AppRouter>();
 
-    return BlocProvider(
-      create: (context) => AppBloc(),
-      child: MaterialApp.router(
-        supportedLocales: S.supportedLocales,
-        locale: locale,
-        localizationsDelegates: S.localizationDelegates,
-        routerConfig: appRouter.config(),
-        // scrollBehavior: AppScrollBehavior(),
-        // theme: themeData,
-        // darkTheme: AppThemes.darkTheme,
-        themeMode: ThemeMode.dark,
-      ),
+    return MaterialApp.router(
+      supportedLocales: S.supportedLocales,
+      locale: locale,
+      localizationsDelegates: S.localizationDelegates,
+      routerConfig: appRouter.config(),
+      // scrollBehavior: AppScrollBehavior(),
+      // theme: themeData,
+      // darkTheme: AppThemes.darkTheme,
+      themeMode: ThemeMode.dark,
     );
   }
 }

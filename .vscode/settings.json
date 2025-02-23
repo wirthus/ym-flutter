@@ -13,6 +13,7 @@
     "cupertino",
     "fpdart",
     "mapkit",
+    "Prefs",
     "riverpod",
     "rxdart",
     "signup",
