@@ -128,14 +128,14 @@ flutter:
   generate: true
 
   assets:
-    - lib/assets/map_styles/
-    - lib/assets/icons/
-    - lib/assets/icons/dialog_widget_icons/
-    - lib/assets/icons/languages_icons/
-    - lib/assets/icons/screens_icons/
-    - lib/assets/images/core/
-    - lib/assets/images/login/
-    - lib/assets/images/others/
+    - assets/map_styles/
+    - assets/icons/
+    - assets/icons/dialog_widget_icons/
+    - assets/icons/languages_icons/
+    - assets/icons/screens_icons/
+    - assets/images/core/
+    - assets/images/login/
+    - assets/images/others/
 
   fonts:
     - family: Poppins

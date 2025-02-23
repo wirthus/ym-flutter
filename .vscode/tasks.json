@@ -95,6 +95,23 @@
       "group": "build",
       "isBackground": true,
     },
+    {
+      "label": "generate assets",
+      "type": "shell",
+      "command": "fgen",
+      "args": [
+        "--no-watch",
+        "--output",
+        "${workspaceFolder}/lib/gen/my_assets.dart",
+        "--name",
+        "MyAssets"
+      ],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
   ],
   "taskHistory": {
     "maxHistory": 100,

@@ -20,8 +20,8 @@ flutter_native_splash:
   # App icon with an icon background: This should be 960×960 pixels, and fit within a circle 640 pixels in diameter.
   # App icon without an icon background: This should be 1152×1152 pixels, and fit within a circle 768 pixels in diameter.
   android_12:
-    image: lib/assets/native_splash/android12_transparent_splash_icon.png
-    image_dark: lib/assets/native_splash/android12_transparent_splash_icon.png
+    image: assets/native_splash/android12_transparent_splash_icon.png
+    image_dark: assets/native_splash/android12_transparent_splash_icon.png
 
   # To hide the notification bar, use the fullscreen parameter.  Has no effect in web since web
   # has no notification bar.  Defaults to false.

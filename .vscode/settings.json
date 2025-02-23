@@ -52,6 +52,9 @@
       "build.yaml",
       "*.build.yaml",
       "build.*.yaml"
+    ],
+    "https://raw.githubusercontent.com/fluttercandies/flutter_asset_generator/master/fgen_schema.json": [
+      "fgen.yaml"
     ]
   }
 }
