@@ -112,6 +112,16 @@
         "panel": "dedicated"
       }
     },
+    // dart run flutter_native_splash:create
+    {
+      "label": "create native splash",
+      "type": "shell",
+      "command": "dart",
+      "args": [
+        "run",
+        "flutter_native_splash:create"
+      ]
+    },
     {
       "label": "kill java",
       "type": "process",

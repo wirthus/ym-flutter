@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:yagodmarket/core/locale/presentation/providers/current_app_locale_provider.dart';
+import 'package:yagodmarket/core/presentation/routing/navigation_service.dart';
 import 'package:yagodmarket/core/presentation/routing/route.dart';
+import 'package:yagodmarket/core/presentation/utils/scroll_behaviors.dart';
 import 'package:yagodmarket/core/providers/device_info_providers.dart';
 import 'package:yagodmarket/core/theme/presentation/providers/current_app_theme_provider.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';
@@ -30,6 +32,13 @@ class YagodMarketApp extends HookConsumerWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       // scrollBehavior: AppScrollBehavior(),
       themeMode: ThemeMode.dark,
+      builder: (context, child) => ScrollConfiguration(
+        behavior: MainScrollBehavior(),
+        child: GestureDetector(
+          onTap: NavigationService.removeFocus,
+          child: child,
+        ),
+      ),
     );
   }
 }
