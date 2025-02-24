@@ -20,15 +20,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _autoValidate = false;
-
   static final _gray700 = Colors.grey[700];
-
-  ButtonStyle get _raisedButtonStyle => ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-        padding: const EdgeInsets.all(12),
-        backgroundColor: Theme.of(context).primaryColor,
-      );
 
   _LoginPageState();
 

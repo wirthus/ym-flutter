@@ -3,9 +3,8 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:logging/logging.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:yagodmarket/core/infrastructure/network/data_connection_checker.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';
-
-import '../network/data_connection_checker.dart';
 
 part 'connection_stream_service.g.dart';
 

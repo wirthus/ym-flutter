@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
 import 'package:yagodmarket/core/presentation/pages/tabs/map/widgets/control_button.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
@@ -97,7 +98,8 @@ class _ClusterizedPlacemarkCollectionExampleState extends State<_ClusterizedPlac
                                       image: BitmapDescriptor.fromAssetImage('lib/assets/cluster.png'), scale: 1))));
                         },
                         onClusterTap: (ClusterizedPlacemarkCollection self, Cluster cluster) {
-                          print('Tapped cluster');
+                          Logger.root.info('Tapped cluster');
+                          // print('Tapped cluster');
                         },
                         placemarks: [
                           PlacemarkMapObject(

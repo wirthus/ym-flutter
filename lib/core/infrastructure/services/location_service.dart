@@ -66,23 +66,25 @@ class LocationService {
     LocationAccuracy? accuracy,
     int? interval,
     int? distanceFilter,
+    int? timeLimit,
   }) {
     if (Platform.isAndroid) {
       return AndroidSettings(
-        accuracy: LocationAccuracy.high,
+        accuracy: accuracy ?? LocationAccuracy.high,
         distanceFilter: distanceFilter ?? AppLocationSettings.locationChangeDistance,
         intervalDuration: Duration(seconds: interval ?? AppLocationSettings.locationChangeInterval),
+        timeLimit: Duration(seconds: timeLimit ?? AppLocationSettings.getLocationTimeLimit),
         //Set foreground notification config to keep app alive in background
         foregroundNotificationConfig: const ForegroundNotificationConfig(
-          notificationTitle: 'Deliverzler Delivery Service',
-          notificationText: 'Deliverzler will receive your location in background.',
+          notificationTitle: 'Yagod Market',
+          notificationText: 'Yagod Market will receive your location in background.',
           notificationIcon: AndroidResource(name: 'notification_icon'),
           enableWakeLock: true,
         ),
       );
     } else if (Platform.isIOS || Platform.isMacOS) {
       return AppleSettings(
-        accuracy: LocationAccuracy.high,
+        accuracy: accuracy ?? LocationAccuracy.high,
         distanceFilter: distanceFilter ?? AppLocationSettings.locationChangeDistance,
         activityType: ActivityType.automotiveNavigation,
         pauseLocationUpdatesAutomatically: true,
@@ -91,7 +93,7 @@ class LocationService {
       );
     } else {
       return LocationSettings(
-        accuracy: LocationAccuracy.high,
+        accuracy: accuracy ?? LocationAccuracy.high,
         distanceFilter: distanceFilter ?? AppLocationSettings.locationChangeDistance,
       );
     }
@@ -100,8 +102,9 @@ class LocationService {
   Future<Position?> getLocation() async {
     try {
       return await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
-        timeLimit: const Duration(seconds: AppLocationSettings.getLocationTimeLimit),
+        locationSettings: getLocationSettings(
+          timeLimit: AppLocationSettings.getLocationTimeLimit,
+        ),
       );
     } catch (e) {
       Logger.root.severe(e, StackTrace.current);
