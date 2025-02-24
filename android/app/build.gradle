@@ -29,7 +29,8 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         manifestPlaceholders = [
-            yandexMapKitApiKey: 'b85cfee7-ea37-43d3-b77d-7331a7cbf766'
+            yandexMapKitApiKey: 'b85cfee7-ea37-43d3-b77d-7331a7cbf766',
+            applicationName: "com.yagodmarket.client"
         ]
     }
 

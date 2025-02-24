@@ -32,7 +32,7 @@
     "**/*.g.dart": true,
     "**/*.gen.dart": true,
     "**/*.gr.dart": true,
-    "**/.gitkeep": true
+    "**/.gitkeep": true,
   },
   "files.watcherExclude": {
     "**/.fvm": true,
@@ -40,7 +40,10 @@
   },
   "search.exclude": {
     "**/.fvm": true,
-    "**/build": true
+    "**/build": true,
+    "**/.cxx": true,
+    ".dart_tool": true,
+    "android/.gradle": true
   },
   "triggerTaskOnSave.on": true,
   "triggerTaskOnSave.showStatusBarToggle": true,

@@ -111,6 +111,19 @@
         "reveal": "always",
         "panel": "dedicated"
       }
+    },
+    {
+      "label": "kill java",
+      "type": "process",
+      "command": "taskkill",
+      "args": [
+        "/F",
+        "/IM",
+        "java.exe"
+      ],
+      "problemMatcher": [],
+      "group": "none",
+      "isBackground": true
     }
   ],
   "taskHistory": {
