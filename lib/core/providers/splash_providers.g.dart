@@ -24,7 +24,7 @@ final splashServicesWarmupProvider = AutoDisposeFutureProvider<void>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef SplashServicesWarmupRef = AutoDisposeFutureProviderRef<void>;
-String _$splashTargetHash() => r'b2bbbac60f1340d5918ac369e449ab762c3fd911';
+String _$splashTargetHash() => r'794fbf0bbee41bbdf1416dbe74902310fce05dc4';
 
 /// See also [splashTarget].
 @ProviderFor(splashTarget)

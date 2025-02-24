@@ -1,38 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:yagodmarket/core/presentation/helpers/localization_helper.dart';
-import 'package:yagodmarket/features/login/presentation/widgets/login_form_component.dart';
+import 'package:yagodmarket/core/presentation/styles/styles.dart';
+import 'package:yagodmarket/features/login/presentation/widgets/login_form_widget.dart';
+import 'package:yagodmarket/features/login/presentation/widgets/login_logo_widget.dart';
+import 'package:yagodmarket/features/login/presentation/widgets/login_other_buttons_widget.dart';
+import 'package:yagodmarket/features/login/presentation/widgets/login_welcome_widget.dart';
 
 @RoutePage()
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
-
-  // @override
-  // Widget wrappedRoute(BuildContext context) {
-  //   return BlocProvider(
-  //     create: (context) => getIt<LoginCubit>(),
-  //     child: this,
-  //   );
-  // }
-
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  static final _gray700 = Colors.grey[700];
-
-  _LoginPageState();
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +22,12 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const LoginFormComponent(),
-                _buildForgotPasswordButton(),
-                _buildSignUpButton(),
+                const LoginLogoWidget(),
+                const SizedBox(height: Sizes.marginV12),
+                const LoginWelcomeWidget(),
+                const SizedBox(height: Sizes.marginV32),
+                const LoginFormWidget(),
+                const LoginOtherButtonsWidget(),
               ],
             ),
           ),
@@ -56,85 +35,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-
-  // Widget _buildLogo() {
-  //   return Hero(
-  //     tag: 'hero',
-  //     child: CircleAvatar(
-  //       backgroundColor: Colors.transparent,
-  //       radius: 60.0,
-  //       child: ClipOval(
-  //         child: Image.asset(
-  //           'assets/images/default.png',
-  //           fit: BoxFit.cover,
-  //           width: 120.0,
-  //           height: 120.0,
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  Widget _buildForgotPasswordButton() {
-    return TextButton(
-      onPressed: null,
-      child: Text(
-        S.of(context).login_forgot_password_text,
-        style: TextStyle(color: _gray700),
-      ),
-    );
-  }
-
-  Widget _buildSignUpButton() {
-    return TextButton(
-      onPressed: handleSignUp,
-      child: Text(
-        S.of(context).login_signup_text,
-        style: TextStyle(
-          color: _gray700,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
-
-  void handleSignUp() {
-    // Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterPage()));
-    // context.router.push(const RegisterPage());
-  }
-
-  // Future<void> _handleLogin() async {
-  //   // if (!_formKey.currentState!.validate()) {
-  //   //   setState(() => _autoValidate = true);
-  //   //   return;
-  //   // }
-
-  //   context.read<LoginCubit>().submit();
-
-  //   // await context.read<LoginCubit>().submit();
-
-  //   // try {
-  //   //   await _changeLoadingVisible(true);
-
-  //   //   // ScaffoldMessenger.of(context).showSnackBar(
-  //   //   //   const SnackBar(content: Text('Успешный вход')),
-  //   //   // );
-  //   // } catch (e) {
-  //   //   // ScaffoldMessenger.of(context).showSnackBar(
-  //   //   // SnackBar(content: Text('Login error: ${e.toString()}')),
-  //   //   // );
-  //   // } finally {
-  //   //   await _changeLoadingVisible(false);
-  //   // }
-  // }
-
-  // void _handleForgotPassword() {
-  //   context.read<LoginCubit>().forgotPasswordPressed();
-  //   // Navigator.pushNamed(context, '/forgot-password');
-  // }
-
-  // void _handleSignUp() {
-  //   context.read<LoginCubit>().signupPressed();
-  //   // Navigator.pushNamed(context, '/signup');
-  // }
 }

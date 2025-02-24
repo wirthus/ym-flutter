@@ -9,14 +9,14 @@ import 'package:yagodmarket/features/login/presentation/providers/password_visib
 import 'package:yagodmarket/features/login/presentation/providers/sign_in_provider.dart';
 import 'package:ym_api_client/ym_api_client.dart';
 
-class LoginFormComponent extends ConsumerStatefulWidget {
-  const LoginFormComponent({super.key});
+class LoginFormWidget extends ConsumerStatefulWidget {
+  const LoginFormWidget({super.key});
 
   @override
-  ConsumerState<LoginFormComponent> createState() => _LoginFormComponentState();
+  ConsumerState<LoginFormWidget> createState() => _LoginFormWidgetState();
 }
 
-class _LoginFormComponentState extends ConsumerState<LoginFormComponent> {
+class _LoginFormWidgetState extends ConsumerState<LoginFormWidget> {
   final _formKey = GlobalKey<FormState>();
 
   late TextEditingController _emailController;
@@ -66,7 +66,7 @@ class _LoginFormComponentState extends ConsumerState<LoginFormComponent> {
   Widget _buildEmailField(BuildContext context) {
     return YmInputField(
       controller: _emailController,
-      hintText: tr(context).login_email_hint,
+      hintText: tr(context).login_email,
       keyboardType: TextInputType.emailAddress,
       autofocus: true,
       autofillHints: const [AutofillHints.email],
@@ -81,7 +81,7 @@ class _LoginFormComponentState extends ConsumerState<LoginFormComponent> {
 
     return YmInputField(
       controller: _passwordController,
-      hintText: S.of(context).login_password_hint,
+      hintText: tr(context).login_password,
       keyboardType: TextInputType.visiblePassword,
       obscureText: !isPasswordVisible,
       autofocus: false,

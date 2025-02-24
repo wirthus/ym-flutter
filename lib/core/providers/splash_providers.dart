@@ -29,8 +29,6 @@ Future<void> splashServicesWarmup(Ref ref) async {
 
 @riverpod
 Future<PageRouteInfo<dynamic>> splashTarget(Ref ref) async {
-  final hasConnection = await ref.watch(networkInfoProvider).hasInternetConnection;
-  if (hasConnection) return const LoginRoute();
-
-  return const NoInternetRoute();
+  final hasConnection = await ref.watch(networkInfoProvider.select((t) => t.hasInternetConnection));
+  return hasConnection ? const LoginRoute() : const NoInternetRoute();
 }

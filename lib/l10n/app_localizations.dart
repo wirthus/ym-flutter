@@ -177,23 +177,35 @@ abstract class AppLocalizations {
   /// **'Профиль'**
   String get page_profile_title;
 
-  /// No description provided for @login_email_hint.
+  /// No description provided for @login_welcome.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добро пожаловать'**
+  String get login_welcome;
+
+  /// No description provided for @login_sign_in_to_your_account.
+  ///
+  /// In ru, this message translates to:
+  /// **'Войдите в свой аккаунт'**
+  String get login_sign_in_to_your_account;
+
+  /// No description provided for @login_email.
   ///
   /// In ru, this message translates to:
   /// **'Email'**
-  String get login_email_hint;
+  String get login_email;
 
-  /// No description provided for @login_password_hint.
+  /// No description provided for @login_password.
   ///
   /// In ru, this message translates to:
   /// **'Пароль'**
-  String get login_password_hint;
+  String get login_password;
 
-  /// No description provided for @login_confirm_password_hint.
+  /// No description provided for @login_confirm_password.
   ///
   /// In ru, this message translates to:
   /// **'Подтвердить пароль'**
-  String get login_confirm_password_hint;
+  String get login_confirm_password;
 
   /// No description provided for @login_button_text.
   ///

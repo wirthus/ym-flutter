@@ -51,13 +51,19 @@ class AppLocalizationsRu extends AppLocalizations {
   String get page_profile_title => 'Профиль';
 
   @override
-  String get login_email_hint => 'Email';
+  String get login_welcome => 'Добро пожаловать';
 
   @override
-  String get login_password_hint => 'Пароль';
+  String get login_sign_in_to_your_account => 'Войдите в свой аккаунт';
 
   @override
-  String get login_confirm_password_hint => 'Подтвердить пароль';
+  String get login_email => 'Email';
+
+  @override
+  String get login_password => 'Пароль';
+
+  @override
+  String get login_confirm_password => 'Подтвердить пароль';
 
   @override
   String get login_button_text => 'Войти';

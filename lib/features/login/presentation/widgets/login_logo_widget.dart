@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:yagodmarket/core/presentation/helpers/localization_helper.dart';
 import 'package:yagodmarket/core/presentation/styles/styles.dart';
+import 'package:yagodmarket/gen/my_assets.dart';
 
-class LoginLogoComponent extends StatelessWidget {
-  const LoginLogoComponent({super.key});
+class LoginLogoWidget extends StatelessWidget {
+  const LoginLogoWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +12,7 @@ class LoginLogoComponent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(
-          'assets/images/core/app_logo.png',
-          // MyAssets.ASSETS_IMAGES_CORE_APP_LOGO_PNG,
+          MyAssets.ASSETS_IMAGES_CORE_APP_LOGO_PNG,
           height: 140,
           width: 140,
           fit: BoxFit.cover,
@@ -22,7 +22,7 @@ class LoginLogoComponent extends StatelessWidget {
         ),
         Text(
           tr(context).app_name,
-          // style: TextStyles.f28(context),
+          style: TextStyles.f28(context),
         ),
       ],
     );
