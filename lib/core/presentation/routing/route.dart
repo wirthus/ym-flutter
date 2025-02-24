@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:yagodmarket/core/presentation/route/route.gr.dart';
+import 'package:yagodmarket/core/presentation/routing/route.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
 class AppRouter extends RootStackRouter {

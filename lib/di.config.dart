@@ -12,7 +12,7 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
-import 'package:yagodmarket/core/presentation/route/route.dart' as _i32;
+import 'package:yagodmarket/core/presentation/routing/route.dart' as _i406;
 import 'package:yagodmarket/core/repositories/auth_repository.dart' as _i995;
 import 'package:yagodmarket/core/repositories/auth_repository.default.dart'
     as _i1040;
@@ -42,7 +42,7 @@ extension GetItInjectableX on _i174.GetIt {
     final registerModule = _$RegisterModule();
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio);
     gh.lazySingleton<_i798.YmApiClient>(() => registerModule.ymApiClient);
-    gh.lazySingleton<_i32.AppRouter>(() => registerModule.appRouter);
+    gh.lazySingleton<_i406.AppRouter>(() => registerModule.appRouter);
     gh.factory<_i923.UserRepository>(
         () => _i978.DefaultUserRepositoryImpl(gh<_i798.YmApiClient>()));
     gh.factory<_i424.CountryRepository>(

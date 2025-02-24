@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-import 'package:yagodmarket/core/presentation/route/route.dart';
+import 'package:yagodmarket/core/presentation/routing/route.dart';
 import 'package:ym_api_client/ym_api_client.dart';
 
 import 'di.config.dart';

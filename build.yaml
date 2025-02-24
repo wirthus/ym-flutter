@@ -15,7 +15,7 @@ targets:
         options:
           enable_cached_builds: true
         generate_for:
-          - lib/core/presentation/route/route.dart
+          - lib/core/presentation/routing/route.dart
       freezed:
         enabled: true
         generate_for:

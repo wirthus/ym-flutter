@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:yagodmarket/core/presentation/extensions/widget_ref_extension.dart';
 import 'package:yagodmarket/core/presentation/hooks/fade_in_controller_hook.dart';
+import 'package:yagodmarket/core/presentation/routing/route.gr.dart';
 import 'package:yagodmarket/core/presentation/widgets/responsive_widgets/responsive_layouts.dart';
 import 'package:yagodmarket/core/providers/splash_providers.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';
@@ -26,12 +27,12 @@ class SplashScreen extends HookConsumerWidget {
       ref.listen<AsyncValue<String>>(
         splashTargetProvider,
         (prevState, newState) {
-          // late String nextRoute;
-          // newState.whenOrNull(
-          //   data: (next) => nextRoute = next,
-          //   error: (e, st) => nextRoute = const NoInternetRoute().location,
-          // );
-          // context.go(nextRoute);
+          late String nextRoute;
+          newState.whenOrNull(
+            data: (next) => nextRoute = next,
+            error: (e, st) => nextRoute = const NoInternetRoute().routeName,
+          );
+          context.router.pushNamed(nextRoute);
         },
       );
     }

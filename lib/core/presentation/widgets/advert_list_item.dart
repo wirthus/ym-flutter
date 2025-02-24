@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:yagodmarket/core/models/advert.dart';
-import 'package:yagodmarket/core/presentation/route/route.gr.dart';
+import 'package:yagodmarket/core/presentation/routing/route.gr.dart';
 
 class AdvertListItem extends StatelessWidget {
   static final _priceFormat = NumberFormat.currency(

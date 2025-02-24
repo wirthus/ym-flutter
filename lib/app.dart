@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:yagodmarket/core/locale/presentation/providers/current_app_locale_provider.dart';
-import 'package:yagodmarket/core/presentation/route/route.dart';
+import 'package:yagodmarket/core/presentation/routing/route.dart';
 import 'package:yagodmarket/core/providers/device_info_providers.dart';
 import 'package:yagodmarket/core/theme/presentation/providers/current_app_theme_provider.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';

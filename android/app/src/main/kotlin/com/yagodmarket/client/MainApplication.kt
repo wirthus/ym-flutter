@@ -1,4 +1,4 @@
-package com.example.mobile
+package com.yagodmarket.client
 
 import android.app.Application
 import com.yandex.mapkit.MapKitFactory
