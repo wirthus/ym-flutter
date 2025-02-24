@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-const _color = Colors.grey;
+const _iconSize = 18.0;
 
-class YmInputField extends StatefulWidget {
+class CustomInputField extends StatefulWidget {
   final TextEditingController controller;
   final String hintText;
 
@@ -16,12 +16,13 @@ class YmInputField extends StatefulWidget {
   final bool autofocus;
   final Iterable<String>? autofillHints;
   final String? Function(String?)? validator;
+  final TextInputAction? textInputAction;
 
   final bool obscureText;
 
   final void Function(String)? onFieldSubmitted;
 
-  const YmInputField({
+  const CustomInputField({
     super.key,
     required this.controller,
     required this.hintText,
@@ -34,15 +35,15 @@ class YmInputField extends StatefulWidget {
     this.autofillHints,
     this.validator,
     this.obscureText = false,
+    this.textInputAction,
     this.onFieldSubmitted,
   });
 
   @override
-  State<YmInputField> createState() => _YmInputFieldState();
+  State<CustomInputField> createState() => _CustomInputFieldState();
 }
 
-class _YmInputFieldState extends State<YmInputField> {
-  static const _inputPrefixPadding = EdgeInsets.only(left: 5.0);
+class _CustomInputFieldState extends State<CustomInputField> {
   static const _contentPadding = EdgeInsets.symmetric(vertical: 10, horizontal: 20);
   static const _borderRadius = BorderRadius.all(Radius.circular(32.0));
   static const _outlineInputBorder = OutlineInputBorder(borderRadius: _borderRadius);
@@ -57,29 +58,45 @@ class _YmInputFieldState extends State<YmInputField> {
       validator: widget.validator,
       obscureText: widget.obscureText,
       onFieldSubmitted: widget.onFieldSubmitted,
+      textInputAction: widget.textInputAction,
       decoration: InputDecoration(
         prefixIcon: _createIcon(widget.prefixIcon, widget.onPrefixIconTap),
         suffixIcon: _createIcon(widget.suffixIcon, widget.onSuffixIconTap),
         hintText: widget.hintText,
         contentPadding: _contentPadding,
         border: _outlineInputBorder,
+        // suffixIconConstraints: const BoxConstraints(),
+        // prefixIconConstraints: const BoxConstraints(),
       ),
     );
   }
 
-  Widget? _createIcon(IconData? icon, void Function()? onTap) {
-    if (icon == null) return null;
+  Widget? _createIcon(IconData? iconData, void Function()? onTap) {
+    if (iconData == null) return null;
+
+    final padding = _getInputPrefixPadding(context);
+    final icon = Icon(
+      iconData,
+      size: _iconSize,
+    );
 
     if (onTap == null) {
       return Padding(
-        padding: _inputPrefixPadding,
-        child: Icon(icon, color: _color),
+        padding: padding,
+        child: icon,
       );
     }
 
     return IconButton(
+      padding: padding,
+      icon: icon,
       onPressed: onTap,
-      icon: Icon(icon, color: _color),
+    );
+  }
+
+  static EdgeInsetsDirectional _getInputPrefixPadding(BuildContext context) {
+    return EdgeInsetsDirectional.only(
+      start: (Theme.of(context).inputDecorationTheme.contentPadding!.horizontal - _iconSize) / 2,
     );
   }
 }

@@ -54,7 +54,7 @@ abstract class TextStyles {
   static TextStyle navigationLabel(Color color) => TextStyle(color: color, fontSize: Sizes.font12);
 
   static TextStyle coloredElevatedButton(BuildContext context) => f16(context).copyWith(
-        color: const Color(0xffffffff),
+        color: Theme.of(context).primaryColor,
         fontWeight: FontStyles.fontWeightSemiBold,
       );
 

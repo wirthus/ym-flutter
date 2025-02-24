@@ -99,6 +99,10 @@ class MyAssets {
   static const String ASSETS_IMAGES_LOGIN_LOGIN_BACKGROUND_PNG =
       'assets/images/login/login_background.png';
 
+  /// ![preview](file://C:\_Projects\_wirthus\ym_flutter\assets\images\login\logo.svg)
+  static const String ASSETS_IMAGES_LOGIN_LOGO_SVG =
+      'assets/images/login/logo.svg';
+
   /// ![preview](file://C:\_Projects\_wirthus\ym_flutter\assets\images\others\arrow.png)
   static const String ASSETS_IMAGES_OTHERS_ARROW_PNG =
       'assets/images/others/arrow.png';

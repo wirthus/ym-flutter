@@ -3,7 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:yagodmarket/core/presentation/extensions/widget_ref_extension.dart';
 import 'package:yagodmarket/core/presentation/helpers/localization_helper.dart';
 import 'package:yagodmarket/core/presentation/styles/styles.dart';
-import 'package:yagodmarket/core/presentation/widgets/input_field.dart';
+import 'package:yagodmarket/core/presentation/widgets/custom_elevated_button.dart';
+import 'package:yagodmarket/core/presentation/widgets/custom_input_field.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';
 import 'package:yagodmarket/features/login/presentation/providers/password_visibility_provider.dart';
 import 'package:yagodmarket/features/login/presentation/providers/sign_in_provider.dart';
@@ -64,13 +65,14 @@ class _LoginFormWidgetState extends ConsumerState<LoginFormWidget> {
   }
 
   Widget _buildEmailField(BuildContext context) {
-    return YmInputField(
+    return CustomInputField(
       controller: _emailController,
       hintText: tr(context).login_email,
       keyboardType: TextInputType.emailAddress,
       autofocus: true,
       autofillHints: const [AutofillHints.email],
       prefixIcon: Icons.email,
+      textInputAction: TextInputAction.next,
       validator: (value) => value?.isEmpty ?? true ? 'Email is required' : null,
       onFieldSubmitted: ref.isLoading(signInStateProvider) ? null : (_) => _handleSignIn(),
     );
@@ -79,7 +81,7 @@ class _LoginFormWidgetState extends ConsumerState<LoginFormWidget> {
   Widget _buildPasswordField(BuildContext context) {
     final isPasswordVisible = ref.watch(passwordVisibilityNotifierProvider);
 
-    return YmInputField(
+    return CustomInputField(
       controller: _passwordController,
       hintText: tr(context).login_password,
       keyboardType: TextInputType.visiblePassword,
@@ -89,6 +91,7 @@ class _LoginFormWidgetState extends ConsumerState<LoginFormWidget> {
       prefixIcon: Icons.lock,
       suffixIcon: isPasswordVisible ? Icons.visibility_off : Icons.visibility,
       onSuffixIconTap: () => ref.read(passwordVisibilityNotifierProvider.notifier).toggleVisibility(),
+      textInputAction: TextInputAction.go,
       validator: (value) => value?.isEmpty ?? true ? 'Password is required' : null,
       onFieldSubmitted: ref.isLoading(signInStateProvider) ? null : (_) => _handleSignIn(),
     );
@@ -98,11 +101,12 @@ class _LoginFormWidgetState extends ConsumerState<LoginFormWidget> {
     // final cubit = context.read<LoginCubit>();
     // final isEnabled = cubit.state.status != FormStatus.inProgress;
 
-    return ElevatedButton(
+    return CustomElevatedButton(
+      // enableGradient: true,
       onPressed: ref.isLoading(signInStateProvider) ? null : _handleSignIn,
       child: Text(
-        S.of(context).login_button_text,
-        style: const TextStyle(color: Colors.white),
+        tr(context).login_button_text.toUpperCase(),
+        // style: TextStyles.coloredElevatedButton(context),
       ),
     );
   }

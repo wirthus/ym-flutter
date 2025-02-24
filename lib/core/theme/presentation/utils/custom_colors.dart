@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:yagodmarket/core/theme/presentation/utils/app_colors.dart';
 
+ColorScheme colorScheme(BuildContext context) => Theme.of(context).colorScheme;
+AppColors appColors(BuildContext context) => Theme.of(context).extension<AppColors>()!;
 CustomColors customColors(BuildContext context) => Theme.of(context).extension<CustomColors>()!;
 
 @immutable

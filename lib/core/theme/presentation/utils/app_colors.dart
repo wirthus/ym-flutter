@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'app_static_colors.dart';
 import 'custom_colors.dart';
 
 part 'app_colors_light.dart';

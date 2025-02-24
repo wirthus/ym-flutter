@@ -4,7 +4,7 @@ class AppColorsLight implements AppColors {
   @override
   Color get primaryColor => const Color(0xffffffff);
   @override
-  Color get primary => const Color(0xFFC11718);
+  Color get primary => AppStaticColors.primary;
   @override
   Color get secondary => const Color(0xFF4b98db);
 
@@ -40,7 +40,7 @@ class AppColorsLight implements AppColors {
   @override
   Color get textFieldEnabledBorderColor => const Color(0xFF9E9E9E);
   @override
-  Color get textFieldFocusedBorderColor => const Color(0xFFC11718);
+  Color get textFieldFocusedBorderColor => AppStaticColors.primary;
   @override
   Color get textFieldErrorBorderColor => const Color(0xffff0000);
   @override
@@ -50,7 +50,7 @@ class AppColorsLight implements AppColors {
   Color get iconColor => const Color(0xff000000);
 
   @override
-  Color get buttonColor => const Color(0xFFC11718);
+  Color get buttonColor => AppStaticColors.primary;
   @override
   Color get buttonDisabledColor => const Color(0xFF9E9E9E);
 
