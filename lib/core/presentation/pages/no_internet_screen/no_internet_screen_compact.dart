@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../styles/styles.dart';
-import '../../widgets/no_internet_error_widget.dart';
-import '../full_screen_scaffold.dart';
+import 'package:yagodmarket/core/presentation/pages/full_screen_scaffold.dart';
+import 'package:yagodmarket/core/presentation/styles/styles.dart';
+import 'package:yagodmarket/core/presentation/widgets/no_internet_error_widget.dart';
 
 class NoInternetScreenCompact extends StatelessWidget {
   const NoInternetScreenCompact({super.key});

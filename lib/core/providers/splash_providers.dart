@@ -1,9 +1,11 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:yagodmarket/core/infrastructure/error/app_exception.dart';
 import 'package:yagodmarket/core/infrastructure/network/network_info.dart';
 import 'package:yagodmarket/core/locale/presentation/providers/app_locale_provider.dart';
 import 'package:yagodmarket/core/presentation/extensions/future_extensions.dart';
+import 'package:yagodmarket/core/presentation/routing/route.gr.dart';
 import 'package:yagodmarket/core/providers/check_auth_provider.dart';
 import 'package:yagodmarket/core/theme/presentation/providers/app_theme_provider.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';
@@ -26,13 +28,9 @@ Future<void> splashServicesWarmup(Ref ref) async {
 }
 
 @riverpod
-Future<String> splashTarget(Ref ref) async {
+Future<PageRouteInfo<dynamic>> splashTarget(Ref ref) async {
   final hasConnection = await ref.watch(networkInfoProvider).hasInternetConnection;
-  if (hasConnection) {
-    return '';
-    // return const SignInRoute().location;
-  } else {
-    return '';
-    // return const NoInternetRoute().location;
-  }
+  if (hasConnection) return const LoginRoute();
+
+  return const NoInternetRoute();
 }

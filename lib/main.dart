@@ -5,7 +5,7 @@ import 'package:yagodmarket/app.dart';
 import 'package:yagodmarket/core/infrastructure/local/shared_preferences_facade.dart';
 import 'package:yagodmarket/core/infrastructure/services/logger.dart';
 import 'package:yagodmarket/core/presentation/extensions/future_extensions.dart';
-import 'package:yagodmarket/core/presentation/widgets/splash_screen/splash_screen.dart';
+import 'package:yagodmarket/core/presentation/pages/splash_screen/splash_screen.dart';
 import 'package:yagodmarket/core/providers/device_info_providers.dart';
 import 'package:yagodmarket/core/providers/provider_observers.dart';
 import 'package:yagodmarket/core/utils/riverpod_framework.dart';

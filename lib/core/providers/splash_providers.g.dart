@@ -24,11 +24,12 @@ final splashServicesWarmupProvider = AutoDisposeFutureProvider<void>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef SplashServicesWarmupRef = AutoDisposeFutureProviderRef<void>;
-String _$splashTargetHash() => r'801a590c867132f4ff63f71824a45b22976e1261';
+String _$splashTargetHash() => r'b2bbbac60f1340d5918ac369e449ab762c3fd911';
 
 /// See also [splashTarget].
 @ProviderFor(splashTarget)
-final splashTargetProvider = AutoDisposeFutureProvider<String>.internal(
+final splashTargetProvider =
+    AutoDisposeFutureProvider<PageRouteInfo<dynamic>>.internal(
   splashTarget,
   name: r'splashTargetProvider',
   debugGetCreateSourceHash:
@@ -39,6 +40,6 @@ final splashTargetProvider = AutoDisposeFutureProvider<String>.internal(
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef SplashTargetRef = AutoDisposeFutureProviderRef<String>;
+typedef SplashTargetRef = AutoDisposeFutureProviderRef<PageRouteInfo<dynamic>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
